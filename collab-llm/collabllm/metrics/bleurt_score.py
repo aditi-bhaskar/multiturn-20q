@@ -1,7 +1,7 @@
 import os
 import zipfile
 import urllib.request
-from bleurt import score
+# from bleurt import score  # COMMENTED OUT BY ADITI bc of import issues
 from collabllm.metrics.multiturn_metric import MultiturnMetric
 
 
@@ -27,7 +27,8 @@ class BLEURTScore(MultiturnMetric):
         
         if self.scorer is None:
             checkpoint = os.path.join(self.data_dir, "BLEURT-20")
-            self.scorer = score.BleurtScorer(checkpoint)
+            self.scorer = 0 # score.BleurtScorer(checkpoint)   # COMMENTED OUT BY ADITI
+
 
     def __call__(self, single_turn_data, chat_eval, final_answer=None, **kwargs):
         '''
