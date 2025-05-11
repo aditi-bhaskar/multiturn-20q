@@ -26,7 +26,7 @@ with open(osp.join(current_dir, 'llm_assistant', 'proact_with_gt_cot.txt'), 'r')
 
 # for 20q
 with open(osp.join(current_dir, 'llm_assistant', 'proact_cot_20q.txt'), 'r') as f:
-    LLM_ASSISTANT_PROMPT_PROACT_COT_20Q = PromptHandler(f.read(), input_keys=['chat_history', 'question', 'answer', 'max_new_tokens'], output_format=str)
+    LLM_ASSISTANT_PROMPT_PROACT_COT_20Q = PromptHandler(f.read(), input_keys=['chat_history', 'max_new_tokens'], output_format=str)
 
 with open(osp.join(current_dir, 'llm_assistant', 'proact_cot.txt'), 'r') as f:
     LLM_ASSISTANT_PROMPT_PROACT_COT = PromptHandler(f.read(), input_keys=['chat_history', 'max_new_tokens'], output_format=str)
