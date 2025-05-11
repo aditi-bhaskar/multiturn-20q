@@ -24,11 +24,16 @@ with open(osp.join(current_dir, 'llm_assistant', 'zero_shot.txt'), 'r') as f:
 with open(osp.join(current_dir, 'llm_assistant', 'proact_with_gt_cot.txt'), 'r') as f:
     LLM_ASSISTANT_PROMPT_PROACT_COT_GT = PromptHandler(f.read(), input_keys=['chat_history', 'question', 'answer', 'max_new_tokens'], output_format=str)
 
+# for 20q
+with open(osp.join(current_dir, 'llm_assistant', 'proact_cot_20q.txt'), 'r') as f:
+    LLM_ASSISTANT_PROMPT_PROACT_COT_20Q = PromptHandler(f.read(), input_keys=['chat_history', 'question', 'answer', 'max_new_tokens'], output_format=str)
+
 with open(osp.join(current_dir, 'llm_assistant', 'proact_cot.txt'), 'r') as f:
     LLM_ASSISTANT_PROMPT_PROACT_COT = PromptHandler(f.read(), input_keys=['chat_history', 'max_new_tokens'], output_format=str)
 
 with open(osp.join(current_dir, 'llm_assistant', 'proact.txt'), 'r') as f:
     LLM_ASSISTANT_PROMPT_PROACT = PromptHandler(f.read(), input_keys=['chat_history', 'max_new_tokens'], output_format=str)
+
 ###############################################################################
 ##        Load System Prompt & Assistant Prompt (for prompting methods)      ##
 ###############################################################################
@@ -36,7 +41,7 @@ USER_SIMULATOR_PRONPTS = {}
 LLM_REWARD_PROMPTS = {}
 LLM_JUDGE_PROMPTS = {}
 
-for task in ['question-answering', 'document-editing', 'code-generation']:
+for task in ['question-answering', 'document-editing', 'code-generation', '20q']:
     with open(osp.join(current_dir, 'user_simulator_cot', f'{task}.txt'), 'r') as f:
         if task == 'question-answering':
             USER_SIMULATOR_PRONPTS[task] = PromptHandler(f.read(), input_keys=['chat_history', 'question'], output_format=str)
@@ -44,6 +49,9 @@ for task in ['question-answering', 'document-editing', 'code-generation']:
             USER_SIMULATOR_PRONPTS[task] = PromptHandler(f.read(), input_keys=['chat_history', 'question', 'answer'], output_format=str)
         elif task == 'code-generation':
             USER_SIMULATOR_PRONPTS[task] = PromptHandler(f.read(), input_keys=['chat_history', 'question'], output_format=str)
+        elif task == '20q':
+            USER_SIMULATOR_PRONPTS[task] = PromptHandler(f.read(), input_keys=['chat_history', 'question'], output_format=str)
+        # TODO ADITI -- add something about 20q here??   
         else:
             raise NotImplementedError(f"Please declare the prompt for the task: {task}")
 
@@ -68,6 +76,15 @@ for task in ['question-answering', 'document-editing', 'code-generation']:
                                                     output_format={
                                                         'interactivity': {'thought': str, 'score': Union[float, int]}
                                                     })
+        #  TODO update the judge as I go, for 20q
+        elif task == '20q':
+            LLM_JUDGE_PROMPTS[task] = PromptHandler(f.read(), 
+                                                    input_keys=['chat_history', 'chat', 'question', 'answer'], 
+                                                    output_format={
+                                                            'interactivity': {'thought': str, 'score': Union[float, int]},
+                                                            'accuracy': {'thought': str, 'score': Union[float, int]}
+                                                    })          
+        # ADITI -- TODO ADD SOMETHING HERE FOR 20q!! ?
         else:
             raise NotImplementedError(f"Please declare the prompt for the task: {task}")
 

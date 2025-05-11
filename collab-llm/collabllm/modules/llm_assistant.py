@@ -2,7 +2,7 @@ from typing import List
 from collabllm.utils.api import get_llm_output
 from collabllm.utils.template import chat_template
 from collabllm.prompts import LLM_ASSISTANT_PROMPT_COT, LLM_ASSISTANT_PROMPT_ZS, \
-    LLM_ASSISTANT_PROMPT_PROACT, LLM_ASSISTANT_PROMPT_PROACT_COT, LLM_ASSISTANT_PROMPT_PROACT_COT_GT
+    LLM_ASSISTANT_PROMPT_PROACT, LLM_ASSISTANT_PROMPT_PROACT_COT, LLM_ASSISTANT_PROMPT_PROACT_COT_GT, LLM_ASSISTANT_PROMPT_PROACT_COT_20Q
 
 
 class LLMAssistant(object):
@@ -12,7 +12,8 @@ class LLMAssistant(object):
         'cot': LLM_ASSISTANT_PROMPT_COT,
         'proact': LLM_ASSISTANT_PROMPT_PROACT,
         'proact_cot': LLM_ASSISTANT_PROMPT_PROACT_COT,
-        'proact_gt_cot': LLM_ASSISTANT_PROMPT_PROACT_COT_GT
+        'proact_gt_cot': LLM_ASSISTANT_PROMPT_PROACT_COT_GT,
+        'proact_cot_20q': LLM_ASSISTANT_PROMPT_PROACT_COT_20Q
     }
     def __init__(self, method='zero-shot', **llm_kwargs):
         """
