@@ -8,12 +8,12 @@ from datasets import load_dataset, Dataset, DatasetDict, interleave_datasets
 from collabllm.prompts import SYSTEM_PROMPT
 
 from .abg_coqa import AbgCoQA
-from .asqa import ASQA
-from .paqa import PAQA
-from .ppc import PPC
+# from .asqa import ASQA
+# from .paqa import PAQA
+# from .ppc import PPC
 from .math_hard import MATH
 from .medium import Medium
-from .mtbp import MTBP
+# from .mtbp import MTBP
 from .humaneval import HumanEval
 from .bigcodebench import BigCodeBench
 from .twentyq import TwentyQ
@@ -42,11 +42,11 @@ datasets_info = {
         'class': Medium,
         'kwargs': {},
     },
-    'mtbp': {
-        'task': 'code-generation',
-        'class': MTBP,
-        'kwargs': {}
-        },
+    # 'mtbp': {
+    #     'task': 'code-generation',
+    #     'class': MTBP,
+    #     'kwargs': {}
+    #     },
     'humaneval': {
         'task': 'code-generation',
         'class': HumanEval,
@@ -57,8 +57,8 @@ datasets_info = {
         'class': BigCodeBench,
         'kwargs': {}
     },
-    'twentyq': {
-        'task': 'question-answering',
+    'twentyq': { # ADITI EDIT
+        'task': 'twentyq',
         'class': TwentyQ,
         'kwargs': {'repo_id': 'lighteval/TwentyQ'}
     },

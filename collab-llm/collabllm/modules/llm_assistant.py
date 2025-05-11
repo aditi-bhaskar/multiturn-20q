@@ -47,10 +47,12 @@ class LLMAssistant(object):
             prompt = self.prompt_handler(chat_history=chat_template(messages),
                                          max_new_tokens=self.max_new_tokens,
                                          **kwargs)
+            
         cnt = 0
         while True:
             cnt += 1
             response = get_llm_output(prompt, **self.llm_kwargs)
+            #  TODO check response
             if isinstance(response, dict):
                 try:
                     keys = response.keys()

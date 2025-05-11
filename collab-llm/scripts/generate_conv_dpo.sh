@@ -20,6 +20,9 @@ export USE_GCR=false
 # USER_MODEL=gpt-4o
 # N_EVAL=100
 
+# TODO switch to dataset configuration
+# TODO use the correct aws api : below
+
 DATASET=bigcodebench
 TEMP=0.5
 MAX_NEW_TURNS=8

@@ -1,3 +1,27 @@
+# # wouldn't install ??
+# bitsandbytes
+# cellxgene-census
+# nvidia-cublas-cu12
+# nvidia-cuda-cupti-cu12
+# nvidia-cuda-nvrtc-cu12
+# nvidia-cuda-runtime-cu12
+
+# nvidia-cudnn-cu12==9.1.0.70
+# nvidia-cufft-cu12==11.2.1.3
+# nvidia-curand-cu12==10.3.5.147
+# nvidia-cusolver-cu12==11.6.1.9
+# nvidia-cusparse-cu12==12.3.1.170
+
+# nvidia-nccl-cu12==2.21.5
+# nvidia-nvjitlink-cu12==12.4.127
+# nvidia-nvtx-cu12==12.4.127
+
+# stark_qa
+# triton
+# xformers
+
+
+# installed safely
 absl-py==2.1.0
 accelerate==0.34.0
 aiobotocore==2.13.1
@@ -45,7 +69,7 @@ bert-score==0.3.13
 bigcodebench==0.2.1.post2
 biopython==1.83
 biothings-client==0.3.1
-bitsandbytes==0.43.3
+
 BLEURT @ git+https://github.com/google-research/bleurt@cebe7e6
 blinker==1.9.0
 boto3==1.35.86
@@ -53,7 +77,7 @@ botocore==1.35.86
 bounded-pool-executor==0.0.3
 bs4==0.0.2
 cachetools==5.5.0
-cellxgene-census==1.14.1
+
 certifi==2024.8.30
 cffi==1.17.0
 charset-normalizer==3.3.2
@@ -209,19 +233,8 @@ ninja==1.11.1.1
 nltk==3.8.1
 numba==0.60.0
 numpy==1.26.4
-nvidia-cublas-cu12==12.4.5.8
-nvidia-cuda-cupti-cu12==12.4.127
-nvidia-cuda-nvrtc-cu12==12.4.127
-nvidia-cuda-runtime-cu12==12.4.127
-nvidia-cudnn-cu12==9.1.0.70
-nvidia-cufft-cu12==11.2.1.3
-nvidia-curand-cu12==10.3.5.147
-nvidia-cusolver-cu12==11.6.1.9
-nvidia-cusparse-cu12==12.3.1.170
 nvidia-ml-py==12.560.30
-nvidia-nccl-cu12==2.21.5
-nvidia-nvjitlink-cu12==12.4.127
-nvidia-nvtx-cu12==12.4.127
+
 oauthlib==3.2.2
 ogb==1.3.6
 openai==1.59.3
@@ -335,7 +348,6 @@ somacore==1.0.11
 soupsieve==2.5
 SQLAlchemy==2.0.31
 stack-data==0.6.2
-stark_qa==0.1.2
 starlette==0.37.2
 statsmodels==0.14.2
 stdlib-list==0.10.0
@@ -368,7 +380,6 @@ tqdm==4.66.5
 transformers==4.46.1
 tree-sitter==0.21.3
 tree-sitter-languages==1.10.2
-triton==3.1.0
 trl==0.10.1
 typer==0.14.0
 typing_extensions==4.12.2
@@ -394,7 +405,6 @@ wheel==0.43.0
 widgetsnbextension==4.0.11
 wikipedia==1.4.0
 wrapt==1.16.0
-xformers==0.0.28.post3
 xxhash==3.5.0
 yapf==0.40.2
 yarl==1.9.7

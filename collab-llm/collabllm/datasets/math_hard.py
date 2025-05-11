@@ -13,7 +13,7 @@ class MATH(ChatDataset):
         Parameters:
         raw_data (dict): The raw MATH data to be processed.
         """
-        raw_data = load_dataset(repo_id, trust_remote_code=True)
+        raw_data = load_dataset(repo_id, trust_remote_code=True)  # ADITI NOTE: uses hugging face dataset
         processed_data = self.preprocess(raw_data)
         super().__init__(processed_data)
 
@@ -41,4 +41,5 @@ class MATH(ChatDataset):
                 ]
                 processed_data.append({"metadata": metadata, "chat": turns})
 
+        print(processed_data)
         return processed_data

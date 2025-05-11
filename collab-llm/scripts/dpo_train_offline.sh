@@ -22,7 +22,7 @@ CUDA_VISIBLE_DEVICES=0,1,2,3,5,6,7 WANDB__SERVICE_WAIT=300 torchrun --master_por
     --assistant_model_name $ASSISTANT_MODEL_NAME \
     --gradient_accumulation_steps 8 \
     --per_device_train_batch_size 2 \
-    --num_train_epochs 8 \
+    --num_train_epochs 8 \wr
     --save_total_limit 10 \
     --eval_steps 1 \
     --learning_rate 5e-6 \

@@ -6,6 +6,7 @@ from collabllm.models import get_meta_info_from_model_name, is_api_model_auto
 from transformers import AutoTokenizer
 from rich import print
 
+# note
 
 class UserSimulator(object):
     def __init__(self, task_name, single_turn_data, **llm_kwargs):
@@ -37,10 +38,14 @@ class UserSimulator(object):
             prompt = self.tokenizer.apply_chat_template(chat, add_generation_prompt=False, tokenize=False)
             prompt = prompt + meta_info['response_template'] + "\n\n**user**: "
         
+        # TODO double check that prompt makes sense
+
         cnt = 0
         while True:
             cnt += 1
             response = get_llm_output(prompt, **self.llm_kwargs)
+            # TODO see if response ^ seems ok from the user simulator
+
             if isinstance(response, dict):
                 try:
                     keys = response.keys()
