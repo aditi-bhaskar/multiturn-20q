@@ -54,7 +54,8 @@ def parse_args():
     parser.add_argument('--resume', action='store_true', default=False)
     parser.add_argument('--seed', type=int, default=42)
     
-    parser.add_argument('--max_workers', type=int, default=30)
+    # parser.add_argument('--max_workers', type=int, default=30)
+    parser.add_argument('--max_workers', type=int, default=1)
 
     # aditi's additions
     parser.add_argument('--target_object', type=str, help="Target object for the 20q task")

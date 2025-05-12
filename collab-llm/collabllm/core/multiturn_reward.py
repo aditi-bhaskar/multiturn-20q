@@ -96,3 +96,4 @@ def get_one_multiturn_reward(
     total_length = num_tokens_from_string('\n'.join([t['content'] for t in forward_turns]))
 
     return llm_reward['average_score'], task_metric, total_length, llm_reward
+    # see this to understand the reward function

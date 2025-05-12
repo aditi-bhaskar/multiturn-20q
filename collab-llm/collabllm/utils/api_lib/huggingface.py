@@ -26,7 +26,8 @@ def generation_pipeline_hf(message: Union[str, List[dict]],
         with torch.no_grad():
             generator = pipeline("text-generation", 
                                  model=model, tokenizer=tokenizer,
-                                 model_kwargs={"torch_dtype": "auto"},
+                                 model_kwargs={"torch_dtype": torch.float},
+                                #  model_kwargs={"torch_dtype": "auto"},
                                  device_map=device)
             terminators = [generator.tokenizer.eos_token_id]
             if len(stop_sequence) > 0:
@@ -108,16 +109,22 @@ def generate_text_hf(message: Union[str, List[dict]],
 
             #  ASK SHIRLEY!
 
-            hf_model = AutoModelForCausalLM.from_pretrained(model, device_map="auto", torch_dtype='auto')
+            # hf_model = AutoModelForCausalLM.from_pretrained(model, device_map="cpu", torch_dtype=torch.float16)
+            # .to("cuda")
+            #  maybe a torch.todevice?
+
+            hf_model = AutoModelForCausalLM.from_pretrained(model, device_map="cpu", torch_dtype='auto')
+
+            # hf_model = AutoModelForCausalLM.from_pretrained(model, device_map="auto", torch_dtype='auto')
             tokenizer = AutoTokenizer.from_pretrained(model)
 
     if cached_model:
         loaded_hf_models[model_name] = (hf_model, tokenizer)
-    stop_sequence = get_meta_info_from_model_name(model_name)['stop_sequence']
+    # stop_sequence = get_meta_info_from_model_name(model_name)['stop_sequence']  # commented aditi
 
     text = generation_pipeline_hf(message, 
                                   hf_model, tokenizer, 
-                                  stop_sequence=stop_sequence, 
+                                #   stop_sequence=stop_sequence,  # commented aditi
                                   temperature=temperature, 
                                   max_new_tokens=max_new_tokens, 
                                   **kwargs)

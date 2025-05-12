@@ -30,7 +30,7 @@ export TARGET_OBJECT=${TARGET_OBJECTS[$RANDOM % ${#TARGET_OBJECTS[@]}]}
 
 CUDA_VISIBLE_DEVICES=0 python scripts/generate_conv_dpo_20q.py \
     --dataset $DATASET \
-    --max_workers 10 \
+    --max_workers 1 \
     --num_samples 3 \
     --user_model_name $USER_MODEL \
     --assistant_model_name $ASSISTANT_MODEL \
@@ -45,10 +45,11 @@ CUDA_VISIBLE_DEVICES=0 python scripts/generate_conv_dpo_20q.py \
     --cost_weight $COST_WEIGHT \
     --n_eval_per_dataset $N_EVAL \
     --max_num_conv 5 \
-    --task_name 20q\
+    --task_name 20q \
     --target_object "apple" \
     --resume
 
     # --target_object "$TARGET_OBJECT"  # Pass the selected target object
     # --max_num_conv 500 \
+    # --max_workers 10 \
 

@@ -96,10 +96,11 @@ def get_llm_output(message,
         kwargs.update({'max_retry': MAX_CLAUDE_RETRY, 'sleep_time': CLAUDE_SLEEP_TIME})
         return complete_text_claude(**kwargs, **generation_kwargs)
     else:
-        try:
-            return generate_text_hf(**kwargs, **generation_kwargs)
-        except Exception as e:
-            raise ValueError(f"Model {model} failed: {e}")
+        return generate_text_hf(**kwargs, **generation_kwargs)
+    #     try:
+    #         return generate_text_hf(**kwargs, **generation_kwargs)
+    #     except Exception as e:
+    #         raise ValueError(f"Model {model} failed: {e}")
 
 # Parallel functions for text completion
 complete_texts_claude = parallel_func(complete_text_claude)

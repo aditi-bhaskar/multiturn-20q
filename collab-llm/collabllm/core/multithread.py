@@ -116,6 +116,7 @@ def get_multiturn_rewards(
         reward_std = np.std(rewards).item()
         reward_avg = torch.Tensor([np.mean(rewards)])
 
+# for reward function
         length_avg = np.mean(total_lengths)
         reward_logs.append({
             'reward': reward_avg.item(),
