@@ -52,6 +52,7 @@ class LLMAssistant(object):
         cnt = 0
         while True:
             cnt += 1
+            #  ASK SHIRLEY!
             self.llm_kwargs['model'] = "TinyLlama/TinyLlama-1.1B-Chat-v1.0" # aditi addition
             # self.llm_kwargs['model'] = "tiiuae/falcon-7b-instruct" # aditi addition
             response = get_llm_output(prompt, **self.llm_kwargs)

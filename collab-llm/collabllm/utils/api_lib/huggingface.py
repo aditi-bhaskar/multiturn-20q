@@ -100,13 +100,15 @@ def generate_text_hf(message: Union[str, List[dict]],
             )
             FastLanguageModel.for_inference(hf_model) 
         else:
-            hf_model = AutoModelForCausalLM.from_pretrained(   # aditi edit
-                model,
-                device_map="auto",
-                torch_dtype=torch.float16,  # or "auto"
-                low_cpu_mem_usage=True
-            )
-            # hf_model = AutoModelForCausalLM.from_pretrained(model, device_map="auto", torch_dtype='auto')
+            # hf_model = AutoModelForCausalLM.from_pretrained(
+            #     model,
+            #     torch_dtype=torch.float16,
+            #     low_cpu_mem_usage=True
+            # ).to("cuda" if torch.cuda.is_available() else "cpu")
+
+            #  ASK SHIRLEY!
+
+            hf_model = AutoModelForCausalLM.from_pretrained(model, device_map="auto", torch_dtype='auto')
             tokenizer = AutoTokenizer.from_pretrained(model)
 
     if cached_model:
