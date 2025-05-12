@@ -13,7 +13,7 @@ class LLMAssistant(object):
         'proact': LLM_ASSISTANT_PROMPT_PROACT,
         'proact_cot': LLM_ASSISTANT_PROMPT_PROACT_COT,
         'proact_gt_cot': LLM_ASSISTANT_PROMPT_PROACT_COT_GT,
-        'proact_cot_20q': LLM_ASSISTANT_PROMPT_PROACT_COT_20Q
+        'proact_cot_20q': LLM_ASSISTANT_PROMPT_PROACT_COT_20Q # added by aditi
     }
     def __init__(self, method='zero-shot', **llm_kwargs):
         """
@@ -52,6 +52,8 @@ class LLMAssistant(object):
         cnt = 0
         while True:
             cnt += 1
+            self.llm_kwargs['model'] = "TinyLlama/TinyLlama-1.1B-Chat-v1.0" # aditi addition
+            # self.llm_kwargs['model'] = "tiiuae/falcon-7b-instruct" # aditi addition
             response = get_llm_output(prompt, **self.llm_kwargs)
             #  TODO check response
             if isinstance(response, dict):

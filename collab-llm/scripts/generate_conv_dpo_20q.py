@@ -55,6 +55,11 @@ def parse_args():
     parser.add_argument('--seed', type=int, default=42)
     
     parser.add_argument('--max_workers', type=int, default=30)
+
+    # aditi's additions
+    parser.add_argument('--target_object', type=str, help="Target object for the 20q task")
+    parser.add_argument("--task_name", type=str, default="20q", help="Specify the task (default: 20q)")
+
     return parser.parse_args()
 
 
@@ -84,6 +89,7 @@ user_generation_kwargs = {
     "json_object": True
 }
 
+
 def process_conversation(i, dataset, args, assistant_collabllm, assistant_vanilla):
     qa = dataset['chat'][i]
     question, answer = qa[-2]['content'], qa[-1]['content']
@@ -95,13 +101,24 @@ def process_conversation(i, dataset, args, assistant_collabllm, assistant_vanill
     conv = []
     exit_flag = False
 
-    user = UserSimulator(task_name=datasets_info[args.dataset]['task'],
-                         single_turn_data=qa, 
-                         **user_generation_kwargs)
-    user_response = user(conv)
+    # ADDED CODE HERE
+    task = args.task_name  # aditi modif
+    user_kwargs = user_generation_kwargs.copy()
 
-    # aditi notes:
-    
+    if task == '20q':
+        user_kwargs['target_object'] = answer
+        user_kwargs.pop('single_turn_data', None)  # Ensure it's not accidentally passed
+    else:
+        user_kwargs['single_turn_data'] = qa
+
+    user = UserSimulator(
+        is_20q=True,  # added by aditi for 20q task
+        task_name=task,
+        **user_kwargs
+    )
+
+    # Initialize user_response to prevent UnboundLocalError
+    user_response = ""
 
     # Lists to store the results for each turn
     convs = []
@@ -109,7 +126,8 @@ def process_conversation(i, dataset, args, assistant_collabllm, assistant_vanill
     chosen_evals, rejected_evals = [], []
 
     for _ in tqdm(range(args.max_new_turns), desc=f"Processing conversation {i}"):
-        
+
+        # Now, the variable 'user_response' is initialized.
         if '[[TERMINATE CHAT]]' in user_response: 
             exit_flag = True 
             user_response = user_response.replace('[[TERMINATE CHAT]]', '')
@@ -117,13 +135,13 @@ def process_conversation(i, dataset, args, assistant_collabllm, assistant_vanill
         print(f"[Turn {len(conv)}] **User**: {user_response}")
         if exit_flag:
             break
-                
+
         with concurrent.futures.ThreadPoolExecutor() as executor:
             future_collabllm = executor.submit(assistant_collabllm, conv, question=question, answer=answer)
             future_vanilla = executor.submit(assistant_vanilla, conv)
             
             responses = [future_collabllm.result(), future_vanilla.result()]
-            
+        
         rewards, reward_logs = get_multiturn_rewards(
             task_name=datasets_info[args.dataset]['task'],
             single_turn_ds=[qa for _ in range(len(responses))],
@@ -189,12 +207,15 @@ def process_conversation(i, dataset, args, assistant_collabllm, assistant_vanill
     return i, convs, pos_responses, neg_responses, chosen_evals, rejected_evals
 
 
+
 ######################## LOAD DATASETS ########################
 def main():
     args = parse_args()
     dataset = load_single_turn_dataset(args.dataset, add_system_prompt=False)
-    if args.resume:
-        ds = load_dataset(f'{args.hf_org}/collabllm-{args.dataset}', trust_remote_code=True)
+
+    # removed by aditi to get it to run!!
+    # if args.resume:
+    #     ds = load_dataset(f'{args.hf_org}/collabllm-{args.dataset}', trust_remote_code=True)
 
     dataset_dict = {}
     for split in ['train']:
@@ -203,14 +224,14 @@ def main():
         chosen_eval_list, rejected_eval_list = [], []
         idx_list, prompt_list, metadata_list = [], [], []
 
-        if args.resume:
-            try:
-                idx_list, prompt_list, metadata_list = ds[split]['idx'], ds[split]['prompt'], ds[split]['metadata']
-                chosen_list, rejected_list = ds[split]['chosen'], ds[split]['rejected']
-                chosen_eval_list, rejected_eval_list = ds[split]['chosen_eval'], ds[split]['rejected_eval']
-                unique_idx = set(idx_list)
-            except KeyError:
-                pass
+        # if args.resume:
+        #     try:
+        #         idx_list, prompt_list, metadata_list = ds[split]['idx'], ds[split]['prompt'], ds[split]['metadata']
+        #         chosen_list, rejected_list = ds[split]['chosen'], ds[split]['rejected']
+        #         chosen_eval_list, rejected_eval_list = ds[split]['chosen_eval'], ds[split]['rejected_eval']
+        #         unique_idx = set(idx_list)
+        #     except KeyError:
+        #         pass
         
         random.seed(0)
         idx_all = [i for i in range(len(dataset[split]['chat']))]
@@ -219,6 +240,8 @@ def main():
         idx_todo = [idx for idx in idx_all if idx not in unique_idx]
 
         method = 'collabllm_gt_cot' if datasets_info[args.dataset]['task'] == 'question-answering' else 'collabllm_cot'
+        # added by aditi; changed the default bc  collabllm_cot doesnt exist
+        method = 'proact_cot_20q' if datasets_info[args.dataset]['task'] == '20q' else 'proact_cot' 
         assistant_collabllm = LLMAssistant(method=method, **assistant_generation_kwargs)
         vanilla_generation_kwargs = copy.copy(assistant_generation_kwargs)
         vanilla_generation_kwargs['json_object'] = False
