@@ -1,0 +1,8 @@
+
+
+[LLMAssistant] `current_problem`=I am trying to guess the hidden word based on the user's responses. | `thought`=I have already asked a few questions to narrow down the search space. I should focus on asking questions that will help me distinguish between similar words or categories. My next question should aim to eliminate a broad category or focus on a specific characteristic of the word.
+
+
+
+[LLMAssistant] `current_problem`=The hidden word is related to animals. | `thought`=Since the hidden word is related to animals, I can further narrow down the search space by asking about specific characteristics of the animal. I should aim to guess the specific animal the user is thinking of.
+

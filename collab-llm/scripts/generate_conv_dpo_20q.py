@@ -104,13 +104,21 @@ user_generation_kwargs = {
 
 def process_conversation(i, dataset, args, assistant_collabllm, assistant_vanilla):
 
-    qa = dataset['chat'][i]
-    question, answer = qa[-2]['content'], qa[-1]['content']
+    qa = dataset['chat'][i]  
+    question, answer = qa[-2]['content'], qa[-1]['content'] # this is where our previous answer/question was coming from
+
+    # aditi edit/hack to use a different object
+    # all_objects = [ds[-1]['content'] for ds in dataset['chat']]
+    # answer = random.choice(all_objects)
+    # question = "I would like to play a game of 20 questions where I think of an object and you try to guess it using y/n questions."
+ 
 
     if answer.strip().startswith('{'):
         answer = extract_json(answer)['answer']
     print('*************** answer ****************\n', answer)
-    
+    print('*************** question ****************\n', question)  # is technically never used anywhere.
+
+
     conv = []
     exit_flag = False
 
@@ -119,7 +127,9 @@ def process_conversation(i, dataset, args, assistant_collabllm, assistant_vanill
     user_kwargs = user_generation_kwargs.copy()
 
     if task == '20q':
+        #  aditi edit to choose a random object
         user_kwargs['target_object'] = answer
+        # user_kwargs['target_object'] = answer
         user_kwargs.pop('single_turn_data', None)  # Ensure it's not accidentally passed
     else:
         print("IS NOT IN TASK 20q. EXITING")
@@ -223,7 +233,7 @@ def process_conversation(i, dataset, args, assistant_collabllm, assistant_vanill
 
 
 
-# to print all info to my file
+# to print all info to my output file
 import sys
 
 import re
@@ -266,7 +276,7 @@ def main():
     # aditi edit to use the local dataset
     args.dataset = load_dataset("json", data_files={
         # OBSOLETE: note that i lost the train file with git conflicts, so i am using the eval file here (much smaller)
-        # "train": "/Users/aditi/Documents/multiturn-20q/collab-llm/lmrl_gym_20q_data/eval_processed.json"
+        # OBSOLETE: "train": "/Users/aditi/Documents/multiturn-20q/collab-llm/lmrl_gym_20q_data/eval_processed.json"
         "train": "/Users/aditi/Documents/multiturn-20q/collab-llm/lmrl_gym_20q_data/train_processed.json"
     })
 
@@ -292,7 +302,8 @@ def main():
         #         pass
         
         random.seed(0)
-        idx_all = [i for i in range(len(dataset[split]['chat']))]
+        idx_all = [i for i in range(min(args.n_eval_per_dataset, len(dataset[split]['chat'])))]  # aditi edit to use n_eval_per_dataset
+        # idx_all = [i for i in range(len(dataset[split]['chat']))]
         random.shuffle(idx_all)
         idx_all = idx_all[:args.max_num_conv]
         idx_todo = [idx for idx in idx_all if idx not in unique_idx]
@@ -301,7 +312,11 @@ def main():
         # added by aditi; changed the default bc  collabllm_cot doesnt exist
         # method = 'proact_cot_20q' if datasets_info[args.dataset]['task'] == '20q' else 'proact_cot' 
 
-        method = 'proact_cot_20q' if args.task_name == '20q' else 'proact_cot'
+        if args.task_name == '20q':
+            method = 'proact_cot_20q' 
+        else:
+            print("NOT RUNNING 20Q TASK; exiting\n\n")
+            return -1
 
         print(f"\n\n\n[INFO] Task name set to: {args.task_name}\n\n\n")
 
@@ -340,6 +355,7 @@ def main():
                         'rejected_eval': rejected_eval_list,
                         'metadata': metadata_list
                     })
+                    print(f"Dataset Dict Split={split}: {dataset_dict[split]}\n")
                     # aditi: removed bc we dont have hf
                     # DatasetDict(dataset_dict).push_to_hub(repo_id=f'{args.hf_org}/collabllm-{args.dataset}', private=True)
 
@@ -352,6 +368,8 @@ def main():
             'rejected_eval': rejected_eval_list,
             'metadata': metadata_list
         })
+        print(f"Dataset Dict Split={split}: {dataset_dict[split]}\n")
+
         # aditi: removed bc we dont have hf
         # DatasetDict(dataset_dict).push_to_hub(repo_id=f'{args.hf_org}/collabllm-{args.dataset}', private=True)
 

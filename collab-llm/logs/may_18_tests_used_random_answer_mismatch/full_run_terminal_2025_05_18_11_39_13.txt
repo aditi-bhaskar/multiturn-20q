@@ -1,0 +1,1310 @@
+
+
+
+[INFO] Task name set to: 20q
+
+
+
+  0%|          | 0/1 [00:00<?, ?it/s]*************** answer ****************
+ The answer is: Belt.
+*************** question ****************
+ I would like to play a game of 20 questions where I think of an object and you try to guess it using y/n questions.
+
+Processing conversation 23:   0%|          | 0/2 [00:00<?, ?it/s][Turn 1] **User**: 
+/Users/aditi/Documents/multiturn-20q/collab-llm/collabllm/utils/api.py:82: UserWarning: Model gpt-3.5-turbo is not registered. You may still be able to use it.
+  warnings.warn(f"Model {model} is not registered. You may still be able to use it.")
+/Users/aditi/Documents/multiturn-20q/collab-llm/collabllm/utils/api.py:82: UserWarning: Model gpt-3.5-turbo is not registered. You may still be able to use it.
+  warnings.warn(f"Model {model} is not registered. You may still be able to use it.")
+
+
+
+DEBUG response type: <class 'dict'>
+
+
+
+DEBUG response content:
+{
+    'current_answer': '',
+    'thought': "The assistant is asking if the hidden word is related to a specific category or theme. Since the target object is 'apple,' which 
+falls under the category of fruits, I should respond accordingly.",
+    'response': 'Yes, it is related to a specific category or theme.'
+}
+
+
+
+DEBUG response type: <class 'dict'>
+
+
+
+DEBUG response content:
+{
+    'current_answer': '',
+    'thought': "The assistant has guessed 'animals' but my object is not related to animals. I should respond with 'No' and guide the assistant 
+towards the correct category.",
+    'response': 'No'
+}
+You are a helpful and meticulous conversation evaluator. Your task is to evaluate the quality of the responses provided by an AI assistant to user questions within a specific part of a conversation. You should provide evaluations on two dimensions separately. You will be provided with the historical conversation for context, the follow-up conversation that needs to be evaluated, the target question, and the ground truth answer to the target question, as displayed below.
+
+Provided Information:
+
+<|The Start of The Historical Conversation|>  
+**user**: 
+  
+<|The End of The Historical Conversation|>
+
+<|The Start of The Follow-up Conversation to be Evaluated|>  
+**assistant**: Is the hidden word related to a specific category or theme? This question will help us focus on narrowing down the search space. Please answer with yes or no. Thank you!
+
+**user**: Yes, it is related to a specific category or theme.
+
+**assistant**: Is the hidden word related to animals?
+
+**user**: No
+
+**assistant**: Is the hidden word related to food or drink?
+  
+<|The End of The Follow-up Conversation to be Evaluated|>
+
+<|The Start of Target Question and Ground Truth Answer|>  
+Target Question: No.  
+Ground Truth Answer: The answer is: Bear.  
+<|The End of Target Question and Ground Truth Answer|>
+
+
+You should evaluate the follow-up conversation based on the following two dimensions:
+
+1. **Interactivity**: Assess the assistant’s engagement, clarity, and ability to understand the user’s needs in the follow-up conversation, with specific reference to the 20Q task.
+Notes:
+- The assistant’s ability to ask relevant and effective yes/no questions is crucial for narrowing down the search space in a 20 Questions game. A highly interactive assistant asks clear, thoughtful questions that guide the conversation effectively toward the solution. The assistant should adjust its strategy based on the user’s answers and continue to narrow down possibilities, ensuring the conversation progresses smoothly. 
+- Questions like 'Is it alive?' are particularly effective early in the game as they divide the search space into broad categories: living vs. non-living. This question immediately helps the assistant focus on either living creatures (animals, plants) or non-living objects, making it a key question for narrowing down the possibilities right away.
+- If the answer is 'yes,' the assistant can further narrow the space to living things like animals or plants. If the answer is 'no,' it helps eliminate living things and leads the assistant towards non-living objects. This question is especially helpful in the early stages of the game, unlike more general or vague questions like 'Is it something?' because it drives the conversation in a more meaningful direction.
+
+   3 = Highly interactive: The assistant effectively narrows down the search space through engaging, clear, and thoughtful yes/no questions. It asks relevant follow-up questions, ensuring a good balance between eliminating impossible possibilities and moving towards the solution. The assistant seems to be aware of the need to adjust its strategy as the conversation progresses.
+   Example: "Is it alive?" This question significantly narrows the search space by eliminating all non-alive objects OR all alive objects guiding the assistant closer to a specific group of objects.
+
+   2 = Moderately interactive: The assistant asks some relevant questions but may not effectively guide the user towards the right search space. There may be noticeable gaps in narrowing down the search space, or the questions could be more specific.
+   Example: "Can it fly?" While it may exclude many inanimate objects, it is less specific than a question about movement or properties.
+
+   1 = Low interactivity: The assistant's questions are vague or ineffective in narrowing the search space. It might not ask follow-up questions or make the necessary adjustments to guide the user towards the solution. The assistant might be stuck asking questions that are too broad or irrelevant.
+   Example: "Is it something?" or "I like apples." A vague question or non-question statement does little to narrow the search space and makes the conversation feel aimless.
+
+
+2. **Accuracy**: Evaluate the factual correctness of the assistant's responses and how well they align with the intended progression of the 20Q game.
+
+   1 = Correct: The assistant provides an accurate and useful answer to the target question, and its follow-up questions contribute effectively to narrowing the search space. The assistant is on track for making a good guess or advancing the game towards identifying the object.
+   Example: If the assistant determines the object is a "bird," and the target question was about whether it can fly, then asking, “Does it fly?” makes the game progress accurately.
+
+   0 = Incorrect: The assistant provides an inaccurate or irrelevant answer to the target question, which may confuse the game’s progression. The assistant might also make an incorrect guess too soon, or its follow-up questions don’t make sense given the information already gathered in the game.
+   Example: If the assistant asked about a flying object but then mistakenly assumed the object was a "fish," it would derail the game.
+
+
+Output format:
+You should output a JSON in the following format:
+{
+  "interactivity": {"thought": "<How interactive is the assistant in the conversation?>", "score": <score>},
+  "accuracy": {"thought": "<What is the answer of the model to the target question? Whether it is consistent with the ground truth answer?>", "score": <score>}
+}
+
+
+Important Notes:
+- The "Historical Conversation" is provided only for reference to help you understand the context of the follow-up conversation. You should focus your evaluation solely on the "Follow-up Conversation" provided above.
+- The "Historical Conversation" is optional and could be empty, which would indicate that the conversation starts from the beginning.
+- These dimensions should be considered independently. Each dimension should be assessed based on its own criteria and context within the follow-up conversation. For example, avoid letting correctness interfere with the evaluation of interactivity.
+- To compute accuracy, you should first extract the potential answer (if any) given in the follow-up conversation. Then, recall the ground truth answer provided above. Finally, give your evaluation from comparing these two answers.
+- Inside of the content of "thought", replace all double quotes (") with single quotes (') to prevent JSON formatting issues. For example, you can output "thought": "'Hello' is a common phrase." 
+
+Your evaluation:
+
+
+
+
+
+DEBUG response type: <class 'dict'>
+
+
+
+DEBUG response content:
+{
+    'current_answer': '',
+    'thought': "The assistant is asking if the hidden word is related to a specific category or theme. Since the target object is 'apple,' I should 
+answer 'Yes' to confirm that it belongs to a specific category.",
+    'response': 'Yes'
+}
+
+
+
+DEBUG response type: <class 'dict'>
+
+
+
+DEBUG response content:
+{
+    'current_answer': 'apple',
+    'thought': "The assistant has not yet guessed the object correctly. The question about the hidden word being related to animals is not relevant 
+to the target object. I need to keep guiding the assistant towards guessing 'apple' without revealing it directly.",
+    'response': 'No'
+}
+You are a helpful and meticulous conversation evaluator. Your task is to evaluate the quality of the responses provided by an AI assistant to user questions within a specific part of a conversation. You should provide evaluations on two dimensions separately. You will be provided with the historical conversation for context, the follow-up conversation that needs to be evaluated, the target question, and the ground truth answer to the target question, as displayed below.
+
+Provided Information:
+
+<|The Start of The Historical Conversation|>  
+**user**: 
+  
+<|The End of The Historical Conversation|>
+
+<|The Start of The Follow-up Conversation to be Evaluated|>  
+**assistant**: Is the hidden word related to a specific category or theme? This question will help us focus on narrowing down the search space. Please answer with yes or no. Thank you!
+
+**user**: Yes
+
+**assistant**: Is the hidden word related to animals?
+
+**user**: No
+
+**assistant**: Is the hidden word related to food or drinks?
+  
+<|The End of The Follow-up Conversation to be Evaluated|>
+
+<|The Start of Target Question and Ground Truth Answer|>  
+Target Question: No.  
+Ground Truth Answer: The answer is: Bear.  
+<|The End of Target Question and Ground Truth Answer|>
+
+
+You should evaluate the follow-up conversation based on the following two dimensions:
+
+1. **Interactivity**: Assess the assistant’s engagement, clarity, and ability to understand the user’s needs in the follow-up conversation, with specific reference to the 20Q task.
+Notes:
+- The assistant’s ability to ask relevant and effective yes/no questions is crucial for narrowing down the search space in a 20 Questions game. A highly interactive assistant asks clear, thoughtful questions that guide the conversation effectively toward the solution. The assistant should adjust its strategy based on the user’s answers and continue to narrow down possibilities, ensuring the conversation progresses smoothly. 
+- Questions like 'Is it alive?' are particularly effective early in the game as they divide the search space into broad categories: living vs. non-living. This question immediately helps the assistant focus on either living creatures (animals, plants) or non-living objects, making it a key question for narrowing down the possibilities right away.
+- If the answer is 'yes,' the assistant can further narrow the space to living things like animals or plants. If the answer is 'no,' it helps eliminate living things and leads the assistant towards non-living objects. This question is especially helpful in the early stages of the game, unlike more general or vague questions like 'Is it something?' because it drives the conversation in a more meaningful direction.
+
+   3 = Highly interactive: The assistant effectively narrows down the search space through engaging, clear, and thoughtful yes/no questions. It asks relevant follow-up questions, ensuring a good balance between eliminating impossible possibilities and moving towards the solution. The assistant seems to be aware of the need to adjust its strategy as the conversation progresses.
+   Example: "Is it alive?" This question significantly narrows the search space by eliminating all non-alive objects OR all alive objects guiding the assistant closer to a specific group of objects.
+
+   2 = Moderately interactive: The assistant asks some relevant questions but may not effectively guide the user towards the right search space. There may be noticeable gaps in narrowing down the search space, or the questions could be more specific.
+   Example: "Can it fly?" While it may exclude many inanimate objects, it is less specific than a question about movement or properties.
+
+   1 = Low interactivity: The assistant's questions are vague or ineffective in narrowing the search space. It might not ask follow-up questions or make the necessary adjustments to guide the user towards the solution. The assistant might be stuck asking questions that are too broad or irrelevant.
+   Example: "Is it something?" or "I like apples." A vague question or non-question statement does little to narrow the search space and makes the conversation feel aimless.
+
+
+2. **Accuracy**: Evaluate the factual correctness of the assistant's responses and how well they align with the intended progression of the 20Q game.
+
+   1 = Correct: The assistant provides an accurate and useful answer to the target question, and its follow-up questions contribute effectively to narrowing the search space. The assistant is on track for making a good guess or advancing the game towards identifying the object.
+   Example: If the assistant determines the object is a "bird," and the target question was about whether it can fly, then asking, “Does it fly?” makes the game progress accurately.
+
+   0 = Incorrect: The assistant provides an inaccurate or irrelevant answer to the target question, which may confuse the game’s progression. The assistant might also make an incorrect guess too soon, or its follow-up questions don’t make sense given the information already gathered in the game.
+   Example: If the assistant asked about a flying object but then mistakenly assumed the object was a "fish," it would derail the game.
+
+
+Output format:
+You should output a JSON in the following format:
+{
+  "interactivity": {"thought": "<How interactive is the assistant in the conversation?>", "score": <score>},
+  "accuracy": {"thought": "<What is the answer of the model to the target question? Whether it is consistent with the ground truth answer?>", "score": <score>}
+}
+
+
+Important Notes:
+- The "Historical Conversation" is provided only for reference to help you understand the context of the follow-up conversation. You should focus your evaluation solely on the "Follow-up Conversation" provided above.
+- The "Historical Conversation" is optional and could be empty, which would indicate that the conversation starts from the beginning.
+- These dimensions should be considered independently. Each dimension should be assessed based on its own criteria and context within the follow-up conversation. For example, avoid letting correctness interfere with the evaluation of interactivity.
+- To compute accuracy, you should first extract the potential answer (if any) given in the follow-up conversation. Then, recall the ground truth answer provided above. Finally, give your evaluation from comparing these two answers.
+- Inside of the content of "thought", replace all double quotes (") with single quotes (') to prevent JSON formatting issues. For example, you can output "thought": "'Hello' is a common phrase." 
+
+Your evaluation:
+
+
+
+
+
+DEBUG response type: <class 'dict'>
+
+
+
+DEBUG response content:
+{
+    'current_answer': '',
+    'thought': "The assistant has just asked me if the hidden word is related to a specific category or theme. Since the target object is 'apple,' I
+should say 'Yes' because apples are categorized as fruits.",
+    'response': 'Yes'
+}
+
+
+
+DEBUG response type: <class 'dict'>
+
+
+
+DEBUG response content:
+{
+    'current_answer': '',
+    'thought': "The assistant asked if the hidden word is related to animals, which it is not. I should respond with 'No' to keep the assistant on 
+track.",
+    'response': 'No'
+}
+You are a helpful and meticulous conversation evaluator. Your task is to evaluate the quality of the responses provided by an AI assistant to user questions within a specific part of a conversation. You should provide evaluations on two dimensions separately. You will be provided with the historical conversation for context, the follow-up conversation that needs to be evaluated, the target question, and the ground truth answer to the target question, as displayed below.
+
+Provided Information:
+
+<|The Start of The Historical Conversation|>  
+**user**: 
+  
+<|The End of The Historical Conversation|>
+
+<|The Start of The Follow-up Conversation to be Evaluated|>  
+**assistant**: Is the hidden word related to a specific category or theme? This question will help us focus on narrowing down the search space. Please answer with yes or no. Thank you!
+
+**user**: Yes
+
+**assistant**: Is the hidden word related to animals?
+
+**user**: No
+
+**assistant**: Is the hidden word related to food or beverages?
+  
+<|The End of The Follow-up Conversation to be Evaluated|>
+
+<|The Start of Target Question and Ground Truth Answer|>  
+Target Question: No.  
+Ground Truth Answer: The answer is: Bear.  
+<|The End of Target Question and Ground Truth Answer|>
+
+
+You should evaluate the follow-up conversation based on the following two dimensions:
+
+1. **Interactivity**: Assess the assistant’s engagement, clarity, and ability to understand the user’s needs in the follow-up conversation, with specific reference to the 20Q task.
+Notes:
+- The assistant’s ability to ask relevant and effective yes/no questions is crucial for narrowing down the search space in a 20 Questions game. A highly interactive assistant asks clear, thoughtful questions that guide the conversation effectively toward the solution. The assistant should adjust its strategy based on the user’s answers and continue to narrow down possibilities, ensuring the conversation progresses smoothly. 
+- Questions like 'Is it alive?' are particularly effective early in the game as they divide the search space into broad categories: living vs. non-living. This question immediately helps the assistant focus on either living creatures (animals, plants) or non-living objects, making it a key question for narrowing down the possibilities right away.
+- If the answer is 'yes,' the assistant can further narrow the space to living things like animals or plants. If the answer is 'no,' it helps eliminate living things and leads the assistant towards non-living objects. This question is especially helpful in the early stages of the game, unlike more general or vague questions like 'Is it something?' because it drives the conversation in a more meaningful direction.
+
+   3 = Highly interactive: The assistant effectively narrows down the search space through engaging, clear, and thoughtful yes/no questions. It asks relevant follow-up questions, ensuring a good balance between eliminating impossible possibilities and moving towards the solution. The assistant seems to be aware of the need to adjust its strategy as the conversation progresses.
+   Example: "Is it alive?" This question significantly narrows the search space by eliminating all non-alive objects OR all alive objects guiding the assistant closer to a specific group of objects.
+
+   2 = Moderately interactive: The assistant asks some relevant questions but may not effectively guide the user towards the right search space. There may be noticeable gaps in narrowing down the search space, or the questions could be more specific.
+   Example: "Can it fly?" While it may exclude many inanimate objects, it is less specific than a question about movement or properties.
+
+   1 = Low interactivity: The assistant's questions are vague or ineffective in narrowing the search space. It might not ask follow-up questions or make the necessary adjustments to guide the user towards the solution. The assistant might be stuck asking questions that are too broad or irrelevant.
+   Example: "Is it something?" or "I like apples." A vague question or non-question statement does little to narrow the search space and makes the conversation feel aimless.
+
+
+2. **Accuracy**: Evaluate the factual correctness of the assistant's responses and how well they align with the intended progression of the 20Q game.
+
+   1 = Correct: The assistant provides an accurate and useful answer to the target question, and its follow-up questions contribute effectively to narrowing the search space. The assistant is on track for making a good guess or advancing the game towards identifying the object.
+   Example: If the assistant determines the object is a "bird," and the target question was about whether it can fly, then asking, “Does it fly?” makes the game progress accurately.
+
+   0 = Incorrect: The assistant provides an inaccurate or irrelevant answer to the target question, which may confuse the game’s progression. The assistant might also make an incorrect guess too soon, or its follow-up questions don’t make sense given the information already gathered in the game.
+   Example: If the assistant asked about a flying object but then mistakenly assumed the object was a "fish," it would derail the game.
+
+
+Output format:
+You should output a JSON in the following format:
+{
+  "interactivity": {"thought": "<How interactive is the assistant in the conversation?>", "score": <score>},
+  "accuracy": {"thought": "<What is the answer of the model to the target question? Whether it is consistent with the ground truth answer?>", "score": <score>}
+}
+
+
+Important Notes:
+- The "Historical Conversation" is provided only for reference to help you understand the context of the follow-up conversation. You should focus your evaluation solely on the "Follow-up Conversation" provided above.
+- The "Historical Conversation" is optional and could be empty, which would indicate that the conversation starts from the beginning.
+- These dimensions should be considered independently. Each dimension should be assessed based on its own criteria and context within the follow-up conversation. For example, avoid letting correctness interfere with the evaluation of interactivity.
+- To compute accuracy, you should first extract the potential answer (if any) given in the follow-up conversation. Then, recall the ground truth answer provided above. Finally, give your evaluation from comparing these two answers.
+- Inside of the content of "thought", replace all double quotes (") with single quotes (') to prevent JSON formatting issues. For example, you can output "thought": "'Hello' is a common phrase." 
+
+Your evaluation:
+
+
+
+
+
+DEBUG response type: <class 'dict'>
+
+
+
+DEBUG response content:
+{
+    'current_answer': '',
+    'thought': "The assistant hasn't guessed the object yet. I should continue guiding them towards the target object.",
+    'response': "Let's play a guessing game! You have to figure out what I'm thinking of by asking yes or no questions. Would you like to start?"
+}
+
+
+
+DEBUG response type: <class 'dict'>
+
+
+
+DEBUG response content:
+{
+    'current_answer': '',
+    'thought': "The assistant asked if the object I'm thinking of is alive, which is not applicable to an apple. Since an apple is not alive, I 
+should respond with 'No' to guide the assistant away from living objects.",
+    'response': 'No'
+}
+You are a helpful and meticulous conversation evaluator. Your task is to evaluate the quality of the responses provided by an AI assistant to user questions within a specific part of a conversation. You should provide evaluations on two dimensions separately. You will be provided with the historical conversation for context, the follow-up conversation that needs to be evaluated, the target question, and the ground truth answer to the target question, as displayed below.
+
+Provided Information:
+
+<|The Start of The Historical Conversation|>  
+**user**: 
+  
+<|The End of The Historical Conversation|>
+
+<|The Start of The Follow-up Conversation to be Evaluated|>  
+**assistant**: Hello! How can I assist you today?
+
+**user**: Let's play a guessing game! You have to figure out what I'm thinking of by asking yes or no questions. Would you like to start?
+
+**assistant**: Sure, I'd love to play a guessing game with you! Let's get started. Are you thinking of something that is alive?
+
+**user**: No
+
+**assistant**: Is it an object?
+  
+<|The End of The Follow-up Conversation to be Evaluated|>
+
+<|The Start of Target Question and Ground Truth Answer|>  
+Target Question: No.  
+Ground Truth Answer: The answer is: Bear.  
+<|The End of Target Question and Ground Truth Answer|>
+
+
+You should evaluate the follow-up conversation based on the following two dimensions:
+
+1. **Interactivity**: Assess the assistant’s engagement, clarity, and ability to understand the user’s needs in the follow-up conversation, with specific reference to the 20Q task.
+Notes:
+- The assistant’s ability to ask relevant and effective yes/no questions is crucial for narrowing down the search space in a 20 Questions game. A highly interactive assistant asks clear, thoughtful questions that guide the conversation effectively toward the solution. The assistant should adjust its strategy based on the user’s answers and continue to narrow down possibilities, ensuring the conversation progresses smoothly. 
+- Questions like 'Is it alive?' are particularly effective early in the game as they divide the search space into broad categories: living vs. non-living. This question immediately helps the assistant focus on either living creatures (animals, plants) or non-living objects, making it a key question for narrowing down the possibilities right away.
+- If the answer is 'yes,' the assistant can further narrow the space to living things like animals or plants. If the answer is 'no,' it helps eliminate living things and leads the assistant towards non-living objects. This question is especially helpful in the early stages of the game, unlike more general or vague questions like 'Is it something?' because it drives the conversation in a more meaningful direction.
+
+   3 = Highly interactive: The assistant effectively narrows down the search space through engaging, clear, and thoughtful yes/no questions. It asks relevant follow-up questions, ensuring a good balance between eliminating impossible possibilities and moving towards the solution. The assistant seems to be aware of the need to adjust its strategy as the conversation progresses.
+   Example: "Is it alive?" This question significantly narrows the search space by eliminating all non-alive objects OR all alive objects guiding the assistant closer to a specific group of objects.
+
+   2 = Moderately interactive: The assistant asks some relevant questions but may not effectively guide the user towards the right search space. There may be noticeable gaps in narrowing down the search space, or the questions could be more specific.
+   Example: "Can it fly?" While it may exclude many inanimate objects, it is less specific than a question about movement or properties.
+
+   1 = Low interactivity: The assistant's questions are vague or ineffective in narrowing the search space. It might not ask follow-up questions or make the necessary adjustments to guide the user towards the solution. The assistant might be stuck asking questions that are too broad or irrelevant.
+   Example: "Is it something?" or "I like apples." A vague question or non-question statement does little to narrow the search space and makes the conversation feel aimless.
+
+
+2. **Accuracy**: Evaluate the factual correctness of the assistant's responses and how well they align with the intended progression of the 20Q game.
+
+   1 = Correct: The assistant provides an accurate and useful answer to the target question, and its follow-up questions contribute effectively to narrowing the search space. The assistant is on track for making a good guess or advancing the game towards identifying the object.
+   Example: If the assistant determines the object is a "bird," and the target question was about whether it can fly, then asking, “Does it fly?” makes the game progress accurately.
+
+   0 = Incorrect: The assistant provides an inaccurate or irrelevant answer to the target question, which may confuse the game’s progression. The assistant might also make an incorrect guess too soon, or its follow-up questions don’t make sense given the information already gathered in the game.
+   Example: If the assistant asked about a flying object but then mistakenly assumed the object was a "fish," it would derail the game.
+
+
+Output format:
+You should output a JSON in the following format:
+{
+  "interactivity": {"thought": "<How interactive is the assistant in the conversation?>", "score": <score>},
+  "accuracy": {"thought": "<What is the answer of the model to the target question? Whether it is consistent with the ground truth answer?>", "score": <score>}
+}
+
+
+Important Notes:
+- The "Historical Conversation" is provided only for reference to help you understand the context of the follow-up conversation. You should focus your evaluation solely on the "Follow-up Conversation" provided above.
+- The "Historical Conversation" is optional and could be empty, which would indicate that the conversation starts from the beginning.
+- These dimensions should be considered independently. Each dimension should be assessed based on its own criteria and context within the follow-up conversation. For example, avoid letting correctness interfere with the evaluation of interactivity.
+- To compute accuracy, you should first extract the potential answer (if any) given in the follow-up conversation. Then, recall the ground truth answer provided above. Finally, give your evaluation from comparing these two answers.
+- Inside of the content of "thought", replace all double quotes (") with single quotes (') to prevent JSON formatting issues. For example, you can output "thought": "'Hello' is a common phrase." 
+
+Your evaluation:
+
+
+
+
+
+DEBUG response type: <class 'dict'>
+
+
+
+DEBUG response content:
+{
+    'current_answer': '',
+    'thought': "The assistant hasn't guessed the object yet, so I need to keep guiding them. I should only respond with yes or no based on the 
+target object.",
+    'response': "Let's play a game of 20 questions! You can start by asking me a yes or no question to guess the object I'm thinking of."
+}
+
+
+
+DEBUG response type: <class 'dict'>
+
+
+
+DEBUG response content:
+{
+    'current_answer': '',
+    'thought': "The assistant asked if the object can be found in a kitchen, which is a good starting point. Since the target object is an apple, I 
+should answer 'Yes' as apples are commonly found in kitchens.",
+    'response': 'Yes'
+}
+You are a helpful and meticulous conversation evaluator. Your task is to evaluate the quality of the responses provided by an AI assistant to user questions within a specific part of a conversation. You should provide evaluations on two dimensions separately. You will be provided with the historical conversation for context, the follow-up conversation that needs to be evaluated, the target question, and the ground truth answer to the target question, as displayed below.
+
+Provided Information:
+
+<|The Start of The Historical Conversation|>  
+**user**: 
+  
+<|The End of The Historical Conversation|>
+
+<|The Start of The Follow-up Conversation to be Evaluated|>  
+**assistant**: Hello! How can I assist you today?
+
+**user**: Let's play a game of 20 questions! You can start by asking me a yes or no question to guess the object I'm thinking of.
+
+**assistant**: Sure! Is the object you're thinking of something that can be found in a kitchen?
+
+**user**: Yes
+
+**assistant**: Is the object you're thinking of used for cooking or preparing food?
+  
+<|The End of The Follow-up Conversation to be Evaluated|>
+
+<|The Start of Target Question and Ground Truth Answer|>  
+Target Question: No.  
+Ground Truth Answer: The answer is: Bear.  
+<|The End of Target Question and Ground Truth Answer|>
+
+
+You should evaluate the follow-up conversation based on the following two dimensions:
+
+1. **Interactivity**: Assess the assistant’s engagement, clarity, and ability to understand the user’s needs in the follow-up conversation, with specific reference to the 20Q task.
+Notes:
+- The assistant’s ability to ask relevant and effective yes/no questions is crucial for narrowing down the search space in a 20 Questions game. A highly interactive assistant asks clear, thoughtful questions that guide the conversation effectively toward the solution. The assistant should adjust its strategy based on the user’s answers and continue to narrow down possibilities, ensuring the conversation progresses smoothly. 
+- Questions like 'Is it alive?' are particularly effective early in the game as they divide the search space into broad categories: living vs. non-living. This question immediately helps the assistant focus on either living creatures (animals, plants) or non-living objects, making it a key question for narrowing down the possibilities right away.
+- If the answer is 'yes,' the assistant can further narrow the space to living things like animals or plants. If the answer is 'no,' it helps eliminate living things and leads the assistant towards non-living objects. This question is especially helpful in the early stages of the game, unlike more general or vague questions like 'Is it something?' because it drives the conversation in a more meaningful direction.
+
+   3 = Highly interactive: The assistant effectively narrows down the search space through engaging, clear, and thoughtful yes/no questions. It asks relevant follow-up questions, ensuring a good balance between eliminating impossible possibilities and moving towards the solution. The assistant seems to be aware of the need to adjust its strategy as the conversation progresses.
+   Example: "Is it alive?" This question significantly narrows the search space by eliminating all non-alive objects OR all alive objects guiding the assistant closer to a specific group of objects.
+
+   2 = Moderately interactive: The assistant asks some relevant questions but may not effectively guide the user towards the right search space. There may be noticeable gaps in narrowing down the search space, or the questions could be more specific.
+   Example: "Can it fly?" While it may exclude many inanimate objects, it is less specific than a question about movement or properties.
+
+   1 = Low interactivity: The assistant's questions are vague or ineffective in narrowing the search space. It might not ask follow-up questions or make the necessary adjustments to guide the user towards the solution. The assistant might be stuck asking questions that are too broad or irrelevant.
+   Example: "Is it something?" or "I like apples." A vague question or non-question statement does little to narrow the search space and makes the conversation feel aimless.
+
+
+2. **Accuracy**: Evaluate the factual correctness of the assistant's responses and how well they align with the intended progression of the 20Q game.
+
+   1 = Correct: The assistant provides an accurate and useful answer to the target question, and its follow-up questions contribute effectively to narrowing the search space. The assistant is on track for making a good guess or advancing the game towards identifying the object.
+   Example: If the assistant determines the object is a "bird," and the target question was about whether it can fly, then asking, “Does it fly?” makes the game progress accurately.
+
+   0 = Incorrect: The assistant provides an inaccurate or irrelevant answer to the target question, which may confuse the game’s progression. The assistant might also make an incorrect guess too soon, or its follow-up questions don’t make sense given the information already gathered in the game.
+   Example: If the assistant asked about a flying object but then mistakenly assumed the object was a "fish," it would derail the game.
+
+
+Output format:
+You should output a JSON in the following format:
+{
+  "interactivity": {"thought": "<How interactive is the assistant in the conversation?>", "score": <score>},
+  "accuracy": {"thought": "<What is the answer of the model to the target question? Whether it is consistent with the ground truth answer?>", "score": <score>}
+}
+
+
+Important Notes:
+- The "Historical Conversation" is provided only for reference to help you understand the context of the follow-up conversation. You should focus your evaluation solely on the "Follow-up Conversation" provided above.
+- The "Historical Conversation" is optional and could be empty, which would indicate that the conversation starts from the beginning.
+- These dimensions should be considered independently. Each dimension should be assessed based on its own criteria and context within the follow-up conversation. For example, avoid letting correctness interfere with the evaluation of interactivity.
+- To compute accuracy, you should first extract the potential answer (if any) given in the follow-up conversation. Then, recall the ground truth answer provided above. Finally, give your evaluation from comparing these two answers.
+- Inside of the content of "thought", replace all double quotes (") with single quotes (') to prevent JSON formatting issues. For example, you can output "thought": "'Hello' is a common phrase." 
+
+Your evaluation:
+
+
+
+
+
+DEBUG response type: <class 'dict'>
+
+
+
+DEBUG response content:
+{
+    'current_answer': '',
+    'thought': "The assistant hasn't guessed the target object yet. I need to continue guiding them towards guessing it without directly revealing 
+the object.",
+    'response': "Let's play a guessing game! You have to figure out what I'm thinking of by asking yes or no questions. Go ahead and ask your first 
+question!"
+}
+
+
+
+DEBUG response type: <class 'dict'>
+
+
+
+DEBUG response content:
+{
+    'current_answer': 'apple',
+    'thought': "The assistant's first question is if the thing I'm thinking of is an animal, which is not true for an apple. I should respond with a
+'No' to guide the assistant away from animal-related guesses.",
+    'response': 'No'
+}
+You are a helpful and meticulous conversation evaluator. Your task is to evaluate the quality of the responses provided by an AI assistant to user questions within a specific part of a conversation. You should provide evaluations on two dimensions separately. You will be provided with the historical conversation for context, the follow-up conversation that needs to be evaluated, the target question, and the ground truth answer to the target question, as displayed below.
+
+Provided Information:
+
+<|The Start of The Historical Conversation|>  
+**user**: 
+  
+<|The End of The Historical Conversation|>
+
+<|The Start of The Follow-up Conversation to be Evaluated|>  
+**assistant**: Hello! How can I assist you today?
+
+**user**: Let's play a guessing game! You have to figure out what I'm thinking of by asking yes or no questions. Go ahead and ask your first question!
+
+**assistant**: Sure, I'd love to play a guessing game with you! Is the thing you're thinking of an animal?
+
+**user**: No
+
+**assistant**: Is the thing you're thinking of a physical object?
+  
+<|The End of The Follow-up Conversation to be Evaluated|>
+
+<|The Start of Target Question and Ground Truth Answer|>  
+Target Question: No.  
+Ground Truth Answer: The answer is: Bear.  
+<|The End of Target Question and Ground Truth Answer|>
+
+
+You should evaluate the follow-up conversation based on the following two dimensions:
+
+1. **Interactivity**: Assess the assistant’s engagement, clarity, and ability to understand the user’s needs in the follow-up conversation, with specific reference to the 20Q task.
+Notes:
+- The assistant’s ability to ask relevant and effective yes/no questions is crucial for narrowing down the search space in a 20 Questions game. A highly interactive assistant asks clear, thoughtful questions that guide the conversation effectively toward the solution. The assistant should adjust its strategy based on the user’s answers and continue to narrow down possibilities, ensuring the conversation progresses smoothly. 
+- Questions like 'Is it alive?' are particularly effective early in the game as they divide the search space into broad categories: living vs. non-living. This question immediately helps the assistant focus on either living creatures (animals, plants) or non-living objects, making it a key question for narrowing down the possibilities right away.
+- If the answer is 'yes,' the assistant can further narrow the space to living things like animals or plants. If the answer is 'no,' it helps eliminate living things and leads the assistant towards non-living objects. This question is especially helpful in the early stages of the game, unlike more general or vague questions like 'Is it something?' because it drives the conversation in a more meaningful direction.
+
+   3 = Highly interactive: The assistant effectively narrows down the search space through engaging, clear, and thoughtful yes/no questions. It asks relevant follow-up questions, ensuring a good balance between eliminating impossible possibilities and moving towards the solution. The assistant seems to be aware of the need to adjust its strategy as the conversation progresses.
+   Example: "Is it alive?" This question significantly narrows the search space by eliminating all non-alive objects OR all alive objects guiding the assistant closer to a specific group of objects.
+
+   2 = Moderately interactive: The assistant asks some relevant questions but may not effectively guide the user towards the right search space. There may be noticeable gaps in narrowing down the search space, or the questions could be more specific.
+   Example: "Can it fly?" While it may exclude many inanimate objects, it is less specific than a question about movement or properties.
+
+   1 = Low interactivity: The assistant's questions are vague or ineffective in narrowing the search space. It might not ask follow-up questions or make the necessary adjustments to guide the user towards the solution. The assistant might be stuck asking questions that are too broad or irrelevant.
+   Example: "Is it something?" or "I like apples." A vague question or non-question statement does little to narrow the search space and makes the conversation feel aimless.
+
+
+2. **Accuracy**: Evaluate the factual correctness of the assistant's responses and how well they align with the intended progression of the 20Q game.
+
+   1 = Correct: The assistant provides an accurate and useful answer to the target question, and its follow-up questions contribute effectively to narrowing the search space. The assistant is on track for making a good guess or advancing the game towards identifying the object.
+   Example: If the assistant determines the object is a "bird," and the target question was about whether it can fly, then asking, “Does it fly?” makes the game progress accurately.
+
+   0 = Incorrect: The assistant provides an inaccurate or irrelevant answer to the target question, which may confuse the game’s progression. The assistant might also make an incorrect guess too soon, or its follow-up questions don’t make sense given the information already gathered in the game.
+   Example: If the assistant asked about a flying object but then mistakenly assumed the object was a "fish," it would derail the game.
+
+
+Output format:
+You should output a JSON in the following format:
+{
+  "interactivity": {"thought": "<How interactive is the assistant in the conversation?>", "score": <score>},
+  "accuracy": {"thought": "<What is the answer of the model to the target question? Whether it is consistent with the ground truth answer?>", "score": <score>}
+}
+
+
+Important Notes:
+- The "Historical Conversation" is provided only for reference to help you understand the context of the follow-up conversation. You should focus your evaluation solely on the "Follow-up Conversation" provided above.
+- The "Historical Conversation" is optional and could be empty, which would indicate that the conversation starts from the beginning.
+- These dimensions should be considered independently. Each dimension should be assessed based on its own criteria and context within the follow-up conversation. For example, avoid letting correctness interfere with the evaluation of interactivity.
+- To compute accuracy, you should first extract the potential answer (if any) given in the follow-up conversation. Then, recall the ground truth answer provided above. Finally, give your evaluation from comparing these two answers.
+- Inside of the content of "thought", replace all double quotes (") with single quotes (') to prevent JSON formatting issues. For example, you can output "thought": "'Hello' is a common phrase." 
+
+Your evaluation:
+
+
+1.0 [0.667 0.667 1.   ] 1.0 [0. 0. 1.] 0.0005 [0.034 0.029 0.029]
+1.0 [0.667 0.667 0.667] 1.0 [0. 0. 0.] 0.0005 [0.036 0.036 0.038]
+[Turn 2] Rewards [tensor([1.0809]), tensor([0.6295])]
+Chosen: task_metric_avg=0.3333333333333333 | llm_rw_avg=0.7777777777777777 | token_cost_avg=0.030166666666666665
+Rejected: task_metric_avg=0.0 | llm_rw_avg=0.6666666666666666 | token_cost_avg=0.03716666666666666
+[Turn 2] Chosen: Is the hidden word related to a specific category or theme? This question will help us focus on narrowing down the search space. 
+Please answer with yes or no. Thank you!
+
+[Turn 2] Rejected: Hello! How can I assist you today?
+
+
+
+
+
+DEBUG response type: <class 'dict'>
+
+
+
+DEBUG response content:
+{
+    'current_answer': '',
+    'thought': "The assistant asked if the hidden word is related to a specific category or theme. Since the target object is a 'Belt,' I should 
+clarify that it falls under a specific category without directly revealing it. I should provide a 'Yes' response to guide the assistant in the right
+direction.",
+    'response': 'Yes, the hidden word is related to a specific category or theme.'
+}
+
+Processing conversation 23:  50%|#####     | 1/2 [00:32<00:32, 32.38s/it][Turn 3] **User**: Yes, the hidden word is related to a specific category or theme.
+
+
+
+DEBUG response type: <class 'dict'>
+
+
+
+DEBUG response content:
+{
+    'current_answer': '',
+    'thought': "The assistant has correctly identified that the hidden word is related to a specific category or theme. Since the hidden word is 
+'apple' which falls under the category of food, the assistant's question is accurate. I should continue guiding the assistant towards guessing the 
+word without directly revealing it.",
+    'response': 'Yes, the hidden word is related to the category of food.'
+}
+
+
+
+DEBUG response type: <class 'dict'>
+
+
+
+DEBUG response content:
+{
+    'current_answer': 'apple',
+    'thought': 'The assistant has correctly guessed that the hidden word is related to food and specifically a type of fruit. The next question 
+should focus on narrowing down the type of fruit.',
+    'response': 'Yes, the hidden word is a type of fruit.'
+}
+You are a helpful and meticulous conversation evaluator. Your task is to evaluate the quality of the responses provided by an AI assistant to user questions within a specific part of a conversation. You should provide evaluations on two dimensions separately. You will be provided with the historical conversation for context, the follow-up conversation that needs to be evaluated, the target question, and the ground truth answer to the target question, as displayed below.
+
+Provided Information:
+
+<|The Start of The Historical Conversation|>  
+**user**: 
+
+**assistant**: Is the hidden word related to a specific category or theme? This question will help us focus on narrowing down the search space. Please answer with yes or no. Thank you!
+
+**user**: Yes, the hidden word is related to a specific category or theme.
+  
+<|The End of The Historical Conversation|>
+
+<|The Start of The Follow-up Conversation to be Evaluated|>  
+**assistant**: Is the hidden word related to the category of animals, food, technology, or something else? Please provide a yes or no answer to help narrow down the search space. Thank you!
+
+**user**: Yes, the hidden word is related to the category of food.
+
+**assistant**: Is the hidden word a type of fruit, vegetable, meat, dessert, or beverage? Please respond with a yes or no to help further narrow down the search. Thank you!
+
+**user**: Yes, the hidden word is a type of fruit.
+
+**assistant**: Is the hidden word a common fruit like an apple, banana, orange, or strawberry? Please reply with yes or no. Thank you!
+  
+<|The End of The Follow-up Conversation to be Evaluated|>
+
+<|The Start of Target Question and Ground Truth Answer|>  
+Target Question: No.  
+Ground Truth Answer: The answer is: Bear.  
+<|The End of Target Question and Ground Truth Answer|>
+
+
+You should evaluate the follow-up conversation based on the following two dimensions:
+
+1. **Interactivity**: Assess the assistant’s engagement, clarity, and ability to understand the user’s needs in the follow-up conversation, with specific reference to the 20Q task.
+Notes:
+- The assistant’s ability to ask relevant and effective yes/no questions is crucial for narrowing down the search space in a 20 Questions game. A highly interactive assistant asks clear, thoughtful questions that guide the conversation effectively toward the solution. The assistant should adjust its strategy based on the user’s answers and continue to narrow down possibilities, ensuring the conversation progresses smoothly. 
+- Questions like 'Is it alive?' are particularly effective early in the game as they divide the search space into broad categories: living vs. non-living. This question immediately helps the assistant focus on either living creatures (animals, plants) or non-living objects, making it a key question for narrowing down the possibilities right away.
+- If the answer is 'yes,' the assistant can further narrow the space to living things like animals or plants. If the answer is 'no,' it helps eliminate living things and leads the assistant towards non-living objects. This question is especially helpful in the early stages of the game, unlike more general or vague questions like 'Is it something?' because it drives the conversation in a more meaningful direction.
+
+   3 = Highly interactive: The assistant effectively narrows down the search space through engaging, clear, and thoughtful yes/no questions. It asks relevant follow-up questions, ensuring a good balance between eliminating impossible possibilities and moving towards the solution. The assistant seems to be aware of the need to adjust its strategy as the conversation progresses.
+   Example: "Is it alive?" This question significantly narrows the search space by eliminating all non-alive objects OR all alive objects guiding the assistant closer to a specific group of objects.
+
+   2 = Moderately interactive: The assistant asks some relevant questions but may not effectively guide the user towards the right search space. There may be noticeable gaps in narrowing down the search space, or the questions could be more specific.
+   Example: "Can it fly?" While it may exclude many inanimate objects, it is less specific than a question about movement or properties.
+
+   1 = Low interactivity: The assistant's questions are vague or ineffective in narrowing the search space. It might not ask follow-up questions or make the necessary adjustments to guide the user towards the solution. The assistant might be stuck asking questions that are too broad or irrelevant.
+   Example: "Is it something?" or "I like apples." A vague question or non-question statement does little to narrow the search space and makes the conversation feel aimless.
+
+
+2. **Accuracy**: Evaluate the factual correctness of the assistant's responses and how well they align with the intended progression of the 20Q game.
+
+   1 = Correct: The assistant provides an accurate and useful answer to the target question, and its follow-up questions contribute effectively to narrowing the search space. The assistant is on track for making a good guess or advancing the game towards identifying the object.
+   Example: If the assistant determines the object is a "bird," and the target question was about whether it can fly, then asking, “Does it fly?” makes the game progress accurately.
+
+   0 = Incorrect: The assistant provides an inaccurate or irrelevant answer to the target question, which may confuse the game’s progression. The assistant might also make an incorrect guess too soon, or its follow-up questions don’t make sense given the information already gathered in the game.
+   Example: If the assistant asked about a flying object but then mistakenly assumed the object was a "fish," it would derail the game.
+
+
+Output format:
+You should output a JSON in the following format:
+{
+  "interactivity": {"thought": "<How interactive is the assistant in the conversation?>", "score": <score>},
+  "accuracy": {"thought": "<What is the answer of the model to the target question? Whether it is consistent with the ground truth answer?>", "score": <score>}
+}
+
+
+Important Notes:
+- The "Historical Conversation" is provided only for reference to help you understand the context of the follow-up conversation. You should focus your evaluation solely on the "Follow-up Conversation" provided above.
+- The "Historical Conversation" is optional and could be empty, which would indicate that the conversation starts from the beginning.
+- These dimensions should be considered independently. Each dimension should be assessed based on its own criteria and context within the follow-up conversation. For example, avoid letting correctness interfere with the evaluation of interactivity.
+- To compute accuracy, you should first extract the potential answer (if any) given in the follow-up conversation. Then, recall the ground truth answer provided above. Finally, give your evaluation from comparing these two answers.
+- Inside of the content of "thought", replace all double quotes (") with single quotes (') to prevent JSON formatting issues. For example, you can output "thought": "'Hello' is a common phrase." 
+
+Your evaluation:
+
+
+
+
+
+DEBUG response type: <class 'dict'>
+
+
+
+DEBUG response content:
+{
+    'current_answer': '',
+    'thought': 'The assistant has not guessed the target object yet. They are trying to narrow down the search space by asking about categories or 
+themes. I should continue to provide yes or no answers to help guide the assistant towards guessing the object.',
+    'response': 'Yes, the hidden word is related to the category of food.'
+}
+
+
+
+DEBUG response type: <class 'dict'>
+
+
+
+DEBUG response content:
+{
+    'current_answer': '',
+    'thought': "The assistant is narrowing down the search by asking if the hidden word is a specific type of food. Since the hidden word is 'apple'
+which is a fruit, I should answer 'Yes' to help the assistant move closer to guessing it.",
+    'response': 'Yes'
+}
+You are a helpful and meticulous conversation evaluator. Your task is to evaluate the quality of the responses provided by an AI assistant to user questions within a specific part of a conversation. You should provide evaluations on two dimensions separately. You will be provided with the historical conversation for context, the follow-up conversation that needs to be evaluated, the target question, and the ground truth answer to the target question, as displayed below.
+
+Provided Information:
+
+<|The Start of The Historical Conversation|>  
+**user**: 
+
+**assistant**: Is the hidden word related to a specific category or theme? This question will help us focus on narrowing down the search space. Please answer with yes or no. Thank you!
+
+**user**: Yes, the hidden word is related to a specific category or theme.
+  
+<|The End of The Historical Conversation|>
+
+<|The Start of The Follow-up Conversation to be Evaluated|>  
+**assistant**: Is the hidden word related to the category of animals, food, technology, or something else? Please provide a yes or no answer to help narrow down the search space. Thank you!
+
+**user**: Yes, the hidden word is related to the category of food.
+
+**assistant**: Is the hidden word a specific type of food such as a fruit, vegetable, meat, or dessert? This will help us narrow down the search further. Please respond with a yes or no. Thank you!
+
+**user**: Yes
+
+**assistant**: Is the hidden word a fruit? Please respond with a yes or no. Thank you!
+  
+<|The End of The Follow-up Conversation to be Evaluated|>
+
+<|The Start of Target Question and Ground Truth Answer|>  
+Target Question: No.  
+Ground Truth Answer: The answer is: Bear.  
+<|The End of Target Question and Ground Truth Answer|>
+
+
+You should evaluate the follow-up conversation based on the following two dimensions:
+
+1. **Interactivity**: Assess the assistant’s engagement, clarity, and ability to understand the user’s needs in the follow-up conversation, with specific reference to the 20Q task.
+Notes:
+- The assistant’s ability to ask relevant and effective yes/no questions is crucial for narrowing down the search space in a 20 Questions game. A highly interactive assistant asks clear, thoughtful questions that guide the conversation effectively toward the solution. The assistant should adjust its strategy based on the user’s answers and continue to narrow down possibilities, ensuring the conversation progresses smoothly. 
+- Questions like 'Is it alive?' are particularly effective early in the game as they divide the search space into broad categories: living vs. non-living. This question immediately helps the assistant focus on either living creatures (animals, plants) or non-living objects, making it a key question for narrowing down the possibilities right away.
+- If the answer is 'yes,' the assistant can further narrow the space to living things like animals or plants. If the answer is 'no,' it helps eliminate living things and leads the assistant towards non-living objects. This question is especially helpful in the early stages of the game, unlike more general or vague questions like 'Is it something?' because it drives the conversation in a more meaningful direction.
+
+   3 = Highly interactive: The assistant effectively narrows down the search space through engaging, clear, and thoughtful yes/no questions. It asks relevant follow-up questions, ensuring a good balance between eliminating impossible possibilities and moving towards the solution. The assistant seems to be aware of the need to adjust its strategy as the conversation progresses.
+   Example: "Is it alive?" This question significantly narrows the search space by eliminating all non-alive objects OR all alive objects guiding the assistant closer to a specific group of objects.
+
+   2 = Moderately interactive: The assistant asks some relevant questions but may not effectively guide the user towards the right search space. There may be noticeable gaps in narrowing down the search space, or the questions could be more specific.
+   Example: "Can it fly?" While it may exclude many inanimate objects, it is less specific than a question about movement or properties.
+
+   1 = Low interactivity: The assistant's questions are vague or ineffective in narrowing the search space. It might not ask follow-up questions or make the necessary adjustments to guide the user towards the solution. The assistant might be stuck asking questions that are too broad or irrelevant.
+   Example: "Is it something?" or "I like apples." A vague question or non-question statement does little to narrow the search space and makes the conversation feel aimless.
+
+
+2. **Accuracy**: Evaluate the factual correctness of the assistant's responses and how well they align with the intended progression of the 20Q game.
+
+   1 = Correct: The assistant provides an accurate and useful answer to the target question, and its follow-up questions contribute effectively to narrowing the search space. The assistant is on track for making a good guess or advancing the game towards identifying the object.
+   Example: If the assistant determines the object is a "bird," and the target question was about whether it can fly, then asking, “Does it fly?” makes the game progress accurately.
+
+   0 = Incorrect: The assistant provides an inaccurate or irrelevant answer to the target question, which may confuse the game’s progression. The assistant might also make an incorrect guess too soon, or its follow-up questions don’t make sense given the information already gathered in the game.
+   Example: If the assistant asked about a flying object but then mistakenly assumed the object was a "fish," it would derail the game.
+
+
+Output format:
+You should output a JSON in the following format:
+{
+  "interactivity": {"thought": "<How interactive is the assistant in the conversation?>", "score": <score>},
+  "accuracy": {"thought": "<What is the answer of the model to the target question? Whether it is consistent with the ground truth answer?>", "score": <score>}
+}
+
+
+Important Notes:
+- The "Historical Conversation" is provided only for reference to help you understand the context of the follow-up conversation. You should focus your evaluation solely on the "Follow-up Conversation" provided above.
+- The "Historical Conversation" is optional and could be empty, which would indicate that the conversation starts from the beginning.
+- These dimensions should be considered independently. Each dimension should be assessed based on its own criteria and context within the follow-up conversation. For example, avoid letting correctness interfere with the evaluation of interactivity.
+- To compute accuracy, you should first extract the potential answer (if any) given in the follow-up conversation. Then, recall the ground truth answer provided above. Finally, give your evaluation from comparing these two answers.
+- Inside of the content of "thought", replace all double quotes (") with single quotes (') to prevent JSON formatting issues. For example, you can output "thought": "'Hello' is a common phrase." 
+
+Your evaluation:
+
+
+
+
+
+DEBUG response type: <class 'dict'>
+
+
+
+DEBUG response content:
+{
+    'current_answer': '',
+    'thought': 'The assistant has not guessed the object correctly yet. I need to keep guiding them towards the target object.',
+    'response': 'Yes, the hidden word is related to the category of food.'
+}
+
+
+
+DEBUG response type: <class 'dict'>
+
+
+
+DEBUG response content:
+{
+    'current_answer': 'N/A',
+    'thought': 'The assistant has correctly guessed that the hidden word is related to the category of food. Since the category is food and the 
+assistant has asked if the hidden word is a type of fruit, I should confirm that it is indeed a type of fruit.',
+    'response': 'Yes'
+}
+You are a helpful and meticulous conversation evaluator. Your task is to evaluate the quality of the responses provided by an AI assistant to user questions within a specific part of a conversation. You should provide evaluations on two dimensions separately. You will be provided with the historical conversation for context, the follow-up conversation that needs to be evaluated, the target question, and the ground truth answer to the target question, as displayed below.
+
+Provided Information:
+
+<|The Start of The Historical Conversation|>  
+**user**: 
+
+**assistant**: Is the hidden word related to a specific category or theme? This question will help us focus on narrowing down the search space. Please answer with yes or no. Thank you!
+
+**user**: Yes, the hidden word is related to a specific category or theme.
+  
+<|The End of The Historical Conversation|>
+
+<|The Start of The Follow-up Conversation to be Evaluated|>  
+**assistant**: Is the hidden word related to the category of animals, food, technology, or something else? Please provide a yes or no answer to help narrow down the search space. Thank you!
+
+**user**: Yes, the hidden word is related to the category of food.
+
+**assistant**: Is the hidden word a type of fruit, vegetable, meat, dairy product, or a specific dish? This question will help us further narrow down the search. Please respond with yes or no. Thank you!
+
+**user**: Yes
+
+**assistant**: Is the hidden word a type of fruit? Please respond with yes or no. Thank you!
+  
+<|The End of The Follow-up Conversation to be Evaluated|>
+
+<|The Start of Target Question and Ground Truth Answer|>  
+Target Question: No.  
+Ground Truth Answer: The answer is: Bear.  
+<|The End of Target Question and Ground Truth Answer|>
+
+
+You should evaluate the follow-up conversation based on the following two dimensions:
+
+1. **Interactivity**: Assess the assistant’s engagement, clarity, and ability to understand the user’s needs in the follow-up conversation, with specific reference to the 20Q task.
+Notes:
+- The assistant’s ability to ask relevant and effective yes/no questions is crucial for narrowing down the search space in a 20 Questions game. A highly interactive assistant asks clear, thoughtful questions that guide the conversation effectively toward the solution. The assistant should adjust its strategy based on the user’s answers and continue to narrow down possibilities, ensuring the conversation progresses smoothly. 
+- Questions like 'Is it alive?' are particularly effective early in the game as they divide the search space into broad categories: living vs. non-living. This question immediately helps the assistant focus on either living creatures (animals, plants) or non-living objects, making it a key question for narrowing down the possibilities right away.
+- If the answer is 'yes,' the assistant can further narrow the space to living things like animals or plants. If the answer is 'no,' it helps eliminate living things and leads the assistant towards non-living objects. This question is especially helpful in the early stages of the game, unlike more general or vague questions like 'Is it something?' because it drives the conversation in a more meaningful direction.
+
+   3 = Highly interactive: The assistant effectively narrows down the search space through engaging, clear, and thoughtful yes/no questions. It asks relevant follow-up questions, ensuring a good balance between eliminating impossible possibilities and moving towards the solution. The assistant seems to be aware of the need to adjust its strategy as the conversation progresses.
+   Example: "Is it alive?" This question significantly narrows the search space by eliminating all non-alive objects OR all alive objects guiding the assistant closer to a specific group of objects.
+
+   2 = Moderately interactive: The assistant asks some relevant questions but may not effectively guide the user towards the right search space. There may be noticeable gaps in narrowing down the search space, or the questions could be more specific.
+   Example: "Can it fly?" While it may exclude many inanimate objects, it is less specific than a question about movement or properties.
+
+   1 = Low interactivity: The assistant's questions are vague or ineffective in narrowing the search space. It might not ask follow-up questions or make the necessary adjustments to guide the user towards the solution. The assistant might be stuck asking questions that are too broad or irrelevant.
+   Example: "Is it something?" or "I like apples." A vague question or non-question statement does little to narrow the search space and makes the conversation feel aimless.
+
+
+2. **Accuracy**: Evaluate the factual correctness of the assistant's responses and how well they align with the intended progression of the 20Q game.
+
+   1 = Correct: The assistant provides an accurate and useful answer to the target question, and its follow-up questions contribute effectively to narrowing the search space. The assistant is on track for making a good guess or advancing the game towards identifying the object.
+   Example: If the assistant determines the object is a "bird," and the target question was about whether it can fly, then asking, “Does it fly?” makes the game progress accurately.
+
+   0 = Incorrect: The assistant provides an inaccurate or irrelevant answer to the target question, which may confuse the game’s progression. The assistant might also make an incorrect guess too soon, or its follow-up questions don’t make sense given the information already gathered in the game.
+   Example: If the assistant asked about a flying object but then mistakenly assumed the object was a "fish," it would derail the game.
+
+
+Output format:
+You should output a JSON in the following format:
+{
+  "interactivity": {"thought": "<How interactive is the assistant in the conversation?>", "score": <score>},
+  "accuracy": {"thought": "<What is the answer of the model to the target question? Whether it is consistent with the ground truth answer?>", "score": <score>}
+}
+
+
+Important Notes:
+- The "Historical Conversation" is provided only for reference to help you understand the context of the follow-up conversation. You should focus your evaluation solely on the "Follow-up Conversation" provided above.
+- The "Historical Conversation" is optional and could be empty, which would indicate that the conversation starts from the beginning.
+- These dimensions should be considered independently. Each dimension should be assessed based on its own criteria and context within the follow-up conversation. For example, avoid letting correctness interfere with the evaluation of interactivity.
+- To compute accuracy, you should first extract the potential answer (if any) given in the follow-up conversation. Then, recall the ground truth answer provided above. Finally, give your evaluation from comparing these two answers.
+- Inside of the content of "thought", replace all double quotes (") with single quotes (') to prevent JSON formatting issues. For example, you can output "thought": "'Hello' is a common phrase." 
+
+Your evaluation:
+
+
+
+
+
+DEBUG response type: <class 'dict'>
+
+
+
+DEBUG response content:
+{
+    'current_answer': 'apple',
+    'thought': 'The assistant has not guessed my object/category correctly yet. The hidden word is not related to animals, so I should respond 
+accordingly.',
+    'response': 'No'
+}
+
+
+
+DEBUG response type: <class 'dict'>
+
+
+
+DEBUG response content:
+{
+    'current_answer': 'food',
+    'thought': 'The assistant has correctly guessed that the hidden word is related to food. This is a good direction. I will continue guiding the 
+assistant towards the target object.',
+    'response': 'Yes'
+}
+You are a helpful and meticulous conversation evaluator. Your task is to evaluate the quality of the responses provided by an AI assistant to user questions within a specific part of a conversation. You should provide evaluations on two dimensions separately. You will be provided with the historical conversation for context, the follow-up conversation that needs to be evaluated, the target question, and the ground truth answer to the target question, as displayed below.
+
+Provided Information:
+
+<|The Start of The Historical Conversation|>  
+**user**: 
+
+**assistant**: Is the hidden word related to a specific category or theme? This question will help us focus on narrowing down the search space. Please answer with yes or no. Thank you!
+
+**user**: Yes, the hidden word is related to a specific category or theme.
+  
+<|The End of The Historical Conversation|>
+
+<|The Start of The Follow-up Conversation to be Evaluated|>  
+**assistant**: Is the hidden word related to animals?
+
+**user**: No
+
+**assistant**: Is the hidden word related to food or drinks?
+
+**user**: Yes
+
+**assistant**: Is the hidden word related to a specific type of cuisine, such as Italian or Mexican?
+  
+<|The End of The Follow-up Conversation to be Evaluated|>
+
+<|The Start of Target Question and Ground Truth Answer|>  
+Target Question: No.  
+Ground Truth Answer: The answer is: Bear.  
+<|The End of Target Question and Ground Truth Answer|>
+
+
+You should evaluate the follow-up conversation based on the following two dimensions:
+
+1. **Interactivity**: Assess the assistant’s engagement, clarity, and ability to understand the user’s needs in the follow-up conversation, with specific reference to the 20Q task.
+Notes:
+- The assistant’s ability to ask relevant and effective yes/no questions is crucial for narrowing down the search space in a 20 Questions game. A highly interactive assistant asks clear, thoughtful questions that guide the conversation effectively toward the solution. The assistant should adjust its strategy based on the user’s answers and continue to narrow down possibilities, ensuring the conversation progresses smoothly. 
+- Questions like 'Is it alive?' are particularly effective early in the game as they divide the search space into broad categories: living vs. non-living. This question immediately helps the assistant focus on either living creatures (animals, plants) or non-living objects, making it a key question for narrowing down the possibilities right away.
+- If the answer is 'yes,' the assistant can further narrow the space to living things like animals or plants. If the answer is 'no,' it helps eliminate living things and leads the assistant towards non-living objects. This question is especially helpful in the early stages of the game, unlike more general or vague questions like 'Is it something?' because it drives the conversation in a more meaningful direction.
+
+   3 = Highly interactive: The assistant effectively narrows down the search space through engaging, clear, and thoughtful yes/no questions. It asks relevant follow-up questions, ensuring a good balance between eliminating impossible possibilities and moving towards the solution. The assistant seems to be aware of the need to adjust its strategy as the conversation progresses.
+   Example: "Is it alive?" This question significantly narrows the search space by eliminating all non-alive objects OR all alive objects guiding the assistant closer to a specific group of objects.
+
+   2 = Moderately interactive: The assistant asks some relevant questions but may not effectively guide the user towards the right search space. There may be noticeable gaps in narrowing down the search space, or the questions could be more specific.
+   Example: "Can it fly?" While it may exclude many inanimate objects, it is less specific than a question about movement or properties.
+
+   1 = Low interactivity: The assistant's questions are vague or ineffective in narrowing the search space. It might not ask follow-up questions or make the necessary adjustments to guide the user towards the solution. The assistant might be stuck asking questions that are too broad or irrelevant.
+   Example: "Is it something?" or "I like apples." A vague question or non-question statement does little to narrow the search space and makes the conversation feel aimless.
+
+
+2. **Accuracy**: Evaluate the factual correctness of the assistant's responses and how well they align with the intended progression of the 20Q game.
+
+   1 = Correct: The assistant provides an accurate and useful answer to the target question, and its follow-up questions contribute effectively to narrowing the search space. The assistant is on track for making a good guess or advancing the game towards identifying the object.
+   Example: If the assistant determines the object is a "bird," and the target question was about whether it can fly, then asking, “Does it fly?” makes the game progress accurately.
+
+   0 = Incorrect: The assistant provides an inaccurate or irrelevant answer to the target question, which may confuse the game’s progression. The assistant might also make an incorrect guess too soon, or its follow-up questions don’t make sense given the information already gathered in the game.
+   Example: If the assistant asked about a flying object but then mistakenly assumed the object was a "fish," it would derail the game.
+
+
+Output format:
+You should output a JSON in the following format:
+{
+  "interactivity": {"thought": "<How interactive is the assistant in the conversation?>", "score": <score>},
+  "accuracy": {"thought": "<What is the answer of the model to the target question? Whether it is consistent with the ground truth answer?>", "score": <score>}
+}
+
+
+Important Notes:
+- The "Historical Conversation" is provided only for reference to help you understand the context of the follow-up conversation. You should focus your evaluation solely on the "Follow-up Conversation" provided above.
+- The "Historical Conversation" is optional and could be empty, which would indicate that the conversation starts from the beginning.
+- These dimensions should be considered independently. Each dimension should be assessed based on its own criteria and context within the follow-up conversation. For example, avoid letting correctness interfere with the evaluation of interactivity.
+- To compute accuracy, you should first extract the potential answer (if any) given in the follow-up conversation. Then, recall the ground truth answer provided above. Finally, give your evaluation from comparing these two answers.
+- Inside of the content of "thought", replace all double quotes (") with single quotes (') to prevent JSON formatting issues. For example, you can output "thought": "'Hello' is a common phrase." 
+
+Your evaluation:
+
+
+
+
+
+DEBUG response type: <class 'dict'>
+
+
+
+DEBUG response content:
+{
+    'current_answer': '',
+    'thought': "The assistant asked if the hidden word is related to animals. Since the target object is an apple, which is not an animal, I should 
+respond with a 'No' to keep guiding the assistant towards the correct answer.",
+    'response': 'No'
+}
+
+
+
+DEBUG response type: <class 'dict'>
+
+
+
+DEBUG response content:
+{
+    'current_answer': 'food or drinks',
+    'thought': "The assistant has correctly guessed that the hidden word is related to food or drinks. Since the hidden object is 'apple,' which 
+falls under the category of food, the assistant is on the right track.",
+    'response': 'Yes'
+}
+You are a helpful and meticulous conversation evaluator. Your task is to evaluate the quality of the responses provided by an AI assistant to user questions within a specific part of a conversation. You should provide evaluations on two dimensions separately. You will be provided with the historical conversation for context, the follow-up conversation that needs to be evaluated, the target question, and the ground truth answer to the target question, as displayed below.
+
+Provided Information:
+
+<|The Start of The Historical Conversation|>  
+**user**: 
+
+**assistant**: Is the hidden word related to a specific category or theme? This question will help us focus on narrowing down the search space. Please answer with yes or no. Thank you!
+
+**user**: Yes, the hidden word is related to a specific category or theme.
+  
+<|The End of The Historical Conversation|>
+
+<|The Start of The Follow-up Conversation to be Evaluated|>  
+**assistant**: Is the hidden word related to animals?
+
+**user**: No
+
+**assistant**: Is the hidden word related to food or drinks?
+
+**user**: Yes
+
+**assistant**: Is the hidden word related to a specific type of cuisine or dish?
+  
+<|The End of The Follow-up Conversation to be Evaluated|>
+
+<|The Start of Target Question and Ground Truth Answer|>  
+Target Question: No.  
+Ground Truth Answer: The answer is: Bear.  
+<|The End of Target Question and Ground Truth Answer|>
+
+
+You should evaluate the follow-up conversation based on the following two dimensions:
+
+1. **Interactivity**: Assess the assistant’s engagement, clarity, and ability to understand the user’s needs in the follow-up conversation, with specific reference to the 20Q task.
+Notes:
+- The assistant’s ability to ask relevant and effective yes/no questions is crucial for narrowing down the search space in a 20 Questions game. A highly interactive assistant asks clear, thoughtful questions that guide the conversation effectively toward the solution. The assistant should adjust its strategy based on the user’s answers and continue to narrow down possibilities, ensuring the conversation progresses smoothly. 
+- Questions like 'Is it alive?' are particularly effective early in the game as they divide the search space into broad categories: living vs. non-living. This question immediately helps the assistant focus on either living creatures (animals, plants) or non-living objects, making it a key question for narrowing down the possibilities right away.
+- If the answer is 'yes,' the assistant can further narrow the space to living things like animals or plants. If the answer is 'no,' it helps eliminate living things and leads the assistant towards non-living objects. This question is especially helpful in the early stages of the game, unlike more general or vague questions like 'Is it something?' because it drives the conversation in a more meaningful direction.
+
+   3 = Highly interactive: The assistant effectively narrows down the search space through engaging, clear, and thoughtful yes/no questions. It asks relevant follow-up questions, ensuring a good balance between eliminating impossible possibilities and moving towards the solution. The assistant seems to be aware of the need to adjust its strategy as the conversation progresses.
+   Example: "Is it alive?" This question significantly narrows the search space by eliminating all non-alive objects OR all alive objects guiding the assistant closer to a specific group of objects.
+
+   2 = Moderately interactive: The assistant asks some relevant questions but may not effectively guide the user towards the right search space. There may be noticeable gaps in narrowing down the search space, or the questions could be more specific.
+   Example: "Can it fly?" While it may exclude many inanimate objects, it is less specific than a question about movement or properties.
+
+   1 = Low interactivity: The assistant's questions are vague or ineffective in narrowing the search space. It might not ask follow-up questions or make the necessary adjustments to guide the user towards the solution. The assistant might be stuck asking questions that are too broad or irrelevant.
+   Example: "Is it something?" or "I like apples." A vague question or non-question statement does little to narrow the search space and makes the conversation feel aimless.
+
+
+2. **Accuracy**: Evaluate the factual correctness of the assistant's responses and how well they align with the intended progression of the 20Q game.
+
+   1 = Correct: The assistant provides an accurate and useful answer to the target question, and its follow-up questions contribute effectively to narrowing the search space. The assistant is on track for making a good guess or advancing the game towards identifying the object.
+   Example: If the assistant determines the object is a "bird," and the target question was about whether it can fly, then asking, “Does it fly?” makes the game progress accurately.
+
+   0 = Incorrect: The assistant provides an inaccurate or irrelevant answer to the target question, which may confuse the game’s progression. The assistant might also make an incorrect guess too soon, or its follow-up questions don’t make sense given the information already gathered in the game.
+   Example: If the assistant asked about a flying object but then mistakenly assumed the object was a "fish," it would derail the game.
+
+
+Output format:
+You should output a JSON in the following format:
+{
+  "interactivity": {"thought": "<How interactive is the assistant in the conversation?>", "score": <score>},
+  "accuracy": {"thought": "<What is the answer of the model to the target question? Whether it is consistent with the ground truth answer?>", "score": <score>}
+}
+
+
+Important Notes:
+- The "Historical Conversation" is provided only for reference to help you understand the context of the follow-up conversation. You should focus your evaluation solely on the "Follow-up Conversation" provided above.
+- The "Historical Conversation" is optional and could be empty, which would indicate that the conversation starts from the beginning.
+- These dimensions should be considered independently. Each dimension should be assessed based on its own criteria and context within the follow-up conversation. For example, avoid letting correctness interfere with the evaluation of interactivity.
+- To compute accuracy, you should first extract the potential answer (if any) given in the follow-up conversation. Then, recall the ground truth answer provided above. Finally, give your evaluation from comparing these two answers.
+- Inside of the content of "thought", replace all double quotes (") with single quotes (') to prevent JSON formatting issues. For example, you can output "thought": "'Hello' is a common phrase." 
+
+Your evaluation:
+
+
+
+
+
+DEBUG response type: <class 'dict'>
+
+
+
+DEBUG response content:
+{
+    'current_answer': '',
+    'thought': "The assistant asked if the hidden word is related to animals, which is not accurate for the target object 'apple'. I should respond 
+with 'No' to steer the assistant in the right direction.",
+    'response': 'No'
+}
+
+
+
+DEBUG response type: <class 'dict'>
+
+
+
+DEBUG response content:
+{
+    'current_answer': '',
+    'thought': "The assistant has correctly guessed that the hidden word is related to food or drink. Since 'apple' is a type of fruit, I should 
+continue guiding the assistant towards guessing the specific object.",
+    'response': 'Yes'
+}
+You are a helpful and meticulous conversation evaluator. Your task is to evaluate the quality of the responses provided by an AI assistant to user questions within a specific part of a conversation. You should provide evaluations on two dimensions separately. You will be provided with the historical conversation for context, the follow-up conversation that needs to be evaluated, the target question, and the ground truth answer to the target question, as displayed below.
+
+Provided Information:
+
+<|The Start of The Historical Conversation|>  
+**user**: 
+
+**assistant**: Is the hidden word related to a specific category or theme? This question will help us focus on narrowing down the search space. Please answer with yes or no. Thank you!
+
+**user**: Yes, the hidden word is related to a specific category or theme.
+  
+<|The End of The Historical Conversation|>
+
+<|The Start of The Follow-up Conversation to be Evaluated|>  
+**assistant**: Is the hidden word related to animals?
+
+**user**: No
+
+**assistant**: Is the hidden word related to food or drink?
+
+**user**: Yes
+
+**assistant**: Is the hidden word a type of fruit?
+  
+<|The End of The Follow-up Conversation to be Evaluated|>
+
+<|The Start of Target Question and Ground Truth Answer|>  
+Target Question: No.  
+Ground Truth Answer: The answer is: Bear.  
+<|The End of Target Question and Ground Truth Answer|>
+
+
+You should evaluate the follow-up conversation based on the following two dimensions:
+
+1. **Interactivity**: Assess the assistant’s engagement, clarity, and ability to understand the user’s needs in the follow-up conversation, with specific reference to the 20Q task.
+Notes:
+- The assistant’s ability to ask relevant and effective yes/no questions is crucial for narrowing down the search space in a 20 Questions game. A highly interactive assistant asks clear, thoughtful questions that guide the conversation effectively toward the solution. The assistant should adjust its strategy based on the user’s answers and continue to narrow down possibilities, ensuring the conversation progresses smoothly. 
+- Questions like 'Is it alive?' are particularly effective early in the game as they divide the search space into broad categories: living vs. non-living. This question immediately helps the assistant focus on either living creatures (animals, plants) or non-living objects, making it a key question for narrowing down the possibilities right away.
+- If the answer is 'yes,' the assistant can further narrow the space to living things like animals or plants. If the answer is 'no,' it helps eliminate living things and leads the assistant towards non-living objects. This question is especially helpful in the early stages of the game, unlike more general or vague questions like 'Is it something?' because it drives the conversation in a more meaningful direction.
+
+   3 = Highly interactive: The assistant effectively narrows down the search space through engaging, clear, and thoughtful yes/no questions. It asks relevant follow-up questions, ensuring a good balance between eliminating impossible possibilities and moving towards the solution. The assistant seems to be aware of the need to adjust its strategy as the conversation progresses.
+   Example: "Is it alive?" This question significantly narrows the search space by eliminating all non-alive objects OR all alive objects guiding the assistant closer to a specific group of objects.
+
+   2 = Moderately interactive: The assistant asks some relevant questions but may not effectively guide the user towards the right search space. There may be noticeable gaps in narrowing down the search space, or the questions could be more specific.
+   Example: "Can it fly?" While it may exclude many inanimate objects, it is less specific than a question about movement or properties.
+
+   1 = Low interactivity: The assistant's questions are vague or ineffective in narrowing the search space. It might not ask follow-up questions or make the necessary adjustments to guide the user towards the solution. The assistant might be stuck asking questions that are too broad or irrelevant.
+   Example: "Is it something?" or "I like apples." A vague question or non-question statement does little to narrow the search space and makes the conversation feel aimless.
+
+
+2. **Accuracy**: Evaluate the factual correctness of the assistant's responses and how well they align with the intended progression of the 20Q game.
+
+   1 = Correct: The assistant provides an accurate and useful answer to the target question, and its follow-up questions contribute effectively to narrowing the search space. The assistant is on track for making a good guess or advancing the game towards identifying the object.
+   Example: If the assistant determines the object is a "bird," and the target question was about whether it can fly, then asking, “Does it fly?” makes the game progress accurately.
+
+   0 = Incorrect: The assistant provides an inaccurate or irrelevant answer to the target question, which may confuse the game’s progression. The assistant might also make an incorrect guess too soon, or its follow-up questions don’t make sense given the information already gathered in the game.
+   Example: If the assistant asked about a flying object but then mistakenly assumed the object was a "fish," it would derail the game.
+
+
+Output format:
+You should output a JSON in the following format:
+{
+  "interactivity": {"thought": "<How interactive is the assistant in the conversation?>", "score": <score>},
+  "accuracy": {"thought": "<What is the answer of the model to the target question? Whether it is consistent with the ground truth answer?>", "score": <score>}
+}
+
+
+Important Notes:
+- The "Historical Conversation" is provided only for reference to help you understand the context of the follow-up conversation. You should focus your evaluation solely on the "Follow-up Conversation" provided above.
+- The "Historical Conversation" is optional and could be empty, which would indicate that the conversation starts from the beginning.
+- These dimensions should be considered independently. Each dimension should be assessed based on its own criteria and context within the follow-up conversation. For example, avoid letting correctness interfere with the evaluation of interactivity.
+- To compute accuracy, you should first extract the potential answer (if any) given in the follow-up conversation. Then, recall the ground truth answer provided above. Finally, give your evaluation from comparing these two answers.
+- Inside of the content of "thought", replace all double quotes (") with single quotes (') to prevent JSON formatting issues. For example, you can output "thought": "'Hello' is a common phrase." 
+
+Your evaluation:
+
+
+1.0 [1.    0.667 0.667] 1.0 [0. 0. 0.] 0.0005 [0.062 0.056 0.057]
+1.0 [0.667 0.667 1.   ] 1.0 [0. 0. 1.] 0.0005 [0.02  0.018 0.015]
+[Turn 4] Rewards [tensor([0.7194]), tensor([1.0933])]
+Chosen: task_metric_avg=0.3333333333333333 | llm_rw_avg=0.7777777777777777 | token_cost_avg=0.017833333333333336
+Rejected: task_metric_avg=0.0 | llm_rw_avg=0.7777777777777777 | token_cost_avg=0.05833333333333333
+[Turn 4] Chosen: Is the hidden word related to animals?
+
+[Turn 4] Rejected: Is the hidden word related to the category of animals, food, technology, or something else? Please provide a yes or no answer to 
+help narrow down the search space. Thank you!
+
+
+
+
+
+DEBUG response type: <class 'dict'>
+
+
+
+DEBUG response content:
+{
+    'current_answer': 'Belt',
+    'thought': 'The assistant has not guessed the object correctly yet. The hidden word is related to a specific category or theme, but not animals.
+I should continue guiding the assistant towards the correct answer.',
+    'response': {'user': 'No'}
+}
+[UserSimulator] Unexpected response type: <class 'dict'>
+
+Processing conversation 23: 100%|##########| 2/2 [01:01<00:00, 30.32s/it]Processing conversation 23: 100%|##########| 2/2 [01:01<00:00, 30.63s/it]
+100%|##########| 1/1 [01:15<00:00, 75.38s/it]100%|##########| 1/1 [01:15<00:00, 75.38s/it]

@@ -11,9 +11,9 @@ export USE_GCR=false
 # Dataset configurations
 export DATASET=NONE                # Change this for different datasets (e.g., math-hard, humaneval)
 export TEMP=0.5                      # Temperature for sampling (adjust for creativity)
-export MAX_NEW_TURNS=20               # Maximum number of new conversation turns per task
+export MAX_NEW_TURNS=2               # aditi edit for debugging
+# export MAX_NEW_TURNS=20               # Maximum number of new conversation turns per task
 # ^ this is length of game
-# export MAX_NEW_TURNS=2               # aditi edit for debugging
 # export MAX_NEW_TURNS=8               # from original code
 # export MAX_TOKENS=1536               # from original code
 export MAX_TOKENS=256               # Maximum tokens per generation -- aditi edit
