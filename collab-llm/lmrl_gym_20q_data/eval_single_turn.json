@@ -4,6 +4,7 @@
       "type": "twenty_questions_single_turn",
       "source": "local_file"
     },
+    "target_object": "Screwdriver",
     "chat": [
       {
         "role": "user",
@@ -20,6 +21,7 @@
       "type": "twenty_questions_single_turn",
       "source": "local_file"
     },
+    "target_object": "Cow",
     "chat": [
       {
         "role": "user",
@@ -36,6 +38,7 @@
       "type": "twenty_questions_single_turn",
       "source": "local_file"
     },
+    "target_object": "Lion",
     "chat": [
       {
         "role": "user",
@@ -52,6 +55,7 @@
       "type": "twenty_questions_single_turn",
       "source": "local_file"
     },
+    "target_object": "Battery",
     "chat": [
       {
         "role": "user",
@@ -68,6 +72,7 @@
       "type": "twenty_questions_single_turn",
       "source": "local_file"
     },
+    "target_object": "Lawn mower",
     "chat": [
       {
         "role": "user",
@@ -84,6 +89,7 @@
       "type": "twenty_questions_single_turn",
       "source": "local_file"
     },
+    "target_object": "Carrot",
     "chat": [
       {
         "role": "user",
@@ -100,6 +106,7 @@
       "type": "twenty_questions_single_turn",
       "source": "local_file"
     },
+    "target_object": "Printer",
     "chat": [
       {
         "role": "user",
@@ -116,6 +123,7 @@
       "type": "twenty_questions_single_turn",
       "source": "local_file"
     },
+    "target_object": "Pan",
     "chat": [
       {
         "role": "user",
@@ -132,6 +140,7 @@
       "type": "twenty_questions_single_turn",
       "source": "local_file"
     },
+    "target_object": "Eraser",
     "chat": [
       {
         "role": "user",
@@ -148,6 +157,7 @@
       "type": "twenty_questions_single_turn",
       "source": "local_file"
     },
+    "target_object": "Soccer ball",
     "chat": [
       {
         "role": "user",
@@ -164,6 +174,7 @@
       "type": "twenty_questions_single_turn",
       "source": "local_file"
     },
+    "target_object": "Mango",
     "chat": [
       {
         "role": "user",
@@ -180,6 +191,7 @@
       "type": "twenty_questions_single_turn",
       "source": "local_file"
     },
+    "target_object": "Calculator",
     "chat": [
       {
         "role": "user",
@@ -196,6 +208,7 @@
       "type": "twenty_questions_single_turn",
       "source": "local_file"
     },
+    "target_object": "Battery",
     "chat": [
       {
         "role": "user",
@@ -212,6 +225,7 @@
       "type": "twenty_questions_single_turn",
       "source": "local_file"
     },
+    "target_object": "Pliers",
     "chat": [
       {
         "role": "user",
@@ -228,6 +242,7 @@
       "type": "twenty_questions_single_turn",
       "source": "local_file"
     },
+    "target_object": "Tomato",
     "chat": [
       {
         "role": "user",
@@ -244,6 +259,7 @@
       "type": "twenty_questions_single_turn",
       "source": "local_file"
     },
+    "target_object": "Stapler",
     "chat": [
       {
         "role": "user",
@@ -260,6 +276,7 @@
       "type": "twenty_questions_single_turn",
       "source": "local_file"
     },
+    "target_object": "Desk",
     "chat": [
       {
         "role": "user",
@@ -276,6 +293,7 @@
       "type": "twenty_questions_single_turn",
       "source": "local_file"
     },
+    "target_object": "Celery",
     "chat": [
       {
         "role": "user",
@@ -292,6 +310,7 @@
       "type": "twenty_questions_single_turn",
       "source": "local_file"
     },
+    "target_object": "Elephant",
     "chat": [
       {
         "role": "user",
@@ -308,6 +327,7 @@
       "type": "twenty_questions_single_turn",
       "source": "local_file"
     },
+    "target_object": "Computer",
     "chat": [
       {
         "role": "user",
@@ -324,6 +344,7 @@
       "type": "twenty_questions_single_turn",
       "source": "local_file"
     },
+    "target_object": "Watch",
     "chat": [
       {
         "role": "user",
@@ -340,6 +361,7 @@
       "type": "twenty_questions_single_turn",
       "source": "local_file"
     },
+    "target_object": "Dog",
     "chat": [
       {
         "role": "user",
@@ -356,6 +378,7 @@
       "type": "twenty_questions_single_turn",
       "source": "local_file"
     },
+    "target_object": "Carrot",
     "chat": [
       {
         "role": "user",
@@ -372,6 +395,7 @@
       "type": "twenty_questions_single_turn",
       "source": "local_file"
     },
+    "target_object": "Scooter",
     "chat": [
       {
         "role": "user",
@@ -388,6 +412,7 @@
       "type": "twenty_questions_single_turn",
       "source": "local_file"
     },
+    "target_object": "Piano",
     "chat": [
       {
         "role": "user",
@@ -404,6 +429,7 @@
       "type": "twenty_questions_single_turn",
       "source": "local_file"
     },
+    "target_object": "Camera",
     "chat": [
       {
         "role": "user",
@@ -420,6 +446,7 @@
       "type": "twenty_questions_single_turn",
       "source": "local_file"
     },
+    "target_object": "Boat",
     "chat": [
       {
         "role": "user",
@@ -436,6 +463,7 @@
       "type": "twenty_questions_single_turn",
       "source": "local_file"
     },
+    "target_object": "Soccer ball",
     "chat": [
       {
         "role": "user",
@@ -452,6 +480,7 @@
       "type": "twenty_questions_single_turn",
       "source": "local_file"
     },
+    "target_object": "Diary",
     "chat": [
       {
         "role": "user",
@@ -468,6 +497,7 @@
       "type": "twenty_questions_single_turn",
       "source": "local_file"
     },
+    "target_object": "Trumpet",
     "chat": [
       {
         "role": "user",
@@ -484,6 +514,7 @@
       "type": "twenty_questions_single_turn",
       "source": "local_file"
     },
+    "target_object": "Shirt",
     "chat": [
       {
         "role": "user",
@@ -500,6 +531,7 @@
       "type": "twenty_questions_single_turn",
       "source": "local_file"
     },
+    "target_object": "Watering can",
     "chat": [
       {
         "role": "user",
@@ -516,6 +548,7 @@
       "type": "twenty_questions_single_turn",
       "source": "local_file"
     },
+    "target_object": "Dresser",
     "chat": [
       {
         "role": "user",
@@ -532,6 +565,7 @@
       "type": "twenty_questions_single_turn",
       "source": "local_file"
     },
+    "target_object": "Boots",
     "chat": [
       {
         "role": "user",
@@ -548,6 +582,7 @@
       "type": "twenty_questions_single_turn",
       "source": "local_file"
     },
+    "target_object": "Wrench",
     "chat": [
       {
         "role": "user",
@@ -564,6 +599,7 @@
       "type": "twenty_questions_single_turn",
       "source": "local_file"
     },
+    "target_object": "Knife",
     "chat": [
       {
         "role": "user",
@@ -580,6 +616,7 @@
       "type": "twenty_questions_single_turn",
       "source": "local_file"
     },
+    "target_object": "Spoon",
     "chat": [
       {
         "role": "user",
@@ -596,6 +633,7 @@
       "type": "twenty_questions_single_turn",
       "source": "local_file"
     },
+    "target_object": "Cat",
     "chat": [
       {
         "role": "user",
@@ -612,6 +650,7 @@
       "type": "twenty_questions_single_turn",
       "source": "local_file"
     },
+    "target_object": "Calendar",
     "chat": [
       {
         "role": "user",
@@ -628,6 +667,7 @@
       "type": "twenty_questions_single_turn",
       "source": "local_file"
     },
+    "target_object": "Gloves",
     "chat": [
       {
         "role": "user",
@@ -644,6 +684,7 @@
       "type": "twenty_questions_single_turn",
       "source": "local_file"
     },
+    "target_object": "Watch",
     "chat": [
       {
         "role": "user",
@@ -660,6 +701,7 @@
       "type": "twenty_questions_single_turn",
       "source": "local_file"
     },
+    "target_object": "Fork",
     "chat": [
       {
         "role": "user",
@@ -676,6 +718,7 @@
       "type": "twenty_questions_single_turn",
       "source": "local_file"
     },
+    "target_object": "Sea",
     "chat": [
       {
         "role": "user",
@@ -692,6 +735,7 @@
       "type": "twenty_questions_single_turn",
       "source": "local_file"
     },
+    "target_object": "Rabbit",
     "chat": [
       {
         "role": "user",
@@ -708,6 +752,7 @@
       "type": "twenty_questions_single_turn",
       "source": "local_file"
     },
+    "target_object": "Doll",
     "chat": [
       {
         "role": "user",
@@ -724,6 +769,7 @@
       "type": "twenty_questions_single_turn",
       "source": "local_file"
     },
+    "target_object": "Knife",
     "chat": [
       {
         "role": "user",
@@ -740,6 +786,7 @@
       "type": "twenty_questions_single_turn",
       "source": "local_file"
     },
+    "target_object": "Table",
     "chat": [
       {
         "role": "user",
@@ -756,6 +803,7 @@
       "type": "twenty_questions_single_turn",
       "source": "local_file"
     },
+    "target_object": "Watch",
     "chat": [
       {
         "role": "user",
@@ -772,6 +820,7 @@
       "type": "twenty_questions_single_turn",
       "source": "local_file"
     },
+    "target_object": "Blender",
     "chat": [
       {
         "role": "user",
@@ -788,6 +837,7 @@
       "type": "twenty_questions_single_turn",
       "source": "local_file"
     },
+    "target_object": "Cucumber",
     "chat": [
       {
         "role": "user",
@@ -804,6 +854,7 @@
       "type": "twenty_questions_single_turn",
       "source": "local_file"
     },
+    "target_object": "Corn",
     "chat": [
       {
         "role": "user",
@@ -820,6 +871,7 @@
       "type": "twenty_questions_single_turn",
       "source": "local_file"
     },
+    "target_object": "Lake",
     "chat": [
       {
         "role": "user",
@@ -836,6 +888,7 @@
       "type": "twenty_questions_single_turn",
       "source": "local_file"
     },
+    "target_object": "Basketball",
     "chat": [
       {
         "role": "user",
@@ -852,6 +905,7 @@
       "type": "twenty_questions_single_turn",
       "source": "local_file"
     },
+    "target_object": "Pineapple",
     "chat": [
       {
         "role": "user",
@@ -868,6 +922,7 @@
       "type": "twenty_questions_single_turn",
       "source": "local_file"
     },
+    "target_object": "Grape",
     "chat": [
       {
         "role": "user",
@@ -884,6 +939,7 @@
       "type": "twenty_questions_single_turn",
       "source": "local_file"
     },
+    "target_object": "Screwdriver",
     "chat": [
       {
         "role": "user",
@@ -900,6 +956,7 @@
       "type": "twenty_questions_single_turn",
       "source": "local_file"
     },
+    "target_object": "Piano",
     "chat": [
       {
         "role": "user",
@@ -916,6 +973,7 @@
       "type": "twenty_questions_single_turn",
       "source": "local_file"
     },
+    "target_object": "Plate",
     "chat": [
       {
         "role": "user",
@@ -932,6 +990,7 @@
       "type": "twenty_questions_single_turn",
       "source": "local_file"
     },
+    "target_object": "Corn",
     "chat": [
       {
         "role": "user",
@@ -948,6 +1007,7 @@
       "type": "twenty_questions_single_turn",
       "source": "local_file"
     },
+    "target_object": "Wrench",
     "chat": [
       {
         "role": "user",
@@ -964,6 +1024,7 @@
       "type": "twenty_questions_single_turn",
       "source": "local_file"
     },
+    "target_object": "Chair",
     "chat": [
       {
         "role": "user",
@@ -980,6 +1041,7 @@
       "type": "twenty_questions_single_turn",
       "source": "local_file"
     },
+    "target_object": "Pillow",
     "chat": [
       {
         "role": "user",
@@ -996,6 +1058,7 @@
       "type": "twenty_questions_single_turn",
       "source": "local_file"
     },
+    "target_object": "Lego",
     "chat": [
       {
         "role": "user",
@@ -1012,6 +1075,7 @@
       "type": "twenty_questions_single_turn",
       "source": "local_file"
     },
+    "target_object": "River",
     "chat": [
       {
         "role": "user",
@@ -1028,6 +1092,7 @@
       "type": "twenty_questions_single_turn",
       "source": "local_file"
     },
+    "target_object": "Banana",
     "chat": [
       {
         "role": "user",
@@ -1044,6 +1109,7 @@
       "type": "twenty_questions_single_turn",
       "source": "local_file"
     },
+    "target_object": "Potato",
     "chat": [
       {
         "role": "user",
@@ -1060,6 +1126,7 @@
       "type": "twenty_questions_single_turn",
       "source": "local_file"
     },
+    "target_object": "Meteorite",
     "chat": [
       {
         "role": "user",
@@ -1076,6 +1143,7 @@
       "type": "twenty_questions_single_turn",
       "source": "local_file"
     },
+    "target_object": "Onion",
     "chat": [
       {
         "role": "user",
@@ -1092,6 +1160,7 @@
       "type": "twenty_questions_single_turn",
       "source": "local_file"
     },
+    "target_object": "Celery",
     "chat": [
       {
         "role": "user",
@@ -1108,6 +1177,7 @@
       "type": "twenty_questions_single_turn",
       "source": "local_file"
     },
+    "target_object": "Pencil",
     "chat": [
       {
         "role": "user",
@@ -1124,6 +1194,7 @@
       "type": "twenty_questions_single_turn",
       "source": "local_file"
     },
+    "target_object": "Scissors",
     "chat": [
       {
         "role": "user",
@@ -1140,6 +1211,7 @@
       "type": "twenty_questions_single_turn",
       "source": "local_file"
     },
+    "target_object": "Train",
     "chat": [
       {
         "role": "user",
@@ -1156,6 +1228,7 @@
       "type": "twenty_questions_single_turn",
       "source": "local_file"
     },
+    "target_object": "Puzzle",
     "chat": [
       {
         "role": "user",
@@ -1172,6 +1245,7 @@
       "type": "twenty_questions_single_turn",
       "source": "local_file"
     },
+    "target_object": "Flute",
     "chat": [
       {
         "role": "user",
@@ -1188,6 +1262,7 @@
       "type": "twenty_questions_single_turn",
       "source": "local_file"
     },
+    "target_object": "Celery",
     "chat": [
       {
         "role": "user",
@@ -1204,6 +1279,7 @@
       "type": "twenty_questions_single_turn",
       "source": "local_file"
     },
+    "target_object": "Piano",
     "chat": [
       {
         "role": "user",
@@ -1220,6 +1296,7 @@
       "type": "twenty_questions_single_turn",
       "source": "local_file"
     },
+    "target_object": "Dog",
     "chat": [
       {
         "role": "user",
@@ -1236,6 +1313,7 @@
       "type": "twenty_questions_single_turn",
       "source": "local_file"
     },
+    "target_object": "Desk",
     "chat": [
       {
         "role": "user",
@@ -1252,6 +1330,7 @@
       "type": "twenty_questions_single_turn",
       "source": "local_file"
     },
+    "target_object": "Knife",
     "chat": [
       {
         "role": "user",
@@ -1268,6 +1347,7 @@
       "type": "twenty_questions_single_turn",
       "source": "local_file"
     },
+    "target_object": "Sculpture",
     "chat": [
       {
         "role": "user",
@@ -1284,6 +1364,7 @@
       "type": "twenty_questions_single_turn",
       "source": "local_file"
     },
+    "target_object": "River",
     "chat": [
       {
         "role": "user",
@@ -1300,6 +1381,7 @@
       "type": "twenty_questions_single_turn",
       "source": "local_file"
     },
+    "target_object": "Stapler",
     "chat": [
       {
         "role": "user",
@@ -1316,6 +1398,7 @@
       "type": "twenty_questions_single_turn",
       "source": "local_file"
     },
+    "target_object": "Boat",
     "chat": [
       {
         "role": "user",
@@ -1332,6 +1415,7 @@
       "type": "twenty_questions_single_turn",
       "source": "local_file"
     },
+    "target_object": "Blender",
     "chat": [
       {
         "role": "user",
@@ -1348,6 +1432,7 @@
       "type": "twenty_questions_single_turn",
       "source": "local_file"
     },
+    "target_object": "Piano",
     "chat": [
       {
         "role": "user",
@@ -1364,6 +1449,7 @@
       "type": "twenty_questions_single_turn",
       "source": "local_file"
     },
+    "target_object": "Sharpie",
     "chat": [
       {
         "role": "user",
@@ -1380,6 +1466,7 @@
       "type": "twenty_questions_single_turn",
       "source": "local_file"
     },
+    "target_object": "Whisk",
     "chat": [
       {
         "role": "user",
@@ -1396,6 +1483,7 @@
       "type": "twenty_questions_single_turn",
       "source": "local_file"
     },
+    "target_object": "Harp",
     "chat": [
       {
         "role": "user",
@@ -1412,6 +1500,7 @@
       "type": "twenty_questions_single_turn",
       "source": "local_file"
     },
+    "target_object": "Scissors",
     "chat": [
       {
         "role": "user",
@@ -1428,6 +1517,7 @@
       "type": "twenty_questions_single_turn",
       "source": "local_file"
     },
+    "target_object": "Car",
     "chat": [
       {
         "role": "user",
@@ -1444,6 +1534,7 @@
       "type": "twenty_questions_single_turn",
       "source": "local_file"
     },
+    "target_object": "Chair",
     "chat": [
       {
         "role": "user",
@@ -1460,6 +1551,7 @@
       "type": "twenty_questions_single_turn",
       "source": "local_file"
     },
+    "target_object": "River",
     "chat": [
       {
         "role": "user",
@@ -1476,6 +1568,7 @@
       "type": "twenty_questions_single_turn",
       "source": "local_file"
     },
+    "target_object": "Skirt",
     "chat": [
       {
         "role": "user",
@@ -1492,6 +1585,7 @@
       "type": "twenty_questions_single_turn",
       "source": "local_file"
     },
+    "target_object": "Paintbrush",
     "chat": [
       {
         "role": "user",
@@ -1508,6 +1602,7 @@
       "type": "twenty_questions_single_turn",
       "source": "local_file"
     },
+    "target_object": "Corn",
     "chat": [
       {
         "role": "user",
@@ -1524,6 +1619,7 @@
       "type": "twenty_questions_single_turn",
       "source": "local_file"
     },
+    "target_object": "Lion",
     "chat": [
       {
         "role": "user",
@@ -1540,6 +1636,7 @@
       "type": "twenty_questions_single_turn",
       "source": "local_file"
     },
+    "target_object": "Tiger",
     "chat": [
       {
         "role": "user",
@@ -1556,6 +1653,7 @@
       "type": "twenty_questions_single_turn",
       "source": "local_file"
     },
+    "target_object": "Onion",
     "chat": [
       {
         "role": "user",
@@ -1572,6 +1670,7 @@
       "type": "twenty_questions_single_turn",
       "source": "local_file"
     },
+    "target_object": "Mattress",
     "chat": [
       {
         "role": "user",
@@ -1588,6 +1687,7 @@
       "type": "twenty_questions_single_turn",
       "source": "local_file"
     },
+    "target_object": "Calculator",
     "chat": [
       {
         "role": "user",
@@ -1604,6 +1704,7 @@
       "type": "twenty_questions_single_turn",
       "source": "local_file"
     },
+    "target_object": "Baseball",
     "chat": [
       {
         "role": "user",
@@ -1620,6 +1721,7 @@
       "type": "twenty_questions_single_turn",
       "source": "local_file"
     },
+    "target_object": "Volleyball",
     "chat": [
       {
         "role": "user",
@@ -1636,6 +1738,7 @@
       "type": "twenty_questions_single_turn",
       "source": "local_file"
     },
+    "target_object": "Tiger",
     "chat": [
       {
         "role": "user",
@@ -1652,6 +1755,7 @@
       "type": "twenty_questions_single_turn",
       "source": "local_file"
     },
+    "target_object": "Stuffed animal",
     "chat": [
       {
         "role": "user",
@@ -1668,6 +1772,7 @@
       "type": "twenty_questions_single_turn",
       "source": "local_file"
     },
+    "target_object": "Rabbit",
     "chat": [
       {
         "role": "user",
@@ -1684,6 +1789,7 @@
       "type": "twenty_questions_single_turn",
       "source": "local_file"
     },
+    "target_object": "Dress",
     "chat": [
       {
         "role": "user",
@@ -1700,6 +1806,7 @@
       "type": "twenty_questions_single_turn",
       "source": "local_file"
     },
+    "target_object": "Cactus",
     "chat": [
       {
         "role": "user",
@@ -1716,6 +1823,7 @@
       "type": "twenty_questions_single_turn",
       "source": "local_file"
     },
+    "target_object": "Pants",
     "chat": [
       {
         "role": "user",
@@ -1732,6 +1840,7 @@
       "type": "twenty_questions_single_turn",
       "source": "local_file"
     },
+    "target_object": "Bus",
     "chat": [
       {
         "role": "user",
@@ -1748,6 +1857,7 @@
       "type": "twenty_questions_single_turn",
       "source": "local_file"
     },
+    "target_object": "Bracelet",
     "chat": [
       {
         "role": "user",
@@ -1764,6 +1874,7 @@
       "type": "twenty_questions_single_turn",
       "source": "local_file"
     },
+    "target_object": "Puzzle",
     "chat": [
       {
         "role": "user",
@@ -1780,6 +1891,7 @@
       "type": "twenty_questions_single_turn",
       "source": "local_file"
     },
+    "target_object": "Wrench",
     "chat": [
       {
         "role": "user",
@@ -1796,6 +1908,7 @@
       "type": "twenty_questions_single_turn",
       "source": "local_file"
     },
+    "target_object": "Guitar",
     "chat": [
       {
         "role": "user",
@@ -1812,6 +1925,7 @@
       "type": "twenty_questions_single_turn",
       "source": "local_file"
     },
+    "target_object": "Jacket",
     "chat": [
       {
         "role": "user",
@@ -1828,6 +1942,7 @@
       "type": "twenty_questions_single_turn",
       "source": "local_file"
     },
+    "target_object": "Socks",
     "chat": [
       {
         "role": "user",
@@ -1844,6 +1959,7 @@
       "type": "twenty_questions_single_turn",
       "source": "local_file"
     },
+    "target_object": "Volleyball",
     "chat": [
       {
         "role": "user",
@@ -1860,6 +1976,7 @@
       "type": "twenty_questions_single_turn",
       "source": "local_file"
     },
+    "target_object": "Skirt",
     "chat": [
       {
         "role": "user",
@@ -1876,6 +1993,7 @@
       "type": "twenty_questions_single_turn",
       "source": "local_file"
     },
+    "target_object": "Shirt",
     "chat": [
       {
         "role": "user",
@@ -1892,6 +2010,7 @@
       "type": "twenty_questions_single_turn",
       "source": "local_file"
     },
+    "target_object": "Strawberry",
     "chat": [
       {
         "role": "user",
@@ -1908,6 +2027,7 @@
       "type": "twenty_questions_single_turn",
       "source": "local_file"
     },
+    "target_object": "Painting",
     "chat": [
       {
         "role": "user",
@@ -1924,6 +2044,7 @@
       "type": "twenty_questions_single_turn",
       "source": "local_file"
     },
+    "target_object": "Calculator",
     "chat": [
       {
         "role": "user",
@@ -1940,6 +2061,7 @@
       "type": "twenty_questions_single_turn",
       "source": "local_file"
     },
+    "target_object": "Airplane",
     "chat": [
       {
         "role": "user",
@@ -1956,6 +2078,7 @@
       "type": "twenty_questions_single_turn",
       "source": "local_file"
     },
+    "target_object": "Tomato",
     "chat": [
       {
         "role": "user",
@@ -1972,6 +2095,7 @@
       "type": "twenty_questions_single_turn",
       "source": "local_file"
     },
+    "target_object": "Ocean",
     "chat": [
       {
         "role": "user",
@@ -1988,6 +2112,7 @@
       "type": "twenty_questions_single_turn",
       "source": "local_file"
     },
+    "target_object": "Marker",
     "chat": [
       {
         "role": "user",
@@ -2004,6 +2129,7 @@
       "type": "twenty_questions_single_turn",
       "source": "local_file"
     },
+    "target_object": "Necklace",
     "chat": [
       {
         "role": "user",
@@ -2020,6 +2146,7 @@
       "type": "twenty_questions_single_turn",
       "source": "local_file"
     },
+    "target_object": "Broccoli",
     "chat": [
       {
         "role": "user",
@@ -2036,6 +2163,7 @@
       "type": "twenty_questions_single_turn",
       "source": "local_file"
     },
+    "target_object": "Basketball",
     "chat": [
       {
         "role": "user",
@@ -2052,6 +2180,7 @@
       "type": "twenty_questions_single_turn",
       "source": "local_file"
     },
+    "target_object": "Plate",
     "chat": [
       {
         "role": "user",
@@ -2068,6 +2197,7 @@
       "type": "twenty_questions_single_turn",
       "source": "local_file"
     },
+    "target_object": "Cow",
     "chat": [
       {
         "role": "user",
@@ -2084,6 +2214,7 @@
       "type": "twenty_questions_single_turn",
       "source": "local_file"
     },
+    "target_object": "Carrot",
     "chat": [
       {
         "role": "user",
@@ -2100,6 +2231,7 @@
       "type": "twenty_questions_single_turn",
       "source": "local_file"
     },
+    "target_object": "Saw",
     "chat": [
       {
         "role": "user",
@@ -2116,6 +2248,7 @@
       "type": "twenty_questions_single_turn",
       "source": "local_file"
     },
+    "target_object": "Eraser",
     "chat": [
       {
         "role": "user",
@@ -2132,6 +2265,7 @@
       "type": "twenty_questions_single_turn",
       "source": "local_file"
     },
+    "target_object": "Lake",
     "chat": [
       {
         "role": "user",
@@ -2148,6 +2282,7 @@
       "type": "twenty_questions_single_turn",
       "source": "local_file"
     },
+    "target_object": "Sculpture",
     "chat": [
       {
         "role": "user",
@@ -2164,6 +2299,7 @@
       "type": "twenty_questions_single_turn",
       "source": "local_file"
     },
+    "target_object": "Glue",
     "chat": [
       {
         "role": "user",
@@ -2180,6 +2316,7 @@
       "type": "twenty_questions_single_turn",
       "source": "local_file"
     },
+    "target_object": "Basketball",
     "chat": [
       {
         "role": "user",
@@ -2196,6 +2333,7 @@
       "type": "twenty_questions_single_turn",
       "source": "local_file"
     },
+    "target_object": "Necklace",
     "chat": [
       {
         "role": "user",
@@ -2212,6 +2350,7 @@
       "type": "twenty_questions_single_turn",
       "source": "local_file"
     },
+    "target_object": "Volleyball",
     "chat": [
       {
         "role": "user",
@@ -2228,6 +2367,7 @@
       "type": "twenty_questions_single_turn",
       "source": "local_file"
     },
+    "target_object": "Helicopter",
     "chat": [
       {
         "role": "user",
@@ -2244,6 +2384,7 @@
       "type": "twenty_questions_single_turn",
       "source": "local_file"
     },
+    "target_object": "Cantaloupe",
     "chat": [
       {
         "role": "user",
@@ -2260,6 +2401,7 @@
       "type": "twenty_questions_single_turn",
       "source": "local_file"
     },
+    "target_object": "Screwdriver",
     "chat": [
       {
         "role": "user",
@@ -2276,6 +2418,7 @@
       "type": "twenty_questions_single_turn",
       "source": "local_file"
     },
+    "target_object": "Glue",
     "chat": [
       {
         "role": "user",
@@ -2292,6 +2435,7 @@
       "type": "twenty_questions_single_turn",
       "source": "local_file"
     },
+    "target_object": "Lawn mower",
     "chat": [
       {
         "role": "user",
@@ -2308,6 +2452,7 @@
       "type": "twenty_questions_single_turn",
       "source": "local_file"
     },
+    "target_object": "Broccoli",
     "chat": [
       {
         "role": "user",
@@ -2324,6 +2469,7 @@
       "type": "twenty_questions_single_turn",
       "source": "local_file"
     },
+    "target_object": "Cup",
     "chat": [
       {
         "role": "user",
@@ -2340,6 +2486,7 @@
       "type": "twenty_questions_single_turn",
       "source": "local_file"
     },
+    "target_object": "Socks",
     "chat": [
       {
         "role": "user",
@@ -2356,6 +2503,7 @@
       "type": "twenty_questions_single_turn",
       "source": "local_file"
     },
+    "target_object": "Tennis ball",
     "chat": [
       {
         "role": "user",
@@ -2372,6 +2520,7 @@
       "type": "twenty_questions_single_turn",
       "source": "local_file"
     },
+    "target_object": "Tomato",
     "chat": [
       {
         "role": "user",
@@ -2388,6 +2537,7 @@
       "type": "twenty_questions_single_turn",
       "source": "local_file"
     },
+    "target_object": "Chair",
     "chat": [
       {
         "role": "user",
@@ -2404,6 +2554,7 @@
       "type": "twenty_questions_single_turn",
       "source": "local_file"
     },
+    "target_object": "Computer keyboard",
     "chat": [
       {
         "role": "user",
@@ -2420,6 +2571,7 @@
       "type": "twenty_questions_single_turn",
       "source": "local_file"
     },
+    "target_object": "Watermelon",
     "chat": [
       {
         "role": "user",
@@ -2436,6 +2588,7 @@
       "type": "twenty_questions_single_turn",
       "source": "local_file"
     },
+    "target_object": "Celery",
     "chat": [
       {
         "role": "user",
@@ -2452,6 +2605,7 @@
       "type": "twenty_questions_single_turn",
       "source": "local_file"
     },
+    "target_object": "Hammer",
     "chat": [
       {
         "role": "user",
@@ -2468,6 +2622,7 @@
       "type": "twenty_questions_single_turn",
       "source": "local_file"
     },
+    "target_object": "Broccoli",
     "chat": [
       {
         "role": "user",
@@ -2484,6 +2639,7 @@
       "type": "twenty_questions_single_turn",
       "source": "local_file"
     },
+    "target_object": "Jacket",
     "chat": [
       {
         "role": "user",
@@ -2500,6 +2656,7 @@
       "type": "twenty_questions_single_turn",
       "source": "local_file"
     },
+    "target_object": "Dresser",
     "chat": [
       {
         "role": "user",
@@ -2516,6 +2673,7 @@
       "type": "twenty_questions_single_turn",
       "source": "local_file"
     },
+    "target_object": "Horse",
     "chat": [
       {
         "role": "user",
@@ -2532,6 +2690,7 @@
       "type": "twenty_questions_single_turn",
       "source": "local_file"
     },
+    "target_object": "Canvas",
     "chat": [
       {
         "role": "user",
@@ -2548,6 +2707,7 @@
       "type": "twenty_questions_single_turn",
       "source": "local_file"
     },
+    "target_object": "Spoon",
     "chat": [
       {
         "role": "user",
@@ -2564,6 +2724,7 @@
       "type": "twenty_questions_single_turn",
       "source": "local_file"
     },
+    "target_object": "Saw",
     "chat": [
       {
         "role": "user",
@@ -2580,6 +2741,7 @@
       "type": "twenty_questions_single_turn",
       "source": "local_file"
     },
+    "target_object": "River",
     "chat": [
       {
         "role": "user",
@@ -2596,6 +2758,7 @@
       "type": "twenty_questions_single_turn",
       "source": "local_file"
     },
+    "target_object": "Jacket",
     "chat": [
       {
         "role": "user",
@@ -2612,6 +2775,7 @@
       "type": "twenty_questions_single_turn",
       "source": "local_file"
     },
+    "target_object": "Spoon",
     "chat": [
       {
         "role": "user",
@@ -2628,6 +2792,7 @@
       "type": "twenty_questions_single_turn",
       "source": "local_file"
     },
+    "target_object": "Watch",
     "chat": [
       {
         "role": "user",
@@ -2644,6 +2809,7 @@
       "type": "twenty_questions_single_turn",
       "source": "local_file"
     },
+    "target_object": "Motorcycle",
     "chat": [
       {
         "role": "user",
@@ -2660,6 +2826,7 @@
       "type": "twenty_questions_single_turn",
       "source": "local_file"
     },
+    "target_object": "Drum",
     "chat": [
       {
         "role": "user",
@@ -2676,6 +2843,7 @@
       "type": "twenty_questions_single_turn",
       "source": "local_file"
     },
+    "target_object": "Screwdriver",
     "chat": [
       {
         "role": "user",
@@ -2692,6 +2860,7 @@
       "type": "twenty_questions_single_turn",
       "source": "local_file"
     },
+    "target_object": "Key",
     "chat": [
       {
         "role": "user",
@@ -2708,6 +2877,7 @@
       "type": "twenty_questions_single_turn",
       "source": "local_file"
     },
+    "target_object": "Cactus",
     "chat": [
       {
         "role": "user",
@@ -2724,6 +2894,7 @@
       "type": "twenty_questions_single_turn",
       "source": "local_file"
     },
+    "target_object": "Pan",
     "chat": [
       {
         "role": "user",
@@ -2740,6 +2911,7 @@
       "type": "twenty_questions_single_turn",
       "source": "local_file"
     },
+    "target_object": "Pencil",
     "chat": [
       {
         "role": "user",
@@ -2756,6 +2928,7 @@
       "type": "twenty_questions_single_turn",
       "source": "local_file"
     },
+    "target_object": "Boat",
     "chat": [
       {
         "role": "user",
@@ -2772,6 +2945,7 @@
       "type": "twenty_questions_single_turn",
       "source": "local_file"
     },
+    "target_object": "Tomato",
     "chat": [
       {
         "role": "user",
@@ -2788,6 +2962,7 @@
       "type": "twenty_questions_single_turn",
       "source": "local_file"
     },
+    "target_object": "Stapler",
     "chat": [
       {
         "role": "user",
@@ -2804,6 +2979,7 @@
       "type": "twenty_questions_single_turn",
       "source": "local_file"
     },
+    "target_object": "Basketball",
     "chat": [
       {
         "role": "user",
@@ -2820,6 +2996,7 @@
       "type": "twenty_questions_single_turn",
       "source": "local_file"
     },
+    "target_object": "Carrot",
     "chat": [
       {
         "role": "user",
@@ -2836,6 +3013,7 @@
       "type": "twenty_questions_single_turn",
       "source": "local_file"
     },
+    "target_object": "Pen",
     "chat": [
       {
         "role": "user",
@@ -2852,6 +3030,7 @@
       "type": "twenty_questions_single_turn",
       "source": "local_file"
     },
+    "target_object": "Paper",
     "chat": [
       {
         "role": "user",
@@ -2868,6 +3047,7 @@
       "type": "twenty_questions_single_turn",
       "source": "local_file"
     },
+    "target_object": "Chopstick",
     "chat": [
       {
         "role": "user",
@@ -2884,6 +3064,7 @@
       "type": "twenty_questions_single_turn",
       "source": "local_file"
     },
+    "target_object": "Broccoli",
     "chat": [
       {
         "role": "user",
@@ -2900,6 +3081,7 @@
       "type": "twenty_questions_single_turn",
       "source": "local_file"
     },
+    "target_object": "Bookcase",
     "chat": [
       {
         "role": "user",
@@ -2916,6 +3098,7 @@
       "type": "twenty_questions_single_turn",
       "source": "local_file"
     },
+    "target_object": "Cooking pot",
     "chat": [
       {
         "role": "user",
@@ -2932,6 +3115,7 @@
       "type": "twenty_questions_single_turn",
       "source": "local_file"
     },
+    "target_object": "Belt",
     "chat": [
       {
         "role": "user",
@@ -2948,6 +3132,7 @@
       "type": "twenty_questions_single_turn",
       "source": "local_file"
     },
+    "target_object": "Helmet",
     "chat": [
       {
         "role": "user",
@@ -2964,6 +3149,7 @@
       "type": "twenty_questions_single_turn",
       "source": "local_file"
     },
+    "target_object": "Pliers",
     "chat": [
       {
         "role": "user",
@@ -2980,6 +3166,7 @@
       "type": "twenty_questions_single_turn",
       "source": "local_file"
     },
+    "target_object": "Couch",
     "chat": [
       {
         "role": "user",
@@ -2996,6 +3183,7 @@
       "type": "twenty_questions_single_turn",
       "source": "local_file"
     },
+    "target_object": "Mattress",
     "chat": [
       {
         "role": "user",
@@ -3012,6 +3200,7 @@
       "type": "twenty_questions_single_turn",
       "source": "local_file"
     },
+    "target_object": "Nightstand",
     "chat": [
       {
         "role": "user",
@@ -3028,6 +3217,7 @@
       "type": "twenty_questions_single_turn",
       "source": "local_file"
     },
+    "target_object": "Hat",
     "chat": [
       {
         "role": "user",
@@ -3044,6 +3234,7 @@
       "type": "twenty_questions_single_turn",
       "source": "local_file"
     },
+    "target_object": "Painting",
     "chat": [
       {
         "role": "user",
@@ -3060,6 +3251,7 @@
       "type": "twenty_questions_single_turn",
       "source": "local_file"
     },
+    "target_object": "Puzzle",
     "chat": [
       {
         "role": "user",
@@ -3076,6 +3268,7 @@
       "type": "twenty_questions_single_turn",
       "source": "local_file"
     },
+    "target_object": "Lego",
     "chat": [
       {
         "role": "user",
@@ -3092,6 +3285,7 @@
       "type": "twenty_questions_single_turn",
       "source": "local_file"
     },
+    "target_object": "Lego",
     "chat": [
       {
         "role": "user",
@@ -3108,6 +3302,7 @@
       "type": "twenty_questions_single_turn",
       "source": "local_file"
     },
+    "target_object": "Cantaloupe",
     "chat": [
       {
         "role": "user",
@@ -3124,6 +3319,7 @@
       "type": "twenty_questions_single_turn",
       "source": "local_file"
     },
+    "target_object": "Football",
     "chat": [
       {
         "role": "user",
@@ -3140,6 +3336,7 @@
       "type": "twenty_questions_single_turn",
       "source": "local_file"
     },
+    "target_object": "Bear",
     "chat": [
       {
         "role": "user",
@@ -3156,6 +3353,7 @@
       "type": "twenty_questions_single_turn",
       "source": "local_file"
     },
+    "target_object": "Wrench",
     "chat": [
       {
         "role": "user",
@@ -3172,6 +3370,7 @@
       "type": "twenty_questions_single_turn",
       "source": "local_file"
     },
+    "target_object": "Cat",
     "chat": [
       {
         "role": "user",
@@ -3188,6 +3387,7 @@
       "type": "twenty_questions_single_turn",
       "source": "local_file"
     },
+    "target_object": "Golf ball",
     "chat": [
       {
         "role": "user",
@@ -3204,6 +3404,7 @@
       "type": "twenty_questions_single_turn",
       "source": "local_file"
     },
+    "target_object": "Headphone",
     "chat": [
       {
         "role": "user",
@@ -3220,6 +3421,7 @@
       "type": "twenty_questions_single_turn",
       "source": "local_file"
     },
+    "target_object": "Pineapple",
     "chat": [
       {
         "role": "user",
@@ -3236,6 +3438,7 @@
       "type": "twenty_questions_single_turn",
       "source": "local_file"
     },
+    "target_object": "Nightstand",
     "chat": [
       {
         "role": "user",
@@ -3252,6 +3455,7 @@
       "type": "twenty_questions_single_turn",
       "source": "local_file"
     },
+    "target_object": "Key",
     "chat": [
       {
         "role": "user",
@@ -3268,6 +3472,7 @@
       "type": "twenty_questions_single_turn",
       "source": "local_file"
     },
+    "target_object": "Peach",
     "chat": [
       {
         "role": "user",
@@ -3284,6 +3489,7 @@
       "type": "twenty_questions_single_turn",
       "source": "local_file"
     },
+    "target_object": "Onion",
     "chat": [
       {
         "role": "user",
@@ -3300,6 +3506,7 @@
       "type": "twenty_questions_single_turn",
       "source": "local_file"
     },
+    "target_object": "Onion",
     "chat": [
       {
         "role": "user",
@@ -3316,6 +3523,7 @@
       "type": "twenty_questions_single_turn",
       "source": "local_file"
     },
+    "target_object": "Bush",
     "chat": [
       {
         "role": "user",
@@ -3332,6 +3540,7 @@
       "type": "twenty_questions_single_turn",
       "source": "local_file"
     },
+    "target_object": "Rabbit",
     "chat": [
       {
         "role": "user",
@@ -3348,6 +3557,7 @@
       "type": "twenty_questions_single_turn",
       "source": "local_file"
     },
+    "target_object": "Baseball bat",
     "chat": [
       {
         "role": "user",
@@ -3364,6 +3574,7 @@
       "type": "twenty_questions_single_turn",
       "source": "local_file"
     },
+    "target_object": "Brooch",
     "chat": [
       {
         "role": "user",
@@ -3380,6 +3591,7 @@
       "type": "twenty_questions_single_turn",
       "source": "local_file"
     },
+    "target_object": "Blender",
     "chat": [
       {
         "role": "user",
@@ -3396,6 +3608,7 @@
       "type": "twenty_questions_single_turn",
       "source": "local_file"
     },
+    "target_object": "Computer keyboard",
     "chat": [
       {
         "role": "user",
@@ -3412,6 +3625,7 @@
       "type": "twenty_questions_single_turn",
       "source": "local_file"
     },
+    "target_object": "Television",
     "chat": [
       {
         "role": "user",
@@ -3428,6 +3642,7 @@
       "type": "twenty_questions_single_turn",
       "source": "local_file"
     },
+    "target_object": "Cactus",
     "chat": [
       {
         "role": "user",
@@ -3444,6 +3659,7 @@
       "type": "twenty_questions_single_turn",
       "source": "local_file"
     },
+    "target_object": "Cantaloupe",
     "chat": [
       {
         "role": "user",
@@ -3460,6 +3676,7 @@
       "type": "twenty_questions_single_turn",
       "source": "local_file"
     },
+    "target_object": "Basketball",
     "chat": [
       {
         "role": "user",
@@ -3476,6 +3693,7 @@
       "type": "twenty_questions_single_turn",
       "source": "local_file"
     },
+    "target_object": "Onion",
     "chat": [
       {
         "role": "user",
@@ -3492,6 +3710,7 @@
       "type": "twenty_questions_single_turn",
       "source": "local_file"
     },
+    "target_object": "Watermelon",
     "chat": [
       {
         "role": "user",
@@ -3508,6 +3727,7 @@
       "type": "twenty_questions_single_turn",
       "source": "local_file"
     },
+    "target_object": "Fork",
     "chat": [
       {
         "role": "user",
@@ -3524,6 +3744,7 @@
       "type": "twenty_questions_single_turn",
       "source": "local_file"
     },
+    "target_object": "Calendar",
     "chat": [
       {
         "role": "user",
@@ -3540,6 +3761,7 @@
       "type": "twenty_questions_single_turn",
       "source": "local_file"
     },
+    "target_object": "Earring",
     "chat": [
       {
         "role": "user",
@@ -3556,6 +3778,7 @@
       "type": "twenty_questions_single_turn",
       "source": "local_file"
     },
+    "target_object": "Cooking pot",
     "chat": [
       {
         "role": "user",
@@ -3572,6 +3795,7 @@
       "type": "twenty_questions_single_turn",
       "source": "local_file"
     },
+    "target_object": "Diary",
     "chat": [
       {
         "role": "user",
@@ -3588,6 +3812,7 @@
       "type": "twenty_questions_single_turn",
       "source": "local_file"
     },
+    "target_object": "Hat",
     "chat": [
       {
         "role": "user",
@@ -3604,6 +3829,7 @@
       "type": "twenty_questions_single_turn",
       "source": "local_file"
     },
+    "target_object": "Apple",
     "chat": [
       {
         "role": "user",
@@ -3620,6 +3846,7 @@
       "type": "twenty_questions_single_turn",
       "source": "local_file"
     },
+    "target_object": "Piano",
     "chat": [
       {
         "role": "user",
@@ -3636,6 +3863,7 @@
       "type": "twenty_questions_single_turn",
       "source": "local_file"
     },
+    "target_object": "Shirt",
     "chat": [
       {
         "role": "user",
@@ -3652,6 +3880,7 @@
       "type": "twenty_questions_single_turn",
       "source": "local_file"
     },
+    "target_object": "Watch",
     "chat": [
       {
         "role": "user",
@@ -3668,6 +3897,7 @@
       "type": "twenty_questions_single_turn",
       "source": "local_file"
     },
+    "target_object": "Belt",
     "chat": [
       {
         "role": "user",
@@ -3684,6 +3914,7 @@
       "type": "twenty_questions_single_turn",
       "source": "local_file"
     },
+    "target_object": "Blender",
     "chat": [
       {
         "role": "user",
@@ -3700,6 +3931,7 @@
       "type": "twenty_questions_single_turn",
       "source": "local_file"
     },
+    "target_object": "Printer",
     "chat": [
       {
         "role": "user",
@@ -3716,6 +3948,7 @@
       "type": "twenty_questions_single_turn",
       "source": "local_file"
     },
+    "target_object": "Tree",
     "chat": [
       {
         "role": "user",
@@ -3732,6 +3965,7 @@
       "type": "twenty_questions_single_turn",
       "source": "local_file"
     },
+    "target_object": "Peach",
     "chat": [
       {
         "role": "user",
@@ -3748,6 +3982,7 @@
       "type": "twenty_questions_single_turn",
       "source": "local_file"
     },
+    "target_object": "Gloves",
     "chat": [
       {
         "role": "user",
@@ -3764,6 +3999,7 @@
       "type": "twenty_questions_single_turn",
       "source": "local_file"
     },
+    "target_object": "Pineapple",
     "chat": [
       {
         "role": "user",
@@ -3780,6 +4016,7 @@
       "type": "twenty_questions_single_turn",
       "source": "local_file"
     },
+    "target_object": "Cow",
     "chat": [
       {
         "role": "user",
@@ -3796,6 +4033,7 @@
       "type": "twenty_questions_single_turn",
       "source": "local_file"
     },
+    "target_object": "Motorcycle",
     "chat": [
       {
         "role": "user",
@@ -3812,6 +4050,7 @@
       "type": "twenty_questions_single_turn",
       "source": "local_file"
     },
+    "target_object": "Couch",
     "chat": [
       {
         "role": "user",
@@ -3828,6 +4067,7 @@
       "type": "twenty_questions_single_turn",
       "source": "local_file"
     },
+    "target_object": "Bus",
     "chat": [
       {
         "role": "user",
@@ -3844,6 +4084,7 @@
       "type": "twenty_questions_single_turn",
       "source": "local_file"
     },
+    "target_object": "Kite",
     "chat": [
       {
         "role": "user",
@@ -3860,6 +4101,7 @@
       "type": "twenty_questions_single_turn",
       "source": "local_file"
     },
+    "target_object": "Guitar",
     "chat": [
       {
         "role": "user",
@@ -3876,6 +4118,7 @@
       "type": "twenty_questions_single_turn",
       "source": "local_file"
     },
+    "target_object": "Scissors",
     "chat": [
       {
         "role": "user",
@@ -3892,6 +4135,7 @@
       "type": "twenty_questions_single_turn",
       "source": "local_file"
     },
+    "target_object": "Tennis ball",
     "chat": [
       {
         "role": "user",
@@ -3908,6 +4152,7 @@
       "type": "twenty_questions_single_turn",
       "source": "local_file"
     },
+    "target_object": "Pants",
     "chat": [
       {
         "role": "user",
@@ -3924,6 +4169,7 @@
       "type": "twenty_questions_single_turn",
       "source": "local_file"
     },
+    "target_object": "Trombone",
     "chat": [
       {
         "role": "user",
@@ -3940,6 +4186,7 @@
       "type": "twenty_questions_single_turn",
       "source": "local_file"
     },
+    "target_object": "Tomato",
     "chat": [
       {
         "role": "user",
@@ -3956,6 +4203,7 @@
       "type": "twenty_questions_single_turn",
       "source": "local_file"
     },
+    "target_object": "Saxophone",
     "chat": [
       {
         "role": "user",
@@ -3972,6 +4220,7 @@
       "type": "twenty_questions_single_turn",
       "source": "local_file"
     },
+    "target_object": "Bracelet",
     "chat": [
       {
         "role": "user",
@@ -3988,6 +4237,7 @@
       "type": "twenty_questions_single_turn",
       "source": "local_file"
     },
+    "target_object": "Guitar",
     "chat": [
       {
         "role": "user",
@@ -4004,6 +4254,7 @@
       "type": "twenty_questions_single_turn",
       "source": "local_file"
     },
+    "target_object": "Printer",
     "chat": [
       {
         "role": "user",
@@ -4020,6 +4271,7 @@
       "type": "twenty_questions_single_turn",
       "source": "local_file"
     },
+    "target_object": "Saw",
     "chat": [
       {
         "role": "user",
@@ -4036,6 +4288,7 @@
       "type": "twenty_questions_single_turn",
       "source": "local_file"
     },
+    "target_object": "Screwdriver",
     "chat": [
       {
         "role": "user",
@@ -4052,6 +4305,7 @@
       "type": "twenty_questions_single_turn",
       "source": "local_file"
     },
+    "target_object": "Kite",
     "chat": [
       {
         "role": "user",
@@ -4068,6 +4322,7 @@
       "type": "twenty_questions_single_turn",
       "source": "local_file"
     },
+    "target_object": "Flute",
     "chat": [
       {
         "role": "user",
@@ -4084,6 +4339,7 @@
       "type": "twenty_questions_single_turn",
       "source": "local_file"
     },
+    "target_object": "Potato",
     "chat": [
       {
         "role": "user",
@@ -4100,6 +4356,7 @@
       "type": "twenty_questions_single_turn",
       "source": "local_file"
     },
+    "target_object": "Golf ball",
     "chat": [
       {
         "role": "user",
@@ -4116,6 +4373,7 @@
       "type": "twenty_questions_single_turn",
       "source": "local_file"
     },
+    "target_object": "Painting",
     "chat": [
       {
         "role": "user",
@@ -4132,6 +4390,7 @@
       "type": "twenty_questions_single_turn",
       "source": "local_file"
     },
+    "target_object": "Smartphone",
     "chat": [
       {
         "role": "user",
@@ -4148,6 +4407,7 @@
       "type": "twenty_questions_single_turn",
       "source": "local_file"
     },
+    "target_object": "Pants",
     "chat": [
       {
         "role": "user",
@@ -4164,6 +4424,7 @@
       "type": "twenty_questions_single_turn",
       "source": "local_file"
     },
+    "target_object": "Forest",
     "chat": [
       {
         "role": "user",
@@ -4180,6 +4441,7 @@
       "type": "twenty_questions_single_turn",
       "source": "local_file"
     },
+    "target_object": "Broccoli",
     "chat": [
       {
         "role": "user",
@@ -4196,6 +4458,7 @@
       "type": "twenty_questions_single_turn",
       "source": "local_file"
     },
+    "target_object": "Flute",
     "chat": [
       {
         "role": "user",
@@ -4212,6 +4475,7 @@
       "type": "twenty_questions_single_turn",
       "source": "local_file"
     },
+    "target_object": "Ocean",
     "chat": [
       {
         "role": "user",
@@ -4228,6 +4492,7 @@
       "type": "twenty_questions_single_turn",
       "source": "local_file"
     },
+    "target_object": "Pencil",
     "chat": [
       {
         "role": "user",
@@ -4244,6 +4509,7 @@
       "type": "twenty_questions_single_turn",
       "source": "local_file"
     },
+    "target_object": "Necklace",
     "chat": [
       {
         "role": "user",
@@ -4260,6 +4526,7 @@
       "type": "twenty_questions_single_turn",
       "source": "local_file"
     },
+    "target_object": "Grape",
     "chat": [
       {
         "role": "user",
@@ -4276,6 +4543,7 @@
       "type": "twenty_questions_single_turn",
       "source": "local_file"
     },
+    "target_object": "Battery",
     "chat": [
       {
         "role": "user",
@@ -4292,6 +4560,7 @@
       "type": "twenty_questions_single_turn",
       "source": "local_file"
     },
+    "target_object": "Plate",
     "chat": [
       {
         "role": "user",
@@ -4308,6 +4577,7 @@
       "type": "twenty_questions_single_turn",
       "source": "local_file"
     },
+    "target_object": "Shovel",
     "chat": [
       {
         "role": "user",
@@ -4324,6 +4594,7 @@
       "type": "twenty_questions_single_turn",
       "source": "local_file"
     },
+    "target_object": "Guitar",
     "chat": [
       {
         "role": "user",
@@ -4340,6 +4611,7 @@
       "type": "twenty_questions_single_turn",
       "source": "local_file"
     },
+    "target_object": "Flute",
     "chat": [
       {
         "role": "user",
@@ -4356,6 +4628,7 @@
       "type": "twenty_questions_single_turn",
       "source": "local_file"
     },
+    "target_object": "Doll",
     "chat": [
       {
         "role": "user",
@@ -4372,6 +4645,7 @@
       "type": "twenty_questions_single_turn",
       "source": "local_file"
     },
+    "target_object": "Corn",
     "chat": [
       {
         "role": "user",
@@ -4388,6 +4662,7 @@
       "type": "twenty_questions_single_turn",
       "source": "local_file"
     },
+    "target_object": "Plate",
     "chat": [
       {
         "role": "user",
@@ -4404,6 +4679,7 @@
       "type": "twenty_questions_single_turn",
       "source": "local_file"
     },
+    "target_object": "Watch",
     "chat": [
       {
         "role": "user",
@@ -4420,6 +4696,7 @@
       "type": "twenty_questions_single_turn",
       "source": "local_file"
     },
+    "target_object": "Banana",
     "chat": [
       {
         "role": "user",
@@ -4436,6 +4713,7 @@
       "type": "twenty_questions_single_turn",
       "source": "local_file"
     },
+    "target_object": "Chair",
     "chat": [
       {
         "role": "user",
@@ -4452,6 +4730,7 @@
       "type": "twenty_questions_single_turn",
       "source": "local_file"
     },
+    "target_object": "Cup",
     "chat": [
       {
         "role": "user",
@@ -4468,6 +4747,7 @@
       "type": "twenty_questions_single_turn",
       "source": "local_file"
     },
+    "target_object": "Basketball",
     "chat": [
       {
         "role": "user",
@@ -4484,6 +4764,7 @@
       "type": "twenty_questions_single_turn",
       "source": "local_file"
     },
+    "target_object": "Bear",
     "chat": [
       {
         "role": "user",
@@ -4500,6 +4781,7 @@
       "type": "twenty_questions_single_turn",
       "source": "local_file"
     },
+    "target_object": "Tree",
     "chat": [
       {
         "role": "user",
@@ -4516,6 +4798,7 @@
       "type": "twenty_questions_single_turn",
       "source": "local_file"
     },
+    "target_object": "Ocean",
     "chat": [
       {
         "role": "user",
@@ -4532,6 +4815,7 @@
       "type": "twenty_questions_single_turn",
       "source": "local_file"
     },
+    "target_object": "Calendar",
     "chat": [
       {
         "role": "user",
@@ -4548,6 +4832,7 @@
       "type": "twenty_questions_single_turn",
       "source": "local_file"
     },
+    "target_object": "Sharpie",
     "chat": [
       {
         "role": "user",
@@ -4564,6 +4849,7 @@
       "type": "twenty_questions_single_turn",
       "source": "local_file"
     },
+    "target_object": "Peas",
     "chat": [
       {
         "role": "user",
@@ -4580,6 +4866,7 @@
       "type": "twenty_questions_single_turn",
       "source": "local_file"
     },
+    "target_object": "Rock",
     "chat": [
       {
         "role": "user",
@@ -4596,6 +4883,7 @@
       "type": "twenty_questions_single_turn",
       "source": "local_file"
     },
+    "target_object": "Clarinet",
     "chat": [
       {
         "role": "user",
@@ -4612,6 +4900,7 @@
       "type": "twenty_questions_single_turn",
       "source": "local_file"
     },
+    "target_object": "Car",
     "chat": [
       {
         "role": "user",
@@ -4628,6 +4917,7 @@
       "type": "twenty_questions_single_turn",
       "source": "local_file"
     },
+    "target_object": "Cow",
     "chat": [
       {
         "role": "user",
@@ -4644,6 +4934,7 @@
       "type": "twenty_questions_single_turn",
       "source": "local_file"
     },
+    "target_object": "Tomato",
     "chat": [
       {
         "role": "user",
@@ -4660,6 +4951,7 @@
       "type": "twenty_questions_single_turn",
       "source": "local_file"
     },
+    "target_object": "Hammer",
     "chat": [
       {
         "role": "user",
@@ -4676,6 +4968,7 @@
       "type": "twenty_questions_single_turn",
       "source": "local_file"
     },
+    "target_object": "Cow",
     "chat": [
       {
         "role": "user",
@@ -4692,6 +4985,7 @@
       "type": "twenty_questions_single_turn",
       "source": "local_file"
     },
+    "target_object": "Paintbrush",
     "chat": [
       {
         "role": "user",
@@ -4708,6 +5002,7 @@
       "type": "twenty_questions_single_turn",
       "source": "local_file"
     },
+    "target_object": "Belt",
     "chat": [
       {
         "role": "user",
@@ -4724,6 +5019,7 @@
       "type": "twenty_questions_single_turn",
       "source": "local_file"
     },
+    "target_object": "Pencil",
     "chat": [
       {
         "role": "user",
@@ -4740,6 +5036,7 @@
       "type": "twenty_questions_single_turn",
       "source": "local_file"
     },
+    "target_object": "Hat",
     "chat": [
       {
         "role": "user",
@@ -4756,6 +5053,7 @@
       "type": "twenty_questions_single_turn",
       "source": "local_file"
     },
+    "target_object": "Scooter",
     "chat": [
       {
         "role": "user",
@@ -4772,6 +5070,7 @@
       "type": "twenty_questions_single_turn",
       "source": "local_file"
     },
+    "target_object": "Sculpture",
     "chat": [
       {
         "role": "user",
@@ -4788,6 +5087,7 @@
       "type": "twenty_questions_single_turn",
       "source": "local_file"
     },
+    "target_object": "Screwdriver",
     "chat": [
       {
         "role": "user",
@@ -4804,6 +5104,7 @@
       "type": "twenty_questions_single_turn",
       "source": "local_file"
     },
+    "target_object": "Key",
     "chat": [
       {
         "role": "user",
@@ -4820,6 +5121,7 @@
       "type": "twenty_questions_single_turn",
       "source": "local_file"
     },
+    "target_object": "Piano",
     "chat": [
       {
         "role": "user",
@@ -4836,6 +5138,7 @@
       "type": "twenty_questions_single_turn",
       "source": "local_file"
     },
+    "target_object": "Shirt",
     "chat": [
       {
         "role": "user",
@@ -4852,6 +5155,7 @@
       "type": "twenty_questions_single_turn",
       "source": "local_file"
     },
+    "target_object": "Rabbit",
     "chat": [
       {
         "role": "user",
@@ -4868,6 +5172,7 @@
       "type": "twenty_questions_single_turn",
       "source": "local_file"
     },
+    "target_object": "Printer",
     "chat": [
       {
         "role": "user",
@@ -4884,6 +5189,7 @@
       "type": "twenty_questions_single_turn",
       "source": "local_file"
     },
+    "target_object": "Hat",
     "chat": [
       {
         "role": "user",
@@ -4900,6 +5206,7 @@
       "type": "twenty_questions_single_turn",
       "source": "local_file"
     },
+    "target_object": "Bush",
     "chat": [
       {
         "role": "user",
@@ -4916,6 +5223,7 @@
       "type": "twenty_questions_single_turn",
       "source": "local_file"
     },
+    "target_object": "Marker",
     "chat": [
       {
         "role": "user",
@@ -4932,6 +5240,7 @@
       "type": "twenty_questions_single_turn",
       "source": "local_file"
     },
+    "target_object": "Pillow",
     "chat": [
       {
         "role": "user",
@@ -4948,6 +5257,7 @@
       "type": "twenty_questions_single_turn",
       "source": "local_file"
     },
+    "target_object": "Rock",
     "chat": [
       {
         "role": "user",
@@ -4964,6 +5274,7 @@
       "type": "twenty_questions_single_turn",
       "source": "local_file"
     },
+    "target_object": "Computer",
     "chat": [
       {
         "role": "user",
@@ -4980,6 +5291,7 @@
       "type": "twenty_questions_single_turn",
       "source": "local_file"
     },
+    "target_object": "Tennis ball",
     "chat": [
       {
         "role": "user",
@@ -4996,6 +5308,7 @@
       "type": "twenty_questions_single_turn",
       "source": "local_file"
     },
+    "target_object": "Celery",
     "chat": [
       {
         "role": "user",
@@ -5012,6 +5325,7 @@
       "type": "twenty_questions_single_turn",
       "source": "local_file"
     },
+    "target_object": "Hammer",
     "chat": [
       {
         "role": "user",
@@ -5028,6 +5342,7 @@
       "type": "twenty_questions_single_turn",
       "source": "local_file"
     },
+    "target_object": "Gloves",
     "chat": [
       {
         "role": "user",
@@ -5044,6 +5359,7 @@
       "type": "twenty_questions_single_turn",
       "source": "local_file"
     },
+    "target_object": "Orange",
     "chat": [
       {
         "role": "user",
@@ -5060,6 +5376,7 @@
       "type": "twenty_questions_single_turn",
       "source": "local_file"
     },
+    "target_object": "Flute",
     "chat": [
       {
         "role": "user",
@@ -5076,6 +5393,7 @@
       "type": "twenty_questions_single_turn",
       "source": "local_file"
     },
+    "target_object": "Bed",
     "chat": [
       {
         "role": "user",
@@ -5092,6 +5410,7 @@
       "type": "twenty_questions_single_turn",
       "source": "local_file"
     },
+    "target_object": "Computer",
     "chat": [
       {
         "role": "user",
@@ -5108,6 +5427,7 @@
       "type": "twenty_questions_single_turn",
       "source": "local_file"
     },
+    "target_object": "Hairclip",
     "chat": [
       {
         "role": "user",
@@ -5124,6 +5444,7 @@
       "type": "twenty_questions_single_turn",
       "source": "local_file"
     },
+    "target_object": "Diary",
     "chat": [
       {
         "role": "user",
@@ -5140,6 +5461,7 @@
       "type": "twenty_questions_single_turn",
       "source": "local_file"
     },
+    "target_object": "Horse",
     "chat": [
       {
         "role": "user",
@@ -5156,6 +5478,7 @@
       "type": "twenty_questions_single_turn",
       "source": "local_file"
     },
+    "target_object": "Cooking pot",
     "chat": [
       {
         "role": "user",
@@ -5172,6 +5495,7 @@
       "type": "twenty_questions_single_turn",
       "source": "local_file"
     },
+    "target_object": "Computer",
     "chat": [
       {
         "role": "user",
@@ -5188,6 +5512,7 @@
       "type": "twenty_questions_single_turn",
       "source": "local_file"
     },
+    "target_object": "Tennis ball",
     "chat": [
       {
         "role": "user",
@@ -5204,6 +5529,7 @@
       "type": "twenty_questions_single_turn",
       "source": "local_file"
     },
+    "target_object": "Peas",
     "chat": [
       {
         "role": "user",
@@ -5220,6 +5546,7 @@
       "type": "twenty_questions_single_turn",
       "source": "local_file"
     },
+    "target_object": "Ocean",
     "chat": [
       {
         "role": "user",
@@ -5236,6 +5563,7 @@
       "type": "twenty_questions_single_turn",
       "source": "local_file"
     },
+    "target_object": "Fork",
     "chat": [
       {
         "role": "user",
@@ -5252,6 +5580,7 @@
       "type": "twenty_questions_single_turn",
       "source": "local_file"
     },
+    "target_object": "Boat",
     "chat": [
       {
         "role": "user",
@@ -5268,6 +5597,7 @@
       "type": "twenty_questions_single_turn",
       "source": "local_file"
     },
+    "target_object": "Pen",
     "chat": [
       {
         "role": "user",
@@ -5284,6 +5614,7 @@
       "type": "twenty_questions_single_turn",
       "source": "local_file"
     },
+    "target_object": "Kite",
     "chat": [
       {
         "role": "user",
@@ -5300,6 +5631,7 @@
       "type": "twenty_questions_single_turn",
       "source": "local_file"
     },
+    "target_object": "Sea",
     "chat": [
       {
         "role": "user",
@@ -5316,6 +5648,7 @@
       "type": "twenty_questions_single_turn",
       "source": "local_file"
     },
+    "target_object": "Printer",
     "chat": [
       {
         "role": "user",
@@ -5332,6 +5665,7 @@
       "type": "twenty_questions_single_turn",
       "source": "local_file"
     },
+    "target_object": "Lion",
     "chat": [
       {
         "role": "user",
@@ -5348,6 +5682,7 @@
       "type": "twenty_questions_single_turn",
       "source": "local_file"
     },
+    "target_object": "Microwave",
     "chat": [
       {
         "role": "user",
@@ -5364,6 +5699,7 @@
       "type": "twenty_questions_single_turn",
       "source": "local_file"
     },
+    "target_object": "Lion",
     "chat": [
       {
         "role": "user",
@@ -5380,6 +5716,7 @@
       "type": "twenty_questions_single_turn",
       "source": "local_file"
     },
+    "target_object": "Battery",
     "chat": [
       {
         "role": "user",
@@ -5396,6 +5733,7 @@
       "type": "twenty_questions_single_turn",
       "source": "local_file"
     },
+    "target_object": "Tomato",
     "chat": [
       {
         "role": "user",
@@ -5412,6 +5750,7 @@
       "type": "twenty_questions_single_turn",
       "source": "local_file"
     },
+    "target_object": "Soccer ball",
     "chat": [
       {
         "role": "user",
@@ -5428,6 +5767,7 @@
       "type": "twenty_questions_single_turn",
       "source": "local_file"
     },
+    "target_object": "Pendant",
     "chat": [
       {
         "role": "user",
@@ -5444,6 +5784,7 @@
       "type": "twenty_questions_single_turn",
       "source": "local_file"
     },
+    "target_object": "Ship",
     "chat": [
       {
         "role": "user",
@@ -5460,6 +5801,7 @@
       "type": "twenty_questions_single_turn",
       "source": "local_file"
     },
+    "target_object": "Screwdriver",
     "chat": [
       {
         "role": "user",
@@ -5476,6 +5818,7 @@
       "type": "twenty_questions_single_turn",
       "source": "local_file"
     },
+    "target_object": "Basketball",
     "chat": [
       {
         "role": "user",
@@ -5492,6 +5835,7 @@
       "type": "twenty_questions_single_turn",
       "source": "local_file"
     },
+    "target_object": "Train",
     "chat": [
       {
         "role": "user",
@@ -5508,6 +5852,7 @@
       "type": "twenty_questions_single_turn",
       "source": "local_file"
     },
+    "target_object": "Headphone",
     "chat": [
       {
         "role": "user",
@@ -5524,6 +5869,7 @@
       "type": "twenty_questions_single_turn",
       "source": "local_file"
     },
+    "target_object": "Paper",
     "chat": [
       {
         "role": "user",
@@ -5540,6 +5886,7 @@
       "type": "twenty_questions_single_turn",
       "source": "local_file"
     },
+    "target_object": "Mattress",
     "chat": [
       {
         "role": "user",
@@ -5556,6 +5903,7 @@
       "type": "twenty_questions_single_turn",
       "source": "local_file"
     },
+    "target_object": "Bookcase",
     "chat": [
       {
         "role": "user",
@@ -5572,6 +5920,7 @@
       "type": "twenty_questions_single_turn",
       "source": "local_file"
     },
+    "target_object": "Watermelon",
     "chat": [
       {
         "role": "user",
@@ -5588,6 +5937,7 @@
       "type": "twenty_questions_single_turn",
       "source": "local_file"
     },
+    "target_object": "Hammer",
     "chat": [
       {
         "role": "user",
@@ -5604,6 +5954,7 @@
       "type": "twenty_questions_single_turn",
       "source": "local_file"
     },
+    "target_object": "Broccoli",
     "chat": [
       {
         "role": "user",
@@ -5620,6 +5971,7 @@
       "type": "twenty_questions_single_turn",
       "source": "local_file"
     },
+    "target_object": "Boots",
     "chat": [
       {
         "role": "user",
@@ -5636,6 +5988,7 @@
       "type": "twenty_questions_single_turn",
       "source": "local_file"
     },
+    "target_object": "Hammer",
     "chat": [
       {
         "role": "user",
@@ -5652,6 +6005,7 @@
       "type": "twenty_questions_single_turn",
       "source": "local_file"
     },
+    "target_object": "Violin",
     "chat": [
       {
         "role": "user",
@@ -5668,6 +6022,7 @@
       "type": "twenty_questions_single_turn",
       "source": "local_file"
     },
+    "target_object": "Diary",
     "chat": [
       {
         "role": "user",
@@ -5684,6 +6039,7 @@
       "type": "twenty_questions_single_turn",
       "source": "local_file"
     },
+    "target_object": "Fork",
     "chat": [
       {
         "role": "user",
@@ -5700,6 +6056,7 @@
       "type": "twenty_questions_single_turn",
       "source": "local_file"
     },
+    "target_object": "Paper",
     "chat": [
       {
         "role": "user",
@@ -5716,6 +6073,7 @@
       "type": "twenty_questions_single_turn",
       "source": "local_file"
     },
+    "target_object": "Cat",
     "chat": [
       {
         "role": "user",
@@ -5732,6 +6090,7 @@
       "type": "twenty_questions_single_turn",
       "source": "local_file"
     },
+    "target_object": "Cow",
     "chat": [
       {
         "role": "user",
@@ -5748,6 +6107,7 @@
       "type": "twenty_questions_single_turn",
       "source": "local_file"
     },
+    "target_object": "Potato",
     "chat": [
       {
         "role": "user",
@@ -5764,6 +6124,7 @@
       "type": "twenty_questions_single_turn",
       "source": "local_file"
     },
+    "target_object": "Mango",
     "chat": [
       {
         "role": "user",
@@ -5780,6 +6141,7 @@
       "type": "twenty_questions_single_turn",
       "source": "local_file"
     },
+    "target_object": "Pliers",
     "chat": [
       {
         "role": "user",
@@ -5796,6 +6158,7 @@
       "type": "twenty_questions_single_turn",
       "source": "local_file"
     },
+    "target_object": "Helmet",
     "chat": [
       {
         "role": "user",
@@ -5812,6 +6175,7 @@
       "type": "twenty_questions_single_turn",
       "source": "local_file"
     },
+    "target_object": "Belt",
     "chat": [
       {
         "role": "user",
@@ -5828,6 +6192,7 @@
       "type": "twenty_questions_single_turn",
       "source": "local_file"
     },
+    "target_object": "Cactus",
     "chat": [
       {
         "role": "user",
@@ -5844,6 +6209,7 @@
       "type": "twenty_questions_single_turn",
       "source": "local_file"
     },
+    "target_object": "Printer",
     "chat": [
       {
         "role": "user",
@@ -5860,6 +6226,7 @@
       "type": "twenty_questions_single_turn",
       "source": "local_file"
     },
+    "target_object": "Knife",
     "chat": [
       {
         "role": "user",
@@ -5876,6 +6243,7 @@
       "type": "twenty_questions_single_turn",
       "source": "local_file"
     },
+    "target_object": "Computer keyboard",
     "chat": [
       {
         "role": "user",
@@ -5892,6 +6260,7 @@
       "type": "twenty_questions_single_turn",
       "source": "local_file"
     },
+    "target_object": "Sea",
     "chat": [
       {
         "role": "user",
@@ -5908,6 +6277,7 @@
       "type": "twenty_questions_single_turn",
       "source": "local_file"
     },
+    "target_object": "Pen",
     "chat": [
       {
         "role": "user",
@@ -5924,6 +6294,7 @@
       "type": "twenty_questions_single_turn",
       "source": "local_file"
     },
+    "target_object": "Puzzle",
     "chat": [
       {
         "role": "user",
@@ -5940,6 +6311,7 @@
       "type": "twenty_questions_single_turn",
       "source": "local_file"
     },
+    "target_object": "Ship",
     "chat": [
       {
         "role": "user",
@@ -5956,6 +6328,7 @@
       "type": "twenty_questions_single_turn",
       "source": "local_file"
     },
+    "target_object": "Tennis ball",
     "chat": [
       {
         "role": "user",
@@ -5972,6 +6345,7 @@
       "type": "twenty_questions_single_turn",
       "source": "local_file"
     },
+    "target_object": "Pen",
     "chat": [
       {
         "role": "user",
@@ -5988,6 +6362,7 @@
       "type": "twenty_questions_single_turn",
       "source": "local_file"
     },
+    "target_object": "Brooch",
     "chat": [
       {
         "role": "user",
@@ -6004,6 +6379,7 @@
       "type": "twenty_questions_single_turn",
       "source": "local_file"
     },
+    "target_object": "Peach",
     "chat": [
       {
         "role": "user",
@@ -6020,6 +6396,7 @@
       "type": "twenty_questions_single_turn",
       "source": "local_file"
     },
+    "target_object": "Sculpture",
     "chat": [
       {
         "role": "user",
@@ -6036,6 +6413,7 @@
       "type": "twenty_questions_single_turn",
       "source": "local_file"
     },
+    "target_object": "Sculpture",
     "chat": [
       {
         "role": "user",
@@ -6052,6 +6430,7 @@
       "type": "twenty_questions_single_turn",
       "source": "local_file"
     },
+    "target_object": "Sharpie",
     "chat": [
       {
         "role": "user",
@@ -6068,6 +6447,7 @@
       "type": "twenty_questions_single_turn",
       "source": "local_file"
     },
+    "target_object": "Trombone",
     "chat": [
       {
         "role": "user",
@@ -6084,6 +6464,7 @@
       "type": "twenty_questions_single_turn",
       "source": "local_file"
     },
+    "target_object": "Mango",
     "chat": [
       {
         "role": "user",
@@ -6100,6 +6481,7 @@
       "type": "twenty_questions_single_turn",
       "source": "local_file"
     },
+    "target_object": "Airplane",
     "chat": [
       {
         "role": "user",
@@ -6116,6 +6498,7 @@
       "type": "twenty_questions_single_turn",
       "source": "local_file"
     },
+    "target_object": "Bowl",
     "chat": [
       {
         "role": "user",
@@ -6132,6 +6515,7 @@
       "type": "twenty_questions_single_turn",
       "source": "local_file"
     },
+    "target_object": "Piano",
     "chat": [
       {
         "role": "user",
@@ -6148,6 +6532,7 @@
       "type": "twenty_questions_single_turn",
       "source": "local_file"
     },
+    "target_object": "Lego",
     "chat": [
       {
         "role": "user",
@@ -6164,6 +6549,7 @@
       "type": "twenty_questions_single_turn",
       "source": "local_file"
     },
+    "target_object": "Watermelon",
     "chat": [
       {
         "role": "user",
@@ -6180,6 +6566,7 @@
       "type": "twenty_questions_single_turn",
       "source": "local_file"
     },
+    "target_object": "Calculator",
     "chat": [
       {
         "role": "user",
@@ -6196,6 +6583,7 @@
       "type": "twenty_questions_single_turn",
       "source": "local_file"
     },
+    "target_object": "Skirt",
     "chat": [
       {
         "role": "user",
@@ -6212,6 +6600,7 @@
       "type": "twenty_questions_single_turn",
       "source": "local_file"
     },
+    "target_object": "Clarinet",
     "chat": [
       {
         "role": "user",
@@ -6228,6 +6617,7 @@
       "type": "twenty_questions_single_turn",
       "source": "local_file"
     },
+    "target_object": "Lake",
     "chat": [
       {
         "role": "user",
@@ -6244,6 +6634,7 @@
       "type": "twenty_questions_single_turn",
       "source": "local_file"
     },
+    "target_object": "Guitar",
     "chat": [
       {
         "role": "user",
@@ -6260,6 +6651,7 @@
       "type": "twenty_questions_single_turn",
       "source": "local_file"
     },
+    "target_object": "Broccoli",
     "chat": [
       {
         "role": "user",
@@ -6276,6 +6668,7 @@
       "type": "twenty_questions_single_turn",
       "source": "local_file"
     },
+    "target_object": "Train",
     "chat": [
       {
         "role": "user",
@@ -6292,6 +6685,7 @@
       "type": "twenty_questions_single_turn",
       "source": "local_file"
     },
+    "target_object": "Bowl",
     "chat": [
       {
         "role": "user",
@@ -6308,6 +6702,7 @@
       "type": "twenty_questions_single_turn",
       "source": "local_file"
     },
+    "target_object": "Ocean",
     "chat": [
       {
         "role": "user",
@@ -6324,6 +6719,7 @@
       "type": "twenty_questions_single_turn",
       "source": "local_file"
     },
+    "target_object": "Motorcycle",
     "chat": [
       {
         "role": "user",
@@ -6340,6 +6736,7 @@
       "type": "twenty_questions_single_turn",
       "source": "local_file"
     },
+    "target_object": "Mattress",
     "chat": [
       {
         "role": "user",
@@ -6356,6 +6753,7 @@
       "type": "twenty_questions_single_turn",
       "source": "local_file"
     },
+    "target_object": "Scarf",
     "chat": [
       {
         "role": "user",
@@ -6372,6 +6770,7 @@
       "type": "twenty_questions_single_turn",
       "source": "local_file"
     },
+    "target_object": "Computer",
     "chat": [
       {
         "role": "user",
@@ -6388,6 +6787,7 @@
       "type": "twenty_questions_single_turn",
       "source": "local_file"
     },
+    "target_object": "Hairclip",
     "chat": [
       {
         "role": "user",
@@ -6404,6 +6804,7 @@
       "type": "twenty_questions_single_turn",
       "source": "local_file"
     },
+    "target_object": "Calculator",
     "chat": [
       {
         "role": "user",
@@ -6420,6 +6821,7 @@
       "type": "twenty_questions_single_turn",
       "source": "local_file"
     },
+    "target_object": "Helicopter",
     "chat": [
       {
         "role": "user",
@@ -6436,6 +6838,7 @@
       "type": "twenty_questions_single_turn",
       "source": "local_file"
     },
+    "target_object": "Calendar",
     "chat": [
       {
         "role": "user",
@@ -6452,6 +6855,7 @@
       "type": "twenty_questions_single_turn",
       "source": "local_file"
     },
+    "target_object": "Calculator",
     "chat": [
       {
         "role": "user",
@@ -6468,6 +6872,7 @@
       "type": "twenty_questions_single_turn",
       "source": "local_file"
     },
+    "target_object": "Celery",
     "chat": [
       {
         "role": "user",
@@ -6484,6 +6889,7 @@
       "type": "twenty_questions_single_turn",
       "source": "local_file"
     },
+    "target_object": "Motorcycle",
     "chat": [
       {
         "role": "user",
@@ -6500,6 +6906,7 @@
       "type": "twenty_questions_single_turn",
       "source": "local_file"
     },
+    "target_object": "Clarinet",
     "chat": [
       {
         "role": "user",
@@ -6516,6 +6923,7 @@
       "type": "twenty_questions_single_turn",
       "source": "local_file"
     },
+    "target_object": "Bookcase",
     "chat": [
       {
         "role": "user",
@@ -6532,6 +6940,7 @@
       "type": "twenty_questions_single_turn",
       "source": "local_file"
     },
+    "target_object": "Jacket",
     "chat": [
       {
         "role": "user",
@@ -6548,6 +6957,7 @@
       "type": "twenty_questions_single_turn",
       "source": "local_file"
     },
+    "target_object": "Pineapple",
     "chat": [
       {
         "role": "user",
@@ -6564,6 +6974,7 @@
       "type": "twenty_questions_single_turn",
       "source": "local_file"
     },
+    "target_object": "Clarinet",
     "chat": [
       {
         "role": "user",
@@ -6580,6 +6991,7 @@
       "type": "twenty_questions_single_turn",
       "source": "local_file"
     },
+    "target_object": "Cactus",
     "chat": [
       {
         "role": "user",
@@ -6596,6 +7008,7 @@
       "type": "twenty_questions_single_turn",
       "source": "local_file"
     },
+    "target_object": "Forest",
     "chat": [
       {
         "role": "user",
@@ -6612,6 +7025,7 @@
       "type": "twenty_questions_single_turn",
       "source": "local_file"
     },
+    "target_object": "Couch",
     "chat": [
       {
         "role": "user",
@@ -6628,6 +7042,7 @@
       "type": "twenty_questions_single_turn",
       "source": "local_file"
     },
+    "target_object": "Stapler",
     "chat": [
       {
         "role": "user",
@@ -6644,6 +7059,7 @@
       "type": "twenty_questions_single_turn",
       "source": "local_file"
     },
+    "target_object": "Drill",
     "chat": [
       {
         "role": "user",
@@ -6660,6 +7076,7 @@
       "type": "twenty_questions_single_turn",
       "source": "local_file"
     },
+    "target_object": "Painting",
     "chat": [
       {
         "role": "user",
@@ -6676,6 +7093,7 @@
       "type": "twenty_questions_single_turn",
       "source": "local_file"
     },
+    "target_object": "Necklace",
     "chat": [
       {
         "role": "user",
@@ -6692,6 +7110,7 @@
       "type": "twenty_questions_single_turn",
       "source": "local_file"
     },
+    "target_object": "Watering can",
     "chat": [
       {
         "role": "user",
@@ -6708,6 +7127,7 @@
       "type": "twenty_questions_single_turn",
       "source": "local_file"
     },
+    "target_object": "Puzzle",
     "chat": [
       {
         "role": "user",
@@ -6724,6 +7144,7 @@
       "type": "twenty_questions_single_turn",
       "source": "local_file"
     },
+    "target_object": "Carrot",
     "chat": [
       {
         "role": "user",
@@ -6740,6 +7161,7 @@
       "type": "twenty_questions_single_turn",
       "source": "local_file"
     },
+    "target_object": "Saxophone",
     "chat": [
       {
         "role": "user",
@@ -6756,6 +7178,7 @@
       "type": "twenty_questions_single_turn",
       "source": "local_file"
     },
+    "target_object": "Cooking pot",
     "chat": [
       {
         "role": "user",
@@ -6772,6 +7195,7 @@
       "type": "twenty_questions_single_turn",
       "source": "local_file"
     },
+    "target_object": "Microwave",
     "chat": [
       {
         "role": "user",
@@ -6788,6 +7212,7 @@
       "type": "twenty_questions_single_turn",
       "source": "local_file"
     },
+    "target_object": "Scarf",
     "chat": [
       {
         "role": "user",
@@ -6804,6 +7229,7 @@
       "type": "twenty_questions_single_turn",
       "source": "local_file"
     },
+    "target_object": "Locket",
     "chat": [
       {
         "role": "user",
@@ -6820,6 +7246,7 @@
       "type": "twenty_questions_single_turn",
       "source": "local_file"
     },
+    "target_object": "Drum",
     "chat": [
       {
         "role": "user",
@@ -6836,6 +7263,7 @@
       "type": "twenty_questions_single_turn",
       "source": "local_file"
     },
+    "target_object": "Pillow",
     "chat": [
       {
         "role": "user",
@@ -6852,6 +7280,7 @@
       "type": "twenty_questions_single_turn",
       "source": "local_file"
     },
+    "target_object": "Rabbit",
     "chat": [
       {
         "role": "user",
@@ -6868,6 +7297,7 @@
       "type": "twenty_questions_single_turn",
       "source": "local_file"
     },
+    "target_object": "Train",
     "chat": [
       {
         "role": "user",
@@ -6884,6 +7314,7 @@
       "type": "twenty_questions_single_turn",
       "source": "local_file"
     },
+    "target_object": "Harp",
     "chat": [
       {
         "role": "user",
@@ -6900,6 +7331,7 @@
       "type": "twenty_questions_single_turn",
       "source": "local_file"
     },
+    "target_object": "Chair",
     "chat": [
       {
         "role": "user",
@@ -6916,6 +7348,7 @@
       "type": "twenty_questions_single_turn",
       "source": "local_file"
     },
+    "target_object": "Hairclip",
     "chat": [
       {
         "role": "user",
@@ -6932,6 +7365,7 @@
       "type": "twenty_questions_single_turn",
       "source": "local_file"
     },
+    "target_object": "Sharpie",
     "chat": [
       {
         "role": "user",
@@ -6948,6 +7382,7 @@
       "type": "twenty_questions_single_turn",
       "source": "local_file"
     },
+    "target_object": "Stuffed animal",
     "chat": [
       {
         "role": "user",
@@ -6964,6 +7399,7 @@
       "type": "twenty_questions_single_turn",
       "source": "local_file"
     },
+    "target_object": "River",
     "chat": [
       {
         "role": "user",
@@ -6980,6 +7416,7 @@
       "type": "twenty_questions_single_turn",
       "source": "local_file"
     },
+    "target_object": "Doll",
     "chat": [
       {
         "role": "user",
@@ -6996,6 +7433,7 @@
       "type": "twenty_questions_single_turn",
       "source": "local_file"
     },
+    "target_object": "Watch",
     "chat": [
       {
         "role": "user",
@@ -7012,6 +7450,7 @@
       "type": "twenty_questions_single_turn",
       "source": "local_file"
     },
+    "target_object": "Socks",
     "chat": [
       {
         "role": "user",
@@ -7028,6 +7467,7 @@
       "type": "twenty_questions_single_turn",
       "source": "local_file"
     },
+    "target_object": "Blender",
     "chat": [
       {
         "role": "user",
@@ -7044,6 +7484,7 @@
       "type": "twenty_questions_single_turn",
       "source": "local_file"
     },
+    "target_object": "Paintbrush",
     "chat": [
       {
         "role": "user",
@@ -7060,6 +7501,7 @@
       "type": "twenty_questions_single_turn",
       "source": "local_file"
     },
+    "target_object": "Bed",
     "chat": [
       {
         "role": "user",
@@ -7076,6 +7518,7 @@
       "type": "twenty_questions_single_turn",
       "source": "local_file"
     },
+    "target_object": "Key",
     "chat": [
       {
         "role": "user",
@@ -7092,6 +7535,7 @@
       "type": "twenty_questions_single_turn",
       "source": "local_file"
     },
+    "target_object": "Peach",
     "chat": [
       {
         "role": "user",
@@ -7108,6 +7552,7 @@
       "type": "twenty_questions_single_turn",
       "source": "local_file"
     },
+    "target_object": "Train",
     "chat": [
       {
         "role": "user",
@@ -7124,6 +7569,7 @@
       "type": "twenty_questions_single_turn",
       "source": "local_file"
     },
+    "target_object": "Orange",
     "chat": [
       {
         "role": "user",
@@ -7140,6 +7586,7 @@
       "type": "twenty_questions_single_turn",
       "source": "local_file"
     },
+    "target_object": "Ocean",
     "chat": [
       {
         "role": "user",
@@ -7156,6 +7603,7 @@
       "type": "twenty_questions_single_turn",
       "source": "local_file"
     },
+    "target_object": "Shoes",
     "chat": [
       {
         "role": "user",
@@ -7172,6 +7620,7 @@
       "type": "twenty_questions_single_turn",
       "source": "local_file"
     },
+    "target_object": "Refrigerator",
     "chat": [
       {
         "role": "user",
@@ -7188,6 +7637,7 @@
       "type": "twenty_questions_single_turn",
       "source": "local_file"
     },
+    "target_object": "Lion",
     "chat": [
       {
         "role": "user",
@@ -7204,6 +7654,7 @@
       "type": "twenty_questions_single_turn",
       "source": "local_file"
     },
+    "target_object": "Necklace",
     "chat": [
       {
         "role": "user",
@@ -7220,6 +7671,7 @@
       "type": "twenty_questions_single_turn",
       "source": "local_file"
     },
+    "target_object": "Table",
     "chat": [
       {
         "role": "user",
@@ -7236,6 +7688,7 @@
       "type": "twenty_questions_single_turn",
       "source": "local_file"
     },
+    "target_object": "Necklace",
     "chat": [
       {
         "role": "user",
@@ -7252,6 +7705,7 @@
       "type": "twenty_questions_single_turn",
       "source": "local_file"
     },
+    "target_object": "Bracelet",
     "chat": [
       {
         "role": "user",
@@ -7268,6 +7722,7 @@
       "type": "twenty_questions_single_turn",
       "source": "local_file"
     },
+    "target_object": "Bed",
     "chat": [
       {
         "role": "user",
@@ -7284,6 +7739,7 @@
       "type": "twenty_questions_single_turn",
       "source": "local_file"
     },
+    "target_object": "Helmet",
     "chat": [
       {
         "role": "user",
@@ -7300,6 +7756,7 @@
       "type": "twenty_questions_single_turn",
       "source": "local_file"
     },
+    "target_object": "Desk",
     "chat": [
       {
         "role": "user",
@@ -7316,6 +7773,7 @@
       "type": "twenty_questions_single_turn",
       "source": "local_file"
     },
+    "target_object": "Table",
     "chat": [
       {
         "role": "user",
@@ -7332,6 +7790,7 @@
       "type": "twenty_questions_single_turn",
       "source": "local_file"
     },
+    "target_object": "Tree",
     "chat": [
       {
         "role": "user",
@@ -7348,6 +7807,7 @@
       "type": "twenty_questions_single_turn",
       "source": "local_file"
     },
+    "target_object": "Chopstick",
     "chat": [
       {
         "role": "user",
@@ -7364,6 +7824,7 @@
       "type": "twenty_questions_single_turn",
       "source": "local_file"
     },
+    "target_object": "Tiger",
     "chat": [
       {
         "role": "user",
@@ -7380,6 +7841,7 @@
       "type": "twenty_questions_single_turn",
       "source": "local_file"
     },
+    "target_object": "Cactus",
     "chat": [
       {
         "role": "user",
@@ -7396,6 +7858,7 @@
       "type": "twenty_questions_single_turn",
       "source": "local_file"
     },
+    "target_object": "Skirt",
     "chat": [
       {
         "role": "user",
@@ -7412,6 +7875,7 @@
       "type": "twenty_questions_single_turn",
       "source": "local_file"
     },
+    "target_object": "Watermelon",
     "chat": [
       {
         "role": "user",
@@ -7428,6 +7892,7 @@
       "type": "twenty_questions_single_turn",
       "source": "local_file"
     },
+    "target_object": "Marker",
     "chat": [
       {
         "role": "user",
@@ -7444,6 +7909,7 @@
       "type": "twenty_questions_single_turn",
       "source": "local_file"
     },
+    "target_object": "Train",
     "chat": [
       {
         "role": "user",
@@ -7460,6 +7926,7 @@
       "type": "twenty_questions_single_turn",
       "source": "local_file"
     },
+    "target_object": "Lego",
     "chat": [
       {
         "role": "user",
@@ -7476,6 +7943,7 @@
       "type": "twenty_questions_single_turn",
       "source": "local_file"
     },
+    "target_object": "Baseball bat",
     "chat": [
       {
         "role": "user",
@@ -7492,6 +7960,7 @@
       "type": "twenty_questions_single_turn",
       "source": "local_file"
     },
+    "target_object": "Smartphone",
     "chat": [
       {
         "role": "user",
@@ -7508,6 +7977,7 @@
       "type": "twenty_questions_single_turn",
       "source": "local_file"
     },
+    "target_object": "Helicopter",
     "chat": [
       {
         "role": "user",
@@ -7524,6 +7994,7 @@
       "type": "twenty_questions_single_turn",
       "source": "local_file"
     },
+    "target_object": "Doll",
     "chat": [
       {
         "role": "user",
@@ -7540,6 +8011,7 @@
       "type": "twenty_questions_single_turn",
       "source": "local_file"
     },
+    "target_object": "Saxophone",
     "chat": [
       {
         "role": "user",
@@ -7556,6 +8028,7 @@
       "type": "twenty_questions_single_turn",
       "source": "local_file"
     },
+    "target_object": "Mango",
     "chat": [
       {
         "role": "user",
@@ -7572,6 +8045,7 @@
       "type": "twenty_questions_single_turn",
       "source": "local_file"
     },
+    "target_object": "Cooking pot",
     "chat": [
       {
         "role": "user",
@@ -7588,6 +8062,7 @@
       "type": "twenty_questions_single_turn",
       "source": "local_file"
     },
+    "target_object": "Camera",
     "chat": [
       {
         "role": "user",
@@ -7604,6 +8079,7 @@
       "type": "twenty_questions_single_turn",
       "source": "local_file"
     },
+    "target_object": "Lion",
     "chat": [
       {
         "role": "user",
@@ -7620,6 +8096,7 @@
       "type": "twenty_questions_single_turn",
       "source": "local_file"
     },
+    "target_object": "Ship",
     "chat": [
       {
         "role": "user",
@@ -7636,6 +8113,7 @@
       "type": "twenty_questions_single_turn",
       "source": "local_file"
     },
+    "target_object": "Saw",
     "chat": [
       {
         "role": "user",
@@ -7652,6 +8130,7 @@
       "type": "twenty_questions_single_turn",
       "source": "local_file"
     },
+    "target_object": "Bowl",
     "chat": [
       {
         "role": "user",
@@ -7668,6 +8147,7 @@
       "type": "twenty_questions_single_turn",
       "source": "local_file"
     },
+    "target_object": "Carrot",
     "chat": [
       {
         "role": "user",
@@ -7684,6 +8164,7 @@
       "type": "twenty_questions_single_turn",
       "source": "local_file"
     },
+    "target_object": "Rock",
     "chat": [
       {
         "role": "user",
@@ -7700,6 +8181,7 @@
       "type": "twenty_questions_single_turn",
       "source": "local_file"
     },
+    "target_object": "Cow",
     "chat": [
       {
         "role": "user",
@@ -7716,6 +8198,7 @@
       "type": "twenty_questions_single_turn",
       "source": "local_file"
     },
+    "target_object": "Paintbrush",
     "chat": [
       {
         "role": "user",
@@ -7732,6 +8215,7 @@
       "type": "twenty_questions_single_turn",
       "source": "local_file"
     },
+    "target_object": "Baseball",
     "chat": [
       {
         "role": "user",
@@ -7748,6 +8232,7 @@
       "type": "twenty_questions_single_turn",
       "source": "local_file"
     },
+    "target_object": "Pen",
     "chat": [
       {
         "role": "user",
@@ -7764,6 +8249,7 @@
       "type": "twenty_questions_single_turn",
       "source": "local_file"
     },
+    "target_object": "Stapler",
     "chat": [
       {
         "role": "user",
@@ -7780,6 +8266,7 @@
       "type": "twenty_questions_single_turn",
       "source": "local_file"
     },
+    "target_object": "Scissors",
     "chat": [
       {
         "role": "user",
@@ -7796,6 +8283,7 @@
       "type": "twenty_questions_single_turn",
       "source": "local_file"
     },
+    "target_object": "Battery",
     "chat": [
       {
         "role": "user",
@@ -7812,6 +8300,7 @@
       "type": "twenty_questions_single_turn",
       "source": "local_file"
     },
+    "target_object": "Tree",
     "chat": [
       {
         "role": "user",
@@ -7828,6 +8317,7 @@
       "type": "twenty_questions_single_turn",
       "source": "local_file"
     },
+    "target_object": "Screwdriver",
     "chat": [
       {
         "role": "user",
@@ -7844,6 +8334,7 @@
       "type": "twenty_questions_single_turn",
       "source": "local_file"
     },
+    "target_object": "Pencil",
     "chat": [
       {
         "role": "user",
@@ -7860,6 +8351,7 @@
       "type": "twenty_questions_single_turn",
       "source": "local_file"
     },
+    "target_object": "River",
     "chat": [
       {
         "role": "user",
@@ -7876,6 +8368,7 @@
       "type": "twenty_questions_single_turn",
       "source": "local_file"
     },
+    "target_object": "Watch",
     "chat": [
       {
         "role": "user",
@@ -7892,6 +8385,7 @@
       "type": "twenty_questions_single_turn",
       "source": "local_file"
     },
+    "target_object": "Drum",
     "chat": [
       {
         "role": "user",
@@ -7908,6 +8402,7 @@
       "type": "twenty_questions_single_turn",
       "source": "local_file"
     },
+    "target_object": "Pencil",
     "chat": [
       {
         "role": "user",
@@ -7924,6 +8419,7 @@
       "type": "twenty_questions_single_turn",
       "source": "local_file"
     },
+    "target_object": "Knife",
     "chat": [
       {
         "role": "user",
@@ -7940,6 +8436,7 @@
       "type": "twenty_questions_single_turn",
       "source": "local_file"
     },
+    "target_object": "Bus",
     "chat": [
       {
         "role": "user",
@@ -7956,6 +8453,7 @@
       "type": "twenty_questions_single_turn",
       "source": "local_file"
     },
+    "target_object": "Glue",
     "chat": [
       {
         "role": "user",
@@ -7972,6 +8470,7 @@
       "type": "twenty_questions_single_turn",
       "source": "local_file"
     },
+    "target_object": "Cantaloupe",
     "chat": [
       {
         "role": "user",
@@ -7988,6 +8487,7 @@
       "type": "twenty_questions_single_turn",
       "source": "local_file"
     },
+    "target_object": "Doll",
     "chat": [
       {
         "role": "user",
@@ -8004,6 +8504,7 @@
       "type": "twenty_questions_single_turn",
       "source": "local_file"
     },
+    "target_object": "Stuffed animal",
     "chat": [
       {
         "role": "user",
@@ -8020,6 +8521,7 @@
       "type": "twenty_questions_single_turn",
       "source": "local_file"
     },
+    "target_object": "Desk",
     "chat": [
       {
         "role": "user",
@@ -8036,6 +8538,7 @@
       "type": "twenty_questions_single_turn",
       "source": "local_file"
     },
+    "target_object": "Fork",
     "chat": [
       {
         "role": "user",
@@ -8052,6 +8555,7 @@
       "type": "twenty_questions_single_turn",
       "source": "local_file"
     },
+    "target_object": "Pineapple",
     "chat": [
       {
         "role": "user",
@@ -8068,6 +8572,7 @@
       "type": "twenty_questions_single_turn",
       "source": "local_file"
     },
+    "target_object": "Clarinet",
     "chat": [
       {
         "role": "user",
@@ -8084,6 +8589,7 @@
       "type": "twenty_questions_single_turn",
       "source": "local_file"
     },
+    "target_object": "Marker",
     "chat": [
       {
         "role": "user",
@@ -8100,6 +8606,7 @@
       "type": "twenty_questions_single_turn",
       "source": "local_file"
     },
+    "target_object": "Pants",
     "chat": [
       {
         "role": "user",
@@ -8116,6 +8623,7 @@
       "type": "twenty_questions_single_turn",
       "source": "local_file"
     },
+    "target_object": "Tiger",
     "chat": [
       {
         "role": "user",
@@ -8132,6 +8640,7 @@
       "type": "twenty_questions_single_turn",
       "source": "local_file"
     },
+    "target_object": "Blender",
     "chat": [
       {
         "role": "user",
@@ -8148,6 +8657,7 @@
       "type": "twenty_questions_single_turn",
       "source": "local_file"
     },
+    "target_object": "Volleyball",
     "chat": [
       {
         "role": "user",
@@ -8164,6 +8674,7 @@
       "type": "twenty_questions_single_turn",
       "source": "local_file"
     },
+    "target_object": "Flute",
     "chat": [
       {
         "role": "user",
@@ -8180,6 +8691,7 @@
       "type": "twenty_questions_single_turn",
       "source": "local_file"
     },
+    "target_object": "Cat",
     "chat": [
       {
         "role": "user",
@@ -8196,6 +8708,7 @@
       "type": "twenty_questions_single_turn",
       "source": "local_file"
     },
+    "target_object": "Motorcycle",
     "chat": [
       {
         "role": "user",
@@ -8212,6 +8725,7 @@
       "type": "twenty_questions_single_turn",
       "source": "local_file"
     },
+    "target_object": "Watermelon",
     "chat": [
       {
         "role": "user",
@@ -8228,6 +8742,7 @@
       "type": "twenty_questions_single_turn",
       "source": "local_file"
     },
+    "target_object": "Drill",
     "chat": [
       {
         "role": "user",
@@ -8244,6 +8759,7 @@
       "type": "twenty_questions_single_turn",
       "source": "local_file"
     },
+    "target_object": "Kite",
     "chat": [
       {
         "role": "user",
@@ -8260,6 +8776,7 @@
       "type": "twenty_questions_single_turn",
       "source": "local_file"
     },
+    "target_object": "Blender",
     "chat": [
       {
         "role": "user",
@@ -8276,6 +8793,7 @@
       "type": "twenty_questions_single_turn",
       "source": "local_file"
     },
+    "target_object": "Soccer ball",
     "chat": [
       {
         "role": "user",
@@ -8292,6 +8810,7 @@
       "type": "twenty_questions_single_turn",
       "source": "local_file"
     },
+    "target_object": "Truck",
     "chat": [
       {
         "role": "user",
@@ -8308,6 +8827,7 @@
       "type": "twenty_questions_single_turn",
       "source": "local_file"
     },
+    "target_object": "Cactus",
     "chat": [
       {
         "role": "user",
@@ -8324,6 +8844,7 @@
       "type": "twenty_questions_single_turn",
       "source": "local_file"
     },
+    "target_object": "Rake",
     "chat": [
       {
         "role": "user",
@@ -8340,6 +8861,7 @@
       "type": "twenty_questions_single_turn",
       "source": "local_file"
     },
+    "target_object": "Locket",
     "chat": [
       {
         "role": "user",
@@ -8356,6 +8878,7 @@
       "type": "twenty_questions_single_turn",
       "source": "local_file"
     },
+    "target_object": "Forest",
     "chat": [
       {
         "role": "user",
@@ -8372,6 +8895,7 @@
       "type": "twenty_questions_single_turn",
       "source": "local_file"
     },
+    "target_object": "Battery",
     "chat": [
       {
         "role": "user",
@@ -8388,6 +8912,7 @@
       "type": "twenty_questions_single_turn",
       "source": "local_file"
     },
+    "target_object": "Computer",
     "chat": [
       {
         "role": "user",
@@ -8404,6 +8929,7 @@
       "type": "twenty_questions_single_turn",
       "source": "local_file"
     },
+    "target_object": "Violin",
     "chat": [
       {
         "role": "user",
@@ -8420,6 +8946,7 @@
       "type": "twenty_questions_single_turn",
       "source": "local_file"
     },
+    "target_object": "Elephant",
     "chat": [
       {
         "role": "user",
@@ -8436,6 +8963,7 @@
       "type": "twenty_questions_single_turn",
       "source": "local_file"
     },
+    "target_object": "Stapler",
     "chat": [
       {
         "role": "user",
@@ -8452,6 +8980,7 @@
       "type": "twenty_questions_single_turn",
       "source": "local_file"
     },
+    "target_object": "Necklace",
     "chat": [
       {
         "role": "user",
@@ -8468,6 +8997,7 @@
       "type": "twenty_questions_single_turn",
       "source": "local_file"
     },
+    "target_object": "Lawn mower",
     "chat": [
       {
         "role": "user",
@@ -8484,6 +9014,7 @@
       "type": "twenty_questions_single_turn",
       "source": "local_file"
     },
+    "target_object": "Skirt",
     "chat": [
       {
         "role": "user",
@@ -8500,6 +9031,7 @@
       "type": "twenty_questions_single_turn",
       "source": "local_file"
     },
+    "target_object": "Chopstick",
     "chat": [
       {
         "role": "user",
@@ -8516,6 +9048,7 @@
       "type": "twenty_questions_single_turn",
       "source": "local_file"
     },
+    "target_object": "Pliers",
     "chat": [
       {
         "role": "user",
@@ -8532,6 +9065,7 @@
       "type": "twenty_questions_single_turn",
       "source": "local_file"
     },
+    "target_object": "Trumpet",
     "chat": [
       {
         "role": "user",
@@ -8548,6 +9082,7 @@
       "type": "twenty_questions_single_turn",
       "source": "local_file"
     },
+    "target_object": "Basketball",
     "chat": [
       {
         "role": "user",
@@ -8564,6 +9099,7 @@
       "type": "twenty_questions_single_turn",
       "source": "local_file"
     },
+    "target_object": "Canvas",
     "chat": [
       {
         "role": "user",
@@ -8580,6 +9116,7 @@
       "type": "twenty_questions_single_turn",
       "source": "local_file"
     },
+    "target_object": "Trumpet",
     "chat": [
       {
         "role": "user",
@@ -8596,6 +9133,7 @@
       "type": "twenty_questions_single_turn",
       "source": "local_file"
     },
+    "target_object": "Truck",
     "chat": [
       {
         "role": "user",
@@ -8612,6 +9150,7 @@
       "type": "twenty_questions_single_turn",
       "source": "local_file"
     },
+    "target_object": "Rabbit",
     "chat": [
       {
         "role": "user",
@@ -8628,6 +9167,7 @@
       "type": "twenty_questions_single_turn",
       "source": "local_file"
     },
+    "target_object": "Nightstand",
     "chat": [
       {
         "role": "user",
@@ -8644,6 +9184,7 @@
       "type": "twenty_questions_single_turn",
       "source": "local_file"
     },
+    "target_object": "Battery",
     "chat": [
       {
         "role": "user",
@@ -8660,6 +9201,7 @@
       "type": "twenty_questions_single_turn",
       "source": "local_file"
     },
+    "target_object": "Socks",
     "chat": [
       {
         "role": "user",
@@ -8676,6 +9218,7 @@
       "type": "twenty_questions_single_turn",
       "source": "local_file"
     },
+    "target_object": "Rock",
     "chat": [
       {
         "role": "user",
@@ -8692,6 +9235,7 @@
       "type": "twenty_questions_single_turn",
       "source": "local_file"
     },
+    "target_object": "Stuffed animal",
     "chat": [
       {
         "role": "user",
@@ -8708,6 +9252,7 @@
       "type": "twenty_questions_single_turn",
       "source": "local_file"
     },
+    "target_object": "Diary",
     "chat": [
       {
         "role": "user",
@@ -8724,6 +9269,7 @@
       "type": "twenty_questions_single_turn",
       "source": "local_file"
     },
+    "target_object": "Trombone",
     "chat": [
       {
         "role": "user",
@@ -8740,6 +9286,7 @@
       "type": "twenty_questions_single_turn",
       "source": "local_file"
     },
+    "target_object": "Tomato",
     "chat": [
       {
         "role": "user",
@@ -8756,6 +9303,7 @@
       "type": "twenty_questions_single_turn",
       "source": "local_file"
     },
+    "target_object": "Lion",
     "chat": [
       {
         "role": "user",
@@ -8772,6 +9320,7 @@
       "type": "twenty_questions_single_turn",
       "source": "local_file"
     },
+    "target_object": "Brooch",
     "chat": [
       {
         "role": "user",
@@ -8788,6 +9337,7 @@
       "type": "twenty_questions_single_turn",
       "source": "local_file"
     },
+    "target_object": "Airplane",
     "chat": [
       {
         "role": "user",
@@ -8804,6 +9354,7 @@
       "type": "twenty_questions_single_turn",
       "source": "local_file"
     },
+    "target_object": "Eraser",
     "chat": [
       {
         "role": "user",
@@ -8820,6 +9371,7 @@
       "type": "twenty_questions_single_turn",
       "source": "local_file"
     },
+    "target_object": "Stapler",
     "chat": [
       {
         "role": "user",
@@ -8836,6 +9388,7 @@
       "type": "twenty_questions_single_turn",
       "source": "local_file"
     },
+    "target_object": "Sharpie",
     "chat": [
       {
         "role": "user",
@@ -8852,6 +9405,7 @@
       "type": "twenty_questions_single_turn",
       "source": "local_file"
     },
+    "target_object": "Corn",
     "chat": [
       {
         "role": "user",
@@ -8868,6 +9422,7 @@
       "type": "twenty_questions_single_turn",
       "source": "local_file"
     },
+    "target_object": "Baseball bat",
     "chat": [
       {
         "role": "user",
@@ -8884,6 +9439,7 @@
       "type": "twenty_questions_single_turn",
       "source": "local_file"
     },
+    "target_object": "Bookcase",
     "chat": [
       {
         "role": "user",
@@ -8900,6 +9456,7 @@
       "type": "twenty_questions_single_turn",
       "source": "local_file"
     },
+    "target_object": "Pineapple",
     "chat": [
       {
         "role": "user",
@@ -8916,6 +9473,7 @@
       "type": "twenty_questions_single_turn",
       "source": "local_file"
     },
+    "target_object": "Microwave",
     "chat": [
       {
         "role": "user",
@@ -8932,6 +9490,7 @@
       "type": "twenty_questions_single_turn",
       "source": "local_file"
     },
+    "target_object": "Bear",
     "chat": [
       {
         "role": "user",
@@ -8948,6 +9507,7 @@
       "type": "twenty_questions_single_turn",
       "source": "local_file"
     },
+    "target_object": "Dog",
     "chat": [
       {
         "role": "user",
@@ -8964,6 +9524,7 @@
       "type": "twenty_questions_single_turn",
       "source": "local_file"
     },
+    "target_object": "Couch",
     "chat": [
       {
         "role": "user",
@@ -8980,6 +9541,7 @@
       "type": "twenty_questions_single_turn",
       "source": "local_file"
     },
+    "target_object": "Trombone",
     "chat": [
       {
         "role": "user",
@@ -8996,6 +9558,7 @@
       "type": "twenty_questions_single_turn",
       "source": "local_file"
     },
+    "target_object": "Sharpie",
     "chat": [
       {
         "role": "user",
@@ -9012,6 +9575,7 @@
       "type": "twenty_questions_single_turn",
       "source": "local_file"
     },
+    "target_object": "Helicopter",
     "chat": [
       {
         "role": "user",
@@ -9028,6 +9592,7 @@
       "type": "twenty_questions_single_turn",
       "source": "local_file"
     },
+    "target_object": "Ship",
     "chat": [
       {
         "role": "user",
@@ -9044,6 +9609,7 @@
       "type": "twenty_questions_single_turn",
       "source": "local_file"
     },
+    "target_object": "Piano",
     "chat": [
       {
         "role": "user",
@@ -9060,6 +9626,7 @@
       "type": "twenty_questions_single_turn",
       "source": "local_file"
     },
+    "target_object": "Forest",
     "chat": [
       {
         "role": "user",
@@ -9076,6 +9643,7 @@
       "type": "twenty_questions_single_turn",
       "source": "local_file"
     },
+    "target_object": "Printer",
     "chat": [
       {
         "role": "user",
@@ -9092,6 +9660,7 @@
       "type": "twenty_questions_single_turn",
       "source": "local_file"
     },
+    "target_object": "Broccoli",
     "chat": [
       {
         "role": "user",
@@ -9108,6 +9677,7 @@
       "type": "twenty_questions_single_turn",
       "source": "local_file"
     },
+    "target_object": "Canvas",
     "chat": [
       {
         "role": "user",
@@ -9124,6 +9694,7 @@
       "type": "twenty_questions_single_turn",
       "source": "local_file"
     },
+    "target_object": "Airplane",
     "chat": [
       {
         "role": "user",
@@ -9140,6 +9711,7 @@
       "type": "twenty_questions_single_turn",
       "source": "local_file"
     },
+    "target_object": "Tennis racket",
     "chat": [
       {
         "role": "user",
@@ -9156,6 +9728,7 @@
       "type": "twenty_questions_single_turn",
       "source": "local_file"
     },
+    "target_object": "Pliers",
     "chat": [
       {
         "role": "user",
@@ -9172,6 +9745,7 @@
       "type": "twenty_questions_single_turn",
       "source": "local_file"
     },
+    "target_object": "Tennis racket",
     "chat": [
       {
         "role": "user",
@@ -9188,6 +9762,7 @@
       "type": "twenty_questions_single_turn",
       "source": "local_file"
     },
+    "target_object": "Computer keyboard",
     "chat": [
       {
         "role": "user",
@@ -9204,6 +9779,7 @@
       "type": "twenty_questions_single_turn",
       "source": "local_file"
     },
+    "target_object": "Paper",
     "chat": [
       {
         "role": "user",
@@ -9220,6 +9796,7 @@
       "type": "twenty_questions_single_turn",
       "source": "local_file"
     },
+    "target_object": "Printer",
     "chat": [
       {
         "role": "user",
@@ -9236,6 +9813,7 @@
       "type": "twenty_questions_single_turn",
       "source": "local_file"
     },
+    "target_object": "Mattress",
     "chat": [
       {
         "role": "user",
@@ -9252,6 +9830,7 @@
       "type": "twenty_questions_single_turn",
       "source": "local_file"
     },
+    "target_object": "Rake",
     "chat": [
       {
         "role": "user",
@@ -9268,6 +9847,7 @@
       "type": "twenty_questions_single_turn",
       "source": "local_file"
     },
+    "target_object": "Bracelet",
     "chat": [
       {
         "role": "user",
@@ -9284,6 +9864,7 @@
       "type": "twenty_questions_single_turn",
       "source": "local_file"
     },
+    "target_object": "Pan",
     "chat": [
       {
         "role": "user",
@@ -9300,6 +9881,7 @@
       "type": "twenty_questions_single_turn",
       "source": "local_file"
     },
+    "target_object": "Violin",
     "chat": [
       {
         "role": "user",
@@ -9316,6 +9898,7 @@
       "type": "twenty_questions_single_turn",
       "source": "local_file"
     },
+    "target_object": "Bush",
     "chat": [
       {
         "role": "user",
@@ -9332,6 +9915,7 @@
       "type": "twenty_questions_single_turn",
       "source": "local_file"
     },
+    "target_object": "Dog",
     "chat": [
       {
         "role": "user",
@@ -9348,6 +9932,7 @@
       "type": "twenty_questions_single_turn",
       "source": "local_file"
     },
+    "target_object": "Bracelet",
     "chat": [
       {
         "role": "user",
@@ -9364,6 +9949,7 @@
       "type": "twenty_questions_single_turn",
       "source": "local_file"
     },
+    "target_object": "Lego",
     "chat": [
       {
         "role": "user",
@@ -9380,6 +9966,7 @@
       "type": "twenty_questions_single_turn",
       "source": "local_file"
     },
+    "target_object": "Rabbit",
     "chat": [
       {
         "role": "user",
@@ -9396,6 +9983,7 @@
       "type": "twenty_questions_single_turn",
       "source": "local_file"
     },
+    "target_object": "Violin",
     "chat": [
       {
         "role": "user",
@@ -9412,6 +10000,7 @@
       "type": "twenty_questions_single_turn",
       "source": "local_file"
     },
+    "target_object": "Dress",
     "chat": [
       {
         "role": "user",
@@ -9428,6 +10017,7 @@
       "type": "twenty_questions_single_turn",
       "source": "local_file"
     },
+    "target_object": "Computer",
     "chat": [
       {
         "role": "user",
@@ -9444,6 +10034,7 @@
       "type": "twenty_questions_single_turn",
       "source": "local_file"
     },
+    "target_object": "Nightstand",
     "chat": [
       {
         "role": "user",
@@ -9460,6 +10051,7 @@
       "type": "twenty_questions_single_turn",
       "source": "local_file"
     },
+    "target_object": "Truck",
     "chat": [
       {
         "role": "user",
@@ -9476,6 +10068,7 @@
       "type": "twenty_questions_single_turn",
       "source": "local_file"
     },
+    "target_object": "Dress",
     "chat": [
       {
         "role": "user",
@@ -9492,6 +10085,7 @@
       "type": "twenty_questions_single_turn",
       "source": "local_file"
     },
+    "target_object": "Onion",
     "chat": [
       {
         "role": "user",
@@ -9508,6 +10102,7 @@
       "type": "twenty_questions_single_turn",
       "source": "local_file"
     },
+    "target_object": "Pillow",
     "chat": [
       {
         "role": "user",
@@ -9524,6 +10119,7 @@
       "type": "twenty_questions_single_turn",
       "source": "local_file"
     },
+    "target_object": "Pants",
     "chat": [
       {
         "role": "user",
@@ -9540,6 +10136,7 @@
       "type": "twenty_questions_single_turn",
       "source": "local_file"
     },
+    "target_object": "Soccer ball",
     "chat": [
       {
         "role": "user",
@@ -9556,6 +10153,7 @@
       "type": "twenty_questions_single_turn",
       "source": "local_file"
     },
+    "target_object": "Shoes",
     "chat": [
       {
         "role": "user",
@@ -9572,6 +10170,7 @@
       "type": "twenty_questions_single_turn",
       "source": "local_file"
     },
+    "target_object": "Chopstick",
     "chat": [
       {
         "role": "user",
@@ -9588,6 +10187,7 @@
       "type": "twenty_questions_single_turn",
       "source": "local_file"
     },
+    "target_object": "Scarf",
     "chat": [
       {
         "role": "user",
@@ -9604,6 +10204,7 @@
       "type": "twenty_questions_single_turn",
       "source": "local_file"
     },
+    "target_object": "Boat",
     "chat": [
       {
         "role": "user",
@@ -9620,6 +10221,7 @@
       "type": "twenty_questions_single_turn",
       "source": "local_file"
     },
+    "target_object": "Drum",
     "chat": [
       {
         "role": "user",
@@ -9636,6 +10238,7 @@
       "type": "twenty_questions_single_turn",
       "source": "local_file"
     },
+    "target_object": "Ship",
     "chat": [
       {
         "role": "user",
@@ -9652,6 +10255,7 @@
       "type": "twenty_questions_single_turn",
       "source": "local_file"
     },
+    "target_object": "Chair",
     "chat": [
       {
         "role": "user",
@@ -9668,6 +10272,7 @@
       "type": "twenty_questions_single_turn",
       "source": "local_file"
     },
+    "target_object": "Pliers",
     "chat": [
       {
         "role": "user",
@@ -9684,6 +10289,7 @@
       "type": "twenty_questions_single_turn",
       "source": "local_file"
     },
+    "target_object": "Wrench",
     "chat": [
       {
         "role": "user",
@@ -9700,6 +10306,7 @@
       "type": "twenty_questions_single_turn",
       "source": "local_file"
     },
+    "target_object": "Refrigerator",
     "chat": [
       {
         "role": "user",
@@ -9716,6 +10323,7 @@
       "type": "twenty_questions_single_turn",
       "source": "local_file"
     },
+    "target_object": "Shovel",
     "chat": [
       {
         "role": "user",
@@ -9732,6 +10340,7 @@
       "type": "twenty_questions_single_turn",
       "source": "local_file"
     },
+    "target_object": "Hammer",
     "chat": [
       {
         "role": "user",
@@ -9748,6 +10357,7 @@
       "type": "twenty_questions_single_turn",
       "source": "local_file"
     },
+    "target_object": "Pliers",
     "chat": [
       {
         "role": "user",
@@ -9764,6 +10374,7 @@
       "type": "twenty_questions_single_turn",
       "source": "local_file"
     },
+    "target_object": "Cooking pot",
     "chat": [
       {
         "role": "user",
@@ -9780,6 +10391,7 @@
       "type": "twenty_questions_single_turn",
       "source": "local_file"
     },
+    "target_object": "Cantaloupe",
     "chat": [
       {
         "role": "user",
@@ -9796,6 +10408,7 @@
       "type": "twenty_questions_single_turn",
       "source": "local_file"
     },
+    "target_object": "Diary",
     "chat": [
       {
         "role": "user",
@@ -9812,6 +10425,7 @@
       "type": "twenty_questions_single_turn",
       "source": "local_file"
     },
+    "target_object": "Harp",
     "chat": [
       {
         "role": "user",
@@ -9828,6 +10442,7 @@
       "type": "twenty_questions_single_turn",
       "source": "local_file"
     },
+    "target_object": "Printer",
     "chat": [
       {
         "role": "user",
@@ -9844,6 +10459,7 @@
       "type": "twenty_questions_single_turn",
       "source": "local_file"
     },
+    "target_object": "Couch",
     "chat": [
       {
         "role": "user",
@@ -9860,6 +10476,7 @@
       "type": "twenty_questions_single_turn",
       "source": "local_file"
     },
+    "target_object": "Banana",
     "chat": [
       {
         "role": "user",
@@ -9876,6 +10493,7 @@
       "type": "twenty_questions_single_turn",
       "source": "local_file"
     },
+    "target_object": "Fork",
     "chat": [
       {
         "role": "user",
@@ -9892,6 +10510,7 @@
       "type": "twenty_questions_single_turn",
       "source": "local_file"
     },
+    "target_object": "Pan",
     "chat": [
       {
         "role": "user",
@@ -9908,6 +10527,7 @@
       "type": "twenty_questions_single_turn",
       "source": "local_file"
     },
+    "target_object": "Pants",
     "chat": [
       {
         "role": "user",
@@ -9924,6 +10544,7 @@
       "type": "twenty_questions_single_turn",
       "source": "local_file"
     },
+    "target_object": "Banana",
     "chat": [
       {
         "role": "user",
@@ -9940,6 +10561,7 @@
       "type": "twenty_questions_single_turn",
       "source": "local_file"
     },
+    "target_object": "Bush",
     "chat": [
       {
         "role": "user",
@@ -9956,6 +10578,7 @@
       "type": "twenty_questions_single_turn",
       "source": "local_file"
     },
+    "target_object": "Key",
     "chat": [
       {
         "role": "user",
@@ -9972,6 +10595,7 @@
       "type": "twenty_questions_single_turn",
       "source": "local_file"
     },
+    "target_object": "Football",
     "chat": [
       {
         "role": "user",
@@ -9988,6 +10612,7 @@
       "type": "twenty_questions_single_turn",
       "source": "local_file"
     },
+    "target_object": "Flute",
     "chat": [
       {
         "role": "user",
@@ -10004,6 +10629,7 @@
       "type": "twenty_questions_single_turn",
       "source": "local_file"
     },
+    "target_object": "Hairclip",
     "chat": [
       {
         "role": "user",
@@ -10020,6 +10646,7 @@
       "type": "twenty_questions_single_turn",
       "source": "local_file"
     },
+    "target_object": "Shoes",
     "chat": [
       {
         "role": "user",
@@ -10036,6 +10663,7 @@
       "type": "twenty_questions_single_turn",
       "source": "local_file"
     },
+    "target_object": "Broccoli",
     "chat": [
       {
         "role": "user",
@@ -10052,6 +10680,7 @@
       "type": "twenty_questions_single_turn",
       "source": "local_file"
     },
+    "target_object": "Glue",
     "chat": [
       {
         "role": "user",
@@ -10068,6 +10697,7 @@
       "type": "twenty_questions_single_turn",
       "source": "local_file"
     },
+    "target_object": "Piano",
     "chat": [
       {
         "role": "user",
@@ -10084,6 +10714,7 @@
       "type": "twenty_questions_single_turn",
       "source": "local_file"
     },
+    "target_object": "Gloves",
     "chat": [
       {
         "role": "user",
@@ -10100,6 +10731,7 @@
       "type": "twenty_questions_single_turn",
       "source": "local_file"
     },
+    "target_object": "River",
     "chat": [
       {
         "role": "user",
@@ -10116,6 +10748,7 @@
       "type": "twenty_questions_single_turn",
       "source": "local_file"
     },
+    "target_object": "Airplane",
     "chat": [
       {
         "role": "user",
@@ -10132,6 +10765,7 @@
       "type": "twenty_questions_single_turn",
       "source": "local_file"
     },
+    "target_object": "Drum",
     "chat": [
       {
         "role": "user",
@@ -10148,6 +10782,7 @@
       "type": "twenty_questions_single_turn",
       "source": "local_file"
     },
+    "target_object": "Marker",
     "chat": [
       {
         "role": "user",
@@ -10164,6 +10799,7 @@
       "type": "twenty_questions_single_turn",
       "source": "local_file"
     },
+    "target_object": "Apple",
     "chat": [
       {
         "role": "user",
@@ -10180,6 +10816,7 @@
       "type": "twenty_questions_single_turn",
       "source": "local_file"
     },
+    "target_object": "Rake",
     "chat": [
       {
         "role": "user",
@@ -10196,6 +10833,7 @@
       "type": "twenty_questions_single_turn",
       "source": "local_file"
     },
+    "target_object": "Orange",
     "chat": [
       {
         "role": "user",
@@ -10212,6 +10850,7 @@
       "type": "twenty_questions_single_turn",
       "source": "local_file"
     },
+    "target_object": "Saxophone",
     "chat": [
       {
         "role": "user",
@@ -10228,6 +10867,7 @@
       "type": "twenty_questions_single_turn",
       "source": "local_file"
     },
+    "target_object": "Jacket",
     "chat": [
       {
         "role": "user",
@@ -10244,6 +10884,7 @@
       "type": "twenty_questions_single_turn",
       "source": "local_file"
     },
+    "target_object": "Necklace",
     "chat": [
       {
         "role": "user",
@@ -10260,6 +10901,7 @@
       "type": "twenty_questions_single_turn",
       "source": "local_file"
     },
+    "target_object": "Watering can",
     "chat": [
       {
         "role": "user",
@@ -10276,6 +10918,7 @@
       "type": "twenty_questions_single_turn",
       "source": "local_file"
     },
+    "target_object": "Pineapple",
     "chat": [
       {
         "role": "user",
@@ -10292,6 +10935,7 @@
       "type": "twenty_questions_single_turn",
       "source": "local_file"
     },
+    "target_object": "Train",
     "chat": [
       {
         "role": "user",
@@ -10308,6 +10952,7 @@
       "type": "twenty_questions_single_turn",
       "source": "local_file"
     },
+    "target_object": "Paintbrush",
     "chat": [
       {
         "role": "user",
@@ -10324,6 +10969,7 @@
       "type": "twenty_questions_single_turn",
       "source": "local_file"
     },
+    "target_object": "Football",
     "chat": [
       {
         "role": "user",
@@ -10340,6 +10986,7 @@
       "type": "twenty_questions_single_turn",
       "source": "local_file"
     },
+    "target_object": "Trumpet",
     "chat": [
       {
         "role": "user",
@@ -10356,6 +11003,7 @@
       "type": "twenty_questions_single_turn",
       "source": "local_file"
     },
+    "target_object": "Couch",
     "chat": [
       {
         "role": "user",
@@ -10372,6 +11020,7 @@
       "type": "twenty_questions_single_turn",
       "source": "local_file"
     },
+    "target_object": "Motorcycle",
     "chat": [
       {
         "role": "user",
@@ -10388,6 +11037,7 @@
       "type": "twenty_questions_single_turn",
       "source": "local_file"
     },
+    "target_object": "Bracelet",
     "chat": [
       {
         "role": "user",
@@ -10404,6 +11054,7 @@
       "type": "twenty_questions_single_turn",
       "source": "local_file"
     },
+    "target_object": "Mango",
     "chat": [
       {
         "role": "user",
@@ -10420,6 +11071,7 @@
       "type": "twenty_questions_single_turn",
       "source": "local_file"
     },
+    "target_object": "Apple",
     "chat": [
       {
         "role": "user",
@@ -10436,6 +11088,7 @@
       "type": "twenty_questions_single_turn",
       "source": "local_file"
     },
+    "target_object": "Bus",
     "chat": [
       {
         "role": "user",
@@ -10452,6 +11105,7 @@
       "type": "twenty_questions_single_turn",
       "source": "local_file"
     },
+    "target_object": "Battery",
     "chat": [
       {
         "role": "user",
@@ -10468,6 +11122,7 @@
       "type": "twenty_questions_single_turn",
       "source": "local_file"
     },
+    "target_object": "Screwdriver",
     "chat": [
       {
         "role": "user",
@@ -10484,6 +11139,7 @@
       "type": "twenty_questions_single_turn",
       "source": "local_file"
     },
+    "target_object": "Key",
     "chat": [
       {
         "role": "user",
@@ -10500,6 +11156,7 @@
       "type": "twenty_questions_single_turn",
       "source": "local_file"
     },
+    "target_object": "Clarinet",
     "chat": [
       {
         "role": "user",
@@ -10516,6 +11173,7 @@
       "type": "twenty_questions_single_turn",
       "source": "local_file"
     },
+    "target_object": "Rake",
     "chat": [
       {
         "role": "user",
@@ -10532,6 +11190,7 @@
       "type": "twenty_questions_single_turn",
       "source": "local_file"
     },
+    "target_object": "Printer",
     "chat": [
       {
         "role": "user",
@@ -10548,6 +11207,7 @@
       "type": "twenty_questions_single_turn",
       "source": "local_file"
     },
+    "target_object": "Bookcase",
     "chat": [
       {
         "role": "user",
@@ -10564,6 +11224,7 @@
       "type": "twenty_questions_single_turn",
       "source": "local_file"
     },
+    "target_object": "Canvas",
     "chat": [
       {
         "role": "user",
@@ -10580,6 +11241,7 @@
       "type": "twenty_questions_single_turn",
       "source": "local_file"
     },
+    "target_object": "Tennis racket",
     "chat": [
       {
         "role": "user",
@@ -10596,6 +11258,7 @@
       "type": "twenty_questions_single_turn",
       "source": "local_file"
     },
+    "target_object": "Wrench",
     "chat": [
       {
         "role": "user",
@@ -10612,6 +11275,7 @@
       "type": "twenty_questions_single_turn",
       "source": "local_file"
     },
+    "target_object": "Chair",
     "chat": [
       {
         "role": "user",
@@ -10628,6 +11292,7 @@
       "type": "twenty_questions_single_turn",
       "source": "local_file"
     },
+    "target_object": "Watering can",
     "chat": [
       {
         "role": "user",
@@ -10644,6 +11309,7 @@
       "type": "twenty_questions_single_turn",
       "source": "local_file"
     },
+    "target_object": "Earring",
     "chat": [
       {
         "role": "user",
@@ -10660,6 +11326,7 @@
       "type": "twenty_questions_single_turn",
       "source": "local_file"
     },
+    "target_object": "Computer",
     "chat": [
       {
         "role": "user",
@@ -10676,6 +11343,7 @@
       "type": "twenty_questions_single_turn",
       "source": "local_file"
     },
+    "target_object": "Banana",
     "chat": [
       {
         "role": "user",
@@ -10692,6 +11360,7 @@
       "type": "twenty_questions_single_turn",
       "source": "local_file"
     },
+    "target_object": "Microwave",
     "chat": [
       {
         "role": "user",
@@ -10708,6 +11377,7 @@
       "type": "twenty_questions_single_turn",
       "source": "local_file"
     },
+    "target_object": "Locket",
     "chat": [
       {
         "role": "user",
@@ -10724,6 +11394,7 @@
       "type": "twenty_questions_single_turn",
       "source": "local_file"
     },
+    "target_object": "Key",
     "chat": [
       {
         "role": "user",
@@ -10740,6 +11411,7 @@
       "type": "twenty_questions_single_turn",
       "source": "local_file"
     },
+    "target_object": "Desk",
     "chat": [
       {
         "role": "user",
@@ -10756,6 +11428,7 @@
       "type": "twenty_questions_single_turn",
       "source": "local_file"
     },
+    "target_object": "Belt",
     "chat": [
       {
         "role": "user",
@@ -10772,6 +11445,7 @@
       "type": "twenty_questions_single_turn",
       "source": "local_file"
     },
+    "target_object": "Printer",
     "chat": [
       {
         "role": "user",
@@ -10788,6 +11462,7 @@
       "type": "twenty_questions_single_turn",
       "source": "local_file"
     },
+    "target_object": "Smartphone",
     "chat": [
       {
         "role": "user",
@@ -10804,6 +11479,7 @@
       "type": "twenty_questions_single_turn",
       "source": "local_file"
     },
+    "target_object": "Bed",
     "chat": [
       {
         "role": "user",
@@ -10820,6 +11496,7 @@
       "type": "twenty_questions_single_turn",
       "source": "local_file"
     },
+    "target_object": "Cucumber",
     "chat": [
       {
         "role": "user",
@@ -10836,6 +11513,7 @@
       "type": "twenty_questions_single_turn",
       "source": "local_file"
     },
+    "target_object": "Apple",
     "chat": [
       {
         "role": "user",
@@ -10852,6 +11530,7 @@
       "type": "twenty_questions_single_turn",
       "source": "local_file"
     },
+    "target_object": "Pan",
     "chat": [
       {
         "role": "user",
@@ -10868,6 +11547,7 @@
       "type": "twenty_questions_single_turn",
       "source": "local_file"
     },
+    "target_object": "Cactus",
     "chat": [
       {
         "role": "user",
@@ -10884,6 +11564,7 @@
       "type": "twenty_questions_single_turn",
       "source": "local_file"
     },
+    "target_object": "Monitor",
     "chat": [
       {
         "role": "user",
@@ -10900,6 +11581,7 @@
       "type": "twenty_questions_single_turn",
       "source": "local_file"
     },
+    "target_object": "Smartphone",
     "chat": [
       {
         "role": "user",
@@ -10916,6 +11598,7 @@
       "type": "twenty_questions_single_turn",
       "source": "local_file"
     },
+    "target_object": "Dog",
     "chat": [
       {
         "role": "user",
@@ -10932,6 +11615,7 @@
       "type": "twenty_questions_single_turn",
       "source": "local_file"
     },
+    "target_object": "Flute",
     "chat": [
       {
         "role": "user",
@@ -10948,6 +11632,7 @@
       "type": "twenty_questions_single_turn",
       "source": "local_file"
     },
+    "target_object": "Wrench",
     "chat": [
       {
         "role": "user",
@@ -10964,6 +11649,7 @@
       "type": "twenty_questions_single_turn",
       "source": "local_file"
     },
+    "target_object": "Meteorite",
     "chat": [
       {
         "role": "user",
@@ -10980,6 +11666,7 @@
       "type": "twenty_questions_single_turn",
       "source": "local_file"
     },
+    "target_object": "Fork",
     "chat": [
       {
         "role": "user",
@@ -10996,6 +11683,7 @@
       "type": "twenty_questions_single_turn",
       "source": "local_file"
     },
+    "target_object": "Cup",
     "chat": [
       {
         "role": "user",
@@ -11012,6 +11700,7 @@
       "type": "twenty_questions_single_turn",
       "source": "local_file"
     },
+    "target_object": "Jacket",
     "chat": [
       {
         "role": "user",
@@ -11028,6 +11717,7 @@
       "type": "twenty_questions_single_turn",
       "source": "local_file"
     },
+    "target_object": "Pillow",
     "chat": [
       {
         "role": "user",
@@ -11044,6 +11734,7 @@
       "type": "twenty_questions_single_turn",
       "source": "local_file"
     },
+    "target_object": "Calculator",
     "chat": [
       {
         "role": "user",
@@ -11060,6 +11751,7 @@
       "type": "twenty_questions_single_turn",
       "source": "local_file"
     },
+    "target_object": "Tree",
     "chat": [
       {
         "role": "user",
@@ -11076,6 +11768,7 @@
       "type": "twenty_questions_single_turn",
       "source": "local_file"
     },
+    "target_object": "Whisk",
     "chat": [
       {
         "role": "user",
@@ -11092,6 +11785,7 @@
       "type": "twenty_questions_single_turn",
       "source": "local_file"
     },
+    "target_object": "Cup",
     "chat": [
       {
         "role": "user",
@@ -11108,6 +11802,7 @@
       "type": "twenty_questions_single_turn",
       "source": "local_file"
     },
+    "target_object": "Tiger",
     "chat": [
       {
         "role": "user",
@@ -11124,6 +11819,7 @@
       "type": "twenty_questions_single_turn",
       "source": "local_file"
     },
+    "target_object": "Dresser",
     "chat": [
       {
         "role": "user",
@@ -11140,6 +11836,7 @@
       "type": "twenty_questions_single_turn",
       "source": "local_file"
     },
+    "target_object": "Meteorite",
     "chat": [
       {
         "role": "user",
@@ -11156,6 +11853,7 @@
       "type": "twenty_questions_single_turn",
       "source": "local_file"
     },
+    "target_object": "Pan",
     "chat": [
       {
         "role": "user",
@@ -11172,6 +11870,7 @@
       "type": "twenty_questions_single_turn",
       "source": "local_file"
     },
+    "target_object": "Sharpie",
     "chat": [
       {
         "role": "user",
@@ -11188,6 +11887,7 @@
       "type": "twenty_questions_single_turn",
       "source": "local_file"
     },
+    "target_object": "Bracelet",
     "chat": [
       {
         "role": "user",
@@ -11204,6 +11904,7 @@
       "type": "twenty_questions_single_turn",
       "source": "local_file"
     },
+    "target_object": "Hairclip",
     "chat": [
       {
         "role": "user",
@@ -11220,6 +11921,7 @@
       "type": "twenty_questions_single_turn",
       "source": "local_file"
     },
+    "target_object": "Wrench",
     "chat": [
       {
         "role": "user",
@@ -11236,6 +11938,7 @@
       "type": "twenty_questions_single_turn",
       "source": "local_file"
     },
+    "target_object": "Whisk",
     "chat": [
       {
         "role": "user",
@@ -11252,6 +11955,7 @@
       "type": "twenty_questions_single_turn",
       "source": "local_file"
     },
+    "target_object": "Pants",
     "chat": [
       {
         "role": "user",
@@ -11268,6 +11972,7 @@
       "type": "twenty_questions_single_turn",
       "source": "local_file"
     },
+    "target_object": "Helicopter",
     "chat": [
       {
         "role": "user",
@@ -11284,6 +11989,7 @@
       "type": "twenty_questions_single_turn",
       "source": "local_file"
     },
+    "target_object": "Volleyball",
     "chat": [
       {
         "role": "user",
@@ -11300,6 +12006,7 @@
       "type": "twenty_questions_single_turn",
       "source": "local_file"
     },
+    "target_object": "Desk",
     "chat": [
       {
         "role": "user",
@@ -11316,6 +12023,7 @@
       "type": "twenty_questions_single_turn",
       "source": "local_file"
     },
+    "target_object": "Basketball",
     "chat": [
       {
         "role": "user",
@@ -11332,6 +12040,7 @@
       "type": "twenty_questions_single_turn",
       "source": "local_file"
     },
+    "target_object": "Meteorite",
     "chat": [
       {
         "role": "user",
@@ -11348,6 +12057,7 @@
       "type": "twenty_questions_single_turn",
       "source": "local_file"
     },
+    "target_object": "Lawn mower",
     "chat": [
       {
         "role": "user",
@@ -11364,6 +12074,7 @@
       "type": "twenty_questions_single_turn",
       "source": "local_file"
     },
+    "target_object": "Motorcycle",
     "chat": [
       {
         "role": "user",
@@ -11380,6 +12091,7 @@
       "type": "twenty_questions_single_turn",
       "source": "local_file"
     },
+    "target_object": "Pants",
     "chat": [
       {
         "role": "user",
@@ -11396,6 +12108,7 @@
       "type": "twenty_questions_single_turn",
       "source": "local_file"
     },
+    "target_object": "Tree",
     "chat": [
       {
         "role": "user",
@@ -11412,6 +12125,7 @@
       "type": "twenty_questions_single_turn",
       "source": "local_file"
     },
+    "target_object": "Blender",
     "chat": [
       {
         "role": "user",
@@ -11428,6 +12142,7 @@
       "type": "twenty_questions_single_turn",
       "source": "local_file"
     },
+    "target_object": "Rake",
     "chat": [
       {
         "role": "user",
@@ -11444,6 +12159,7 @@
       "type": "twenty_questions_single_turn",
       "source": "local_file"
     },
+    "target_object": "Kite",
     "chat": [
       {
         "role": "user",
@@ -11460,6 +12176,7 @@
       "type": "twenty_questions_single_turn",
       "source": "local_file"
     },
+    "target_object": "Sea",
     "chat": [
       {
         "role": "user",
@@ -11476,6 +12193,7 @@
       "type": "twenty_questions_single_turn",
       "source": "local_file"
     },
+    "target_object": "Bookcase",
     "chat": [
       {
         "role": "user",
@@ -11492,6 +12210,7 @@
       "type": "twenty_questions_single_turn",
       "source": "local_file"
     },
+    "target_object": "Forest",
     "chat": [
       {
         "role": "user",
@@ -11508,6 +12227,7 @@
       "type": "twenty_questions_single_turn",
       "source": "local_file"
     },
+    "target_object": "Nightstand",
     "chat": [
       {
         "role": "user",
@@ -11524,6 +12244,7 @@
       "type": "twenty_questions_single_turn",
       "source": "local_file"
     },
+    "target_object": "Trumpet",
     "chat": [
       {
         "role": "user",
@@ -11540,6 +12261,7 @@
       "type": "twenty_questions_single_turn",
       "source": "local_file"
     },
+    "target_object": "Ring",
     "chat": [
       {
         "role": "user",
@@ -11556,6 +12278,7 @@
       "type": "twenty_questions_single_turn",
       "source": "local_file"
     },
+    "target_object": "Watch",
     "chat": [
       {
         "role": "user",
@@ -11572,6 +12295,7 @@
       "type": "twenty_questions_single_turn",
       "source": "local_file"
     },
+    "target_object": "Screwdriver",
     "chat": [
       {
         "role": "user",
@@ -11588,6 +12312,7 @@
       "type": "twenty_questions_single_turn",
       "source": "local_file"
     },
+    "target_object": "Shirt",
     "chat": [
       {
         "role": "user",
@@ -11604,6 +12329,7 @@
       "type": "twenty_questions_single_turn",
       "source": "local_file"
     },
+    "target_object": "Printer",
     "chat": [
       {
         "role": "user",
@@ -11620,6 +12346,7 @@
       "type": "twenty_questions_single_turn",
       "source": "local_file"
     },
+    "target_object": "Pendant",
     "chat": [
       {
         "role": "user",
@@ -11636,6 +12363,7 @@
       "type": "twenty_questions_single_turn",
       "source": "local_file"
     },
+    "target_object": "Canvas",
     "chat": [
       {
         "role": "user",
@@ -11652,6 +12380,7 @@
       "type": "twenty_questions_single_turn",
       "source": "local_file"
     },
+    "target_object": "Pan",
     "chat": [
       {
         "role": "user",
@@ -11668,6 +12397,7 @@
       "type": "twenty_questions_single_turn",
       "source": "local_file"
     },
+    "target_object": "Sheep",
     "chat": [
       {
         "role": "user",
@@ -11684,6 +12414,7 @@
       "type": "twenty_questions_single_turn",
       "source": "local_file"
     },
+    "target_object": "Scarf",
     "chat": [
       {
         "role": "user",
@@ -11700,6 +12431,7 @@
       "type": "twenty_questions_single_turn",
       "source": "local_file"
     },
+    "target_object": "Violin",
     "chat": [
       {
         "role": "user",
@@ -11716,6 +12448,7 @@
       "type": "twenty_questions_single_turn",
       "source": "local_file"
     },
+    "target_object": "Meteorite",
     "chat": [
       {
         "role": "user",
@@ -11732,6 +12465,7 @@
       "type": "twenty_questions_single_turn",
       "source": "local_file"
     },
+    "target_object": "Dresser",
     "chat": [
       {
         "role": "user",
@@ -11748,6 +12482,7 @@
       "type": "twenty_questions_single_turn",
       "source": "local_file"
     },
+    "target_object": "Kite",
     "chat": [
       {
         "role": "user",
@@ -11764,6 +12499,7 @@
       "type": "twenty_questions_single_turn",
       "source": "local_file"
     },
+    "target_object": "Pen",
     "chat": [
       {
         "role": "user",
@@ -11780,6 +12516,7 @@
       "type": "twenty_questions_single_turn",
       "source": "local_file"
     },
+    "target_object": "Elephant",
     "chat": [
       {
         "role": "user",
@@ -11796,6 +12533,7 @@
       "type": "twenty_questions_single_turn",
       "source": "local_file"
     },
+    "target_object": "Carrot",
     "chat": [
       {
         "role": "user",
@@ -11812,6 +12550,7 @@
       "type": "twenty_questions_single_turn",
       "source": "local_file"
     },
+    "target_object": "Lake",
     "chat": [
       {
         "role": "user",
@@ -11828,6 +12567,7 @@
       "type": "twenty_questions_single_turn",
       "source": "local_file"
     },
+    "target_object": "Basketball",
     "chat": [
       {
         "role": "user",
@@ -11844,6 +12584,7 @@
       "type": "twenty_questions_single_turn",
       "source": "local_file"
     },
+    "target_object": "Watch",
     "chat": [
       {
         "role": "user",
@@ -11860,6 +12601,7 @@
       "type": "twenty_questions_single_turn",
       "source": "local_file"
     },
+    "target_object": "Football",
     "chat": [
       {
         "role": "user",
@@ -11876,6 +12618,7 @@
       "type": "twenty_questions_single_turn",
       "source": "local_file"
     },
+    "target_object": "Whisk",
     "chat": [
       {
         "role": "user",
@@ -11892,6 +12635,7 @@
       "type": "twenty_questions_single_turn",
       "source": "local_file"
     },
+    "target_object": "Canvas",
     "chat": [
       {
         "role": "user",
@@ -11908,6 +12652,7 @@
       "type": "twenty_questions_single_turn",
       "source": "local_file"
     },
+    "target_object": "Computer",
     "chat": [
       {
         "role": "user",
@@ -11924,6 +12669,7 @@
       "type": "twenty_questions_single_turn",
       "source": "local_file"
     },
+    "target_object": "Football",
     "chat": [
       {
         "role": "user",
@@ -11940,6 +12686,7 @@
       "type": "twenty_questions_single_turn",
       "source": "local_file"
     },
+    "target_object": "Celery",
     "chat": [
       {
         "role": "user",
@@ -11956,6 +12703,7 @@
       "type": "twenty_questions_single_turn",
       "source": "local_file"
     },
+    "target_object": "Glue",
     "chat": [
       {
         "role": "user",
@@ -11972,6 +12720,7 @@
       "type": "twenty_questions_single_turn",
       "source": "local_file"
     },
+    "target_object": "Drum",
     "chat": [
       {
         "role": "user",
@@ -11988,6 +12737,7 @@
       "type": "twenty_questions_single_turn",
       "source": "local_file"
     },
+    "target_object": "Table",
     "chat": [
       {
         "role": "user",
@@ -12004,6 +12754,7 @@
       "type": "twenty_questions_single_turn",
       "source": "local_file"
     },
+    "target_object": "Ship",
     "chat": [
       {
         "role": "user",
@@ -12020,6 +12771,7 @@
       "type": "twenty_questions_single_turn",
       "source": "local_file"
     },
+    "target_object": "Dresser",
     "chat": [
       {
         "role": "user",
@@ -12036,6 +12788,7 @@
       "type": "twenty_questions_single_turn",
       "source": "local_file"
     },
+    "target_object": "Lake",
     "chat": [
       {
         "role": "user",
@@ -12052,6 +12805,7 @@
       "type": "twenty_questions_single_turn",
       "source": "local_file"
     },
+    "target_object": "Spinach",
     "chat": [
       {
         "role": "user",
@@ -12068,6 +12822,7 @@
       "type": "twenty_questions_single_turn",
       "source": "local_file"
     },
+    "target_object": "Belt",
     "chat": [
       {
         "role": "user",
@@ -12084,6 +12839,7 @@
       "type": "twenty_questions_single_turn",
       "source": "local_file"
     },
+    "target_object": "Earring",
     "chat": [
       {
         "role": "user",
@@ -12100,6 +12856,7 @@
       "type": "twenty_questions_single_turn",
       "source": "local_file"
     },
+    "target_object": "Paintbrush",
     "chat": [
       {
         "role": "user",
@@ -12116,6 +12873,7 @@
       "type": "twenty_questions_single_turn",
       "source": "local_file"
     },
+    "target_object": "Puzzle",
     "chat": [
       {
         "role": "user",
@@ -12132,6 +12890,7 @@
       "type": "twenty_questions_single_turn",
       "source": "local_file"
     },
+    "target_object": "Smartphone",
     "chat": [
       {
         "role": "user",
@@ -12148,6 +12907,7 @@
       "type": "twenty_questions_single_turn",
       "source": "local_file"
     },
+    "target_object": "Gloves",
     "chat": [
       {
         "role": "user",
@@ -12164,6 +12924,7 @@
       "type": "twenty_questions_single_turn",
       "source": "local_file"
     },
+    "target_object": "Watering can",
     "chat": [
       {
         "role": "user",
@@ -12180,6 +12941,7 @@
       "type": "twenty_questions_single_turn",
       "source": "local_file"
     },
+    "target_object": "Saxophone",
     "chat": [
       {
         "role": "user",
@@ -12196,6 +12958,7 @@
       "type": "twenty_questions_single_turn",
       "source": "local_file"
     },
+    "target_object": "Train",
     "chat": [
       {
         "role": "user",
@@ -12212,6 +12975,7 @@
       "type": "twenty_questions_single_turn",
       "source": "local_file"
     },
+    "target_object": "Locket",
     "chat": [
       {
         "role": "user",
@@ -12228,6 +12992,7 @@
       "type": "twenty_questions_single_turn",
       "source": "local_file"
     },
+    "target_object": "Horse",
     "chat": [
       {
         "role": "user",
@@ -12244,6 +13009,7 @@
       "type": "twenty_questions_single_turn",
       "source": "local_file"
     },
+    "target_object": "Paintbrush",
     "chat": [
       {
         "role": "user",
@@ -12260,6 +13026,7 @@
       "type": "twenty_questions_single_turn",
       "source": "local_file"
     },
+    "target_object": "Refrigerator",
     "chat": [
       {
         "role": "user",
@@ -12276,6 +13043,7 @@
       "type": "twenty_questions_single_turn",
       "source": "local_file"
     },
+    "target_object": "Football",
     "chat": [
       {
         "role": "user",
@@ -12292,6 +13060,7 @@
       "type": "twenty_questions_single_turn",
       "source": "local_file"
     },
+    "target_object": "Computer keyboard",
     "chat": [
       {
         "role": "user",
@@ -12308,6 +13077,7 @@
       "type": "twenty_questions_single_turn",
       "source": "local_file"
     },
+    "target_object": "Pineapple",
     "chat": [
       {
         "role": "user",
@@ -12324,6 +13094,7 @@
       "type": "twenty_questions_single_turn",
       "source": "local_file"
     },
+    "target_object": "Cantaloupe",
     "chat": [
       {
         "role": "user",
@@ -12340,6 +13111,7 @@
       "type": "twenty_questions_single_turn",
       "source": "local_file"
     },
+    "target_object": "Apple",
     "chat": [
       {
         "role": "user",
@@ -12356,6 +13128,7 @@
       "type": "twenty_questions_single_turn",
       "source": "local_file"
     },
+    "target_object": "Truck",
     "chat": [
       {
         "role": "user",
@@ -12372,6 +13145,7 @@
       "type": "twenty_questions_single_turn",
       "source": "local_file"
     },
+    "target_object": "Potato",
     "chat": [
       {
         "role": "user",
@@ -12388,6 +13162,7 @@
       "type": "twenty_questions_single_turn",
       "source": "local_file"
     },
+    "target_object": "Spinach",
     "chat": [
       {
         "role": "user",
@@ -12404,6 +13179,7 @@
       "type": "twenty_questions_single_turn",
       "source": "local_file"
     },
+    "target_object": "Football",
     "chat": [
       {
         "role": "user",
@@ -12420,6 +13196,7 @@
       "type": "twenty_questions_single_turn",
       "source": "local_file"
     },
+    "target_object": "Pan",
     "chat": [
       {
         "role": "user",
@@ -12436,6 +13213,7 @@
       "type": "twenty_questions_single_turn",
       "source": "local_file"
     },
+    "target_object": "Smartphone",
     "chat": [
       {
         "role": "user",
@@ -12452,6 +13230,7 @@
       "type": "twenty_questions_single_turn",
       "source": "local_file"
     },
+    "target_object": "Locket",
     "chat": [
       {
         "role": "user",
@@ -12468,6 +13247,7 @@
       "type": "twenty_questions_single_turn",
       "source": "local_file"
     },
+    "target_object": "Boots",
     "chat": [
       {
         "role": "user",
@@ -12484,6 +13264,7 @@
       "type": "twenty_questions_single_turn",
       "source": "local_file"
     },
+    "target_object": "Nightstand",
     "chat": [
       {
         "role": "user",
@@ -12500,6 +13281,7 @@
       "type": "twenty_questions_single_turn",
       "source": "local_file"
     },
+    "target_object": "Pan",
     "chat": [
       {
         "role": "user",
@@ -12516,6 +13298,7 @@
       "type": "twenty_questions_single_turn",
       "source": "local_file"
     },
+    "target_object": "Elephant",
     "chat": [
       {
         "role": "user",
@@ -12532,6 +13315,7 @@
       "type": "twenty_questions_single_turn",
       "source": "local_file"
     },
+    "target_object": "Paintbrush",
     "chat": [
       {
         "role": "user",
@@ -12548,6 +13332,7 @@
       "type": "twenty_questions_single_turn",
       "source": "local_file"
     },
+    "target_object": "Elephant",
     "chat": [
       {
         "role": "user",
@@ -12564,6 +13349,7 @@
       "type": "twenty_questions_single_turn",
       "source": "local_file"
     },
+    "target_object": "Onion",
     "chat": [
       {
         "role": "user",
@@ -12580,6 +13366,7 @@
       "type": "twenty_questions_single_turn",
       "source": "local_file"
     },
+    "target_object": "Sculpture",
     "chat": [
       {
         "role": "user",
@@ -12596,6 +13383,7 @@
       "type": "twenty_questions_single_turn",
       "source": "local_file"
     },
+    "target_object": "Cantaloupe",
     "chat": [
       {
         "role": "user",
@@ -12612,6 +13400,7 @@
       "type": "twenty_questions_single_turn",
       "source": "local_file"
     },
+    "target_object": "Skirt",
     "chat": [
       {
         "role": "user",
@@ -12628,6 +13417,7 @@
       "type": "twenty_questions_single_turn",
       "source": "local_file"
     },
+    "target_object": "Basketball",
     "chat": [
       {
         "role": "user",
@@ -12644,6 +13434,7 @@
       "type": "twenty_questions_single_turn",
       "source": "local_file"
     },
+    "target_object": "Desk",
     "chat": [
       {
         "role": "user",
@@ -12660,6 +13451,7 @@
       "type": "twenty_questions_single_turn",
       "source": "local_file"
     },
+    "target_object": "Lego",
     "chat": [
       {
         "role": "user",
@@ -12676,6 +13468,7 @@
       "type": "twenty_questions_single_turn",
       "source": "local_file"
     },
+    "target_object": "Pencil",
     "chat": [
       {
         "role": "user",
@@ -12692,6 +13485,7 @@
       "type": "twenty_questions_single_turn",
       "source": "local_file"
     },
+    "target_object": "Battery",
     "chat": [
       {
         "role": "user",
@@ -12708,6 +13502,7 @@
       "type": "twenty_questions_single_turn",
       "source": "local_file"
     },
+    "target_object": "Pillow",
     "chat": [
       {
         "role": "user",
@@ -12724,6 +13519,7 @@
       "type": "twenty_questions_single_turn",
       "source": "local_file"
     },
+    "target_object": "Paintbrush",
     "chat": [
       {
         "role": "user",
@@ -12740,6 +13536,7 @@
       "type": "twenty_questions_single_turn",
       "source": "local_file"
     },
+    "target_object": "Guitar",
     "chat": [
       {
         "role": "user",
@@ -12756,6 +13553,7 @@
       "type": "twenty_questions_single_turn",
       "source": "local_file"
     },
+    "target_object": "Tree",
     "chat": [
       {
         "role": "user",
@@ -12772,6 +13570,7 @@
       "type": "twenty_questions_single_turn",
       "source": "local_file"
     },
+    "target_object": "Paper",
     "chat": [
       {
         "role": "user",
@@ -12788,6 +13587,7 @@
       "type": "twenty_questions_single_turn",
       "source": "local_file"
     },
+    "target_object": "Apple",
     "chat": [
       {
         "role": "user",
@@ -12804,6 +13604,7 @@
       "type": "twenty_questions_single_turn",
       "source": "local_file"
     },
+    "target_object": "Dress",
     "chat": [
       {
         "role": "user",
@@ -12820,6 +13621,7 @@
       "type": "twenty_questions_single_turn",
       "source": "local_file"
     },
+    "target_object": "Drill",
     "chat": [
       {
         "role": "user",
@@ -12836,6 +13638,7 @@
       "type": "twenty_questions_single_turn",
       "source": "local_file"
     },
+    "target_object": "Football",
     "chat": [
       {
         "role": "user",
@@ -12852,6 +13655,7 @@
       "type": "twenty_questions_single_turn",
       "source": "local_file"
     },
+    "target_object": "Ship",
     "chat": [
       {
         "role": "user",
@@ -12868,6 +13672,7 @@
       "type": "twenty_questions_single_turn",
       "source": "local_file"
     },
+    "target_object": "Mountain",
     "chat": [
       {
         "role": "user",
@@ -12884,6 +13689,7 @@
       "type": "twenty_questions_single_turn",
       "source": "local_file"
     },
+    "target_object": "Elephant",
     "chat": [
       {
         "role": "user",
@@ -12900,6 +13706,7 @@
       "type": "twenty_questions_single_turn",
       "source": "local_file"
     },
+    "target_object": "Pillow",
     "chat": [
       {
         "role": "user",
@@ -12916,6 +13723,7 @@
       "type": "twenty_questions_single_turn",
       "source": "local_file"
     },
+    "target_object": "Orange",
     "chat": [
       {
         "role": "user",
@@ -12932,6 +13740,7 @@
       "type": "twenty_questions_single_turn",
       "source": "local_file"
     },
+    "target_object": "Pen",
     "chat": [
       {
         "role": "user",
@@ -12948,6 +13757,7 @@
       "type": "twenty_questions_single_turn",
       "source": "local_file"
     },
+    "target_object": "Cup",
     "chat": [
       {
         "role": "user",
@@ -12964,6 +13774,7 @@
       "type": "twenty_questions_single_turn",
       "source": "local_file"
     },
+    "target_object": "Chair",
     "chat": [
       {
         "role": "user",
@@ -12980,6 +13791,7 @@
       "type": "twenty_questions_single_turn",
       "source": "local_file"
     },
+    "target_object": "Watch",
     "chat": [
       {
         "role": "user",
@@ -12996,6 +13808,7 @@
       "type": "twenty_questions_single_turn",
       "source": "local_file"
     },
+    "target_object": "Couch",
     "chat": [
       {
         "role": "user",
@@ -13012,6 +13825,7 @@
       "type": "twenty_questions_single_turn",
       "source": "local_file"
     },
+    "target_object": "Spoon",
     "chat": [
       {
         "role": "user",
@@ -13028,6 +13842,7 @@
       "type": "twenty_questions_single_turn",
       "source": "local_file"
     },
+    "target_object": "Earring",
     "chat": [
       {
         "role": "user",
@@ -13044,6 +13859,7 @@
       "type": "twenty_questions_single_turn",
       "source": "local_file"
     },
+    "target_object": "Cactus",
     "chat": [
       {
         "role": "user",
@@ -13060,6 +13876,7 @@
       "type": "twenty_questions_single_turn",
       "source": "local_file"
     },
+    "target_object": "Ocean",
     "chat": [
       {
         "role": "user",
@@ -13076,6 +13893,7 @@
       "type": "twenty_questions_single_turn",
       "source": "local_file"
     },
+    "target_object": "Cantaloupe",
     "chat": [
       {
         "role": "user",
@@ -13092,6 +13910,7 @@
       "type": "twenty_questions_single_turn",
       "source": "local_file"
     },
+    "target_object": "Scarf",
     "chat": [
       {
         "role": "user",
@@ -13108,6 +13927,7 @@
       "type": "twenty_questions_single_turn",
       "source": "local_file"
     },
+    "target_object": "Printer",
     "chat": [
       {
         "role": "user",
@@ -13124,6 +13944,7 @@
       "type": "twenty_questions_single_turn",
       "source": "local_file"
     },
+    "target_object": "Horse",
     "chat": [
       {
         "role": "user",
@@ -13140,6 +13961,7 @@
       "type": "twenty_questions_single_turn",
       "source": "local_file"
     },
+    "target_object": "Motorcycle",
     "chat": [
       {
         "role": "user",
@@ -13156,6 +13978,7 @@
       "type": "twenty_questions_single_turn",
       "source": "local_file"
     },
+    "target_object": "Bush",
     "chat": [
       {
         "role": "user",
@@ -13172,6 +13995,7 @@
       "type": "twenty_questions_single_turn",
       "source": "local_file"
     },
+    "target_object": "Computer",
     "chat": [
       {
         "role": "user",
@@ -13188,6 +14012,7 @@
       "type": "twenty_questions_single_turn",
       "source": "local_file"
     },
+    "target_object": "Boat",
     "chat": [
       {
         "role": "user",
@@ -13204,6 +14029,7 @@
       "type": "twenty_questions_single_turn",
       "source": "local_file"
     },
+    "target_object": "Printer",
     "chat": [
       {
         "role": "user",
@@ -13220,6 +14046,7 @@
       "type": "twenty_questions_single_turn",
       "source": "local_file"
     },
+    "target_object": "Plate",
     "chat": [
       {
         "role": "user",
@@ -13236,6 +14063,7 @@
       "type": "twenty_questions_single_turn",
       "source": "local_file"
     },
+    "target_object": "Nightstand",
     "chat": [
       {
         "role": "user",
@@ -13252,6 +14080,7 @@
       "type": "twenty_questions_single_turn",
       "source": "local_file"
     },
+    "target_object": "Pan",
     "chat": [
       {
         "role": "user",
@@ -13268,6 +14097,7 @@
       "type": "twenty_questions_single_turn",
       "source": "local_file"
     },
+    "target_object": "Pen",
     "chat": [
       {
         "role": "user",
@@ -13284,6 +14114,7 @@
       "type": "twenty_questions_single_turn",
       "source": "local_file"
     },
+    "target_object": "Elephant",
     "chat": [
       {
         "role": "user",
@@ -13300,6 +14131,7 @@
       "type": "twenty_questions_single_turn",
       "source": "local_file"
     },
+    "target_object": "Plate",
     "chat": [
       {
         "role": "user",
@@ -13316,6 +14148,7 @@
       "type": "twenty_questions_single_turn",
       "source": "local_file"
     },
+    "target_object": "Gloves",
     "chat": [
       {
         "role": "user",
@@ -13332,6 +14165,7 @@
       "type": "twenty_questions_single_turn",
       "source": "local_file"
     },
+    "target_object": "Rock",
     "chat": [
       {
         "role": "user",
@@ -13348,6 +14182,7 @@
       "type": "twenty_questions_single_turn",
       "source": "local_file"
     },
+    "target_object": "Monitor",
     "chat": [
       {
         "role": "user",
@@ -13364,6 +14199,7 @@
       "type": "twenty_questions_single_turn",
       "source": "local_file"
     },
+    "target_object": "Orange",
     "chat": [
       {
         "role": "user",
@@ -13380,6 +14216,7 @@
       "type": "twenty_questions_single_turn",
       "source": "local_file"
     },
+    "target_object": "Knife",
     "chat": [
       {
         "role": "user",
@@ -13396,6 +14233,7 @@
       "type": "twenty_questions_single_turn",
       "source": "local_file"
     },
+    "target_object": "Chopstick",
     "chat": [
       {
         "role": "user",
@@ -13412,6 +14250,7 @@
       "type": "twenty_questions_single_turn",
       "source": "local_file"
     },
+    "target_object": "Dress",
     "chat": [
       {
         "role": "user",
@@ -13428,6 +14267,7 @@
       "type": "twenty_questions_single_turn",
       "source": "local_file"
     },
+    "target_object": "Headphone",
     "chat": [
       {
         "role": "user",
@@ -13444,6 +14284,7 @@
       "type": "twenty_questions_single_turn",
       "source": "local_file"
     },
+    "target_object": "Knife",
     "chat": [
       {
         "role": "user",
@@ -13460,6 +14301,7 @@
       "type": "twenty_questions_single_turn",
       "source": "local_file"
     },
+    "target_object": "Flute",
     "chat": [
       {
         "role": "user",
@@ -13476,6 +14318,7 @@
       "type": "twenty_questions_single_turn",
       "source": "local_file"
     },
+    "target_object": "Cactus",
     "chat": [
       {
         "role": "user",
@@ -13492,6 +14335,7 @@
       "type": "twenty_questions_single_turn",
       "source": "local_file"
     },
+    "target_object": "Dog",
     "chat": [
       {
         "role": "user",
@@ -13508,6 +14352,7 @@
       "type": "twenty_questions_single_turn",
       "source": "local_file"
     },
+    "target_object": "Peas",
     "chat": [
       {
         "role": "user",
@@ -13524,6 +14369,7 @@
       "type": "twenty_questions_single_turn",
       "source": "local_file"
     },
+    "target_object": "Cucumber",
     "chat": [
       {
         "role": "user",
@@ -13540,6 +14386,7 @@
       "type": "twenty_questions_single_turn",
       "source": "local_file"
     },
+    "target_object": "Hat",
     "chat": [
       {
         "role": "user",
@@ -13556,6 +14403,7 @@
       "type": "twenty_questions_single_turn",
       "source": "local_file"
     },
+    "target_object": "Trumpet",
     "chat": [
       {
         "role": "user",
@@ -13572,6 +14420,7 @@
       "type": "twenty_questions_single_turn",
       "source": "local_file"
     },
+    "target_object": "Football",
     "chat": [
       {
         "role": "user",
@@ -13588,6 +14437,7 @@
       "type": "twenty_questions_single_turn",
       "source": "local_file"
     },
+    "target_object": "Headphone",
     "chat": [
       {
         "role": "user",
@@ -13604,6 +14454,7 @@
       "type": "twenty_questions_single_turn",
       "source": "local_file"
     },
+    "target_object": "Paintbrush",
     "chat": [
       {
         "role": "user",
@@ -13620,6 +14471,7 @@
       "type": "twenty_questions_single_turn",
       "source": "local_file"
     },
+    "target_object": "Rake",
     "chat": [
       {
         "role": "user",
@@ -13636,6 +14488,7 @@
       "type": "twenty_questions_single_turn",
       "source": "local_file"
     },
+    "target_object": "Pants",
     "chat": [
       {
         "role": "user",
@@ -13652,6 +14505,7 @@
       "type": "twenty_questions_single_turn",
       "source": "local_file"
     },
+    "target_object": "Clarinet",
     "chat": [
       {
         "role": "user",
@@ -13668,6 +14522,7 @@
       "type": "twenty_questions_single_turn",
       "source": "local_file"
     },
+    "target_object": "Key",
     "chat": [
       {
         "role": "user",
@@ -13684,6 +14539,7 @@
       "type": "twenty_questions_single_turn",
       "source": "local_file"
     },
+    "target_object": "Tennis ball",
     "chat": [
       {
         "role": "user",
@@ -13700,6 +14556,7 @@
       "type": "twenty_questions_single_turn",
       "source": "local_file"
     },
+    "target_object": "Peach",
     "chat": [
       {
         "role": "user",
@@ -13716,6 +14573,7 @@
       "type": "twenty_questions_single_turn",
       "source": "local_file"
     },
+    "target_object": "Chopstick",
     "chat": [
       {
         "role": "user",
@@ -13732,6 +14590,7 @@
       "type": "twenty_questions_single_turn",
       "source": "local_file"
     },
+    "target_object": "Onion",
     "chat": [
       {
         "role": "user",
@@ -13748,6 +14607,7 @@
       "type": "twenty_questions_single_turn",
       "source": "local_file"
     },
+    "target_object": "Watering can",
     "chat": [
       {
         "role": "user",
@@ -13764,6 +14624,7 @@
       "type": "twenty_questions_single_turn",
       "source": "local_file"
     },
+    "target_object": "Cantaloupe",
     "chat": [
       {
         "role": "user",
@@ -13780,6 +14641,7 @@
       "type": "twenty_questions_single_turn",
       "source": "local_file"
     },
+    "target_object": "Carrot",
     "chat": [
       {
         "role": "user",
@@ -13796,6 +14658,7 @@
       "type": "twenty_questions_single_turn",
       "source": "local_file"
     },
+    "target_object": "Spinach",
     "chat": [
       {
         "role": "user",
@@ -13812,6 +14675,7 @@
       "type": "twenty_questions_single_turn",
       "source": "local_file"
     },
+    "target_object": "Belt",
     "chat": [
       {
         "role": "user",
@@ -13828,6 +14692,7 @@
       "type": "twenty_questions_single_turn",
       "source": "local_file"
     },
+    "target_object": "Camera",
     "chat": [
       {
         "role": "user",
@@ -13844,6 +14709,7 @@
       "type": "twenty_questions_single_turn",
       "source": "local_file"
     },
+    "target_object": "Celery",
     "chat": [
       {
         "role": "user",
@@ -13860,6 +14726,7 @@
       "type": "twenty_questions_single_turn",
       "source": "local_file"
     },
+    "target_object": "Hammer",
     "chat": [
       {
         "role": "user",
@@ -13876,6 +14743,7 @@
       "type": "twenty_questions_single_turn",
       "source": "local_file"
     },
+    "target_object": "Bookcase",
     "chat": [
       {
         "role": "user",
@@ -13892,6 +14760,7 @@
       "type": "twenty_questions_single_turn",
       "source": "local_file"
     },
+    "target_object": "Truck",
     "chat": [
       {
         "role": "user",
@@ -13908,6 +14777,7 @@
       "type": "twenty_questions_single_turn",
       "source": "local_file"
     },
+    "target_object": "Hat",
     "chat": [
       {
         "role": "user",
@@ -13924,6 +14794,7 @@
       "type": "twenty_questions_single_turn",
       "source": "local_file"
     },
+    "target_object": "Rock",
     "chat": [
       {
         "role": "user",
@@ -13940,6 +14811,7 @@
       "type": "twenty_questions_single_turn",
       "source": "local_file"
     },
+    "target_object": "Pliers",
     "chat": [
       {
         "role": "user",
@@ -13956,6 +14828,7 @@
       "type": "twenty_questions_single_turn",
       "source": "local_file"
     },
+    "target_object": "Microwave",
     "chat": [
       {
         "role": "user",
@@ -13972,6 +14845,7 @@
       "type": "twenty_questions_single_turn",
       "source": "local_file"
     },
+    "target_object": "Elephant",
     "chat": [
       {
         "role": "user",
@@ -13988,6 +14862,7 @@
       "type": "twenty_questions_single_turn",
       "source": "local_file"
     },
+    "target_object": "Baseball",
     "chat": [
       {
         "role": "user",
@@ -14004,6 +14879,7 @@
       "type": "twenty_questions_single_turn",
       "source": "local_file"
     },
+    "target_object": "Tennis racket",
     "chat": [
       {
         "role": "user",
@@ -14020,6 +14896,7 @@
       "type": "twenty_questions_single_turn",
       "source": "local_file"
     },
+    "target_object": "Cactus",
     "chat": [
       {
         "role": "user",
@@ -14036,6 +14913,7 @@
       "type": "twenty_questions_single_turn",
       "source": "local_file"
     },
+    "target_object": "Ship",
     "chat": [
       {
         "role": "user",
@@ -14052,6 +14930,7 @@
       "type": "twenty_questions_single_turn",
       "source": "local_file"
     },
+    "target_object": "Television",
     "chat": [
       {
         "role": "user",
@@ -14068,6 +14947,7 @@
       "type": "twenty_questions_single_turn",
       "source": "local_file"
     },
+    "target_object": "Celery",
     "chat": [
       {
         "role": "user",
@@ -14084,6 +14964,7 @@
       "type": "twenty_questions_single_turn",
       "source": "local_file"
     },
+    "target_object": "Helicopter",
     "chat": [
       {
         "role": "user",
@@ -14100,6 +14981,7 @@
       "type": "twenty_questions_single_turn",
       "source": "local_file"
     },
+    "target_object": "Wrench",
     "chat": [
       {
         "role": "user",
@@ -14116,6 +14998,7 @@
       "type": "twenty_questions_single_turn",
       "source": "local_file"
     },
+    "target_object": "Table",
     "chat": [
       {
         "role": "user",
@@ -14132,6 +15015,7 @@
       "type": "twenty_questions_single_turn",
       "source": "local_file"
     },
+    "target_object": "Golf ball",
     "chat": [
       {
         "role": "user",
@@ -14148,6 +15032,7 @@
       "type": "twenty_questions_single_turn",
       "source": "local_file"
     },
+    "target_object": "Sheep",
     "chat": [
       {
         "role": "user",
@@ -14164,6 +15049,7 @@
       "type": "twenty_questions_single_turn",
       "source": "local_file"
     },
+    "target_object": "Diary",
     "chat": [
       {
         "role": "user",
@@ -14180,6 +15066,7 @@
       "type": "twenty_questions_single_turn",
       "source": "local_file"
     },
+    "target_object": "Drum",
     "chat": [
       {
         "role": "user",
@@ -14196,6 +15083,7 @@
       "type": "twenty_questions_single_turn",
       "source": "local_file"
     },
+    "target_object": "Calculator",
     "chat": [
       {
         "role": "user",
@@ -14212,6 +15100,7 @@
       "type": "twenty_questions_single_turn",
       "source": "local_file"
     },
+    "target_object": "Trumpet",
     "chat": [
       {
         "role": "user",
@@ -14228,6 +15117,7 @@
       "type": "twenty_questions_single_turn",
       "source": "local_file"
     },
+    "target_object": "Glue",
     "chat": [
       {
         "role": "user",
@@ -14244,6 +15134,7 @@
       "type": "twenty_questions_single_turn",
       "source": "local_file"
     },
+    "target_object": "Chopstick",
     "chat": [
       {
         "role": "user",
@@ -14260,6 +15151,7 @@
       "type": "twenty_questions_single_turn",
       "source": "local_file"
     },
+    "target_object": "Plate",
     "chat": [
       {
         "role": "user",
@@ -14276,6 +15168,7 @@
       "type": "twenty_questions_single_turn",
       "source": "local_file"
     },
+    "target_object": "Rake",
     "chat": [
       {
         "role": "user",
@@ -14292,6 +15185,7 @@
       "type": "twenty_questions_single_turn",
       "source": "local_file"
     },
+    "target_object": "Forest",
     "chat": [
       {
         "role": "user",
@@ -14308,6 +15202,7 @@
       "type": "twenty_questions_single_turn",
       "source": "local_file"
     },
+    "target_object": "Cat",
     "chat": [
       {
         "role": "user",
@@ -14324,6 +15219,7 @@
       "type": "twenty_questions_single_turn",
       "source": "local_file"
     },
+    "target_object": "Forest",
     "chat": [
       {
         "role": "user",
@@ -14340,6 +15236,7 @@
       "type": "twenty_questions_single_turn",
       "source": "local_file"
     },
+    "target_object": "Dog",
     "chat": [
       {
         "role": "user",
@@ -14356,6 +15253,7 @@
       "type": "twenty_questions_single_turn",
       "source": "local_file"
     },
+    "target_object": "Watermelon",
     "chat": [
       {
         "role": "user",
@@ -14372,6 +15270,7 @@
       "type": "twenty_questions_single_turn",
       "source": "local_file"
     },
+    "target_object": "Brooch",
     "chat": [
       {
         "role": "user",
@@ -14388,6 +15287,7 @@
       "type": "twenty_questions_single_turn",
       "source": "local_file"
     },
+    "target_object": "Computer",
     "chat": [
       {
         "role": "user",
@@ -14404,6 +15304,7 @@
       "type": "twenty_questions_single_turn",
       "source": "local_file"
     },
+    "target_object": "Boat",
     "chat": [
       {
         "role": "user",
@@ -14420,6 +15321,7 @@
       "type": "twenty_questions_single_turn",
       "source": "local_file"
     },
+    "target_object": "Kite",
     "chat": [
       {
         "role": "user",
@@ -14436,6 +15338,7 @@
       "type": "twenty_questions_single_turn",
       "source": "local_file"
     },
+    "target_object": "Celery",
     "chat": [
       {
         "role": "user",
@@ -14452,6 +15355,7 @@
       "type": "twenty_questions_single_turn",
       "source": "local_file"
     },
+    "target_object": "Desk",
     "chat": [
       {
         "role": "user",
@@ -14468,6 +15372,7 @@
       "type": "twenty_questions_single_turn",
       "source": "local_file"
     },
+    "target_object": "Computer keyboard",
     "chat": [
       {
         "role": "user",
@@ -14484,6 +15389,7 @@
       "type": "twenty_questions_single_turn",
       "source": "local_file"
     },
+    "target_object": "Eraser",
     "chat": [
       {
         "role": "user",
@@ -14500,6 +15406,7 @@
       "type": "twenty_questions_single_turn",
       "source": "local_file"
     },
+    "target_object": "Chair",
     "chat": [
       {
         "role": "user",
@@ -14516,6 +15423,7 @@
       "type": "twenty_questions_single_turn",
       "source": "local_file"
     },
+    "target_object": "Printer",
     "chat": [
       {
         "role": "user",
@@ -14532,6 +15440,7 @@
       "type": "twenty_questions_single_turn",
       "source": "local_file"
     },
+    "target_object": "Printer",
     "chat": [
       {
         "role": "user",
@@ -14548,6 +15457,7 @@
       "type": "twenty_questions_single_turn",
       "source": "local_file"
     },
+    "target_object": "Hairclip",
     "chat": [
       {
         "role": "user",
@@ -14564,6 +15474,7 @@
       "type": "twenty_questions_single_turn",
       "source": "local_file"
     },
+    "target_object": "Rock",
     "chat": [
       {
         "role": "user",
@@ -14580,6 +15491,7 @@
       "type": "twenty_questions_single_turn",
       "source": "local_file"
     },
+    "target_object": "Painting",
     "chat": [
       {
         "role": "user",
@@ -14596,6 +15508,7 @@
       "type": "twenty_questions_single_turn",
       "source": "local_file"
     },
+    "target_object": "Monitor",
     "chat": [
       {
         "role": "user",
@@ -14612,6 +15525,7 @@
       "type": "twenty_questions_single_turn",
       "source": "local_file"
     },
+    "target_object": "Headphone",
     "chat": [
       {
         "role": "user",
@@ -14628,6 +15542,7 @@
       "type": "twenty_questions_single_turn",
       "source": "local_file"
     },
+    "target_object": "Car",
     "chat": [
       {
         "role": "user",
@@ -14644,6 +15559,7 @@
       "type": "twenty_questions_single_turn",
       "source": "local_file"
     },
+    "target_object": "Pan",
     "chat": [
       {
         "role": "user",
@@ -14660,6 +15576,7 @@
       "type": "twenty_questions_single_turn",
       "source": "local_file"
     },
+    "target_object": "Onion",
     "chat": [
       {
         "role": "user",
@@ -14676,6 +15593,7 @@
       "type": "twenty_questions_single_turn",
       "source": "local_file"
     },
+    "target_object": "Pants",
     "chat": [
       {
         "role": "user",
@@ -14692,6 +15610,7 @@
       "type": "twenty_questions_single_turn",
       "source": "local_file"
     },
+    "target_object": "Marker",
     "chat": [
       {
         "role": "user",
@@ -14708,6 +15627,7 @@
       "type": "twenty_questions_single_turn",
       "source": "local_file"
     },
+    "target_object": "Bus",
     "chat": [
       {
         "role": "user",
@@ -14724,6 +15644,7 @@
       "type": "twenty_questions_single_turn",
       "source": "local_file"
     },
+    "target_object": "Spinach",
     "chat": [
       {
         "role": "user",
@@ -14740,6 +15661,7 @@
       "type": "twenty_questions_single_turn",
       "source": "local_file"
     },
+    "target_object": "Lake",
     "chat": [
       {
         "role": "user",
@@ -14756,6 +15678,7 @@
       "type": "twenty_questions_single_turn",
       "source": "local_file"
     },
+    "target_object": "Tennis ball",
     "chat": [
       {
         "role": "user",
@@ -14772,6 +15695,7 @@
       "type": "twenty_questions_single_turn",
       "source": "local_file"
     },
+    "target_object": "Train",
     "chat": [
       {
         "role": "user",
@@ -14788,6 +15712,7 @@
       "type": "twenty_questions_single_turn",
       "source": "local_file"
     },
+    "target_object": "Skirt",
     "chat": [
       {
         "role": "user",
@@ -14804,6 +15729,7 @@
       "type": "twenty_questions_single_turn",
       "source": "local_file"
     },
+    "target_object": "Key",
     "chat": [
       {
         "role": "user",
@@ -14820,6 +15746,7 @@
       "type": "twenty_questions_single_turn",
       "source": "local_file"
     },
+    "target_object": "Soccer ball",
     "chat": [
       {
         "role": "user",
@@ -14836,6 +15763,7 @@
       "type": "twenty_questions_single_turn",
       "source": "local_file"
     },
+    "target_object": "Plate",
     "chat": [
       {
         "role": "user",
@@ -14852,6 +15780,7 @@
       "type": "twenty_questions_single_turn",
       "source": "local_file"
     },
+    "target_object": "Car",
     "chat": [
       {
         "role": "user",
@@ -14868,6 +15797,7 @@
       "type": "twenty_questions_single_turn",
       "source": "local_file"
     },
+    "target_object": "Bush",
     "chat": [
       {
         "role": "user",
@@ -14884,6 +15814,7 @@
       "type": "twenty_questions_single_turn",
       "source": "local_file"
     },
+    "target_object": "Saw",
     "chat": [
       {
         "role": "user",
@@ -14900,6 +15831,7 @@
       "type": "twenty_questions_single_turn",
       "source": "local_file"
     },
+    "target_object": "Bush",
     "chat": [
       {
         "role": "user",
@@ -14916,6 +15848,7 @@
       "type": "twenty_questions_single_turn",
       "source": "local_file"
     },
+    "target_object": "Mango",
     "chat": [
       {
         "role": "user",
@@ -14932,6 +15865,7 @@
       "type": "twenty_questions_single_turn",
       "source": "local_file"
     },
+    "target_object": "Lawn mower",
     "chat": [
       {
         "role": "user",
@@ -14948,6 +15882,7 @@
       "type": "twenty_questions_single_turn",
       "source": "local_file"
     },
+    "target_object": "Golf ball",
     "chat": [
       {
         "role": "user",
@@ -14964,6 +15899,7 @@
       "type": "twenty_questions_single_turn",
       "source": "local_file"
     },
+    "target_object": "Basketball",
     "chat": [
       {
         "role": "user",
@@ -14980,6 +15916,7 @@
       "type": "twenty_questions_single_turn",
       "source": "local_file"
     },
+    "target_object": "Marker",
     "chat": [
       {
         "role": "user",
@@ -14996,6 +15933,7 @@
       "type": "twenty_questions_single_turn",
       "source": "local_file"
     },
+    "target_object": "Dog",
     "chat": [
       {
         "role": "user",
@@ -15012,6 +15950,7 @@
       "type": "twenty_questions_single_turn",
       "source": "local_file"
     },
+    "target_object": "Key",
     "chat": [
       {
         "role": "user",
@@ -15028,6 +15967,7 @@
       "type": "twenty_questions_single_turn",
       "source": "local_file"
     },
+    "target_object": "Calendar",
     "chat": [
       {
         "role": "user",
@@ -15044,6 +15984,7 @@
       "type": "twenty_questions_single_turn",
       "source": "local_file"
     },
+    "target_object": "Bus",
     "chat": [
       {
         "role": "user",
@@ -15060,6 +16001,7 @@
       "type": "twenty_questions_single_turn",
       "source": "local_file"
     },
+    "target_object": "Tennis ball",
     "chat": [
       {
         "role": "user",
@@ -15076,6 +16018,7 @@
       "type": "twenty_questions_single_turn",
       "source": "local_file"
     },
+    "target_object": "Piano",
     "chat": [
       {
         "role": "user",
@@ -15092,6 +16035,7 @@
       "type": "twenty_questions_single_turn",
       "source": "local_file"
     },
+    "target_object": "Skirt",
     "chat": [
       {
         "role": "user",
@@ -15108,6 +16052,7 @@
       "type": "twenty_questions_single_turn",
       "source": "local_file"
     },
+    "target_object": "Hat",
     "chat": [
       {
         "role": "user",
@@ -15124,6 +16069,7 @@
       "type": "twenty_questions_single_turn",
       "source": "local_file"
     },
+    "target_object": "Scooter",
     "chat": [
       {
         "role": "user",
@@ -15140,6 +16086,7 @@
       "type": "twenty_questions_single_turn",
       "source": "local_file"
     },
+    "target_object": "Shoes",
     "chat": [
       {
         "role": "user",
@@ -15156,6 +16103,7 @@
       "type": "twenty_questions_single_turn",
       "source": "local_file"
     },
+    "target_object": "Onion",
     "chat": [
       {
         "role": "user",
@@ -15172,6 +16120,7 @@
       "type": "twenty_questions_single_turn",
       "source": "local_file"
     },
+    "target_object": "Peach",
     "chat": [
       {
         "role": "user",
@@ -15188,6 +16137,7 @@
       "type": "twenty_questions_single_turn",
       "source": "local_file"
     },
+    "target_object": "Broccoli",
     "chat": [
       {
         "role": "user",
@@ -15204,6 +16154,7 @@
       "type": "twenty_questions_single_turn",
       "source": "local_file"
     },
+    "target_object": "Rake",
     "chat": [
       {
         "role": "user",
@@ -15220,6 +16171,7 @@
       "type": "twenty_questions_single_turn",
       "source": "local_file"
     },
+    "target_object": "Train",
     "chat": [
       {
         "role": "user",
@@ -15236,6 +16188,7 @@
       "type": "twenty_questions_single_turn",
       "source": "local_file"
     },
+    "target_object": "Couch",
     "chat": [
       {
         "role": "user",
@@ -15252,6 +16205,7 @@
       "type": "twenty_questions_single_turn",
       "source": "local_file"
     },
+    "target_object": "Dresser",
     "chat": [
       {
         "role": "user",
@@ -15268,6 +16222,7 @@
       "type": "twenty_questions_single_turn",
       "source": "local_file"
     },
+    "target_object": "Desk",
     "chat": [
       {
         "role": "user",
@@ -15284,6 +16239,7 @@
       "type": "twenty_questions_single_turn",
       "source": "local_file"
     },
+    "target_object": "Tennis racket",
     "chat": [
       {
         "role": "user",
@@ -15300,6 +16256,7 @@
       "type": "twenty_questions_single_turn",
       "source": "local_file"
     },
+    "target_object": "Tennis ball",
     "chat": [
       {
         "role": "user",
@@ -15316,6 +16273,7 @@
       "type": "twenty_questions_single_turn",
       "source": "local_file"
     },
+    "target_object": "Chair",
     "chat": [
       {
         "role": "user",
@@ -15332,6 +16290,7 @@
       "type": "twenty_questions_single_turn",
       "source": "local_file"
     },
+    "target_object": "Pan",
     "chat": [
       {
         "role": "user",
@@ -15348,6 +16307,7 @@
       "type": "twenty_questions_single_turn",
       "source": "local_file"
     },
+    "target_object": "Microwave",
     "chat": [
       {
         "role": "user",
@@ -15364,6 +16324,7 @@
       "type": "twenty_questions_single_turn",
       "source": "local_file"
     },
+    "target_object": "Lego",
     "chat": [
       {
         "role": "user",
@@ -15380,6 +16341,7 @@
       "type": "twenty_questions_single_turn",
       "source": "local_file"
     },
+    "target_object": "River",
     "chat": [
       {
         "role": "user",
@@ -15396,6 +16358,7 @@
       "type": "twenty_questions_single_turn",
       "source": "local_file"
     },
+    "target_object": "Dog",
     "chat": [
       {
         "role": "user",
@@ -15412,6 +16375,7 @@
       "type": "twenty_questions_single_turn",
       "source": "local_file"
     },
+    "target_object": "Pendant",
     "chat": [
       {
         "role": "user",
@@ -15428,6 +16392,7 @@
       "type": "twenty_questions_single_turn",
       "source": "local_file"
     },
+    "target_object": "Spoon",
     "chat": [
       {
         "role": "user",
@@ -15444,6 +16409,7 @@
       "type": "twenty_questions_single_turn",
       "source": "local_file"
     },
+    "target_object": "Pendant",
     "chat": [
       {
         "role": "user",
@@ -15460,6 +16426,7 @@
       "type": "twenty_questions_single_turn",
       "source": "local_file"
     },
+    "target_object": "Pen",
     "chat": [
       {
         "role": "user",
@@ -15476,6 +16443,7 @@
       "type": "twenty_questions_single_turn",
       "source": "local_file"
     },
+    "target_object": "Paintbrush",
     "chat": [
       {
         "role": "user",
@@ -15492,6 +16460,7 @@
       "type": "twenty_questions_single_turn",
       "source": "local_file"
     },
+    "target_object": "Smartphone",
     "chat": [
       {
         "role": "user",
@@ -15508,6 +16477,7 @@
       "type": "twenty_questions_single_turn",
       "source": "local_file"
     },
+    "target_object": "Ocean",
     "chat": [
       {
         "role": "user",
@@ -15524,6 +16494,7 @@
       "type": "twenty_questions_single_turn",
       "source": "local_file"
     },
+    "target_object": "Stapler",
     "chat": [
       {
         "role": "user",
@@ -15540,6 +16511,7 @@
       "type": "twenty_questions_single_turn",
       "source": "local_file"
     },
+    "target_object": "Apple",
     "chat": [
       {
         "role": "user",
@@ -15556,6 +16528,7 @@
       "type": "twenty_questions_single_turn",
       "source": "local_file"
     },
+    "target_object": "Painting",
     "chat": [
       {
         "role": "user",
@@ -15572,6 +16545,7 @@
       "type": "twenty_questions_single_turn",
       "source": "local_file"
     },
+    "target_object": "Tennis racket",
     "chat": [
       {
         "role": "user",
@@ -15588,6 +16562,7 @@
       "type": "twenty_questions_single_turn",
       "source": "local_file"
     },
+    "target_object": "Painting",
     "chat": [
       {
         "role": "user",
@@ -15604,6 +16579,7 @@
       "type": "twenty_questions_single_turn",
       "source": "local_file"
     },
+    "target_object": "Chopstick",
     "chat": [
       {
         "role": "user",
@@ -15620,6 +16596,7 @@
       "type": "twenty_questions_single_turn",
       "source": "local_file"
     },
+    "target_object": "Sculpture",
     "chat": [
       {
         "role": "user",
@@ -15636,6 +16613,7 @@
       "type": "twenty_questions_single_turn",
       "source": "local_file"
     },
+    "target_object": "Printer",
     "chat": [
       {
         "role": "user",
@@ -15652,6 +16630,7 @@
       "type": "twenty_questions_single_turn",
       "source": "local_file"
     },
+    "target_object": "Pants",
     "chat": [
       {
         "role": "user",
@@ -15668,6 +16647,7 @@
       "type": "twenty_questions_single_turn",
       "source": "local_file"
     },
+    "target_object": "Mango",
     "chat": [
       {
         "role": "user",
@@ -15684,6 +16664,7 @@
       "type": "twenty_questions_single_turn",
       "source": "local_file"
     },
+    "target_object": "Bear",
     "chat": [
       {
         "role": "user",
@@ -15700,6 +16681,7 @@
       "type": "twenty_questions_single_turn",
       "source": "local_file"
     },
+    "target_object": "Dress",
     "chat": [
       {
         "role": "user",
@@ -15716,6 +16698,7 @@
       "type": "twenty_questions_single_turn",
       "source": "local_file"
     },
+    "target_object": "Dog",
     "chat": [
       {
         "role": "user",
@@ -15732,6 +16715,7 @@
       "type": "twenty_questions_single_turn",
       "source": "local_file"
     },
+    "target_object": "Doll",
     "chat": [
       {
         "role": "user",
@@ -15748,6 +16732,7 @@
       "type": "twenty_questions_single_turn",
       "source": "local_file"
     },
+    "target_object": "Guitar",
     "chat": [
       {
         "role": "user",
@@ -15764,6 +16749,7 @@
       "type": "twenty_questions_single_turn",
       "source": "local_file"
     },
+    "target_object": "Clarinet",
     "chat": [
       {
         "role": "user",
@@ -15780,6 +16766,7 @@
       "type": "twenty_questions_single_turn",
       "source": "local_file"
     },
+    "target_object": "Key",
     "chat": [
       {
         "role": "user",
@@ -15796,6 +16783,7 @@
       "type": "twenty_questions_single_turn",
       "source": "local_file"
     },
+    "target_object": "Trumpet",
     "chat": [
       {
         "role": "user",
@@ -15812,6 +16800,7 @@
       "type": "twenty_questions_single_turn",
       "source": "local_file"
     },
+    "target_object": "Doll",
     "chat": [
       {
         "role": "user",
@@ -15828,6 +16817,7 @@
       "type": "twenty_questions_single_turn",
       "source": "local_file"
     },
+    "target_object": "Volleyball",
     "chat": [
       {
         "role": "user",
@@ -15844,6 +16834,7 @@
       "type": "twenty_questions_single_turn",
       "source": "local_file"
     },
+    "target_object": "Dress",
     "chat": [
       {
         "role": "user",
@@ -15860,6 +16851,7 @@
       "type": "twenty_questions_single_turn",
       "source": "local_file"
     },
+    "target_object": "Dog",
     "chat": [
       {
         "role": "user",
@@ -15876,6 +16868,7 @@
       "type": "twenty_questions_single_turn",
       "source": "local_file"
     },
+    "target_object": "Trombone",
     "chat": [
       {
         "role": "user",
@@ -15892,6 +16885,7 @@
       "type": "twenty_questions_single_turn",
       "source": "local_file"
     },
+    "target_object": "Glue",
     "chat": [
       {
         "role": "user",
@@ -15908,6 +16902,7 @@
       "type": "twenty_questions_single_turn",
       "source": "local_file"
     },
+    "target_object": "Bush",
     "chat": [
       {
         "role": "user",
@@ -15924,6 +16919,7 @@
       "type": "twenty_questions_single_turn",
       "source": "local_file"
     },
+    "target_object": "Printer",
     "chat": [
       {
         "role": "user",
@@ -15940,6 +16936,7 @@
       "type": "twenty_questions_single_turn",
       "source": "local_file"
     },
+    "target_object": "Broccoli",
     "chat": [
       {
         "role": "user",
@@ -15956,6 +16953,7 @@
       "type": "twenty_questions_single_turn",
       "source": "local_file"
     },
+    "target_object": "Grape",
     "chat": [
       {
         "role": "user",
@@ -15972,6 +16970,7 @@
       "type": "twenty_questions_single_turn",
       "source": "local_file"
     },
+    "target_object": "Bowl",
     "chat": [
       {
         "role": "user",
@@ -15988,6 +16987,7 @@
       "type": "twenty_questions_single_turn",
       "source": "local_file"
     },
+    "target_object": "Tomato",
     "chat": [
       {
         "role": "user",

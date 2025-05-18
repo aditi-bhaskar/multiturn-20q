@@ -1,6 +1,9 @@
 import json
 from collabllm.datasets.dataset import ChatDataset
 
+
+# NOTE THAT WE ALWAYS SHOULD USE THE EVAL SET GOING FORWARDS!!
+
 class TwentyQ(ChatDataset):
     def __init__(self, path="/Users/aditi/Documents/multiturn-20q/collab-llm/lmrl_gym_20q_data/eval.json"):
     # def __init__(self, path="/Users/aditi/Documents/multiturn-20q/collab-llm/lmrl_gym_20q_data/train.json"):
@@ -69,6 +72,7 @@ class TwentyQ(ChatDataset):
         intro_message = "Let's play 20 questions! I will answer yes or no to help you guess the object I'm thinking of."
 
         for entry in raw_data:
+            # Extract the final answer (handle list or string)
             word = entry.get('word')
             final_answer = word[0] if isinstance(word, list) else word
 
@@ -82,7 +86,12 @@ class TwentyQ(ChatDataset):
                 'source': 'local_file'
             }
 
-            processed_data.append({'metadata': metadata, 'chat': turns})
+            # Add target_object field
+            processed_data.append({
+                'metadata': metadata,
+                'target_object': final_answer,
+                'chat': turns
+            })
 
         return processed_data
 

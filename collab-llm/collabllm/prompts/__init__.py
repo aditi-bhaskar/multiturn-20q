@@ -76,7 +76,8 @@ for task in ['question-answering', 'document-editing', 'code-generation', '20q']
                                                     output_format={
                                                         'interactivity': {'thought': str, 'score': Union[float, int]}
                                                     })
-        #  TODO update the judge as I go, for 20q
+        # TODO update the judge as I go, for 20q
+        # ADITI -- TODO ADD SOMETHING HERE FOR 20q!! ?
         elif task == '20q':
             LLM_JUDGE_PROMPTS[task] = PromptHandler(f.read(), 
                                                     input_keys=['chat_history', 'chat', 'question', 'answer'], 
@@ -85,7 +86,6 @@ for task in ['question-answering', 'document-editing', 'code-generation', '20q']
                                                             'accuracy': {'thought': str, 'score': Union[float, int]},
                                                             'information_gain': {'thought': str, 'score': Union[float, int]}
                                                     })          
-        # ADITI -- TODO ADD SOMETHING HERE FOR 20q!! ?
         else:
             raise NotImplementedError(f"Please declare the prompt for the task: {task}")
 

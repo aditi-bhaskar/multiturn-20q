@@ -174,6 +174,7 @@ def process_conversation(i, dataset, args, assistant_collabllm, assistant_vanill
             
             responses = [future_collabllm.result(), future_vanilla.result()]
         
+        user_generation_kwargs['target_object'] = answer  # aditi edit to tell the llm judge about the target object
         rewards, reward_logs = get_multiturn_rewards(
             task_name=args.task_name, # datasets_info[args.dataset]['task'],  # aditi edit
             single_turn_ds=[qa for _ in range(len(responses))],
@@ -311,14 +312,16 @@ def main():
         #     except KeyError:
         #         pass
         
-        random.seed(0)
+        random.seed(0)  # ok so the random seed and choosing only one conv is what made it always pick bear
         # idx_all = [i for i in range(min(args.n_eval_per_dataset, len(dataset[split]['chat'])))]  # aditi edit to use n_eval_per_dataset
         #  in dpo/sft we can split into eval/training dataset 
 
-        idx_all = [i for i in range(len(dataset[split]['chat']))]
+        idx_all = [i for i in range(len(dataset[split]))]
+        print(f"DEBUG: GENCONV DPO - idx_all[2] = {idx_all[2]}\n\n")
+        # idx_all = [i for i in range(len(dataset[split]['chat']))]
         random.shuffle(idx_all)
-        idx_all = idx_all[:args.max_num_conv]
-        idx_todo = [idx for idx in idx_all if idx not in unique_idx]
+        idx_all = idx_all[:args.max_num_conv]  # ADITI NOTE TODO - should not need to splice with 1000 entries in the eval dataset?!
+        idx_todo = [idx for idx in idx_all if idx not in unique_idx]  # idx todo are all the single turn prompts from the dataset
 
         # method = 'collabllm_gt_cot' if datasets_info[args.dataset]['task'] == 'question-answering' else 'collabllm_cot'
         # added by aditi; changed the default bc  collabllm_cot doesnt exist
@@ -340,7 +343,9 @@ def main():
         #  with ifx todo, 
 
         for i in tqdm(idx_todo):
+                print("DEBUG:GENCONVDPO - what is dataset[split]? = {dataset[split]}\n\n")
                 i, convs, pos_responses, neg_responses, chosen_evals, rejected_evals = process_conversation(i, dataset[split], args, assistant_collabllm, assistant_vanilla)
+
         # with concurrent.futures.ProcessPoolExecutor(max_workers=args.max_workers) as executor:
         #     futures = {
         #         executor.submit(process_conversation, i, dataset[split], args, assistant_collabllm, assistant_vanilla): i for i in idx_todo
@@ -349,28 +354,30 @@ def main():
             # for future in tqdm(concurrent.futures.as_completed(futures), total=len(futures), desc='Global tasks'):
             #     i, convs, pos_responses, neg_responses, chosen_evals, rejected_evals = future.result()
         
-                idx_list.extend([i] * len(convs))  # Extend with i repeated for each conversation turn
-                metadata_list.extend([
-                    {'user': args.user_model_name, 
-                     'assistant': args.assistant_model_name}] * len(convs))
-                prompt_list.extend(convs)
-                chosen_list.extend(pos_responses)
-                rejected_list.extend(neg_responses)
-                chosen_eval_list.extend(chosen_evals)
-                rejected_eval_list.extend(rejected_evals)
+                # idx_list.extend([i] * len(convs))  # Extend with i repeated for each conversation turn
+                # metadata_list.extend([
+                #     {'user': args.user_model_name, 
+                #      'assistant': args.assistant_model_name}] * len(convs))
+                # prompt_list.extend(convs)
+                # chosen_list.extend(pos_responses)
+                # rejected_list.extend(neg_responses)
+                # chosen_eval_list.extend(chosen_evals)
+                # rejected_eval_list.extend(rejected_evals)
 
-                if np.unique(idx_list).shape[0] % args.log_step == 0:
-                    dataset_dict[split] = Dataset.from_dict({
-                        'idx': idx_list,
-                        'prompt': prompt_list,
-                        'chosen': chosen_list,
-                        'rejected': rejected_list,
-                        'chosen_eval': chosen_eval_list,
-                        'rejected_eval': rejected_eval_list,
-                        'metadata': metadata_list
-                    })
-                    print(f"Dataset Dict Split={split}: {dataset_dict[split]}\n")
+                # if np.unique(idx_list).shape[0] % args.log_step == 0:
+                #     dataset_dict[split] = Dataset.from_dict({
+                #         'idx': idx_list,
+                #         'prompt': prompt_list,
+                #         'chosen': chosen_list,
+                #         'rejected': rejected_list,
+                #         'chosen_eval': chosen_eval_list,
+                #         'rejected_eval': rejected_eval_list,
+                #         'metadata': metadata_list
+                #     })
+                #     print(f"Dataset Dict Split={split}: {dataset_dict[split]}\n")
 
+
+            #  TODO: done :)
             #  only load the one-turn dataset: q=nothing, a=object
             #  list of objects essentially
 
@@ -389,7 +396,6 @@ def main():
             'metadata': metadata_list
         })
         print(f"Dataset Dict Split={split}: {dataset_dict[split]}\n")
-
 
         # dataset[split][idx]    <-- TODO check what the object is before its processed
 

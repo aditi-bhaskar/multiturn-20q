@@ -1,0 +1,8 @@
+
+
+[LLMAssistant] `current_problem`=I am trying to narrow down the search space to guess the hidden word. | `thought`=Based on the user's responses so far, I need to ask about the characteristics of the hidden word to narrow down the possibilities.
+
+
+
+[LLMAssistant] `current_problem`=The hidden word is a living thing. | `thought`=Since the hidden word is a living thing, I can now focus on narrowing down the possibilities within living organisms. I need to ask questions that differentiate between different types of living things such as animals, plants, or microorganisms.
+

@@ -25,6 +25,7 @@ export N_EVAL=100                   # aditi edit for debugging
 # ^ this is num of games played
 
 
+
 # You can also adjust the assistant model and reward model based on your preference
 # export ASSISTANT_MODEL=gpt-4o
 # export REWARD_MODEL=claude-3-5-sonnet-20240620
@@ -64,9 +65,16 @@ CUDA_VISIBLE_DEVICES=0 python scripts/generate_conv_dpo_20q.py \
     --llm_rw_weight $LLM_RW_WEIGHT \
     --cost_weight $COST_WEIGHT \
     --n_eval_per_dataset $N_EVAL \
-    --max_num_conv 1 \
+    --max_num_conv 5 \
     --task_name 20q \
     --resume
+
+
+# TODO: set max_num_conv to 1000 or something?
+
+
+
+    # --max_num_conv 1 \
 
     # --target_object "apple" \
 

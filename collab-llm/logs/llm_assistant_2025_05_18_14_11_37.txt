@@ -1,0 +1,8 @@
+
+
+[LLMAssistant] `current_problem`=I am trying to guess the hidden word. | `thought`=I have just started the game, so I need to ask broad questions to narrow down the search space. I should focus on general categories or characteristics of the hidden word.
+
+
+
+[LLMAssistant] `current_problem`=The search space includes objects that are not found indoors. | `thought`=Since the hidden word is not an object found indoors, I should focus on objects that are typically found outdoors. I need to ask a question that distinguishes between various outdoor objects.
+
