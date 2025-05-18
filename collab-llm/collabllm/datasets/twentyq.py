@@ -91,14 +91,18 @@ class TwentyQ(ChatDataset):
 
     def preprocess(self, raw_data):
         processed_data = []
+        intro_message = "Let's play 20 questions! I'll answer yes or no to help you guess the object."
+
         for entry in raw_data:
             lines = entry.get('lines', [])
             word = entry.get('word')
             turns = []
 
+            # Start chat with user intro message
+            turns.append({'role': 'user', 'content': intro_message})
+
             for line in lines:
                 if '?' in line:
-                    # Split on the first '?'
                     question, answer = line.split('?', 1)
                     question = question.strip() + '?'
                     answer = answer.strip()
@@ -106,10 +110,8 @@ class TwentyQ(ChatDataset):
                     if answer:
                         turns.append({'role': 'user', 'content': answer})
                 else:
-                    # Lines without '?' just become assistant turns (like the final answer)
                     turns.append({'role': 'assistant', 'content': line})
 
-            # Append final assistant message giving the answer
             final_answer = word[0] if isinstance(word, list) else word
             turns.append({'role': 'assistant', 'content': f'The answer is: {final_answer}.'})
 
@@ -121,8 +123,7 @@ class TwentyQ(ChatDataset):
             processed_data.append({'metadata': metadata, 'chat': turns})
 
         return processed_data
-    
-   
+
 
 def main():
     dataset = TwentyQ()
