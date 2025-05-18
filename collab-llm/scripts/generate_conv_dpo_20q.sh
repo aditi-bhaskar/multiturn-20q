@@ -6,7 +6,6 @@ export USE_SUB=false
 export USE_SNAP=true
 export USE_GCR=false
 
-# TODO ASK SHIRLEY -- WHAT DO ALL OF THESE MEAN?
 
 # Dataset configurations
 export DATASET=NONE                # Change this for different datasets (e.g., math-hard, humaneval)
@@ -35,14 +34,19 @@ export ASSISTANT_MODEL=gpt-3.5-turbo
 export REWARD_MODEL=gpt-3.5-turbo
 
 
+
+# next steps
+#  generate 1000-2000 using the train dataset
+#  
+
 # import os
 # openai.api_key = os.getenv("OPENAI_API_KEY")
 
-# Define a list of possible target objects for the 20Q task
-export TARGET_OBJECTS=("apple" "cat" "car" "dog" "airplane")
+# # Define a list of possible target objects for the 20Q task
+# export TARGET_OBJECTS=("apple" "cat" "car" "dog" "airplane")
 
-# Pick a random object from the list to pass as the target object
-export TARGET_OBJECT=${TARGET_OBJECTS[$RANDOM % ${#TARGET_OBJECTS[@]}]}
+# # Pick a random object from the list to pass as the target object
+# export TARGET_OBJECT=${TARGET_OBJECTS[$RANDOM % ${#TARGET_OBJECTS[@]}]}
 
 CUDA_VISIBLE_DEVICES=0 python scripts/generate_conv_dpo_20q.py \
     --dataset $DATASET \
@@ -63,7 +67,7 @@ CUDA_VISIBLE_DEVICES=0 python scripts/generate_conv_dpo_20q.py \
     --max_num_conv 1 \
     --task_name 20q \
     --resume
-    
+
     # --target_object "apple" \
 
     # --target_object "$TARGET_OBJECT"  # Pass the selected target object

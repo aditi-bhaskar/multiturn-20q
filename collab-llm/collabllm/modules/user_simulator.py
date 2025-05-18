@@ -57,8 +57,11 @@ class UserSimulator(object):
             cnt += 1
             response = get_llm_output(prompt, **self.llm_kwargs)
 
+            # TODO
             print('\n\n\nDEBUG response type:', type(response))
             print('\n\n\nDEBUG response content:', response)
+            print(prompt)
+            breakpoint
 
             if isinstance(response, dict):
                 try:

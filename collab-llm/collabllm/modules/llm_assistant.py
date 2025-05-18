@@ -66,6 +66,13 @@ class LLMAssistant(object):
             # self.llm_kwargs['model'] = "tiiuae/falcon-7b-instruct" # aditi addition
 
             response = get_llm_output(prompt, **self.llm_kwargs)
+
+            # TODO
+            print('\n\n\nDEBUG response type:', type(response))
+            print('\n\n\nDEBUG response content:', response)
+            print(prompt)
+            breakpoint
+
             #  TODO check response
             if isinstance(response, dict):
                 try:

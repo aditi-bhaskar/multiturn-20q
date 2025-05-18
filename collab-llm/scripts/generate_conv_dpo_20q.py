@@ -31,6 +31,11 @@ from collabllm.modules import LLMAssistant, UserSimulator
 
 from datasets import load_dataset
 
+# todo
+#  it should iterate thru all the entries in the dataset -- maybe that's why it doesnt
+# make it single turn
+
+
 
 def parse_args():
     parser = argparse.ArgumentParser()
@@ -129,6 +134,8 @@ def process_conversation(i, dataset, args, assistant_collabllm, assistant_vanill
     if task == '20q':
         #  aditi edit to choose a random object
         user_kwargs['target_object'] = answer
+        # print(f"\nDEBUG user_kwargs['target_object']={user_kwargs['target_object']}\n") 
+
         # user_kwargs['target_object'] = answer
         user_kwargs.pop('single_turn_data', None)  # Ensure it's not accidentally passed
     else:
@@ -302,8 +309,10 @@ def main():
         #         pass
         
         random.seed(0)
-        idx_all = [i for i in range(min(args.n_eval_per_dataset, len(dataset[split]['chat'])))]  # aditi edit to use n_eval_per_dataset
-        # idx_all = [i for i in range(len(dataset[split]['chat']))]
+        # idx_all = [i for i in range(min(args.n_eval_per_dataset, len(dataset[split]['chat'])))]  # aditi edit to use n_eval_per_dataset
+        #  in dpo/sft we can split into eval/training dataset 
+
+        idx_all = [i for i in range(len(dataset[split]['chat']))]
         random.shuffle(idx_all)
         idx_all = idx_all[:args.max_num_conv]
         idx_todo = [idx for idx in idx_all if idx not in unique_idx]
@@ -325,6 +334,8 @@ def main():
         vanilla_generation_kwargs['json_object'] = False
         assistant_vanilla = LLMAssistant(method='none', **vanilla_generation_kwargs)
         
+        #  with ifx todo, 
+
         for i in tqdm(idx_todo):
                 i, convs, pos_responses, neg_responses, chosen_evals, rejected_evals = process_conversation(i, dataset[split], args, assistant_collabllm, assistant_vanilla)
         # with concurrent.futures.ProcessPoolExecutor(max_workers=args.max_workers) as executor:
@@ -356,8 +367,14 @@ def main():
                         'metadata': metadata_list
                     })
                     print(f"Dataset Dict Split={split}: {dataset_dict[split]}\n")
+
+            #  only load the one-turn dataset: q=nothing, a=object
+            #  list of objects essentially
+
                     # aditi: removed bc we dont have hf
                     # DatasetDict(dataset_dict).push_to_hub(repo_id=f'{args.hf_org}/collabllm-{args.dataset}', private=True)
+
+
 
         dataset_dict[split] = Dataset.from_dict({
             'idx': idx_list,
@@ -370,8 +387,18 @@ def main():
         })
         print(f"Dataset Dict Split={split}: {dataset_dict[split]}\n")
 
+
+        # dataset[split][idx]    <-- TODO check what the object is before its processed
+
+        # TODO save this dataset to json!
+
         # aditi: removed bc we dont have hf
+        # TODO create a hf for myself & push to hf  (try it with 2 conversations first)
         # DatasetDict(dataset_dict).push_to_hub(repo_id=f'{args.hf_org}/collabllm-{args.dataset}', private=True)
+        #  can log to see the format (can make it public and view dataset in a table)  - set private = false
+        # https://huggingface.co/datasets/snap-stanford/pubmed_pipeline-preference_scorer-combined
+
+
 
 if __name__ == '__main__':
     main()
