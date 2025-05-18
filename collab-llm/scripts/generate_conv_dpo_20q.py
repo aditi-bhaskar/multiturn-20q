@@ -265,8 +265,9 @@ def main():
     args = parse_args()
     # aditi edit to use the local dataset
     args.dataset = load_dataset("json", data_files={
-        #  note that i lost the train file with git conflicts, so i am using the eval file here (much smaller)
-        "train": "/Users/aditi/Documents/multiturn-20q/collab-llm/lmrl_gym_20q_data/eval_processed.json"
+        # OBSOLETE: note that i lost the train file with git conflicts, so i am using the eval file here (much smaller)
+        # "train": "/Users/aditi/Documents/multiturn-20q/collab-llm/lmrl_gym_20q_data/eval_processed.json"
+        "train": "/Users/aditi/Documents/multiturn-20q/collab-llm/lmrl_gym_20q_data/train_processed.json"
     })
 
     dataset =  args.dataset         #  aditi edit # load_single_turn_dataset(args.dataset, add_system_prompt=False)

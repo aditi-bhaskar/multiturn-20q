@@ -57,6 +57,9 @@ class UserSimulator(object):
             cnt += 1
             response = get_llm_output(prompt, **self.llm_kwargs)
 
+            print('\n\n\nDEBUG response type:', type(response))
+            print('\n\n\nDEBUG response content:', response)
+
             if isinstance(response, dict):
                 try:
                     response = response['response']
@@ -68,7 +71,13 @@ class UserSimulator(object):
             if cnt > 5:
                 import pdb; pdb.set_trace()
 
+
+        if not isinstance(response, str):
+            print(f'[UserSimulator] Unexpected response type: {type(response)}')
+            response = ''
         return response.strip()
+
+        # return response.strip()
 
 
 # Function to write conversation data to a JSON file
