@@ -94,15 +94,19 @@ class TwentyQ(ChatDataset):
         for entry in raw_data:
             lines = entry.get('lines', [])
             word = entry.get('word')
-            # Build a list of chat turns: each question-answer pair becomes two turns: user asks, assistant answers
             turns = []
-            # You want the questions as user turns, answers as assistant turns
+
             for line in lines:
-                if line.endswith('?'):
-                    # This line is a question: user turn
-                    turns.append({'role': 'user', 'content': line})
+                if '?' in line:
+                    # Split on the first '?'
+                    question, answer = line.split('?', 1)
+                    question = question.strip() + '?'
+                    answer = answer.strip()
+                    turns.append({'role': 'assistant', 'content': question})
+                    if answer:
+                        turns.append({'role': 'user', 'content': answer})
                 else:
-                    # This line is an answer: assistant turn
+                    # Lines without '?' just become assistant turns (like the final answer)
                     turns.append({'role': 'assistant', 'content': line})
 
             # Append final assistant message giving the answer
@@ -118,7 +122,7 @@ class TwentyQ(ChatDataset):
 
         return processed_data
     
-
+   
 
 def main():
     dataset = TwentyQ()
