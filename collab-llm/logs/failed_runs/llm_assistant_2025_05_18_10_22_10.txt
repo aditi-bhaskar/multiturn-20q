@@ -1,4 +1,0 @@
-
-
-[LLMAssistant] `current_problem`=I am trying to narrow down the search space of the hidden word. | `thought`=Based on the user's responses so far, I need to ask a question that will help me differentiate between words that start with vowels and those that don't.
-
