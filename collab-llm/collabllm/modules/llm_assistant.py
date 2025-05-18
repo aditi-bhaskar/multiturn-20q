@@ -16,6 +16,9 @@ class LLMAssistant(object):
         'proact_gt_cot': LLM_ASSISTANT_PROMPT_PROACT_COT_GT,
         'proact_cot_20q': LLM_ASSISTANT_PROMPT_PROACT_COT_20Q # added by aditi
     }
+
+    timestamp = datetime.datetime.now().strftime("%Y_%m_%d_%H_%M_%S")
+
     def __init__(self, method='zero-shot', **llm_kwargs):
         """
         Initialize the LLMAssistant model.
@@ -25,6 +28,7 @@ class LLMAssistant(object):
         self.prompt_handler = self.registered_prompts[method]
         self.max_new_tokens = llm_kwargs.get('max_new_tokens', 512)
         self.llm_kwargs = llm_kwargs
+
 
     def __call__(self, messages: List[dict], **kwargs):
         """
@@ -69,9 +73,8 @@ class LLMAssistant(object):
                     current_problem = response.pop('current_problem')
                     thought = response.pop('thought')
                     response = response['response']
-                    timestamp = datetime.datetime.now().strftime("%Y_%m_%d_%H_%M_%S")
 
-                    with open(f'logs/llm_assistant_{timestamp}.txt', 'a+') as f:
+                    with open(f'logs/llm_assistant_{self.timestamp}.txt', 'a+') as f:
                         f.write(f'\n\n[LLMAssistant] `current_problem`={current_problem} | `thought`={thought}\n\n')
                     break
                 except Exception as e:
