@@ -11,14 +11,20 @@ export USE_GCR=false
 # Dataset configurations
 export DATASET=NONE                # Change this for different datasets (e.g., math-hard, humaneval)
 export TEMP=0.5                      # Temperature for sampling (adjust for creativity)
-# export MAX_NEW_TURNS=8               # Maximum number of new conversation turns per task
-export MAX_NEW_TURNS=2               # aditi edit for debugging
-export MAX_TOKENS=1536               # Maximum tokens per generation
+export MAX_NEW_TURNS=20               # Maximum number of new conversation turns per task
+# ^ this is length of game
+# export MAX_NEW_TURNS=2               # aditi edit for debugging
+# export MAX_NEW_TURNS=8               # from original code
+# export MAX_TOKENS=1536               # from original code
+export MAX_TOKENS=256               # Maximum tokens per generation -- aditi edit
 export COST_WEIGHT=5e-4              # Cost weight in reward function (adjust based on preference)
 export LLM_RW_WEIGHT=1               # Weight for RLHF reward function
 export USER_MODEL=gpt-4o-mini        # Choose the user model (e.g., gpt-4o-mini, gpt-4o)
 # export N_EVAL=600                    # Number of evaluations per dataset split
-export N_EVAL=2                    # aditi edit for debugging
+export N_EVAL=200                   # aditi edit for debugging
+# export N_EVAL=2                   # aditi edit for debugging
+# ^ this is num of games played
+
 
 # You can also adjust the assistant model and reward model based on your preference
 # export ASSISTANT_MODEL=gpt-4o
