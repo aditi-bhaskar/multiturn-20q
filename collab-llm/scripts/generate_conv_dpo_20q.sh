@@ -1,3 +1,6 @@
+# ./scripts/generate_conv_dpo_20q.sh   
+
+
 # Environment Variables (Adjust to match dataset & model)
 export USE_SUB=false
 export USE_SNAP=true
@@ -53,7 +56,7 @@ CUDA_VISIBLE_DEVICES=0 python scripts/generate_conv_dpo_20q.py \
     --n_eval_per_dataset $N_EVAL \
     --max_num_conv 1 \
     --task_name 20q \
-    --target_object "apple" \
+    # --target_object "apple" \
     --resume
 
     # --target_object "$TARGET_OBJECT"  # Pass the selected target object
