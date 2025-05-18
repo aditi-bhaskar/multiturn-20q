@@ -10,7 +10,7 @@ from .jaccard_similarity import JaccardSimilarity
 
 metric_info = {
     'token_amount': (TokenAmount, []),
-    'llm_judge': (LLMJudge, ['task_name', 'model', 'temperature', 'max_new_tokens', 'rescale_func']),
+    'llm_judge': (LLMJudge, ['task_name', 'model', 'temperatur', 'max_new_tokens', 'rescale_func']),
     'bert_score': (BertScore, ['bert_score_model', 'model', 'temperature', 'max_new_tokens']),
     'bleu_score': (SentenceBLEU, ['model', 'temperature', 'max_new_tokens']),
     'bleurt_score': (BLEURTScore, ['model', 'temperature', 'max_new_tokens']),
@@ -47,11 +47,23 @@ registered_task_metrics = {
         'others': [],
     },
     #  aditi edit
+    #  here, I have 2 different reward functions outlined. 
+    # the first is generic, from the math task, and the second is more specific, and makes use of the information gain of each question
+
+     # original/math reward function -- 
+    # '20q': {  
+    #     'llm_metrics': ['llm_judge->interactivity'],
+    #     'llm_judge_rescale_func': lambda x: (x - 2.5) * 2,
+    #     'task_specific': 'llm_judge->accuracy',
+    #     'others': [],
+    # },
+
+    # specific/20q reward function -- 
     '20q': {
-        'llm_metrics': ['llm_judge->interactivity'],
-        'llm_judge_rescale_func': lambda x: (x - 2.5) * 2,
-        'task_specific': 'llm_judge->accuracy',
+        'llm_metrics': ['llm_judge->information_gain'],
+        'llm_judge_rescale_func': lambda x: x * 2,  # scale to [-2, 2] assuming original in [0, 1]
+        'task_specific': 'llm_judge->information_gain',
         'others': [],
-    }
+    },
 
 }

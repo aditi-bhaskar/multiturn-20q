@@ -134,6 +134,10 @@ if __name__ == "__main__":
             "score": float,
             "reason": str
         },
+        "information_gain": {  # aditi addition
+            "score": float,
+            "reason": str     
+        },
         "final_writing": str
     }
 
@@ -156,6 +160,10 @@ if __name__ == "__main__":
         "efficiency": {
             "score": 7.5,
             "reason": "Could be faster"
+        },
+        "information_gain": {   # aditi addition
+            "score": 5,
+            "reason": "asking 'is it a bird' and going from any animal to only birds reduced over half the search space if the answer is yes, but didn't reduce that much if the answer is no."
         },
         "final_writing": "The model performed well but with some latency."
     }

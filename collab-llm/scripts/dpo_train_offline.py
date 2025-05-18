@@ -140,7 +140,7 @@ else:
 
 if os.environ.get('LOCAL_RANK', '0') == '0':
     wandb.init(
-	    project="interactivity", 
+	    project="interactivity",    # TODO aditi check here when getting to training
 	    entity="dsp-team",
         name=keep_levels(output_dir, 3),
 	    config=args,

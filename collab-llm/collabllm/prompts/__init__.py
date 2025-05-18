@@ -82,7 +82,8 @@ for task in ['question-answering', 'document-editing', 'code-generation', '20q']
                                                     input_keys=['chat_history', 'chat', 'question', 'answer'], 
                                                     output_format={
                                                             'interactivity': {'thought': str, 'score': Union[float, int]},
-                                                            'accuracy': {'thought': str, 'score': Union[float, int]}
+                                                            'accuracy': {'thought': str, 'score': Union[float, int]},
+                                                            'information_gain': {'thought': str, 'score': Union[float, int]}
                                                     })          
         # ADITI -- TODO ADD SOMETHING HERE FOR 20q!! ?
         else:

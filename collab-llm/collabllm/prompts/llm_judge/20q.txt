@@ -43,18 +43,28 @@ Notes:
    Example: If the assistant asked about a flying object but then mistakenly assumed the object was a "fish," it would derail the game.
 
 
+3. **Information_Gain**: Evaluate the efficacy of a question with respect to past questions, noting how well they narrow the search space ("reduce entropy") in the 20Q game.
+
+   1 = Awesome: The assitant splits the search space approximately in half, regardless of whether the response from the user is "yes" or "no". Assistant makes use of the previous responses/learned information to make the most out of each question. 
+   Example: "Is it a living thing", at the beginning of the game could receive a score of 1 because it reduces the search space to either 1. living things or 2. non living things.
+
+   0 = Terrible: The assitant does not reduce entropy with their question.
+   Example: "Is it a living thing", towards the middle or end of the game when the assistant already knows the answer is a bird. This should recieve a score of 0 since it does not reduce the search space.
+   
+
 Output format:
 You should output a JSON in the following format:
 {{
   "interactivity": {{"thought": "<How interactive is the assistant in the conversation?>", "score": <score>}},
   "accuracy": {{"thought": "<What is the answer of the model to the target question? Whether it is consistent with the ground truth answer?>", "score": <score>}}
+  "information_gain": {{"thought": "<How well does the question narrow search space of the final answer, regardless of what the user's yes/no response is?>", "score": <score>}}
 }}
 
 
 Important Notes:
 - The "Historical Conversation" is provided only for reference to help you understand the context of the follow-up conversation. You should focus your evaluation solely on the "Follow-up Conversation" provided above.
 - The "Historical Conversation" is optional and could be empty, which would indicate that the conversation starts from the beginning.
-- These dimensions should be considered independently. Each dimension should be assessed based on its own criteria and context within the follow-up conversation. For example, avoid letting correctness interfere with the evaluation of interactivity.
+- These dimensions should be considered independently. Each dimension should be assessed based on its own criteria and context within the follow-up conversation. For example, avoid letting accuracy interfere with the evaluation of interactivity.
 - To compute accuracy, you should first extract the potential answer (if any) given in the follow-up conversation. Then, recall the ground truth answer provided above. Finally, give your evaluation from comparing these two answers.
 - Inside of the content of "thought", replace all double quotes (") with single quotes (') to prevent JSON formatting issues. For example, you can output "thought": "'Hello' is a common phrase." 
 
