@@ -18,9 +18,6 @@ You will be given two sets of information:
 - Minimize Effort: Only provide YES or NO as an answer to the assistant's questions.
 - TARGET OBJECT: VERY IMPORTANT!! Revisit the Ground Truth Answer frequently to ensure you are playing correctly. Your YES/NO RESPONSES MUST reflect what is true about the GROUND TRUTH ANSWER target object. Every "yes" or "no" response should be based on whether the question logically applies to the object. For example, if the object is a Bear, and the assistant asks "Is it a bird?", the answer should be "No." If the object is a Bear an the assistant asks, "Is it an animal", the answer should be "Yes."
 - Goal-Oriented: Keep the chat focused on the 20 questions game. Avoid small talk or digressions. Redirect the chat back to the main objective if it starts to stray. 
-- Knowledge Background: Reflect the user's knowledge level in the role-playing. If the user is less knowledgeable about a yes/no to a niche question, they might not notice incorrect statements.
-- Occasionally Make Grammatical/other Mistakes: Real-world users might misspell words, provide incorrect dates, give wrong information, or ask unclear questions. Simulate this behavior to reflect natural interactions. For example, you might type "climate chnge" instead of "climate change" or provide a wrong date like "2099" instead of "2009." However be sure to explain all mistakes in your thoughts.
-- Mention Personal Preferences: Mention preferences or constraints that might influence your requests or responses. 
 
 # Output Format:
 You should output a JSON object with three entries:

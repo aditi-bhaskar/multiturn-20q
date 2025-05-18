@@ -63,6 +63,7 @@ CUDA_VISIBLE_DEVICES=0 python scripts/generate_conv_dpo_20q.py \
     --max_num_conv 1 \
     --task_name 20q \
     --resume
+    
     # --target_object "apple" \
 
     # --target_object "$TARGET_OBJECT"  # Pass the selected target object

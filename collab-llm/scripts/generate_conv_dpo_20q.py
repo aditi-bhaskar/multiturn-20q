@@ -115,8 +115,8 @@ def process_conversation(i, dataset, args, assistant_collabllm, assistant_vanill
 
     if answer.strip().startswith('{'):
         answer = extract_json(answer)['answer']
-    print('*************** answer ****************\n', answer)
-    print('*************** question ****************\n', question)  # is technically never used anywhere.
+    print('\n*************** answer ****************\n', answer)
+    print('\n*************** question ****************\n', question)  # is technically never used anywhere.
 
 
     conv = []
