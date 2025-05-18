@@ -419,3 +419,48 @@ if __name__ == '__main__':
 #   where/how can i pass the tgt obj as a metric to measure with the llm judge?
 #   is the main function here looking alr after i run it?
 #   maybe one experiment i can run is: what is the difference in output if the llm judge did vs didnt know what the tgt obj is?
+
+
+# walk down the call stack here (following:) and see how to pass the tgt obj to the judge!! (for accuracy scores)
+
+# DEBUG:ASSISTANT response content: Is it typically found outdoors?
+# [{'role': 'user', 'content': ''}, {'role': 'assistant', 'content': "Great! Let's start with a broad question. Is the hidden word something tangible, like a physical object?"}, {'role': 'user', 'content': 'Yes.'}, {'role': 'assistant', 'content': 'Is it something commonly found indoors?'}, {'role': 'user', 'content': 'No.'}]
+# Processing conversation 74921:   0%|          | 0/2 [00:11<?, ?it/s]
+#   0%|          | 0/1 [00:11<?, ?it/s]
+# Traceback (most recent call last):
+#   File "/Users/aditi/Documents/multiturn-20q/collab-llm/scripts/generate_conv_dpo_20q.py", line 413, in <module>
+#     main()
+#   File "/Users/aditi/Documents/multiturn-20q/collab-llm/scripts/generate_conv_dpo_20q.py", line 347, in main
+#     i, convs, pos_responses, neg_responses, chosen_evals, rejected_evals = process_conversation(i, dataset[split], args, assistant_collabllm, assistant_vanilla)
+#                                                                            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+#   File "/Users/aditi/Documents/multiturn-20q/collab-llm/scripts/generate_conv_dpo_20q.py", line 178, in process_conversation
+#     rewards, reward_logs = get_multiturn_rewards(
+#                            ^^^^^^^^^^^^^^^^^^^^^^
+#   File "/Users/aditi/Documents/multiturn-20q/collab-llm/collabllm/core/multithread.py", line 80, in get_multiturn_rewards
+#     results = list(executor.map(
+#               ^^^^^^^^^^^^^^^^^^
+#   File "/Library/Frameworks/Python.framework/Versions/3.12/lib/python3.12/concurrent/futures/_base.py", line 619, in result_iterator
+#     yield _result_or_cancel(fs.pop())
+#           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+#   File "/Library/Frameworks/Python.framework/Versions/3.12/lib/python3.12/concurrent/futures/_base.py", line 317, in _result_or_cancel
+#     return fut.result(timeout)
+#            ^^^^^^^^^^^^^^^^^^^
+#   File "/Library/Frameworks/Python.framework/Versions/3.12/lib/python3.12/concurrent/futures/_base.py", line 456, in result
+#     return self.__get_result()
+#            ^^^^^^^^^^^^^^^^^^^
+#   File "/Library/Frameworks/Python.framework/Versions/3.12/lib/python3.12/concurrent/futures/_base.py", line 401, in __get_result
+#     raise self._exception
+#   File "/Library/Frameworks/Python.framework/Versions/3.12/lib/python3.12/concurrent/futures/thread.py", line 59, in run
+#     result = self.fn(*self.args, **self.kwargs)
+#              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+#   File "/Users/aditi/Documents/multiturn-20q/collab-llm/collabllm/core/multithread.py", line 81, in <lambda>
+#     lambda p: get_one_multiturn_reward(*p), tasks
+#               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+#   File "/Users/aditi/Documents/multiturn-20q/collab-llm/collabllm/core/multiturn_reward.py", line 80, in get_one_multiturn_reward
+#     llm_reward = llm_judge(single_turn_data=single_turn_data, chat_eval=forward_turns, chat_history=chat_history)
+#                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+#   File "/Users/aditi/Documents/multiturn-20q/collab-llm/collabllm/metrics/llm_judge.py", line 28, in __call__
+#     target_object = kwargs["target_object"]   # aditi edit. idk if this works?!
+#                     ~~~~~~^^^^^^^^^^^^^^^^^
+# KeyError: 'target_object'
+# (20q) aditi@DN51u5gq collab-llm % 

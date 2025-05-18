@@ -30,11 +30,15 @@ export N_EVAL=100                   # aditi edit for debugging
 # export ASSISTANT_MODEL=gpt-4o
 # export REWARD_MODEL=claude-3-5-sonnet-20240620
 
-export USER_MODEL=gpt-3.5-turbo
-export ASSISTANT_MODEL=gpt-3.5-turbo
-export REWARD_MODEL=gpt-3.5-turbo
+# export USER_MODEL=gpt-3.5-turbo
+# export ASSISTANT_MODEL=gpt-3.5-turbo
+# export REWARD_MODEL=gpt-3.5-turbo
 
 
+# suggested by shirley on may 18 to use this instead of turbo
+export USER_MODEL=gpt-4o-mini
+export ASSISTANT_MODEL=gpt-4o-mini
+export REWARD_MODEL=gpt-4o-mini
 
 # next steps
 #  generate 1000-2000 using the train dataset

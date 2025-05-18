@@ -25,10 +25,11 @@ class LLMJudge(MultiturnMetric):
         assert single_turn_data[-2]['role'] == 'user'
         assert single_turn_data[-1]['role'] == 'assistant'
 
+        target_object = kwargs["target_object"]   # aditi edit. idk if this works?!
+        print(f"DEBUG:LLMJudge Target object = {target_object}")
+        print(f"DEBUG:LLMJudge Full chat_eval = {chat_eval}")
+
         question = single_turn_data[-2]['content']
-        # aditi edit --
-        # target_object = single_turn_data[1].get("target_object", "")
-        # question = f"(Target object: {target_object}) {single_turn_data[-2]['content']}"
         answer = single_turn_data[-1]['content']
         
         if chat_history is None:

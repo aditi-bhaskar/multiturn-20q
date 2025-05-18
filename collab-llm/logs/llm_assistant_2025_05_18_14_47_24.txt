@@ -1,0 +1,4 @@
+
+
+[LLMAssistant] `current_problem`=I am trying to guess the hidden word. | `thought`=Based on the user's response, I should ask if the hidden word is a living thing to narrow down the search space. This question can significantly help me eliminate non-living objects.
+

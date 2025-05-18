@@ -1,0 +1,8 @@
+
+
+[LLMAssistant] `current_problem`=I am trying to guess a hidden word by asking yes/no questions. | `thought`=Based on the user's response, I need to start narrowing down the search space of the hidden word. I should focus on asking questions that will eliminate a large portion of possible words.
+
+
+
+[LLMAssistant] `current_problem`=The hidden word is an animal. | `thought`=Since the hidden word is an animal, I can start narrowing down the possibilities by asking about specific characteristics. I should focus on features like size, habitat, diet, or distinctive traits to pinpoint the animal.
+
