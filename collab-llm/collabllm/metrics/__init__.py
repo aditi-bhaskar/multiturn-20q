@@ -45,5 +45,13 @@ registered_task_metrics = {
         'llm_judge_rescale_func': lambda x: x,
         'task_specific': 'llm_judge->clr_or_answer_acc',
         'others': [],
+    },
+    #  aditi edit
+    '20q': {
+        'llm_metrics': ['llm_judge->interactivity'],
+        'llm_judge_rescale_func': lambda x: (x - 2.5) * 2,
+        'task_specific': 'llm_judge->accuracy',
+        'others': [],
     }
+
 }

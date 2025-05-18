@@ -1,0 +1,76 @@
+
+
+[LLMAssistant] `current_problem`=The user's last message is missing, so it's unclear what they need assistance with. | `thought`=Since the user hasn't provided any input in the conversation history, I should prompt them to share their current question or task to continue the interaction. It's important to clarify their needs to offer relevant assistance.
+
+
+
+[LLMAssistant] `current_problem`=The user's last message is missing, so it's unclear what they need assistance with. | `thought`=Since the user hasn't provided any information in their last message, I should ask a clarifying question to understand their current needs and provide relevant assistance.
+
+
+
+[LLMAssistant] `current_problem`=I am trying to guess the hidden word based on the user's responses to my yes/no questions. | `thought`=I have already asked a few questions to narrow down the search space. I need to focus on asking questions that will significantly reduce the possibilities of the hidden word. I should aim to gather more specific information to make an accurate guess within the remaining questions.
+
+
+
+[LLMAssistant] `current_problem`=I am trying to narrow down the search space to guess the hidden word. | `thought`=Based on the user's responses so far, I need to ask a question that can help me differentiate between similar words. I should focus on specific characteristics of the word to narrow down the possibilities.
+
+
+
+[LLMAssistant] `current_problem`=I am trying to guess the hidden word based on the user's responses so far. | `thought`=Based on the user's previous responses, I have eliminated words starting with 'A' and ending with 'E'. I should focus on narrowing down the word based on its length and specific letters.
+
+
+
+[LLMAssistant] `current_problem`=I am trying to guess the hidden word based on the user's responses. | `thought`=I have already asked a few questions to narrow down the search space. I should focus on asking questions that will further reduce the possibilities and get closer to guessing the hidden word.
+
+
+
+[LLMAssistant] `current_problem`=I am trying to guess the hidden word based on the user's responses to my yes/no questions. | `thought`=I have asked a few questions to narrow down the search space. I should consider asking about specific characteristics of the word to further narrow down the possibilities.
+
+
+
+[LLMAssistant] `current_problem`=I am trying to narrow down the search space to guess the hidden word. | `thought`=Based on the user's responses so far, I need to ask a question that can significantly narrow down the search space. I should focus on distinguishing characteristics of the hidden word.
+
+
+
+[LLMAssistant] `current_problem`=The search space has been narrowed down to whether the hidden word is a living room item. | `thought`=By confirming if the hidden word is a living room item, I can further narrow down the possibilities and potentially guess the word soon.
+
+
+
+[LLMAssistant] `current_problem`=I am trying to guess the hidden word based on the user's responses to my yes/no questions. | `thought`=Based on the previous responses, I have eliminated some possibilities but still have a wide search space. I need to ask more targeted questions to narrow down the options. I should focus on asking questions that can help me distinguish between different types of words.
+
+
+
+[LLMAssistant] `current_problem`=The hidden word is an animal. | `thought`=Since the hidden word is an animal, I can now focus on narrowing down the possibilities within the animal kingdom. I should ask questions that help me differentiate between different groups of animals to pinpoint the specific one the user is thinking of.
+
+
+
+[LLMAssistant] `current_problem`=I am trying to narrow down the search space of the hidden word. | `thought`=Based on the user's response, I need to ask a question that can help me differentiate between different categories or types of objects. I should aim to eliminate broad categories and focus on more specific characteristics.
+
+
+
+[LLMAssistant] `current_problem`=I am trying to narrow down the object the user is thinking of. | `thought`=Based on the previous responses, I have eliminated objects related to animals, colors, and shapes. I need to focus on objects commonly found in households. I should ask about the object's function or location next to narrow down the search space.
+
+
+
+[LLMAssistant] `current_problem`=The object is typically found in a kitchen. | `thought`=Since the object is typically found in a kitchen, I can start narrowing down by asking about specific features or uses of kitchen items. I should aim to ask questions that differentiate between various kitchen tools or appliances.
+
+
+
+[LLMAssistant] `current_problem`=The object is used for cooking or food preparation in the kitchen. | `thought`=I have narrowed down the search space to objects used for cooking or food preparation in the kitchen. I should focus on distinguishing between specific types of kitchen tools or appliances. My next question should help differentiate between common kitchen items.
+
+
+
+[LLMAssistant] `current_problem`=We have established that the object is a kitchen appliance used for cooking or food preparation. | `thought`=Considering we have narrowed down the object to a kitchen appliance, I should now focus on identifying specific types of kitchen appliances. I can ask about the method of cooking or the size of the appliance to further narrow down the possibilities.
+
+
+
+[LLMAssistant] `current_problem`=The user has confirmed that the kitchen appliance they are thinking of primarily uses heat for cooking. | `thought`=Since we know the kitchen appliance primarily uses heat for cooking, we can now focus on narrowing down specific types of heat-based appliances. Our goal is to identify the exact kitchen appliance the user has in mind.
+
+
+
+[LLMAssistant] `current_problem`=The current search space is a kitchen appliance that primarily uses heat for cooking and has a rotating plate inside for cooking or heating food. | `thought`=Based on the user's responses so far, we have narrowed down the search space to a kitchen appliance that uses heat for cooking and has a rotating plate inside. To further refine our search, I should ask a question that distinguishes between specific types of appliances with rotating plates inside, such as microwaves or other similar appliances.
+
+
+
+[LLMAssistant] `current_problem`=The user has confirmed that the object is a microwave oven. | `thought`=Since we have successfully identified the object as a microwave oven, we can now confirm it with the user and congratulate them on their selection. This will bring closure to the game and ensure a positive end to the interaction.
+

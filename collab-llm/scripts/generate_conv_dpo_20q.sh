@@ -3,15 +3,19 @@ export USE_SUB=false
 export USE_SNAP=true
 export USE_GCR=false
 
+# TODO ASK SHIRLEY -- WHAT DO ALL OF THESE MEAN?
+
 # Dataset configurations
-export DATASET=bigcodebench          # Change this for different datasets (e.g., math-hard, humaneval)
+export DATASET=NONE                # Change this for different datasets (e.g., math-hard, humaneval)
 export TEMP=0.5                      # Temperature for sampling (adjust for creativity)
-export MAX_NEW_TURNS=8               # Maximum number of new conversation turns per task
+# export MAX_NEW_TURNS=8               # Maximum number of new conversation turns per task
+export MAX_NEW_TURNS=2               # aditi edit for debugging
 export MAX_TOKENS=1536               # Maximum tokens per generation
 export COST_WEIGHT=5e-4              # Cost weight in reward function (adjust based on preference)
 export LLM_RW_WEIGHT=1               # Weight for RLHF reward function
 export USER_MODEL=gpt-4o-mini        # Choose the user model (e.g., gpt-4o-mini, gpt-4o)
-export N_EVAL=600                    # Number of evaluations per dataset split
+# export N_EVAL=600                    # Number of evaluations per dataset split
+export N_EVAL=2                    # aditi edit for debugging
 
 # You can also adjust the assistant model and reward model based on your preference
 # export ASSISTANT_MODEL=gpt-4o
@@ -47,7 +51,7 @@ CUDA_VISIBLE_DEVICES=0 python scripts/generate_conv_dpo_20q.py \
     --llm_rw_weight $LLM_RW_WEIGHT \
     --cost_weight $COST_WEIGHT \
     --n_eval_per_dataset $N_EVAL \
-    --max_num_conv 5 \
+    --max_num_conv 1 \
     --task_name 20q \
     --target_object "apple" \
     --resume

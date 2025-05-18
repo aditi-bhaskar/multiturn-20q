@@ -53,6 +53,15 @@ def run_one_chat_session(
     assert single_turn_data[0]['role'] == 'user', "First role must be 'user'"
     assert single_turn_data[1]['role'] == 'assistant', "Second role must be 'assistant'"
     
+    # aditi edit
+    if task_name == "20q" and "target_object" not in user_generation_kwargs:
+        user_generation_kwargs = user_generation_kwargs.copy()
+        user_generation_kwargs["target_object"] = single_turn_data[1].get("target_object", "apple")
+
+    # if task_name == "20q" and "target_object" not in user_generation_kwargs:
+    #     user_generation_kwargs["target_object"] = "apple"  # or set dynamically  TODO COME BACK HERE
+
+
     user = UserSimulator(task_name=task_name,
                          single_turn_data=single_turn_data, 
                          **user_generation_kwargs)
@@ -63,6 +72,11 @@ def run_one_chat_session(
 
     for _ in tqdm(range(2 * (max_new_turns or 1)), desc="Generating chat", disable=not verbose):
         if cur_role == 'assistant':
+            
+            #  aditi addition
+            assistant_kwargs = assistant_generation_kwargs.copy()
+            assistant_kwargs.pop("target_object", None)
+            
             response = generate_assistant_response(
                 is_api_model,
                 prompt_method,
@@ -70,7 +84,7 @@ def run_one_chat_session(
                 local_model,
                 local_tokenizer,
                 vllm_base_model,
-                **assistant_generation_kwargs,
+                **assistant_kwargs   # aditi edit # **assistant_generation_kwargs,
             )
         elif cur_role == 'user':
             response = user(chat)

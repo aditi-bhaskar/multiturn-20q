@@ -33,8 +33,13 @@ def parse_args():
     def list_of_strings(arg):
       return arg.split(',')
 
+    # parser.add_argument('--dataset', type=str, default='math-hard', 
+    #                     help='available datasets under collabllm.datasets.datasets_info')
+
+
     parser.add_argument('--dataset', type=str, default='math-hard', 
-                        help='available datasets under collabllm.datasets.datasets_info')
+                    help='available datasets under collabllm.datasets.datasets_info')
+    
     parser.add_argument('--num_samples', type=int, default=3)
 
     parser.add_argument('--n_eval_per_dataset', type=int, default=500)

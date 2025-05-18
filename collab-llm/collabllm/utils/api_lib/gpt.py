@@ -55,6 +55,12 @@ def get_gpt_output(message: Union[str, List[Dict[str, str]]],
 
     for cnt in range(max_retry):
         try:
+            #  aditi addition to remove target object
+            disallowed_keys = ['target_object']
+            for key in disallowed_keys:
+                if key in kwargs:
+                    kwargs.pop(key)
+
             chat = client.chat.completions.create(
                 messages=messages,
                 model=model,
