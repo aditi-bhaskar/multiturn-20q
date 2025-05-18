@@ -22,6 +22,9 @@ export ASSISTANT_MODEL=gpt-3.5-turbo
 export REWARD_MODEL=gpt-3.5-turbo
 
 
+# import os
+# openai.api_key = os.getenv("OPENAI_API_KEY")
+
 # Define a list of possible target objects for the 20Q task
 export TARGET_OBJECTS=("apple" "cat" "car" "dog" "airplane")
 

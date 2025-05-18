@@ -15,6 +15,12 @@ from tqdm import tqdm
 import sys
 sys.path.append('.')
 
+#  aditi addition
+import openai
+import os
+openai.api_key = os.getenv("OPENAI_API_KEY")
+os.makedirs("logs", exist_ok=True)
+
 from collabllm.core.multithread import get_multiturn_rewards
 from collabllm.datasets import load_single_turn_dataset, datasets_info, split_train_dev_datasets
 from collabllm.utils.extract_json_reliable import extract_json
@@ -92,6 +98,7 @@ user_generation_kwargs = {
 
 
 def process_conversation(i, dataset, args, assistant_collabllm, assistant_vanilla):
+
     qa = dataset['chat'][i]
     question, answer = qa[-2]['content'], qa[-1]['content']
 
@@ -110,10 +117,12 @@ def process_conversation(i, dataset, args, assistant_collabllm, assistant_vanill
         user_kwargs['target_object'] = answer
         user_kwargs.pop('single_turn_data', None)  # Ensure it's not accidentally passed
     else:
-        user_kwargs['single_turn_data'] = qa
+        print("IS NOT IN TASK 20q. EXITING")
+        return -1
+        # user_kwargs['single_turn_data'] = qa
 
     user = UserSimulator(
-        is_20q=True,  # added by aditi for 20q task
+        # is_20q=True,  # added by aditi for 20q task
         task_name=task,
         **user_kwargs
     )
@@ -144,7 +153,7 @@ def process_conversation(i, dataset, args, assistant_collabllm, assistant_vanill
             responses = [future_collabllm.result(), future_vanilla.result()]
         
         rewards, reward_logs = get_multiturn_rewards(
-            task_name=datasets_info[args.dataset]['task'],
+            task_name=args.task_name, # datasets_info[args.dataset]['task'],  # aditi edit
             single_turn_ds=[qa for _ in range(len(responses))],
             chat_histories=[conv for _ in range(len(responses))],
             responses=responses,
@@ -240,9 +249,14 @@ def main():
         idx_all = idx_all[:args.max_num_conv]
         idx_todo = [idx for idx in idx_all if idx not in unique_idx]
 
-        method = 'collabllm_gt_cot' if datasets_info[args.dataset]['task'] == 'question-answering' else 'collabllm_cot'
+        # method = 'collabllm_gt_cot' if datasets_info[args.dataset]['task'] == 'question-answering' else 'collabllm_cot'
         # added by aditi; changed the default bc  collabllm_cot doesnt exist
-        method = 'proact_cot_20q' if datasets_info[args.dataset]['task'] == '20q' else 'proact_cot' 
+        # method = 'proact_cot_20q' if datasets_info[args.dataset]['task'] == '20q' else 'proact_cot' 
+
+        method = 'proact_cot_20q' if args.task_name == '20q' else 'proact_cot'
+
+        print(f"\n\n\n[INFO] Task name set to: {args.task_name}\n\n\n")
+
         assistant_collabllm = LLMAssistant(method=method, **assistant_generation_kwargs)
         vanilla_generation_kwargs = copy.copy(assistant_generation_kwargs)
         vanilla_generation_kwargs['json_object'] = False
