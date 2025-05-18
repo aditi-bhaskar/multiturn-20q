@@ -271,7 +271,8 @@ class Tee:
 def main():
 
     timestamp = datetime.datetime.now().strftime("%Y_%m_%d_%H_%M_%S")
-    log_path = f"/Users/aditi/Documents/multiturn-20q/collab-llm/logs/full_run_terminal_{timestamp}.txt"
+    # log_path = f"/Users/aditi/Documents/multiturn-20q/collab-llm/logs/full_run_terminal_{timestamp}.txt"
+    log_path = f"/Users/aditi/Documents/multiturn-20q/collab-llm/logs/full_run_terminal_st_{timestamp}.txt"  # for single turn dataset input stuff
     logfile = open(log_path, "w", encoding='utf-8')
     # Replace stdout and stderr with Tee to duplicate output to terminal + logfile
     sys.stdout = Tee(sys.stdout, logfile)
@@ -284,10 +285,12 @@ def main():
     args.dataset = load_dataset("json", data_files={
         # OBSOLETE: note that i lost the train file with git conflicts, so i am using the eval file here (much smaller)
         # OBSOLETE: "train": "/Users/aditi/Documents/multiturn-20q/collab-llm/lmrl_gym_20q_data/eval_processed.json"
-        "train": "/Users/aditi/Documents/multiturn-20q/collab-llm/lmrl_gym_20q_data/train_processed.json"
+        # "train": "/Users/aditi/Documents/multiturn-20q/collab-llm/lmrl_gym_20q_data/train_processed.json"
+        "train": "/Users/aditi/Documents/multiturn-20q/collab-llm/lmrl_gym_20q_data/train_single_turn.json"
+
     })
 
-    dataset =  args.dataset         #  aditi edit # load_single_turn_dataset(args.dataset, add_system_prompt=False)
+    dataset =  args.dataset   #  aditi edit # load_single_turn_dataset(args.dataset, add_system_prompt=False)
     # removed by aditi to get it to run!!
     # if args.resume:
     #     ds = load_dataset(f'{args.hf_org}/collabllm-{args.dataset}', trust_remote_code=True)
