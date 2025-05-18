@@ -65,12 +65,12 @@ CUDA_VISIBLE_DEVICES=0 python scripts/generate_conv_dpo_20q.py \
     --llm_rw_weight $LLM_RW_WEIGHT \
     --cost_weight $COST_WEIGHT \
     --n_eval_per_dataset $N_EVAL \
-    --max_num_conv 5 \
+    --max_num_conv 1 \
     --task_name 20q \
     --resume
 
 
-# TODO: set max_num_conv to 1000 or something?
+# TODO: set max_num_conv to 5 for reasonable test with hf, and then overnight with 1000 or something?
 
 
 

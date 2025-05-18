@@ -411,3 +411,11 @@ def main():
 
 if __name__ == '__main__':
     main()
+
+
+
+
+# things to check:
+#   where/how can i pass the tgt obj as a metric to measure with the llm judge?
+#   is the main function here looking alr after i run it?
+#   maybe one experiment i can run is: what is the difference in output if the llm judge did vs didnt know what the tgt obj is?
