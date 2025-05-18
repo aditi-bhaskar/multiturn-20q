@@ -1,0 +1,4 @@
+
+
+[LLMAssistant] `current_problem`=I am trying to narrow down the search space to guess the hidden word. | `thought`=Based on the user's responses so far, I need to ask a question that can help me differentiate between different types of objects. I should focus on narrowing down the search space to specific categories or characteristics of the hidden word.
+

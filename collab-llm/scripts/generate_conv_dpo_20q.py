@@ -12,6 +12,8 @@ np.set_printoptions(precision=3)
 from rich import print
 from tqdm import tqdm
 
+import datetime
+
 import sys
 sys.path.append('.')
 
@@ -221,8 +223,45 @@ def process_conversation(i, dataset, args, assistant_collabllm, assistant_vanill
 
 
 
+# to print all info to my file
+import sys
+
+import re
+ansi_escape = re.compile(r'\x1B[@-_][0-?]*[ -/]*[@-~]')
+def strip_ansi(text):
+    return ansi_escape.sub('', text)
+
+class Tee:
+    def __init__(self, original, logfile):
+        self.original = original
+        self.logfile = logfile
+
+    def write(self, data):
+        # Write to terminal as is
+        self.original.write(data)
+        self.original.flush()
+        # Strip ANSI codes before writing to logfile
+        clean_data = strip_ansi(data)
+        self.logfile.write(clean_data)
+        self.logfile.flush()
+
+    def flush(self):
+        self.original.flush()
+        self.logfile.flush()
+
+
 ######################## LOAD DATASETS ########################
 def main():
+
+    timestamp = datetime.datetime.now().strftime("%Y_%m_%d_%H_%M_%S")
+    log_path = f"/Users/aditi/Documents/multiturn-20q/collab-llm/logs/full_run_terminal_{timestamp}.txt"
+    logfile = open(log_path, "w", encoding='utf-8')
+    # Replace stdout and stderr with Tee to duplicate output to terminal + logfile
+    sys.stdout = Tee(sys.stdout, logfile)
+    sys.stderr = Tee(sys.stderr, logfile)
+
+
+
     args = parse_args()
     # aditi edit to use the local dataset
     args.dataset = load_dataset("json", data_files={

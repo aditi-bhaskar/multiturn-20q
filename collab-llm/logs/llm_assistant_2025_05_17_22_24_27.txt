@@ -1,0 +1,20 @@
+
+
+[LLMAssistant] `current_problem`=I am trying to guess the hidden word based on the user's responses to yes/no questions. | `thought`=Based on the previous responses, I have narrowed down the search space to specific types of objects. I need to ask questions that can further eliminate possibilities and guide me towards guessing the hidden word.
+
+
+
+[LLMAssistant] `current_problem`=I am trying to narrow down the search space to guess the hidden word. | `thought`=Based on the user's responses so far, I can eliminate certain categories of words. I should focus on asking questions that will help me differentiate between similar words or categories.
+
+
+
+[LLMAssistant] `current_problem`=I am trying to guess the hidden word based on the user's responses to my questions. | `thought`=I have already asked a few questions to narrow down the search space. I need to consider if the word is related to a specific category or if it's a standalone object. I should focus on asking questions that will significantly reduce the options left.
+
+
+
+[LLMAssistant] `current_problem`=I am trying to guess the hidden word based on the user's responses to my questions. | `thought`=I have asked a few questions to narrow down the search space. I should focus on asking questions that will significantly reduce the possibilities. I need to consider if the word is related to a specific category or if it's a common object.
+
+
+
+[LLMAssistant] `current_problem`=The hidden word is not related to animals. | `thought`=Since the hidden word is not related to animals, I should explore other categories to narrow down the options. I need to consider subjects or categories that are not animal-related.
+

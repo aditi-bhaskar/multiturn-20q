@@ -1,0 +1,4 @@
+
+
+[LLMAssistant] `current_problem`=I am trying to guess the object the user is thinking of. | `thought`=I have just started the game of 20 questions with the user. I need to ask yes/no questions to narrow down the search space and eventually guess the object they are thinking of. I should focus on eliminating broad categories and narrowing down specific characteristics of the object.
+

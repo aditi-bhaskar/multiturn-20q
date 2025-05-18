@@ -4,6 +4,7 @@ from collabllm.utils.template import chat_template
 from collabllm.prompts import LLM_ASSISTANT_PROMPT_COT, LLM_ASSISTANT_PROMPT_ZS, \
     LLM_ASSISTANT_PROMPT_PROACT, LLM_ASSISTANT_PROMPT_PROACT_COT, LLM_ASSISTANT_PROMPT_PROACT_COT_GT, LLM_ASSISTANT_PROMPT_PROACT_COT_20Q
 
+import datetime
 
 class LLMAssistant(object):
     registered_prompts = {
@@ -68,7 +69,9 @@ class LLMAssistant(object):
                     current_problem = response.pop('current_problem')
                     thought = response.pop('thought')
                     response = response['response']
-                    with open('logs/llm_assistant.txt', 'a+') as f:
+                    timestamp = datetime.datetime.now().strftime("%Y_%m_%d_%H_%M_%S")
+
+                    with open(f'logs/llm_assistant_{timestamp}.txt', 'a+') as f:
                         f.write(f'\n\n[LLMAssistant] `current_problem`={current_problem} | `thought`={thought}\n\n')
                     break
                 except Exception as e:
