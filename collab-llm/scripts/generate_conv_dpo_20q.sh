@@ -21,7 +21,7 @@ export COST_WEIGHT=5e-4              # Cost weight in reward function (adjust ba
 export LLM_RW_WEIGHT=1               # Weight for RLHF reward function
 export USER_MODEL=gpt-4o-mini        # Choose the user model (e.g., gpt-4o-mini, gpt-4o)
 # export N_EVAL=600                    # Number of evaluations per dataset split
-export N_EVAL=200                   # aditi edit for debugging
+export N_EVAL=100                   # aditi edit for debugging
 # export N_EVAL=2                   # aditi edit for debugging
 # ^ this is num of games played
 
