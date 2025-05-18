@@ -27,15 +27,13 @@ from collabllm.utils.extract_json_reliable import extract_json
 
 from collabllm.modules import LLMAssistant, UserSimulator
 
+from datasets import load_dataset
+
 
 def parse_args():
     parser = argparse.ArgumentParser()
     def list_of_strings(arg):
       return arg.split(',')
-
-    # parser.add_argument('--dataset', type=str, default='math-hard', 
-    #                     help='available datasets under collabllm.datasets.datasets_info')
-
 
     parser.add_argument('--dataset', type=str, default='math-hard', 
                     help='available datasets under collabllm.datasets.datasets_info')
@@ -226,8 +224,12 @@ def process_conversation(i, dataset, args, assistant_collabllm, assistant_vanill
 ######################## LOAD DATASETS ########################
 def main():
     args = parse_args()
-    dataset = load_single_turn_dataset(args.dataset, add_system_prompt=False)
+    # aditi edit to use the local dataset
+    args.dataset = load_dataset("json", data_files={
+        "train": "/Users/aditi/Documents/multiturn-20q/collab-llm/lmrl_gym_20q_data/train.jsonl"
+    })["train"]
 
+    dataset = load_single_turn_dataset(args.dataset, add_system_prompt=False)
     # removed by aditi to get it to run!!
     # if args.resume:
     #     ds = load_dataset(f'{args.hf_org}/collabllm-{args.dataset}', trust_remote_code=True)
@@ -297,7 +299,8 @@ def main():
                         'rejected_eval': rejected_eval_list,
                         'metadata': metadata_list
                     })
-                    DatasetDict(dataset_dict).push_to_hub(repo_id=f'{args.hf_org}/collabllm-{args.dataset}', private=True)
+                    # aditi: removed bc we dont have hf
+                    # DatasetDict(dataset_dict).push_to_hub(repo_id=f'{args.hf_org}/collabllm-{args.dataset}', private=True)
 
         dataset_dict[split] = Dataset.from_dict({
             'idx': idx_list,
@@ -308,7 +311,8 @@ def main():
             'rejected_eval': rejected_eval_list,
             'metadata': metadata_list
         })
-        DatasetDict(dataset_dict).push_to_hub(repo_id=f'{args.hf_org}/collabllm-{args.dataset}', private=True)
+        # aditi: removed bc we dont have hf
+        # DatasetDict(dataset_dict).push_to_hub(repo_id=f'{args.hf_org}/collabllm-{args.dataset}', private=True)
 
 if __name__ == '__main__':
     main()
