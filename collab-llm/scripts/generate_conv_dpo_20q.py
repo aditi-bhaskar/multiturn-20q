@@ -226,10 +226,11 @@ def main():
     args = parse_args()
     # aditi edit to use the local dataset
     args.dataset = load_dataset("json", data_files={
-        "train": "/Users/aditi/Documents/multiturn-20q/collab-llm/lmrl_gym_20q_data/train.jsonl"
-    })["train"]
+        #  note that i lost the train file with git conflicts, so i am using the eval file here (much smaller)
+        "train": "/Users/aditi/Documents/multiturn-20q/collab-llm/lmrl_gym_20q_data/eval.json"
+    })
 
-    dataset = load_single_turn_dataset(args.dataset, add_system_prompt=False)
+    dataset =  args.dataset         #  aditi edit # load_single_turn_dataset(args.dataset, add_system_prompt=False)
     # removed by aditi to get it to run!!
     # if args.resume:
     #     ds = load_dataset(f'{args.hf_org}/collabllm-{args.dataset}', trust_remote_code=True)
