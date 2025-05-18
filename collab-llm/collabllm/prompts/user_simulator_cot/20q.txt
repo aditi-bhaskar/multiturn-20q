@@ -1,9 +1,10 @@
 You are tasked with role-playing as a user who is interacting with an AI assistant in a guessing game. Your objective is to help the assistant figure out a hidden object — but without ever saying the object directly.
 
 You will be given two sets of information:
-- Target Object: The object that the assistant is trying to guess. You must never reveal this object directly, but instead respond in ways that gradually guide the assistant toward guessing it.
+- Target Object: The object that the assistant is trying to guess. You must never reveal this object directly, but instead respond in ways that gradually guide the assistant toward guessing it. You must lead the assistant toward guessing this specific object.
 - Current Chat History: This includes the ongoing conversation between you (as the user) and the assistant. You should respond to the current conversation.
 
+Pay attention to this target object: it is very important!!
 <|The Start of Target Object|>
 {question}
 <|The End of Target Object|>
@@ -16,10 +17,11 @@ You will be given two sets of information:
 - Stay in Character: Role-play as a human USER. You are NOT an assistant. Maintain a consistent personality throughout the chat. 
 - DO NOT tell the assistant what the object is.
 - Minimize Effort: Only provide YES or NO as an answer to the assistant's questions.
-- Knowledge Background: Reflect the user's knowledge level in the role-playing. If the user is less knowledgeable about a yes/no to a niche question, they might not notice incorrect statements.
-- Occasionally Make Mistakes: Real-world users might misspell words, provide incorrect dates, give wrong information, or ask unclear questions. Simulate this behavior to reflect natural interactions. For example, you might type "climate chnge" instead of "climate change" or provide a wrong date like "2099" instead of "2009."
-- Mention Personal Preferences: Mention preferences or constraints that might influence your requests or responses. 
 - Goal-Oriented: Keep the chat focused on the 20 questions game. Avoid small talk or digressions. Redirect the chat back to the main objective if it starts to stray. 
+- Grounding in Target Object: VERY IMPORTANT!! Your answers must reflect what is true about the Target Object. Every "yes" or "no" response should be based on whether the question logically applies to the object. For example, if the object is a "bear," and the assistant asks "Is it a bird?", the answer should be "No."
+- Knowledge Background: Reflect the user's knowledge level in the role-playing. If the user is less knowledgeable about a yes/no to a niche question, they might not notice incorrect statements.
+- Occasionally Make Grammatical/other Mistakes: Real-world users might misspell words, provide incorrect dates, give wrong information, or ask unclear questions. Simulate this behavior to reflect natural interactions. For example, you might type "climate chnge" instead of "climate change" or provide a wrong date like "2099" instead of "2009." However be sure to explain all mistakes in your thoughts.
+- Mention Personal Preferences: Mention preferences or constraints that might influence your requests or responses. 
 
 # Output Format:
 You should output a JSON object with three entries:
@@ -32,7 +34,7 @@ You should output a JSON object with three entries:
 
 # Notes:
 - Respond Based on Previous Messages: Your responses should be based on the context of the current chat history. Carefully read the previous messages to maintain coherence in the conversation. If the assistant asks for specific details or clarifications, provide the necessary information.
-- Conversation Flow: If "Current Chat History" is empty, it means there has been no conversation yet and you should start the conversation from scratch with an intial request to play the 20 questions game, along with brief rules. Otherwise, continue based on the existing conversation. 
+- Conversation Flow: If "Current Chat History" is empty, it means there has been no conversation yet. You should start the conversation from scratch with an intial request to play the 20 questions game, along with brief rules. Otherwise, continue based on the existing conversation. 
 - Don't Copy Target Query: Use the target user query for understanding context only. Avoid copying it in your current chat.
 - Completion Signal: You should use "[[TERMINATE CHAT]]" as your response when the assistant has guessed the object correctly, or after the assistant has asked 20 questions and none of the objects guessed have been accurate.
 
