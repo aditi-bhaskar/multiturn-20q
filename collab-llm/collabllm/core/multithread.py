@@ -11,6 +11,7 @@ def get_multiturn_rewards(
     single_turn_ds: List[List[Dict]],
     chat_histories: List[List[Dict]],
     responses: List[str],
+    target_objects: List[str], # added by aditi
     prompt_method: str = "none",
     max_workers: int = 30,
     num_samples: int = 3,
@@ -73,6 +74,7 @@ def get_multiturn_rewards(
                 vllm_base_model,
                 verbose,
                 llm_rw_weight > 0,
+                target_objects[i]  # aditi addition
             )
             for i in range(len(single_turn_ds))
             for _ in range(num_samples)

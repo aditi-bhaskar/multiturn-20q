@@ -189,7 +189,8 @@ def process_conversation(i, dataset, args, assistant_collabllm, assistant_vanill
             user_generation_kwargs=user_generation_kwargs,
             assistant_generation_kwargs=assistant_generation_kwargs,
             reward_generation_kwargs=reward_generation_kwargs,
-            local_model=None, local_tokenizer=None
+            target_objects=[answer for _ in range(len(responses))],  # aditi addition -- want a list of the same target object repeated
+            local_model=None, local_tokenizer=None,
         )
         if np.argmax(rewards) == np.argmin(rewards):
             reward_stds = [log['reward_std'] for log in reward_logs]

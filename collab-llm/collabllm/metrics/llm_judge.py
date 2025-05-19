@@ -26,11 +26,11 @@ class LLMJudge(MultiturnMetric):
         assert single_turn_data[-1]['role'] == 'assistant'
 
         target_object = kwargs["target_object"]   # aditi edit. idk if this works?!
-        print(f"\nDEBUG:LLMJudge Target object = {target_object}")
-        print(f"\nDEBUG:LLMJudge Full chat_eval = {chat_eval}")
+        print(f"\nDEBUG:LLMJudge Target object = {target_object}")   # aditi addition
+        print(f"\nDEBUG:LLMJudge Full chat_eval = {chat_eval}")  # aditi addition
 
         question = single_turn_data[-2]['content']
-        answer = single_turn_data[-1]['content'] + f"\nGround Truth Target Object: {target_object}"
+        answer = single_turn_data[-1]['content'] + f"\nGround Truth Target Object: {target_object}"   # aditi addition to add "+ gnd truth"
         
         print(f"\nDEBUG:LLMJudge question = {question}")
         print(f"\nDEBUG:LLMJudge answer = {answer}")

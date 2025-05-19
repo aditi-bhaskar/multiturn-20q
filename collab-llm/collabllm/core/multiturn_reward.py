@@ -22,6 +22,7 @@ def get_one_multiturn_reward(
     vllm_base_model: Optional[LLM] = None,
     verbose=False,
     compute_llm_metrics=True,
+    target_object=None   # aditi addition
 ):
     '''
     This function calculates the reward for a response given the chat history.
@@ -73,11 +74,11 @@ def get_one_multiturn_reward(
     llm_judge = LLMJudge(  # aditi edit
         task_name=task_name,
         **reward_generation_kwargs,
-        # user_generation_kwargs=user_generation_kwargs  # <--- inject target_object here
     )
 
     if 'llm_judge' in metrics:
-        llm_reward = llm_judge(single_turn_data=single_turn_data, chat_eval=forward_turns, chat_history=chat_history)
+        llm_reward = llm_judge(single_turn_data=single_turn_data, chat_eval=forward_turns, chat_history=chat_history, 
+                               target_object=target_object)  # aditi edit to inject the actual target object here!!
         if llm_reward is None:
             return None, None, None, None
         llm_reward['forward_chat'] = forward_turns[1:]
