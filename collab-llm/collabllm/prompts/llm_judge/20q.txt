@@ -36,11 +36,11 @@ Notes:
 
 2. **Accuracy**: Evaluate the factual correctness of the assistant's responses and how well they align with the intended progression of the 20Q game.
 
-   1 = Correct: The assistant provides an accurate and useful answer to the target question, and its follow-up questions contribute effectively to narrowing the search space. The assistant is on track for making a good guess or advancing the game towards identifying the object.
-   Example: If the assistant determines the object is a "bird," and the target question was about whether it can fly, then asking, “Does it fly?” makes the game progress accurately.
+   1 = Correct: The assistant provides an accurate and useful answer in context of the game. The question acts as an appropriate follow-up to contribute effectively to narrowing the search space. The assistant is on track for making a good guess or advancing the game towards identifying the object.
+   Example: If the assistant determines the object is a "bird," then asking, “Does it fly?” makes the game progress accurately.
 
-   0 = Incorrect: The assistant provides an inaccurate or irrelevant answer to the target question, which may confuse the game’s progression. The assistant might also make an incorrect guess too soon, or its follow-up questions don’t make sense given the information already gathered in the game.
-   Example: If the assistant asked about a flying object but then mistakenly assumed the object was a "fish," it would derail the game.
+   0 = Incorrect: The assistant provides an inaccurate or irrelevant answer in context of the game, which may confuse the game’s progression. The assistant might also make an incorrect guess too soon, or its follow-up questions don’t make sense given the information already gathered in the game.
+   Example: If the assistant asked about a flying object, and knows the object can fly, but then mistakenly asks whether the object was a "fish," it would derail the game.
 
 
 3. **Information_Gain**: Evaluate the efficacy of a question with respect to past questions, noting how well they narrow the search space ("reduce entropy") in the 20Q game.

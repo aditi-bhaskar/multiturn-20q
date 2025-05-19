@@ -280,7 +280,6 @@ def main():
     sys.stderr = Tee(sys.stderr, logfile)
 
 
-
     args = parse_args()
     # aditi edit to use the local dataset
     args.dataset = load_dataset("json", data_files={
@@ -416,7 +415,7 @@ if __name__ == '__main__':
 
 
 # things to check:
-#   where/how can i pass the tgt obj as a metric to measure with the llm judge?
+#   where/how can i pass the tgt obj as a metric to measure with the llm judge? -- do i even need to do this?
 #   is the main function here looking alr after i run it?
 #   maybe one experiment i can run is: what is the difference in output if the llm judge did vs didnt know what the tgt obj is?
 
