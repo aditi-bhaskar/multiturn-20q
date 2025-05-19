@@ -56,7 +56,7 @@ Output format:
 You should output a JSON in the following format:
 {{
   "interactivity": {{"thought": "<How interactive is the assistant in the conversation?>", "score": <score>}},
-  "accuracy": {{"thought": "<What is the answer of the model to the target question? Whether it is consistent with the ground truth answer?>", "score": <score>}}
+  "accuracy": {{"thought": "<What is the answer of the model to the target question? Whether it is consistent with the ground truth answer?>", "score": <score>}},
   "information_gain": {{"thought": "<How well does the question narrow search space of the final answer, regardless of what the user's yes/no response is?>", "score": <score>}}
 }}
 

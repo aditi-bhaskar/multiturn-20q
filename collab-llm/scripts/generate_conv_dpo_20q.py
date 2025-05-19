@@ -284,9 +284,6 @@ def main():
     args = parse_args()
     # aditi edit to use the local dataset
     args.dataset = load_dataset("json", data_files={
-        # OBSOLETE: note that i lost the train file with git conflicts, so i am using the eval file here (much smaller)
-        # OBSOLETE: "train": "/Users/aditi/Documents/multiturn-20q/collab-llm/lmrl_gym_20q_data/eval_processed.json"
-        # "train": "/Users/aditi/Documents/multiturn-20q/collab-llm/lmrl_gym_20q_data/train_processed.json"
         "train": "/Users/aditi/Documents/multiturn-20q/collab-llm/lmrl_gym_20q_data/train_single_turn.json"
 
     })
@@ -323,10 +320,6 @@ def main():
         idx_all = idx_all[:args.max_num_conv]  # ADITI NOTE TODO - should not need to splice with 1000 entries in the eval dataset?!
         idx_todo = [idx for idx in idx_all if idx not in unique_idx]  # idx todo are all the single turn prompts from the dataset
 
-        # method = 'collabllm_gt_cot' if datasets_info[args.dataset]['task'] == 'question-answering' else 'collabllm_cot'
-        # added by aditi; changed the default bc  collabllm_cot doesnt exist
-        # method = 'proact_cot_20q' if datasets_info[args.dataset]['task'] == '20q' else 'proact_cot' 
-
         if args.task_name == '20q':
             method = 'proact_cot_20q' 
         else:
@@ -346,60 +339,66 @@ def main():
                 print("DEBUG:GENCONVDPO - what is dataset[split]? = {dataset[split]}\n\n")
                 i, convs, pos_responses, neg_responses, chosen_evals, rejected_evals = process_conversation(i, dataset[split], args, assistant_collabllm, assistant_vanilla)
 
-        # with concurrent.futures.ProcessPoolExecutor(max_workers=args.max_workers) as executor:
-        #     futures = {
-        #         executor.submit(process_conversation, i, dataset[split], args, assistant_collabllm, assistant_vanilla): i for i in idx_todo
-        #     }
+        with concurrent.futures.ProcessPoolExecutor(max_workers=args.max_workers) as executor:
+            futures = {
+                executor.submit(process_conversation, i, dataset[split], args, assistant_collabllm, assistant_vanilla): i for i in idx_todo
+            }
 
-            # for future in tqdm(concurrent.futures.as_completed(futures), total=len(futures), desc='Global tasks'):
-            #     i, convs, pos_responses, neg_responses, chosen_evals, rejected_evals = future.result()
+            for future in tqdm(concurrent.futures.as_completed(futures), total=len(futures), desc='Global tasks'):
+                i, convs, pos_responses, neg_responses, chosen_evals, rejected_evals = future.result()
         
-                # idx_list.extend([i] * len(convs))  # Extend with i repeated for each conversation turn
-                # metadata_list.extend([
-                #     {'user': args.user_model_name, 
-                #      'assistant': args.assistant_model_name}] * len(convs))
-                # prompt_list.extend(convs)
-                # chosen_list.extend(pos_responses)
-                # rejected_list.extend(neg_responses)
-                # chosen_eval_list.extend(chosen_evals)
-                # rejected_eval_list.extend(rejected_evals)
+                idx_list.extend([i] * len(convs))  # Extend with i repeated for each conversation turn
+                metadata_list.extend([
+                    {'user': args.user_model_name, 
+                     'assistant': args.assistant_model_name}] * len(convs))
+                prompt_list.extend(convs)
+                chosen_list.extend(pos_responses)
+                rejected_list.extend(neg_responses)
+                chosen_eval_list.extend(chosen_evals)
+                rejected_eval_list.extend(rejected_evals)
 
-                # if np.unique(idx_list).shape[0] % args.log_step == 0:
-                #     dataset_dict[split] = Dataset.from_dict({
-                #         'idx': idx_list,
-                #         'prompt': prompt_list,
-                #         'chosen': chosen_list,
-                #         'rejected': rejected_list,
-                #         'chosen_eval': chosen_eval_list,
-                #         'rejected_eval': rejected_eval_list,
-                #         'metadata': metadata_list
-                #     })
-                #     print(f"Dataset Dict Split={split}: {dataset_dict[split]}\n")
+                if np.unique(idx_list).shape[0] % args.log_step == 0:
+                    dataset_dict[split] = Dataset.from_dict({
+                        'idx': idx_list,
+                        'prompt': prompt_list,
+                        'chosen': chosen_list,
+                        'rejected': rejected_list,
+                        'chosen_eval': chosen_eval_list,
+                        'rejected_eval': rejected_eval_list,
+                        'metadata': metadata_list
+                    })
+                    print(f"\nDataset Dict Split={split}: {dataset_dict[split]}\n")
+                    print(f"\nDataset Dict Split={split} idx: {dataset_dict[split]["idx"]}\n")
 
 
-            #  TODO: done :)
-            #  only load the one-turn dataset: q=nothing, a=object
-            #  list of objects essentially
-
-                    # aditi: removed bc we dont have hf
-                    # DatasetDict(dataset_dict).push_to_hub(repo_id=f'{args.hf_org}/collabllm-{args.dataset}', private=True)
+                    # dataset[split][idx]    <-- TODO check what the object is before its processed
+                    # TODO save this dataset to json!
 
 
 
-        dataset_dict[split] = Dataset.from_dict({
-            'idx': idx_list,
-            'prompt': prompt_list,
-            'chosen': chosen_list,
-            'rejected': rejected_list,
-            'chosen_eval': chosen_eval_list,
-            'rejected_eval': rejected_eval_list,
-            'metadata': metadata_list
-        })
-        print(f"Dataset Dict Split={split}: {dataset_dict[split]}\n")
 
-        # dataset[split][idx]    <-- TODO check what the object is before its processed
 
-        # TODO save this dataset to json!
+
+
+                    # # aditi: removed bc we dont have hf
+                    # dataset_repo = "aditijb/collabllm-20q"
+                    # DatasetDict(dataset_dict).push_to_hub(repo_id=dataset_repo, private=True)
+
+
+
+        # dataset_dict[split] = Dataset.from_dict({
+        #     'idx': idx_list,
+        #     'prompt': prompt_list,
+        #     'chosen': chosen_list,
+        #     'rejected': rejected_list,
+        #     'chosen_eval': chosen_eval_list,
+        #     'rejected_eval': rejected_eval_list,
+        #     'metadata': metadata_list
+        # })
+        # print(f"Dataset Dict Split={split}: {dataset_dict[split]}\n")
+
+
+
 
         # aditi: removed bc we dont have hf
         # TODO create a hf for myself & push to hf  (try it with 2 conversations first)
@@ -408,59 +407,6 @@ def main():
         # https://huggingface.co/datasets/snap-stanford/pubmed_pipeline-preference_scorer-combined
 
 
-
 if __name__ == '__main__':
     main()
 
-
-
-
-# things to check:
-#   where/how can i pass the tgt obj as a metric to measure with the llm judge? -- do i even need to do this?
-#   is the main function here looking alr after i run it?
-#   maybe one experiment i can run is: what is the difference in output if the llm judge did vs didnt know what the tgt obj is?
-
-
-# walk down the call stack here (following:) and see how to pass the tgt obj to the judge!! (for accuracy scores)
-
-# DEBUG:ASSISTANT response content: Is it typically found outdoors?
-# [{'role': 'user', 'content': ''}, {'role': 'assistant', 'content': "Great! Let's start with a broad question. Is the hidden word something tangible, like a physical object?"}, {'role': 'user', 'content': 'Yes.'}, {'role': 'assistant', 'content': 'Is it something commonly found indoors?'}, {'role': 'user', 'content': 'No.'}]
-# Processing conversation 74921:   0%|          | 0/2 [00:11<?, ?it/s]
-#   0%|          | 0/1 [00:11<?, ?it/s]
-# Traceback (most recent call last):
-#   File "/Users/aditi/Documents/multiturn-20q/collab-llm/scripts/generate_conv_dpo_20q.py", line 413, in <module>
-#     main()
-#   File "/Users/aditi/Documents/multiturn-20q/collab-llm/scripts/generate_conv_dpo_20q.py", line 347, in main
-#     i, convs, pos_responses, neg_responses, chosen_evals, rejected_evals = process_conversation(i, dataset[split], args, assistant_collabllm, assistant_vanilla)
-#                                                                            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-#   File "/Users/aditi/Documents/multiturn-20q/collab-llm/scripts/generate_conv_dpo_20q.py", line 178, in process_conversation
-#     rewards, reward_logs = get_multiturn_rewards(
-#                            ^^^^^^^^^^^^^^^^^^^^^^
-#   File "/Users/aditi/Documents/multiturn-20q/collab-llm/collabllm/core/multithread.py", line 80, in get_multiturn_rewards
-#     results = list(executor.map(
-#               ^^^^^^^^^^^^^^^^^^
-#   File "/Library/Frameworks/Python.framework/Versions/3.12/lib/python3.12/concurrent/futures/_base.py", line 619, in result_iterator
-#     yield _result_or_cancel(fs.pop())
-#           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
-#   File "/Library/Frameworks/Python.framework/Versions/3.12/lib/python3.12/concurrent/futures/_base.py", line 317, in _result_or_cancel
-#     return fut.result(timeout)
-#            ^^^^^^^^^^^^^^^^^^^
-#   File "/Library/Frameworks/Python.framework/Versions/3.12/lib/python3.12/concurrent/futures/_base.py", line 456, in result
-#     return self.__get_result()
-#            ^^^^^^^^^^^^^^^^^^^
-#   File "/Library/Frameworks/Python.framework/Versions/3.12/lib/python3.12/concurrent/futures/_base.py", line 401, in __get_result
-#     raise self._exception
-#   File "/Library/Frameworks/Python.framework/Versions/3.12/lib/python3.12/concurrent/futures/thread.py", line 59, in run
-#     result = self.fn(*self.args, **self.kwargs)
-#              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-#   File "/Users/aditi/Documents/multiturn-20q/collab-llm/collabllm/core/multithread.py", line 81, in <lambda>
-#     lambda p: get_one_multiturn_reward(*p), tasks
-#               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-#   File "/Users/aditi/Documents/multiturn-20q/collab-llm/collabllm/core/multiturn_reward.py", line 80, in get_one_multiturn_reward
-#     llm_reward = llm_judge(single_turn_data=single_turn_data, chat_eval=forward_turns, chat_history=chat_history)
-#                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-#   File "/Users/aditi/Documents/multiturn-20q/collab-llm/collabllm/metrics/llm_judge.py", line 28, in __call__
-#     target_object = kwargs["target_object"]   # aditi edit. idk if this works?!
-#                     ~~~~~~^^^^^^^^^^^^^^^^^
-# KeyError: 'target_object'
-# (20q) aditi@DN51u5gq collab-llm % 

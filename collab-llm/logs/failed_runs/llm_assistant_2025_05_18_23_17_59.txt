@@ -1,0 +1,8 @@
+
+
+[LLMAssistant] `current_problem`=The hidden word could be any object, living thing, or concept. I need to narrow it down further. | `thought`=Since the conversation history is empty, I have no prior context to build on. I need to start by asking broad questions to determine if the hidden word is a physical object or something abstract. This will help me establish a clear direction for my next questions. Given that I have 20 questions to work with, starting with a fundamental characteristic will be effective.
+
+
+
+[LLMAssistant] `current_problem`=The user is thinking of an object, but no specific characteristics have been established yet. | `thought`=I haven't asked any questions yet, so I need to start broad to narrow down the category of the object. Asking if it's a living thing or an inanimate object will help me determine the general nature of the object. This will significantly narrow down the possibilities and give me a clearer direction for subsequent questions.
+

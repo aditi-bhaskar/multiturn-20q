@@ -32,8 +32,8 @@ class LLMJudge(MultiturnMetric):
         question = single_turn_data[-2]['content']
         answer = single_turn_data[-1]['content'] + f"\nGround Truth Target Object: {target_object}"   # aditi addition to add "+ gnd truth"
         
-        print(f"\nDEBUG:LLMJudge question = {question}")
-        print(f"\nDEBUG:LLMJudge answer = {answer}")
+        print(f"\nDEBUG:LLMJudge given question = {question}")
+        print(f"\nDEBUG:LLMJudge given answer = {answer}")
 
         if chat_history is None:
             chat_history = []
@@ -44,6 +44,8 @@ class LLMJudge(MultiturnMetric):
         print(prompt)
         while True:
             response = get_llm_output(prompt, **self.llm_kwargs)
+            print(f"\n\nDEBUG:LLMJudge response = {response}")  # aditi continue debugging here!!! 
+
             if response == ' ':
                 return None
             if self.prompt_handler.check_format(response):
@@ -56,3 +58,7 @@ class LLMJudge(MultiturnMetric):
             if key != 'accuracy' and isinstance(response[key]['score'], (int, float)):
                 response[key]['score'] = self.rescale_func(response[key]['score'])
         return response
+    
+
+
+# issue: line 47, idk why the response is leading to error "Format check failed."

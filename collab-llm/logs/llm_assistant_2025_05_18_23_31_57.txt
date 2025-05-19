@@ -1,0 +1,4 @@
+
+
+[LLMAssistant] `current_problem`=I have no information about the hidden word yet, so the search space is broad and undefined. | `thought`=Since this is the beginning of the game, I need to start with a general question that can help me narrow down the category of the hidden word. Asking if it's a living thing or an inanimate object could significantly reduce the possibilities. I will also ensure to keep the tone engaging and friendly to encourage the user to respond.
+
