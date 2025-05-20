@@ -68,8 +68,8 @@ class LLMAssistant(object):
             response = get_llm_output(prompt, **self.llm_kwargs)
 
             # TODO
-            print('\n\n\nDEBUG:ASSISTANT response type:', type(response))
-            print('\n\n\nDEBUG:ASSISTANT response content:', response)
+            # print('\n\n\nDEBUG:ASSISTANT response type:', type(response))
+            # print('\n\n\nDEBUG:ASSISTANT response content:', response)
             print(prompt)
             breakpoint
 

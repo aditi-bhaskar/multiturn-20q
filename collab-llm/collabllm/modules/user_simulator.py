@@ -58,8 +58,8 @@ class UserSimulator(object):
             response = get_llm_output(prompt, **self.llm_kwargs)
 
             # TODO
-            print('\n\n\nDEBUG:USERSIM response type:', type(response))
-            print('\n\n\nDEBUG:USERSIM response content:', response)
+            # print('\n\n\nDEBUG:USERSIM response type:', type(response))
+            # print('\n\n\nDEBUG:USERSIM response content:', response)
             print(prompt)
             breakpoint
 

@@ -346,7 +346,7 @@ def main():
     #  with idx todo, 
 
     for i in tqdm(idx_todo):
-        print(f"\n\nDEBUG:GENCONVDPO - what is dataset[split]? = {dataset}\n\n")
+        # print(f"\n\nDEBUG:GENCONVDPO - what is dataset[split]? = {dataset}\n\n")
         i, convs, pos_responses, neg_responses, chosen_evals, rejected_evals = process_conversation(i, dataset, args, assistant_collabllm, assistant_vanilla)
 
         # print(f"\nDataset Dict Split=: {dataset_dict}\n")
@@ -371,7 +371,6 @@ def main():
                 'rejected_eval': rejected_eval_list,
                 'metadata': metadata_list
             })
-
 
 
     # Save locally 
