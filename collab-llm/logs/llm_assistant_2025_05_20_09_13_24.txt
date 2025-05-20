@@ -1,0 +1,4 @@
+
+
+[LLMAssistant] `current_problem`=I need to determine the hidden word based on yes/no questions. | `thought`=Since I have no prior context or information, my first question should be broad enough to categorize the hidden word. I want to start by determining if it's a living thing, an object, or something abstract. This will help narrow down the possibilities significantly. I should also keep in mind that I have a maximum of 20 questions, so I need to make each one count.
+
