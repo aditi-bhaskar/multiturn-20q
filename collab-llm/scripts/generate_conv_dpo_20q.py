@@ -346,31 +346,31 @@ def main():
     #  with idx todo, 
 
     for i in tqdm(idx_todo):
-            print(f"\n\nDEBUG:GENCONVDPO - what is dataset[split]? = {dataset}\n\n")
-            i, convs, pos_responses, neg_responses, chosen_evals, rejected_evals = process_conversation(i, dataset, args, assistant_collabllm, assistant_vanilla)
+        print(f"\n\nDEBUG:GENCONVDPO - what is dataset[split]? = {dataset}\n\n")
+        i, convs, pos_responses, neg_responses, chosen_evals, rejected_evals = process_conversation(i, dataset, args, assistant_collabllm, assistant_vanilla)
 
-            # print(f"\nDataset Dict Split=: {dataset_dict}\n")
-            idx_list.extend([i] * len(convs))
-            metadata_list.extend([
-                {'user': args.user_model_name, 'assistant': args.assistant_model_name}
-            ] * len(convs))
-            prompt_list.extend(convs)
-            chosen_list.extend(pos_responses)
-            rejected_list.extend(neg_responses)
-            chosen_eval_list.extend(chosen_evals)
-            rejected_eval_list.extend(rejected_evals)
+        # print(f"\nDataset Dict Split=: {dataset_dict}\n")
+        idx_list.extend([i] * len(convs))
+        metadata_list.extend([
+            {'user': args.user_model_name, 'assistant': args.assistant_model_name}
+        ] * len(convs))
+        prompt_list.extend(convs)
+        chosen_list.extend(pos_responses)
+        rejected_list.extend(neg_responses)
+        chosen_eval_list.extend(chosen_evals)
+        rejected_eval_list.extend(rejected_evals)
 
-            # Optional: log progress every few updates, e.g. every log_step unique idx seen
-            if np.unique(idx_list).shape[0] % args.log_step == 0:
-                dataset_dict['train'] = Dataset.from_dict({
-                    'idx': idx_list,
-                    'prompt': prompt_list,
-                    'chosen': chosen_list,
-                    'rejected': rejected_list,
-                    'chosen_eval': chosen_eval_list,
-                    'rejected_eval': rejected_eval_list,
-                    'metadata': metadata_list
-                })
+        # Optional: log progress every few updates, e.g. every log_step unique idx seen
+        if np.unique(idx_list).shape[0] % args.log_step == 0:
+            dataset_dict['train'] = Dataset.from_dict({
+                'idx': idx_list,
+                'prompt': prompt_list,
+                'chosen': chosen_list,
+                'rejected': rejected_list,
+                'chosen_eval': chosen_eval_list,
+                'rejected_eval': rejected_eval_list,
+                'metadata': metadata_list
+            })
 
 
 
