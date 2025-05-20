@@ -31,7 +31,7 @@ export N_EVAL=100                   # aditi edit for debugging
 # test time:
 # export MAX_NUM_CONV=50           # number of objects/games -- just generate 10 at a time, maybe
 export MAX_NUM_CONV=10           # number of objects/games
-export START_OBJ_NUM=10           # number of objects/games we start from (useful for running multiple times)
+export START_OBJ_NUM=20           # number of objects/games we start from (useful for running multiple times)
 export MAX_NEW_TURNS=20           # Maximum number of new conversation turns per task
 export MAX_NUM_WORKERS=4
 
