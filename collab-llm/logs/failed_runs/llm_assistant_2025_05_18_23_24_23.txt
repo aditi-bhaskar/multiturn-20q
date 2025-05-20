@@ -1,8 +1,0 @@
-
-
-[LLMAssistant] `current_problem`=I need to identify a hidden object the user has in mind. | `thought`=Since I have no prior context or questions asked, I need to start broad. My first question should help me determine if the object is a living thing or an inanimate object, as this can significantly narrow down the possibilities. This will set the stage for more specific questions in subsequent turns.
-
-
-
-[LLMAssistant] `current_problem`=The hidden object is a living thing. | `thought`=Since the hidden object is a living thing, I need to narrow it down further. I should ask if it's an animal or a plant, as this will help categorize the object significantly. If the answer is 'yes' to being an animal, I can then ask more specific questions about the type of animal. If it's a plant, I can narrow down to types of plants. This question will help me understand the broader category the object belongs to, which is essential for making further guesses.
-

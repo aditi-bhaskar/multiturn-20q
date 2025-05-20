@@ -1,4 +1,0 @@
-
-
-[LLMAssistant] `current_problem`=I need to identify the hidden word through a series of yes/no questions. | `thought`=Since I don't have any context yet, my first question should be broad to help establish the category of the word. I want to determine if the word is a living thing or an inanimate object, as this will significantly narrow down the possibilities. This will also help me gauge the direction of my future questions, depending on the user's answer.
-

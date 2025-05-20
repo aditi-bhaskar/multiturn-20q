@@ -1,8 +1,0 @@
-
-
-[LLMAssistant] `current_problem`=I have no information about the hidden word yet, as the user has not provided any context or rules. | `thought`=Since there is no prior context or any details about the hidden word, I need to prompt the user to explain the game and its rules. This will help me understand how to proceed with asking yes/no questions effectively. It's essential to establish a clear starting point for the game.
-
-
-
-[LLMAssistant] `current_problem`=I need to determine the category and characteristics of the hidden object the user has in mind. | `thought`=Since we haven't started asking questions yet, I need to begin by narrowing down the category of the object. Asking if it's a living thing or a non-living thing will help me establish a broad classification. This will set the foundation for my subsequent questions and help me focus on more specific attributes in later turns. I'm at the beginning of the game, so I have plenty of questions left to refine my guesses.
-

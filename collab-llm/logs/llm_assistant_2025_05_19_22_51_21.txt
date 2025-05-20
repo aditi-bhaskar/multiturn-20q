@@ -1,8 +1,0 @@
-
-
-[LLMAssistant] `current_problem`=I am trying to guess a hidden object that the user has in mind. The object could be anything, and I need to narrow it down through yes/no questions. | `thought`=Since I don't have any previous context from the user yet, I need to start with broad questions to establish a foundation. My first question should aim to determine if the object is a living thing or an inanimate object, as this will help me categorize it further. This is a critical step in narrowing down the possibilities, and it's important to keep the questions clear and concise.
-
-
-
-[LLMAssistant] `current_problem`=The object is a non-living thing. | `thought`=Since the object is not a living thing, I need to narrow down the category further. I should ask if it is something that is typically found indoors or outdoors, as this can help me categorize the object more effectively. This will also help me eliminate a large portion of possibilities based on the environment where the object is commonly found.
-
