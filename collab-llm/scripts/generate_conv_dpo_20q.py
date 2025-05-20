@@ -266,8 +266,11 @@ def main():
     partial_save_path = f"/Users/aditi/Documents/multiturn-20q/collab-llm/logs/partial_convs_{timestamp}.json"
 
     logfile = open(log_path, "w", encoding='utf-8')
-    sys.stdout = Tee(sys.stdout, logfile)
-    sys.stderr = Tee(sys.stderr, logfile)
+    # sys.stdout = Tee(sys.stdout, logfile)   # only for use in debug
+    # sys.stderr = Tee(sys.stderr, logfile)
+
+    sys.stdout = logfile
+    sys.stderr = logfile
 
     args = parse_args()
     args.dataset = load_dataset(
