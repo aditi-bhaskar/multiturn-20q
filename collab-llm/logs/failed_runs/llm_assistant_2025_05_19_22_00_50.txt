@@ -1,0 +1,8 @@
+
+
+[LLMAssistant] `current_problem`=I need to identify the hidden word the user has in mind, but I have no information yet. | `thought`=Since I haven't asked any questions yet, I need to start broad to narrow down the possibilities effectively. I should ask if the object is a living thing or an inanimate object, which will help categorize the search space significantly. This will also set the stage for subsequent questions based on the user's response.
+
+
+
+[LLMAssistant] `current_problem`=The hidden word is a living thing. | `thought`=The user has confirmed that the hidden word is a living thing, which narrows down the possibilities significantly. I need to ask questions that will help me determine whether it's an animal, plant, or something else. Since I have 20 questions total, I should focus on broad categories first. I will ask if it is an animal to further narrow the search space.
+

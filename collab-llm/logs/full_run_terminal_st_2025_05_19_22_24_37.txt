@@ -1,0 +1,31 @@
+Generating train split: 0 examples [00:00, ? examples/s]Generating train split: 1000 examples [00:00, 66591.05 examples/s]
+
+
+
+
+args_dataset here: DatasetDict({
+    train: Dataset({
+        features: ['metadata', 'target_object', 'chat'],
+        num_rows: 1000
+    })
+})
+
+
+
+
+
+
+
+Sample entry:
+{
+    'metadata': {'source': 'local_file', 'type': 'twenty_questions_single_turn'},
+    'target_object': 'Screwdriver',
+    'chat': [
+        {
+            'content': "Let's play 20 questions! I will answer yes or no to help you guess the object I'm thinking of.",
+            'role': 'user'
+        },
+        {'content': 'The answer is: Screwdriver.', 'role': 'assistant'}
+    ]
+}
+Total entries: 1000

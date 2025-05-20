@@ -280,84 +280,140 @@ def main():
     sys.stdout = Tee(sys.stdout, logfile)
     sys.stderr = Tee(sys.stderr, logfile)
 
+
     args = parse_args()
     # aditi edit to use the local dataset
-    # args.dataset = load_dataset("json", data_files={
-    #     "train": "/Users/aditi/Documents/multiturn-20q/collab-llm/lmrl_gym_20q_data/eval_single_turn.json"
-    # })
-    args.dataset = load_dataset("json", 
-                                data_files={"train": "/Users/aditi/Documents/multiturn-20q/collab-llm/lmrl_gym_20q_data/eval_single_turn.json"},   
-                                cache_dir="/tmp/aditi", keep_in_memory=True)
-    
+    args.dataset = load_dataset("json", data_files={
+        "train": "/Users/aditi/Documents/multiturn-20q/collab-llm/lmrl_gym_20q_data/train_single_turn.json"
+    })
+
     print(f"\n\n\n\nargs_dataset here: {args.dataset}\n\n\n\n")
 
-    #  the entire dataset is only used for training!!!
     dataset = args.dataset["train"]  # since the load_dataset above automatically adds the train
-
-    # print("\n\n\nSample entry:", dataset[0])
-    # Sample entry:
-    # {
-    #     'metadata': {'source': 'local_file', 'type': 'twenty_questions_single_turn'},
-    #     'target_object': 'Screwdriver',
-    #     'chat': [
-    #         {
-    #             'content': "Let's play 20 questions! I will answer yes or no to help you guess the object I'm thinking of.",
-    #             'role': 'user'
-    #         },
-    #         {'content': 'The answer is: Screwdriver.', 'role': 'assistant'}
-    #     ]
-    # }
-
-    # print("Total entries:", len(dataset))
-    # 1000 entires, format:
-
+   
+    # dataset =  args.dataset   #  aditi edit # load_single_turn_dataset(args.dataset, add_system_prompt=False)
+    # removed by aditi to get it to run!!
+    # if args.resume:
+    #     ds = load_dataset(f'{args.hf_org}/collabllm-{args.dataset}', trust_remote_code=True)
 
     dataset_dict = {}
+    # for split in ['train']:
+    for q in range(1):  # dummy loop to see if stuff runs
+        unique_idx = set()
+        chosen_list, rejected_list = [], []
+        chosen_eval_list, rejected_eval_list = [], []
+        idx_list, prompt_list, metadata_list = [], [], []
 
-    unique_idx = set()
-    chosen_list, rejected_list = [], []
-    chosen_eval_list, rejected_eval_list = [], []
-    idx_list, prompt_list, metadata_list = [], [], []
-    
-    random.seed(0)  # so the random seed and choosing only one conv is what made it always pick bear
+        # if args.resume:
+        #     try:
+        #         idx_list, prompt_list, metadata_list = ds[split]['idx'], ds[split]['prompt'], ds[split]['metadata']
+        #         chosen_list, rejected_list = ds[split]['chosen'], ds[split]['rejected']
+        #         chosen_eval_list, rejected_eval_list = ds[split]['chosen_eval'], ds[split]['rejected_eval']
+        #         unique_idx = set(idx_list)
+        #     except KeyError:
+        #         pass
+        
+        random.seed(0)  # ok so the random seed and choosing only one conv is what made it always pick bear
+        # idx_all = [i for i in range(min(args.n_eval_per_dataset, len(dataset[split]['chat'])))]  # aditi edit to use n_eval_per_dataset
+        #  in dpo/sft we can split into eval/training dataset 
 
-    #  in dpo/sft we can split into eval/training dataset 
+        idx_all = [i for i in range(len(dataset))]
+        # idx_all = [i for i in range(len(dataset[split]))]
+        print(f"DEBUG: GENCONV DPO - idx_all[2] = {idx_all[2]}\n\n")
+        # idx_all = [i for i in range(len(dataset[split]['chat']))]
+        random.shuffle(idx_all)
+        idx_all = idx_all[:args.max_num_conv]  # ADITI NOTE TODO - should not need to splice with 1000 entries in the eval dataset?!
+        idx_todo = [idx for idx in idx_all if idx not in unique_idx]  # idx todo are all the single turn prompts from the dataset
 
-    idx_all = [i for i in range(len(dataset))]
-    # idx_all = [i for i in range(len(dataset[split]))]
-    print(f"DEBUG: GENCONV DPO - idx_all[2] = {idx_all[2]}\n\n")
-    # idx_all = [i for i in range(len(dataset[split]['chat']))]
-    random.shuffle(idx_all)
-    idx_all = idx_all[:args.max_num_conv]  # ADITI NOTE TODO - should not need to splice with 1000 entries in the eval dataset?! should be able to use them all!!
-    idx_todo = [idx for idx in idx_all if idx not in unique_idx]  # idx todo are all the single turn prompts from the dataset
+        if args.task_name == '20q':
+            method = 'proact_cot_20q' 
+        else:
+            print("NOT RUNNING 20Q TASK; exiting\n\n")
+            return -1
 
-    if args.task_name == '20q':
-        method = 'proact_cot_20q' 
-    else:
-        print("NOT RUNNING 20Q TASK; exiting\n\n")
-        return -1
+        print(f"\n\n\n[INFO] Task name set to: {args.task_name}\n\n\n")
 
-    print(f"\n\n\n[INFO] Task name set to: {args.task_name}\n\n\n")
+        assistant_collabllm = LLMAssistant(method=method, **assistant_generation_kwargs)
+        vanilla_generation_kwargs = copy.copy(assistant_generation_kwargs)
+        vanilla_generation_kwargs['json_object'] = False
+        assistant_vanilla = LLMAssistant(method='none', **vanilla_generation_kwargs)
+        
+        #  with idx todo, 
 
-    assistant_collabllm = LLMAssistant(method=method, **assistant_generation_kwargs)
-    vanilla_generation_kwargs = copy.copy(assistant_generation_kwargs)
-    vanilla_generation_kwargs['json_object'] = False
-    assistant_vanilla = LLMAssistant(method='none', **vanilla_generation_kwargs)
-    
-    #  with idx todo, 
+        for i in tqdm(idx_todo):
+                print(f"DEBUG:GENCONVDPO - what is dataset[split]? = {dataset}\n\n")
+                i, convs, pos_responses, neg_responses, chosen_evals, rejected_evals = process_conversation(i, dataset, args, assistant_collabllm, assistant_vanilla)
 
-    for i in tqdm(idx_todo):
-            print(f"\n\nDEBUG:GENCONVDPO - what is dataset[split]? = {dataset}\n\n")
-            i, convs, pos_responses, neg_responses, chosen_evals, rejected_evals = process_conversation(i, dataset, args, assistant_collabllm, assistant_vanilla)
-
-            print(f"\nDataset Dict Split=: {dataset_dict}\n")
+                # print(f"DEBUG:GENCONVDPO - what is dataset[split]? = {dataset[split]}\n\n")
+                # i, convs, pos_responses, neg_responses, chosen_evals, rejected_evals = process_conversation(i, dataset[split], args, assistant_collabllm, assistant_vanilla)
 
 
-    # aditi: removed bc we dont have hf
-    # TODO create a hf for myself & push to hf  (try it with 2 conversations first)
-    # DatasetDict(dataset_dict).push_to_hub(repo_id=f'{args.hf_org}/collabllm-{args.dataset}', private=True)
-    #  can log to see the format (can make it public and view dataset in a table)  - set private = false
-    # https://huggingface.co/datasets/snap-stanford/pubmed_pipeline-preference_scorer-combined
+        # with concurrent.futures.ProcessPoolExecutor(max_workers=args.max_workers) as executor:
+        #     futures = {
+        #         executor.submit(process_conversation, i, dataset[split], args, assistant_collabllm, assistant_vanilla): i for i in idx_todo
+        #     }
+
+            # for future in tqdm(concurrent.futures.as_completed(futures), total=len(futures), desc='Global tasks'):
+            #     i, convs, pos_responses, neg_responses, chosen_evals, rejected_evals = future.result()
+        
+            #     idx_list.extend([i] * len(convs))  # Extend with i repeated for each conversation turn
+            #     metadata_list.extend([
+            #         {'user': args.user_model_name, 
+            #          'assistant': args.assistant_model_name}] * len(convs))
+            #     prompt_list.extend(convs)
+            #     chosen_list.extend(pos_responses)
+            #     rejected_list.extend(neg_responses)
+            #     chosen_eval_list.extend(chosen_evals)
+            #     rejected_eval_list.extend(rejected_evals)
+
+            #     if np.unique(idx_list).shape[0] % args.log_step == 0:
+            #         dataset_dict[split] = Dataset.from_dict({
+            #             'idx': idx_list,
+            #             'prompt': prompt_list,
+            #             'chosen': chosen_list,
+            #             'rejected': rejected_list,
+            #             'chosen_eval': chosen_eval_list,
+            #             'rejected_eval': rejected_eval_list,
+            #             'metadata': metadata_list
+            #         })
+                    # print(f"\nDataset Dict Split={split}: {dataset_dict[split]}\n")
+                    # print(f"\nDataset Dict Split={split} idx: {dataset_dict[split]["idx"]}\n")
+
+
+                    # dataset[split][idx]    <-- TODO check what the object is before its processed
+                    # TODO save this dataset to json!
+
+
+
+
+
+
+
+                    # # aditi: removed bc we dont have hf
+                    # dataset_repo = "aditijb/collabllm-20q"
+                    # DatasetDict(dataset_dict).push_to_hub(repo_id=dataset_repo, private=True)
+
+
+
+        # dataset_dict[split] = Dataset.from_dict({
+        #     'idx': idx_list,
+        #     'prompt': prompt_list,
+        #     'chosen': chosen_list,
+        #     'rejected': rejected_list,
+        #     'chosen_eval': chosen_eval_list,
+        #     'rejected_eval': rejected_eval_list,
+        #     'metadata': metadata_list
+        # })
+        # print(f"Dataset Dict Split={split}: {dataset_dict[split]}\n")
+
+
+
+
+        # aditi: removed bc we dont have hf
+        # TODO create a hf for myself & push to hf  (try it with 2 conversations first)
+        # DatasetDict(dataset_dict).push_to_hub(repo_id=f'{args.hf_org}/collabllm-{args.dataset}', private=True)
+        #  can log to see the format (can make it public and view dataset in a table)  - set private = false
+        # https://huggingface.co/datasets/snap-stanford/pubmed_pipeline-preference_scorer-combined
 
 
 if __name__ == '__main__':

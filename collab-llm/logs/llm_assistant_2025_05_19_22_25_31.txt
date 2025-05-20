@@ -1,0 +1,4 @@
+
+
+[LLMAssistant] `current_problem`=The specific object the user has in mind. | `thought`=Since I don't have any previous questions or context, I need to start by asking broad yes/no questions to narrow down the category of the object. This will help me understand if it's a living thing, an inanimate object, or something else entirely. I should also consider whether the object is commonly found indoors or outdoors, as this could significantly narrow my search space.
+

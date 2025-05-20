@@ -69,7 +69,7 @@ CUDA_VISIBLE_DEVICES=0 python scripts/generate_conv_dpo_20q.py \
     --llm_rw_weight $LLM_RW_WEIGHT \
     --cost_weight $COST_WEIGHT \
     --n_eval_per_dataset $N_EVAL \
-    --max_num_conv 1 \
+    --max_num_conv 5 \
     --task_name 20q \
     --resume
 

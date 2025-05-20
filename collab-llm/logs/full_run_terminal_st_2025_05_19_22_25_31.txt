@@ -1,3 +1,17 @@
+
+
+
+
+args_dataset here: DatasetDict({
+    train: Dataset({
+        features: ['metadata', 'target_object', 'chat'],
+        num_rows: 1000
+    })
+})
+
+
+
+
 DEBUG: GENCONV DPO - idx_all[2] = 2
 
 
@@ -8,17 +22,22 @@ DEBUG: GENCONV DPO - idx_all[2] = 2
 
 
 
-  0%|          | 0/1 [00:00<?, ?it/s]DEBUG:GENCONVDPO - what is dataset? = {dataset}
+  0%|          | 0/5 [00:00<?, ?it/s]
+
+DEBUG:GENCONVDPO - what is dataset? = Dataset({
+    features: ['metadata', 'target_object', 'chat'],
+    num_rows: 1000
+})
 
 
 
 *************** answer ****************
- The answer is: Bear.
+ The answer is: Blender.
 
 *************** question ****************
  Let's play 20 questions! I will answer yes or no to help you guess the object I'm thinking of.
 
-Processing conversation 74921:   0%|          | 0/2 [00:00<?, ?it/s][Turn 1] **User**: 
+Processing conversation 439:   0%|          | 0/2 [00:00<?, ?it/s][Turn 1] **User**: 
 
 
 
@@ -35,7 +54,7 @@ DEBUG:ASSISTANT response type: <class 'dict'>
 
 
 
-DEBUG:ASSISTANT response content: {'current_problem': 'The hidden word could be any object, but I need to narrow it down through yes/no questions.', 'thought': "Since I don't have any previous context or clues about the hidden word, my first question should be broad to identify the category of the object. This will help me narrow down the possibilities significantly. I want to start with a question that distinguishes between living and non-living things, which will help me categorize the object more effectively. I have 20 questions to work with, so I should use them wisely to get to the answer.", 'response': "Great! Let's get started. Is the hidden word something that is alive?"}
+DEBUG:ASSISTANT response content: {'current_problem': 'The specific object the user has in mind.', 'thought': "Since I don't have any previous questions or context, I need to start by asking broad yes/no questions to narrow down the category of the object. This will help me understand if it's a living thing, an inanimate object, or something else entirely. I should also consider whether the object is commonly found indoors or outdoors, as this could significantly narrow my search space.", 'response': "Great! Let's start our game. Is the object you're thinking of a living thing?"}
 You are an AI assistant tasked with guessing a hidden word. Your role is to interact with the user by asking yes/no questions and gradually narrowing down possibilities to figure out the word.
 
 Your goal is to generate thoughtful, clear responses and engage with the user to help them guide you toward discovering the hidden word.
@@ -99,10 +118,9 @@ DEBUG:USERSIM response type: <class 'dict'>
 DEBUG:USERSIM response content:
 {
     'current_answer': '',
-    'thought': "The assistant asked a good initial question about whether the hidden object is alive. Since the target 
-object is indeed alive, I should answer 'Yes' to keep the game progressing. This will guide the assistant further in its 
-guessing process.",
-    'response': 'Yes.'
+    'thought': "The assistant asked a general question about the object being a living thing. Since the target object is not
+alive, my answer should be 'No.' This will help steer the assistant towards thinking about inanimate objects.",
+    'response': 'No.'
 }
 You are tasked with role-playing as a user who is interacting with an AI assistant in a guessing game. Your objective is to 
 help the assistant figure out a hidden object — but without ever saying the object directly.
@@ -115,13 +133,13 @@ specific object.
 respond to the current conversation.
 
 <|The Start of Target Object|>
-The answer is: Bear.
+The answer is: Blender.
 <|The End of Target Object|>
 
 <|The Start of Current Chat History|>
 **user**: 
 
-**assistant**: Great! Let's get started. Is the hidden word something that is alive?
+**assistant**: Great! Let's start our game. Is the object you're thinking of a living thing?
 
 <|The End of Current Chat History|>
 
@@ -168,8 +186,8 @@ DEBUG:ASSISTANT response type: <class 'str'>
 
 
 
-DEBUG:ASSISTANT response content: Is it an animal?
-[{'role': 'user', 'content': ''}, {'role': 'assistant', 'content': "Great! Let's get started. Is the hidden word something that is alive?"}, {'role': 'user', 'content': 'Yes.'}]
+DEBUG:ASSISTANT response content: Is it something that is commonly found indoors?
+[{'role': 'user', 'content': ''}, {'role': 'assistant', 'content': "Great! Let's start our game. Is the object you're thinking of a living thing?"}, {'role': 'user', 'content': 'No.'}]
 
 
 
@@ -180,9 +198,8 @@ DEBUG:USERSIM response type: <class 'dict'>
 DEBUG:USERSIM response content:
 {
     'current_answer': '',
-    'thought': "The assistant is on the right track asking about whether it's an animal, so I need to keep responding with 
-information that narrows down to a bear without revealing it directly. I should confirm that it is an animal and continue 
-guiding with precise yes or no answers.",
+    'thought': "The assistant is on the right track by asking if the object is found indoors. I should confirm that it's 
+commonly found inside as it will help narrow down the possibilities.",
     'response': 'Yes.'
 }
 You are tasked with role-playing as a user who is interacting with an AI assistant in a guessing game. Your objective is to 
@@ -196,17 +213,17 @@ specific object.
 respond to the current conversation.
 
 <|The Start of Target Object|>
-The answer is: Bear.
+The answer is: Blender.
 <|The End of Target Object|>
 
 <|The Start of Current Chat History|>
 **user**: 
 
-**assistant**: Great! Let's get started. Is the hidden word something that is alive?
+**assistant**: Great! Let's start our game. Is the object you're thinking of a living thing?
 
-**user**: Yes.
+**user**: No.
 
-**assistant**: Is it an animal?
+**assistant**: Is it something that is commonly found indoors?
 
 <|The End of Current Chat History|>
 
@@ -253,17 +270,17 @@ DEBUG:ASSISTANT response type: <class 'str'>
 
 
 
-DEBUG:ASSISTANT response content: Is this animal commonly kept as a pet?
-[{'role': 'user', 'content': ''}, {'role': 'assistant', 'content': "Great! Let's get started. Is the hidden word something that is alive?"}, {'role': 'user', 'content': 'Yes.'}, {'role': 'assistant', 'content': 'Is it an animal?'}, {'role': 'user', 'content': 'Yes.'}]
+DEBUG:ASSISTANT response content: Is it an electronic device?
+[{'role': 'user', 'content': ''}, {'role': 'assistant', 'content': "Great! Let's start our game. Is the object you're thinking of a living thing?"}, {'role': 'user', 'content': 'No.'}, {'role': 'assistant', 'content': 'Is it something that is commonly found indoors?'}, {'role': 'user', 'content': 'Yes.'}]
 
-DEBUG:LLMJudge Target object = The answer is: Bear.
+DEBUG:LLMJudge Target object = The answer is: Blender.
 
-DEBUG:LLMJudge Full chat_eval = [{'role': 'assistant', 'content': "Great! Let's get started. Is the hidden word something that is alive?"}, {'role': 'user', 'content': 'Yes.'}, {'role': 'assistant', 'content': 'Is it an animal?'}, {'role': 'user', 'content': 'Yes.'}, {'role': 'assistant', 'content': 'Is this animal commonly kept as a pet?'}]
+DEBUG:LLMJudge Full chat_eval = [{'role': 'assistant', 'content': "Great! Let's start our game. Is the object you're thinking of a living thing?"}, {'role': 'user', 'content': 'No.'}, {'role': 'assistant', 'content': 'Is it something that is commonly found indoors?'}, {'role': 'user', 'content': 'Yes.'}, {'role': 'assistant', 'content': 'Is it an electronic device?'}]
 
 DEBUG:LLMJudge given question = Let's play 20 questions! I will answer yes or no to help you guess the object I'm thinking of.
 
-DEBUG:LLMJudge given answer = The answer is: Bear.
-Ground Truth Target Object: The answer is: Bear.
+DEBUG:LLMJudge given answer = The answer is: Blender.
+Ground Truth Target Object: The answer is: Blender.
 You are a helpful and meticulous conversation evaluator. Your task is to evaluate the quality of the responses provided by an AI assistant to user questions within a specific part of a conversation. You should provide evaluations on two dimensions separately. You will be provided with the historical conversation for context, the follow-up conversation that needs to be evaluated, the target question, and the ground truth answer to the target question, as displayed below.
 
 Provided Information:
@@ -274,22 +291,22 @@ Provided Information:
 <|The End of The Historical Conversation|>
 
 <|The Start of The Follow-up Conversation to be Evaluated|>  
-**assistant**: Great! Let's get started. Is the hidden word something that is alive?
+**assistant**: Great! Let's start our game. Is the object you're thinking of a living thing?
+
+**user**: No.
+
+**assistant**: Is it something that is commonly found indoors?
 
 **user**: Yes.
 
-**assistant**: Is it an animal?
-
-**user**: Yes.
-
-**assistant**: Is this animal commonly kept as a pet?
+**assistant**: Is it an electronic device?
   
 <|The End of The Follow-up Conversation to be Evaluated|>
 
 <|The Start of Target Question and Ground Truth Answer|>  
 Target Question: Let's play 20 questions! I will answer yes or no to help you guess the object I'm thinking of.  
-Ground Truth Answer: The answer is: Bear.
-Ground Truth Target Object: The answer is: Bear.  
+Ground Truth Answer: The answer is: Blender.
+Ground Truth Target Object: The answer is: Blender.  
 <|The End of Target Question and Ground Truth Answer|>
 
 
@@ -337,6 +354,7 @@ You should output a JSON in the following format:
   "information_gain": {"thought": "<How well does the question narrow search space of the final answer, regardless of what the user's yes/no response is?>", "score": <score>}
 }
 
+Make sure each of the following top-level keys exists in your JSON response: "interactivity", "accuracy", and "information_gain", and that each one has a "thought" string and a numeric "score" float/int field. Do not include extra quotation marks around numeric values. Return raw numbers, not strings.
 
 
 
@@ -350,45 +368,3 @@ Important Notes:
 Your evaluation:
 
 
-Processing conversation 74921:   0%|          | 0/2 [00:53<?, ?it/s]
-  0%|          | 0/1 [00:54<?, ?it/s]
-Traceback (most recent call last):
-  File "/Users/aditi/Documents/multiturn-20q/collab-llm/collabllm/core/multithread.py", line 82, in get_multiturn_rewards
-    results = list(executor.map(
-              ^^^^^^^^^^^^^^^^^^
-  File "/Library/Frameworks/Python.framework/Versions/3.12/lib/python3.12/concurrent/futures/_base.py", line 619, in result_iterator
-    yield _result_or_cancel(fs.pop())
-          ^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/Library/Frameworks/Python.framework/Versions/3.12/lib/python3.12/concurrent/futures/_base.py", line 317, in _result_or_cancel
-    return fut.result(timeout)
-           ^^^^^^^^^^^^^^^^^^^
-  File "/Library/Frameworks/Python.framework/Versions/3.12/lib/python3.12/concurrent/futures/_base.py", line 451, in result
-    self._condition.wait(timeout)
-  File "/Library/Frameworks/Python.framework/Versions/3.12/lib/python3.12/threading.py", line 355, in wait
-    waiter.acquire()
-KeyboardInterrupt
-
-During handling of the above exception, another exception occurred:
-
-Traceback (most recent call last):
-  File "/Users/aditi/Documents/multiturn-20q/collab-llm/scripts/generate_conv_dpo_20q.py", line 411, in <module>
-    main()
-  File "/Users/aditi/Documents/multiturn-20q/collab-llm/scripts/generate_conv_dpo_20q.py", line 340, in main
-    i, convs, pos_responses, neg_responses, chosen_evals, rejected_evals = process_conversation(i, dataset[split], args, assistant_collabllm, assistant_vanilla)
-                                                                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/Users/aditi/Documents/multiturn-20q/collab-llm/scripts/generate_conv_dpo_20q.py", line 178, in process_conversation
-    rewards, reward_logs = get_multiturn_rewards(
-                           ^^^^^^^^^^^^^^^^^^^^^^
-  File "/Users/aditi/Documents/multiturn-20q/collab-llm/collabllm/core/multithread.py", line 59, in get_multiturn_rewards
-    with concurrent.futures.ThreadPoolExecutor(max_workers=max_workers) as executor:
-         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/Library/Frameworks/Python.framework/Versions/3.12/lib/python3.12/concurrent/futures/_base.py", line 647, in __exit__
-    self.shutdown(wait=True)
-  File "/Library/Frameworks/Python.framework/Versions/3.12/lib/python3.12/concurrent/futures/thread.py", line 239, in shutdown
-    t.join()
-  File "/Library/Frameworks/Python.framework/Versions/3.12/lib/python3.12/threading.py", line 1149, in join
-    self._wait_for_tstate_lock()
-  File "/Library/Frameworks/Python.framework/Versions/3.12/lib/python3.12/threading.py", line 1169, in _wait_for_tstate_lock
-    if lock.acquire(block, timeout):
-       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-KeyboardInterrupt

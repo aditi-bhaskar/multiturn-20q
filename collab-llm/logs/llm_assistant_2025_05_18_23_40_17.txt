@@ -1,4 +1,0 @@
-
-
-[LLMAssistant] `current_problem`=The hidden word could be any object, but I need to narrow it down through yes/no questions. | `thought`=Since I don't have any previous context or clues about the hidden word, my first question should be broad to identify the category of the object. This will help me narrow down the possibilities significantly. I want to start with a question that distinguishes between living and non-living things, which will help me categorize the object more effectively. I have 20 questions to work with, so I should use them wisely to get to the answer.
-
