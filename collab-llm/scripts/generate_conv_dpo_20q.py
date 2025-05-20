@@ -31,9 +31,8 @@ from collabllm.modules import LLMAssistant, UserSimulator
 
 from datasets import load_dataset
 
-# todo
-#  it should iterate thru all the entries in the dataset -- maybe that's why it doesnt
-# make it single turn
+
+import json
 
 
 
@@ -350,15 +349,61 @@ def main():
             print(f"\n\nDEBUG:GENCONVDPO - what is dataset[split]? = {dataset}\n\n")
             i, convs, pos_responses, neg_responses, chosen_evals, rejected_evals = process_conversation(i, dataset, args, assistant_collabllm, assistant_vanilla)
 
-            print(f"\nDataset Dict Split=: {dataset_dict}\n")
+            # print(f"\nDataset Dict Split=: {dataset_dict}\n")
+            idx_list.extend([i] * len(convs))
+            metadata_list.extend([
+                {'user': args.user_model_name, 'assistant': args.assistant_model_name}
+            ] * len(convs))
+            prompt_list.extend(convs)
+            chosen_list.extend(pos_responses)
+            rejected_list.extend(neg_responses)
+            chosen_eval_list.extend(chosen_evals)
+            rejected_eval_list.extend(rejected_evals)
 
+            # Optional: log progress every few updates, e.g. every log_step unique idx seen
+            if np.unique(idx_list).shape[0] % args.log_step == 0:
+                dataset_dict['train'] = Dataset.from_dict({
+                    'idx': idx_list,
+                    'prompt': prompt_list,
+                    'chosen': chosen_list,
+                    'rejected': rejected_list,
+                    'chosen_eval': chosen_eval_list,
+                    'rejected_eval': rejected_eval_list,
+                    'metadata': metadata_list
+                })
+
+
+
+    # Save locally 
+    local_save_path = f"/Users/aditi/Documents/multiturn-20q/collab-llm/logs/args_dataset_generated_convs_{timestamp}.txt"
+    
+    # Create a dict exactly like your Dataset dict
+    save_dict = {
+        'idx': idx_list,
+        'prompt': prompt_list,
+        'chosen': chosen_list,
+        'rejected': rejected_list,
+        'chosen_eval': chosen_eval_list,
+        'rejected_eval': rejected_eval_list,
+        'metadata': metadata_list,
+    }
+
+    # Save as JSON file
+    with open(local_save_path, 'w', encoding='utf-8') as f:
+        json.dump(save_dict, f, indent=2)
+
+    print(f"Saved conversation data locally to {os.path.abspath(local_save_path)}")
+
+
+    # push to hf 
 
     # aditi: removed bc we dont have hf
     # TODO create a hf for myself & push to hf  (try it with 2 conversations first)
     # DatasetDict(dataset_dict).push_to_hub(repo_id=f'{args.hf_org}/collabllm-{args.dataset}', private=True)
     #  can log to see the format (can make it public and view dataset in a table)  - set private = false
     # https://huggingface.co/datasets/snap-stanford/pubmed_pipeline-preference_scorer-combined
-
+    
+  
 
 if __name__ == '__main__':
     main()

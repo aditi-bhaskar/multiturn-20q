@@ -1,5 +1,6 @@
 # ./scripts/generate_conv_dpo_20q.sh   
 
+
 # Environment Variables (Adjust to match dataset & model)
 export USE_SUB=false
 export USE_SNAP=true
@@ -11,11 +12,16 @@ export DATASET=NONE                # Change this for different datasets (e.g., m
 export TEMP=0.5                      # Temperature for sampling (adjust for creativity)
 
 # ^ this is length of game
+# export MAX_NEW_TURNS=8               # from original code
+# export MAX_TOKENS=1536               # from original code
 export MAX_TOKENS=256               # Maximum tokens per generation -- aditi edit
 export COST_WEIGHT=5e-4              # Cost weight in reward function (adjust based on preference)
 export LLM_RW_WEIGHT=1               # Weight for RLHF reward function
 export USER_MODEL=gpt-4o-mini        # Choose the user model (e.g., gpt-4o-mini, gpt-4o)
+# export N_EVAL=600                    # Number of evaluations per dataset split
 export N_EVAL=100                   # aditi edit for debugging
+# export N_EVAL=2                   # aditi edit for debugging
+
 
 
 export MAX_NUM_CONV=1       # for debug time
@@ -26,9 +32,35 @@ export MAX_NEW_TURNS=2               # aditi edit for debugging
 
 
 
+
+
+
+# You can also adjust the assistant model and reward model based on your preference
+# export ASSISTANT_MODEL=gpt-4o
+# export REWARD_MODEL=claude-3-5-sonnet-20240620
+
+# export USER_MODEL=gpt-3.5-turbo
+# export ASSISTANT_MODEL=gpt-3.5-turbo
+# export REWARD_MODEL=gpt-3.5-turbo
+
+
+# suggested by shirley on may 18 to use this instead of turbo
 export USER_MODEL=gpt-4o-mini
 export ASSISTANT_MODEL=gpt-4o-mini
 export REWARD_MODEL=gpt-4o-mini
+
+# next steps
+#  generate 1000-2000 using the train dataset
+#  
+
+# import os
+# openai.api_key = os.getenv("OPENAI_API_KEY")
+
+# # Define a list of possible target objects for the 20Q task
+# export TARGET_OBJECTS=("apple" "cat" "car" "dog" "airplane")
+
+# # Pick a random object from the list to pass as the target object
+# export TARGET_OBJECT=${TARGET_OBJECTS[$RANDOM % ${#TARGET_OBJECTS[@]}]}
 
 
 CUDA_VISIBLE_DEVICES=0 python scripts/generate_conv_dpo_20q.py \
@@ -47,7 +79,21 @@ CUDA_VISIBLE_DEVICES=0 python scripts/generate_conv_dpo_20q.py \
     --llm_rw_weight $LLM_RW_WEIGHT \
     --cost_weight $COST_WEIGHT \
     --n_eval_per_dataset $N_EVAL \
-    --max_num_conv $MAX_NUM_CONV \
+    --max_num_conv MAX_NUM_CONV \
     --task_name 20q \
     --resume
+
+
+
+# TODO: set max_num_conv to 5 for reasonable test with hf, and then overnight with 1000 or something?
+
+
+
+    # --max_num_conv 1 \
+
+    # --target_object "apple" \
+
+    # --target_object "$TARGET_OBJECT"  # Pass the selected target object
+    # --max_num_conv 500 \
+    # --max_workers 10 \
 

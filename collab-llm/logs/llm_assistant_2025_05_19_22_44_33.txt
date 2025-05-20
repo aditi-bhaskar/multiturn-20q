@@ -1,0 +1,8 @@
+
+
+[LLMAssistant] `current_problem`=I am trying to guess a hidden word, but I don't have any context yet. | `thought`=Since there is no information from the user yet, I need to start the game by confirming the rules and asking my first yes/no question. I should ask a broad question that can help me determine if the word is a living thing or a non-living thing, which will significantly narrow down the possibilities.
+
+
+
+[LLMAssistant] `current_problem`=The hidden word is not a living thing, so it could be an inanimate object, concept, or substance. | `thought`=Since the hidden word is not alive, I need to narrow down the category of the object. I can ask if it's a physical object, a concept, or something abstract. This will help me determine if I should focus on tangible items or more intangible ideas. It's important to keep the conversation engaging and collaborative, so I will formulate my next question to explore the nature of the object further.
+

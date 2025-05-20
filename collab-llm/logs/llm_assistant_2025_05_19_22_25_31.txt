@@ -2,3 +2,39 @@
 
 [LLMAssistant] `current_problem`=The specific object the user has in mind. | `thought`=Since I don't have any previous questions or context, I need to start by asking broad yes/no questions to narrow down the category of the object. This will help me understand if it's a living thing, an inanimate object, or something else entirely. I should also consider whether the object is commonly found indoors or outdoors, as this could significantly narrow my search space.
 
+
+
+[LLMAssistant] `current_problem`=The object could be anything, as no questions have been asked yet. | `thought`=Since I haven't asked any questions yet, the search space is still very broad. I need to start by narrowing down the category of the object. A good first question would be to ask if it's a living thing or an inanimate object, as this can help me significantly reduce possibilities. This will help me focus my subsequent questions more effectively.
+
+
+
+[LLMAssistant] `current_problem`=I need to identify the hidden word, which could be any object, animal, or concept. | `thought`=Since I have no prior questions or context to narrow down the search space, I need to start broad. The first step is to determine if the hidden word is a tangible object or something abstract. This will help me refine my questions in subsequent turns. I should ask a question that can help categorize the word effectively.
+
+
+
+[LLMAssistant] `current_problem`=A hidden object that the user is thinking of, with no specific characteristics known yet. | `thought`=Since I haven't asked any questions yet, I need to start broad to narrow down the object effectively. I should first determine if the object is a living thing or an inanimate object, as this will help me categorize it. This question will allow me to eliminate a significant portion of possibilities. I'm at the beginning of the game, so I have plenty of questions left to refine my guesses.
+
+
+
+[LLMAssistant] `current_problem`=I have no context about the hidden word yet. | `thought`=Since I have no prior information about the hidden word, I need to start by confirming the game's rules and getting an idea of the general category of the object. This will help me formulate targeted questions in the following turns. Asking if the object is a living thing or non-living thing could provide a clear distinction to narrow down the search space effectively.
+
+
+
+[LLMAssistant] `current_problem`=The hidden word is a non-living thing. | `thought`=Since the object is not a living thing, I need to narrow it down further. I could ask if it's something commonly found indoors or outdoors to help categorize it. This will help me understand the context in which the object exists and allow me to eliminate or include certain categories. I still have plenty of questions left, so I can afford to ask a broad question that can significantly narrow down the search space.
+
+
+
+[LLMAssistant] `current_problem`=I need to identify the hidden word, which could be an object, concept, or category. The search space is still broad as I have not yet asked any questions. | `thought`=Since I haven't asked any questions yet, I need to start by determining whether the hidden word is a tangible object or an abstract concept. This will help me narrow down the possibilities significantly. Asking about whether it is a physical object or not could lead to more focused questions in subsequent turns.
+
+
+
+[LLMAssistant] `current_problem`=The hidden word is a tangible object. | `thought`=The user confirmed that the hidden word is a tangible object, which narrows the search space to physical items. I need to ask a question that can further classify the object. I could inquire about its material, size, or function. Since asking about the material could help me categorize it into groups (like metal, plastic, wood, etc.), I'll proceed with that. This will help to narrow down the possibilities significantly.
+
+
+
+[LLMAssistant] `current_problem`=I am trying to guess a hidden word that the user has in mind. The search space is currently broad as I have not yet asked any questions. | `thought`=Since I haven't asked any questions yet, I need to start with broad categories to narrow down the search space effectively. I will focus on whether the hidden word is a living thing or a non-living thing. This will help me categorize the word and guide my next questions accordingly. It's important to get a clear yes or no answer to help refine the possibilities.
+
+
+
+[LLMAssistant] `current_problem`=The hidden word could be any object, concept, or subject that the user is thinking of. | `thought`=Since I haven't asked any questions yet, I need to start broad to narrow down the possibilities. I will first determine if the object is a physical item or something abstract. This will help me categorize the search space more effectively. I should ask if it's a tangible object to eliminate or include a large group of possibilities.
+

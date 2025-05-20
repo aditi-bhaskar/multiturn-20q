@@ -1,0 +1,40 @@
+
+
+
+
+args_dataset here: DatasetDict({
+    train: Dataset({
+        features: ['metadata', 'target_object', 'chat'],
+        num_rows: 1000
+    })
+})
+
+
+
+
+DEBUG: GENCONV DPO - idx_all[2] = 2
+
+
+
+
+
+[INFO] Task name set to: 20q
+
+
+
+  0%|          | 0/1 [00:00<?, ?it/s]
+
+DEBUG:GENCONVDPO - what is dataset? = Dataset({
+    features: ['metadata', 'target_object', 'chat'],
+    num_rows: 1000
+})
+
+
+
+*************** answer ****************
+ The answer is: Blender.
+
+*************** question ****************
+ Let's play 20 questions! I will answer yes or no to help you guess the object I'm thinking of.
+
+Processing conversation 439:   0%|          | 0/2 [00:00<?, ?it/s][Turn 1] **User**: 
