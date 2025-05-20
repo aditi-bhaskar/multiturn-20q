@@ -29,9 +29,6 @@ from collabllm.utils.extract_json_reliable import extract_json
 
 from collabllm.modules import LLMAssistant, UserSimulator
 
-from datasets import load_dataset
-
-
 import json
 
 
@@ -377,7 +374,11 @@ def main():
 
     # push to hf!
     dataset_repo = "aditijb/collabllm-20q"
-    dataset_dict.push_to_hub(repo_id=dataset_repo, private=True)
+
+    dataset_converted = Dataset.from_dict(save_dict)
+    dataset_dict_for_hf = DatasetDict({"train": dataset_converted})  # Wrap it properly
+
+    dataset_dict_for_hf.push_to_hub(repo_id=dataset_repo, private=True)
     # TODO check this out!
     # can log to see the format (can make it public and view dataset in a table)  - set private = false
     # https://huggingface.co/datasets/snap-stanford/pubmed_pipeline-preference_scorer-combined

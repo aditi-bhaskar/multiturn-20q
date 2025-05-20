@@ -18,11 +18,19 @@ export USER_MODEL=gpt-4o-mini        # Choose the user model (e.g., gpt-4o-mini,
 export N_EVAL=100                   # aditi edit for debugging
 
 
-export MAX_NUM_CONV=1       # for debug time
-# export MAX_NUM_CONV=1000   # for generation/test time
 
-export MAX_NEW_TURNS=2               # aditi edit for debugging
-# export MAX_NEW_TURNS=20           # for test time Maximum number of new conversation turns per task
+
+
+# debug time:
+# export MAX_NUM_CONV=1           # number of objects/games
+# export MAX_NEW_TURNS=2          # Maximum number of new conversation turns per task
+
+# test time:
+# export MAX_NUM_CONV=1000        # number of objects/games
+export MAX_NUM_CONV=500           # number of objects/games
+export MAX_NEW_TURNS=20           # Maximum number of new conversation turns per task
+
+
 
 
 
