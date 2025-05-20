@@ -1,0 +1,8 @@
+
+
+[LLMAssistant] `current_problem`=The hidden word could be any object, and I need to narrow it down through yes/no questions. | `thought`=Since I haven't asked any questions yet, I need to start broad. I should first determine if the object is a living thing or an inanimate object. This will help me categorize the object and narrow down my search space significantly. Given that I have 20 questions, it's crucial to make each question count toward narrowing down the possibilities.
+
+
+
+[LLMAssistant] `current_problem`=The hidden word is an inanimate object. | `thought`=Since the user confirmed that the hidden word is an inanimate object, I should narrow down the category further. I can ask if it is a common household item or something used outdoors, as this will help me understand its context and function. This question should significantly narrow down the possibilities, and since I haven't asked many questions yet, I have plenty of room to explore different categories.
+

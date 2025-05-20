@@ -268,13 +268,23 @@ class Tee:
 ######################## LOAD DATASETS ########################
 def main():
 
+    print("\n\nSTARTING MAIN!\n\n")
+
     timestamp = datetime.datetime.now().strftime("%Y_%m_%d_%H_%M_%S")
     # log_path = f"/Users/aditi/Documents/multiturn-20q/collab-llm/logs/full_run_terminal_{timestamp}.txt"
     log_path = f"/Users/aditi/Documents/multiturn-20q/collab-llm/logs/full_run_terminal_st_{timestamp}.txt"  # for single turn dataset input stuff
+    partial_save_path = f"/Users/aditi/Documents/multiturn-20q/collab-llm/logs/partial_convs_{timestamp}.json"
+
     logfile = open(log_path, "w", encoding='utf-8')
     # Replace stdout and stderr with Tee to duplicate output to terminal + logfile
+    
+    #  FOR DEBUG
     sys.stdout = Tee(sys.stdout, logfile)
     sys.stderr = Tee(sys.stderr, logfile)
+
+    #  FOR TEST TIME!! 
+    # sys.stdout = logfile
+    # sys.stderr = logfile
 
     args = parse_args()
     # aditi edit to use the local dataset
@@ -285,7 +295,7 @@ def main():
                                 data_files={"train": "/Users/aditi/Documents/multiturn-20q/collab-llm/lmrl_gym_20q_data/eval_single_turn.json"},   
                                 cache_dir="/tmp/aditi", keep_in_memory=True)
     
-    print(f"\n\n\n\nargs_dataset here: {args.dataset}\n\n\n\n")
+    # print(f"\n\n\n\nargs_dataset here: {args.dataset}\n\n\n\n")
 
     #  the entire dataset is only used for training!!!
     dataset = args.dataset["train"]  # since the load_dataset above automatically adds the train
@@ -303,7 +313,7 @@ def main():
 
     idx_all = [i for i in range(len(dataset))]
     # idx_all = [i for i in range(len(dataset[split]))]
-    print(f"DEBUG: GENCONV DPO - idx_all[2] = {idx_all[2]}\n\n")
+    # print(f"DEBUG: GENCONV DPO - idx_all[2] = {idx_all[2]}\n\n")
     # idx_all = [i for i in range(len(dataset[split]['chat']))]
     random.shuffle(idx_all)
     idx_all = idx_all[:args.max_num_conv]  # ADITI NOTE TODO - should not need to splice with 1000 entries in the eval dataset?! should be able to use them all!!
@@ -322,7 +332,9 @@ def main():
     vanilla_generation_kwargs['json_object'] = False
     assistant_vanilla = LLMAssistant(method='none', **vanilla_generation_kwargs)
     
-    #  with idx todo, 
+
+    # print("\n\n idx todo ", idx_todo)
+    # return -1
 
     for i in tqdm(idx_todo):
         # print(f"\n\nDEBUG:GENCONVDPO - what is dataset[split]? = {dataset}\n\n")
@@ -339,11 +351,15 @@ def main():
         chosen_eval_list.extend(chosen_evals)
         rejected_eval_list.extend(rejected_evals)
 
+        target_object = dataset[i]["chat"][-1]["content"]
+        # print("target object!! \n\n\n\n ", target_object)
+
         # Optional: log progress every few updates, e.g. every log_step unique idx seen
         if np.unique(idx_list).shape[0] % args.log_step == 0:
             dataset_dict['train'] = Dataset.from_dict({
                 'idx': idx_list,
                 'prompt': prompt_list,
+                'prompt_item': target_object,    # <--- new field
                 'chosen': chosen_list,
                 'rejected': rejected_list,
                 'chosen_eval': chosen_eval_list,
@@ -351,6 +367,19 @@ def main():
                 'metadata': metadata_list
             })
 
+        # if np.unique(idx_list).shape[0] % args.log_step == 0:
+        save_dict = {
+            'idx': idx_list,
+            'prompt': prompt_list,
+            'prompt_item': target_object,    # <--- new field
+            'chosen': chosen_list,
+            'rejected': rejected_list,
+            'chosen_eval': chosen_eval_list,
+            'rejected_eval': rejected_eval_list,
+            'metadata': metadata_list,
+        }
+        with open(partial_save_path, 'w', encoding='utf-8') as f:
+            json.dump(save_dict, f, indent=2)
 
     # Save locally 
     local_save_path = f"/Users/aditi/Documents/multiturn-20q/collab-llm/logs/args_dataset_generated_convs_{timestamp}.txt"
@@ -359,6 +388,7 @@ def main():
     save_dict = {
         'idx': idx_list,
         'prompt': prompt_list,
+        'prompt_item': target_object,    # <--- new field
         'chosen': chosen_list,
         'rejected': rejected_list,
         'chosen_eval': chosen_eval_list,

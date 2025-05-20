@@ -24,12 +24,14 @@ export N_EVAL=100                   # aditi edit for debugging
 # debug time:
 # export MAX_NUM_CONV=1           # number of objects/games
 # export MAX_NEW_TURNS=2          # Maximum number of new conversation turns per task
+# export MAX_NUM_WORKERS=1
 
 # test time:
 # export MAX_NUM_CONV=1000        # number of objects/games
-export MAX_NUM_CONV=500           # number of objects/games
+# export MAX_NUM_CONV=500           # number of objects/games -- WAY TOO MANY!! :(
+export MAX_NUM_CONV=50           # number of objects/games
 export MAX_NEW_TURNS=20           # Maximum number of new conversation turns per task
-
+export MAX_NUM_WORKERS=4
 
 
 
@@ -41,7 +43,7 @@ export REWARD_MODEL=gpt-4o-mini
 
 CUDA_VISIBLE_DEVICES=0 python scripts/generate_conv_dpo_20q.py \
     --dataset $DATASET \
-    --max_workers 1 \
+    --max_workers $MAX_NUM_WORKERS \
     --num_samples 3 \
     --user_model_name $USER_MODEL \
     --assistant_model_name $ASSISTANT_MODEL \

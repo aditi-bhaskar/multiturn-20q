@@ -1,0 +1,24 @@
+
+
+
+[INFO] Task name set to: 20q
+
+
+
+  0%|          | 0/50 [00:00<?, ?it/s]target object!! 
+
+
+
+ 
+{
+    'metadata': {'source': 'local_file', 'type': 'twenty_questions_single_turn'},
+    'target_object': 'Blender',
+    'chat': [
+        {
+            'content': "Let's play 20 questions! I will answer yes or no to help you guess the object I'm thinking of.",
+            'role': 'user'
+        },
+        {'content': 'The answer is: Blender.', 'role': 'assistant'}
+    ]
+}
+  0%|          | 0/50 [00:00<?, ?it/s]
