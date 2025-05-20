@@ -47,7 +47,8 @@ def parse_args():
     parser.add_argument('--n_eval_per_dataset', type=int, default=500)
     parser.add_argument('--max_num_conv', type=int, default=1000)
 
-    parser.add_argument('--max_new_turns', type=int, default=10) 
+    parser.add_argument('--max_new_turns', type=int, default=10)
+    parser.add_argument('--start_obj_num', type=int, default=10)
     parser.add_argument('--window_size', type=int, default=2)
 
     parser.add_argument('--llm_rw_weight', type=float, default=1)
@@ -241,22 +242,35 @@ def strip_ansi(text):
     return ansi_escape.sub('', text)
 
 class Tee:
-    def __init__(self, original, logfile):
-        self.original = original
+    def __init__(self, logfile):
         self.logfile = logfile
 
     def write(self, data):
-        # Write to terminal as is
-        self.original.write(data)
-        self.original.flush()
-        # Strip ANSI codes before writing to logfile
         clean_data = strip_ansi(data)
         self.logfile.write(clean_data)
         self.logfile.flush()
 
     def flush(self):
-        self.original.flush()
         self.logfile.flush()
+        
+# class Tee:
+#     def __init__(self, original, logfile):
+#         self.original = original
+#         self.logfile = logfile
+
+#     def write(self, data):
+#         # Write to terminal as is
+#         self.original.write(data)
+#         self.original.flush()
+#         # Strip ANSI codes before writing to logfile
+#         clean_data = strip_ansi(data)
+#         self.logfile.write(clean_data)
+#         self.logfile.flush()
+
+#     def flush(self):
+#         self.original.flush()
+#         self.logfile.flush()
+        
 def main():
 
     print("\n\nSTARTING MAIN!\n\n")
@@ -269,8 +283,8 @@ def main():
     # sys.stdout = Tee(sys.stdout, logfile)   # only for use in debug
     # sys.stderr = Tee(sys.stderr, logfile)
 
-    sys.stdout = logfile
-    sys.stderr = logfile
+    sys.stdout = Tee(logfile)
+    sys.stderr = Tee(logfile)
 
     args = parse_args()
     args.dataset = load_dataset(
@@ -303,7 +317,9 @@ def main():
     random.seed(0)
     idx_all = list(range(len(dataset)))
     random.shuffle(idx_all)
-    idx_all = idx_all[:args.max_num_conv]
+    start = args.start_obj_num
+    end = args.start_obj_num + args.max_num_conv
+    idx_all = idx_all[start:end]
     idx_todo = [idx for idx in idx_all if idx not in unique_idx]
 
     if args.task_name != '20q':
@@ -311,6 +327,7 @@ def main():
         return -1
 
     print(f"\n\n\n[INFO] Task name set to: {args.task_name}\n\n\n")
+    print(f"\n\n\n[INFO] RUNNING NUMS: start={start}, end={end}\n\n\n")
 
     assistant_collabllm = LLMAssistant(method='proact_cot_20q', **assistant_generation_kwargs)
     vanilla_generation_kwargs = copy.copy(assistant_generation_kwargs)

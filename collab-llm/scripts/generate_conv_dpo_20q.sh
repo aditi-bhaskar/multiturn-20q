@@ -29,11 +29,11 @@ export N_EVAL=100                   # aditi edit for debugging
 # export MAX_NUM_CONV=500           # number of objects/games -- WAY TOO MANY!! :(
 
 # test time:
-# export MAX_NUM_CONV=50           # number of objects/games -- just generate 5 or 10 at a time, maybe
-export MAX_NUM_CONV=5           # number of objects/games
+# export MAX_NUM_CONV=50           # number of objects/games -- just generate 10 at a time, maybe
+export MAX_NUM_CONV=10           # number of objects/games
+export START_OBJ_NUM=10           # number of objects/games we start from (useful for running multiple times)
 export MAX_NEW_TURNS=20           # Maximum number of new conversation turns per task
 export MAX_NUM_WORKERS=4
-
 
 
 
@@ -51,6 +51,7 @@ CUDA_VISIBLE_DEVICES=0 python scripts/generate_conv_dpo_20q.py \
     --reward_model $REWARD_MODEL \
     --max_new_tokens $MAX_TOKENS \
     --max_new_turns $MAX_NEW_TURNS \
+    --start_obj_num $START_OBJ_NUM \
     --window_size 2 \
     --temperature $TEMP \
     --top_p 0.9 \
