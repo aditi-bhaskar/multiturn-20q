@@ -14,6 +14,7 @@ from tqdm import tqdm
 
 import datetime
 
+import re
 import sys
 sys.path.append('.')
 
@@ -103,16 +104,12 @@ user_generation_kwargs = {
 }
 
 
+
 def process_conversation(i, dataset, args, assistant_collabllm, assistant_vanilla):
 
     qa = dataset['chat'][i]  
     question, answer = qa[-2]['content'], qa[-1]['content'] # this is where our previous answer/question was coming from
 
-    # aditi edit/hack to use a different object
-    # all_objects = [ds[-1]['content'] for ds in dataset['chat']]
-    # answer = random.choice(all_objects)
-    # question = "I would like to play a game of 20 questions where I think of an object and you try to guess it using y/n questions."
- 
 
     if answer.strip().startswith('{'):
         answer = extract_json(answer)['answer']
@@ -239,9 +236,6 @@ def process_conversation(i, dataset, args, assistant_collabllm, assistant_vanill
 
 
 # to print all info to my output file
-import sys
-
-import re
 ansi_escape = re.compile(r'\x1B[@-_][0-?]*[ -/]*[@-~]')
 def strip_ansi(text):
     return ansi_escape.sub('', text)
@@ -263,179 +257,100 @@ class Tee:
     def flush(self):
         self.original.flush()
         self.logfile.flush()
-
-
-######################## LOAD DATASETS ########################
 def main():
 
     print("\n\nSTARTING MAIN!\n\n")
 
     timestamp = datetime.datetime.now().strftime("%Y_%m_%d_%H_%M_%S")
-    # log_path = f"/Users/aditi/Documents/multiturn-20q/collab-llm/logs/full_run_terminal_{timestamp}.txt"
-    log_path = f"/Users/aditi/Documents/multiturn-20q/collab-llm/logs/full_run_terminal_st_{timestamp}.txt"  # for single turn dataset input stuff
+    log_path = f"/Users/aditi/Documents/multiturn-20q/collab-llm/logs/full_run_terminal_st_{timestamp}.txt"
     partial_save_path = f"/Users/aditi/Documents/multiturn-20q/collab-llm/logs/partial_convs_{timestamp}.json"
 
     logfile = open(log_path, "w", encoding='utf-8')
-    # Replace stdout and stderr with Tee to duplicate output to terminal + logfile
-    
-    #  FOR DEBUG
     sys.stdout = Tee(sys.stdout, logfile)
     sys.stderr = Tee(sys.stderr, logfile)
 
-    #  FOR TEST TIME!! 
-    # sys.stdout = logfile
-    # sys.stderr = logfile
-
     args = parse_args()
-    # aditi edit to use the local dataset
-    # args.dataset = load_dataset("json", data_files={
-    #     "train": "/Users/aditi/Documents/multiturn-20q/collab-llm/lmrl_gym_20q_data/eval_single_turn.json"
-    # })
-    args.dataset = load_dataset("json", 
-                                data_files={"train": "/Users/aditi/Documents/multiturn-20q/collab-llm/lmrl_gym_20q_data/eval_single_turn.json"},   
-                                cache_dir="/tmp/aditi", keep_in_memory=True)
-    
-    # print(f"\n\n\n\nargs_dataset here: {args.dataset}\n\n\n\n")
+    args.dataset = load_dataset(
+        "json", 
+        data_files={"train": "/Users/aditi/Documents/multiturn-20q/collab-llm/lmrl_gym_20q_data/eval_single_turn.json"},
+        cache_dir="/tmp/aditi", keep_in_memory=True
+    )
+    dataset = args.dataset["train"]
 
-    #  the entire dataset is only used for training!!!
-    dataset = args.dataset["train"]  # since the load_dataset above automatically adds the train
-
-    dataset_dict = {}
-
-    unique_idx = set()
-    chosen_list, rejected_list = [], []
-    chosen_eval_list, rejected_eval_list = [], []
-    idx_list, prompt_list, metadata_list = [], [], []
-    
-    random.seed(0)  # so the random seed and choosing only one conv is what made it always pick bear
-
-    #  in dpo/sft we can split into eval/training dataset 
-
-    idx_all = [i for i in range(len(dataset))]
-    # idx_all = [i for i in range(len(dataset[split]))]
-    # print(f"DEBUG: GENCONV DPO - idx_all[2] = {idx_all[2]}\n\n")
-    # idx_all = [i for i in range(len(dataset[split]['chat']))]
-    random.shuffle(idx_all)
-    idx_all = idx_all[:args.max_num_conv]  # ADITI NOTE TODO - should not need to splice with 1000 entries in the eval dataset?! should be able to use them all!!
-    idx_todo = [idx for idx in idx_all if idx not in unique_idx]  # idx todo are all the single turn prompts from the dataset
-
-    if args.task_name == '20q':
-        method = 'proact_cot_20q' 
+    # Load previously saved data
+    if os.path.exists(partial_save_path):
+        with open(partial_save_path, 'r', encoding='utf-8') as f:
+            saved_data = json.load(f)
+        if 'prompt_item' not in saved_data:
+            saved_data['prompt_item'] = []
     else:
+        saved_data = {
+            'idx': [],
+            'prompt': [],
+            'chosen': [],
+            'rejected': [],
+            'chosen_eval': [],
+            'rejected_eval': [],
+            'metadata': [],
+            'prompt_item': []
+        }
+
+    unique_idx = set(saved_data['idx'])
+
+    random.seed(0)
+    idx_all = list(range(len(dataset)))
+    random.shuffle(idx_all)
+    idx_all = idx_all[:args.max_num_conv]
+    idx_todo = [idx for idx in idx_all if idx not in unique_idx]
+
+    if args.task_name != '20q':
         print("NOT RUNNING 20Q TASK; exiting\n\n")
         return -1
 
     print(f"\n\n\n[INFO] Task name set to: {args.task_name}\n\n\n")
 
-    assistant_collabllm = LLMAssistant(method=method, **assistant_generation_kwargs)
+    assistant_collabllm = LLMAssistant(method='proact_cot_20q', **assistant_generation_kwargs)
     vanilla_generation_kwargs = copy.copy(assistant_generation_kwargs)
     vanilla_generation_kwargs['json_object'] = False
     assistant_vanilla = LLMAssistant(method='none', **vanilla_generation_kwargs)
-    
-
-    # print("\n\n idx todo ", idx_todo)
-    # return -1
 
     for i in tqdm(idx_todo):
-        # print(f"\n\nDEBUG:GENCONVDPO - what is dataset[split]? = {dataset}\n\n")
-        i, convs, pos_responses, neg_responses, chosen_evals, rejected_evals = process_conversation(i, dataset, args, assistant_collabllm, assistant_vanilla)
-
-        # print(f"\nDataset Dict Split=: {dataset_dict}\n")
-        idx_list.extend([i] * len(convs))
-        metadata_list.extend([
-            {'user': args.user_model_name, 'assistant': args.assistant_model_name}
-        ] * len(convs))
-        prompt_list.extend(convs)
-        chosen_list.extend(pos_responses)
-        rejected_list.extend(neg_responses)
-        chosen_eval_list.extend(chosen_evals)
-        rejected_eval_list.extend(rejected_evals)
+        i, convs, pos_responses, neg_responses, chosen_evals, rejected_evals = process_conversation(
+            i, dataset, args, assistant_collabllm, assistant_vanilla
+        )
 
         target_object = dataset[i]["chat"][-1]["content"]
-        # print("target object!! \n\n\n\n ", target_object)
 
-        # Optional: log progress every few updates, e.g. every log_step unique idx seen
-        if np.unique(idx_list).shape[0] % args.log_step == 0:
-            dataset_dict['train'] = Dataset.from_dict({
-                'idx': idx_list,
-                'prompt': prompt_list,
-                'prompt_item': target_object,    # <--- new field
-                'chosen': chosen_list,
-                'rejected': rejected_list,
-                'chosen_eval': chosen_eval_list,
-                'rejected_eval': rejected_eval_list,
-                'metadata': metadata_list
-            })
+        # Remove old entries for this conversation
+        indices_to_keep = [j for j, idx in enumerate(saved_data['idx']) if idx != i]
+        for key in saved_data:
+            saved_data[key] = [saved_data[key][j] for j in indices_to_keep]
 
-        # if np.unique(idx_list).shape[0] % args.log_step == 0:
-        save_dict = {
-            'idx': idx_list,
-            'prompt': prompt_list,
-            'prompt_item': target_object,    # <--- new field
-            'chosen': chosen_list,
-            'rejected': rejected_list,
-            'chosen_eval': chosen_eval_list,
-            'rejected_eval': rejected_eval_list,
-            'metadata': metadata_list,
-        }
+        # Append new entries
+        saved_data['idx'].extend([i] * len(convs))
+        saved_data['prompt'].extend(convs)
+        saved_data['chosen'].extend(pos_responses)
+        saved_data['rejected'].extend(neg_responses)
+        saved_data['chosen_eval'].extend(chosen_evals)
+        saved_data['rejected_eval'].extend(rejected_evals)
+        saved_data['metadata'].extend([{'user': args.user_model_name, 'assistant': args.assistant_model_name}] * len(convs))
+        saved_data['prompt_item'].extend([target_object] * len(convs))
+
+        # Save to disk after every iteration
         with open(partial_save_path, 'w', encoding='utf-8') as f:
-            json.dump(save_dict, f, indent=2)
+            json.dump(saved_data, f, indent=2)
 
-    # Save locally 
-    local_save_path = f"/Users/aditi/Documents/multiturn-20q/collab-llm/logs/args_dataset_generated_convs_{timestamp}.txt"
-    
-    # Create a dict exactly like your Dataset dict
-    save_dict = {
-        'idx': idx_list,
-        'prompt': prompt_list,
-        'prompt_item': target_object,    # <--- new field
-        'chosen': chosen_list,
-        'rejected': rejected_list,
-        'chosen_eval': chosen_eval_list,
-        'rejected_eval': rejected_eval_list,
-        'metadata': metadata_list,
-    }
-
-    # Save as JSON file
+    # Final full backup
+    local_save_path = f"/Users/aditi/Documents/multiturn-20q/collab-llm/logs/args_dataset_generated_convs_{timestamp}.json"
     with open(local_save_path, 'w', encoding='utf-8') as f:
-        json.dump(save_dict, f, indent=2)
+        json.dump(saved_data, f, indent=2)
 
     print(f"Saved conversation data locally to {os.path.abspath(local_save_path)}")
 
-    # push to hf!
-    dataset_repo = "aditijb/collabllm-20q"
+    dataset_converted = Dataset.from_dict(saved_data)
+    dataset_dict_for_hf = DatasetDict({"train": dataset_converted})
+    dataset_dict_for_hf.push_to_hub(repo_id="aditijb/collabllm-20q", private=True)
 
-    dataset_converted = Dataset.from_dict(save_dict)
-    dataset_dict_for_hf = DatasetDict({"train": dataset_converted})  # Wrap it properly
 
-    dataset_dict_for_hf.push_to_hub(repo_id=dataset_repo, private=True)
-    # TODO check this out!
-    # can log to see the format (can make it public and view dataset in a table)  - set private = false
-    # https://huggingface.co/datasets/snap-stanford/pubmed_pipeline-preference_scorer-combined
-
-    
 if __name__ == '__main__':
     main()
-
-
-
-
-
-#  aditi notes / debug outputs to rememeber
-
-    # print("\n\n\nSample entry:", dataset[0])
-    # Sample entry:
-    # {
-    #     'metadata': {'source': 'local_file', 'type': 'twenty_questions_single_turn'},
-    #     'target_object': 'Screwdriver',
-    #     'chat': [
-    #         {
-    #             'content': "Let's play 20 questions! I will answer yes or no to help you guess the object I'm thinking of.",
-    #             'role': 'user'
-    #         },
-    #         {'content': 'The answer is: Screwdriver.', 'role': 'assistant'}
-    #     ]
-    # }
-
-    # print("Total entries:", len(dataset))
-    # 1000 entires, format:

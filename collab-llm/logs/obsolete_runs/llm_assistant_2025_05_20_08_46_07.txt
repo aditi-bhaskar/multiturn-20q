@@ -1,0 +1,8 @@
+
+
+[LLMAssistant] `current_problem`=I need to identify a hidden word that the user has in mind, but I don't have any information yet. | `thought`=Since I don't have any context about the hidden word, I should start with a broad question that can help me identify the category it belongs to. Asking whether it's a living thing or an inanimate object could significantly narrow down the possibilities. This will help me determine the direction for my next questions.
+
+
+
+[LLMAssistant] `current_problem`=The hidden word could be anything; I have no information yet. | `thought`=Since I haven't started asking questions yet, I need to begin by narrowing down the category of the object the user is thinking of. A good starting point is to determine if it's a living thing or an inanimate object. This will help me focus my subsequent questions more effectively.
+

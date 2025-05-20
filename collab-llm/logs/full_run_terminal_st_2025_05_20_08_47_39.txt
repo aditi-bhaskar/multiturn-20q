@@ -1,15 +1,0 @@
-
-
-
-[INFO] Task name set to: 20q
-
-
-
-  0%|          | 0/50 [00:00<?, ?it/s]  0%|          | 0/50 [00:00<?, ?it/s]
-Traceback (most recent call last):
-  File "/Users/aditi/Documents/multiturn-20q/collab-llm/scripts/generate_conv_dpo_20q.py", line 420, in <module>
-    main()
-  File "/Users/aditi/Documents/multiturn-20q/collab-llm/scripts/generate_conv_dpo_20q.py", line 340, in main
-    target_object = dataset[i]["chat"]["content"]
-                    ~~~~~~~~~~~~~~~~~~^^^^^^^^^^^
-TypeError: list indices must be integers or slices, not str
