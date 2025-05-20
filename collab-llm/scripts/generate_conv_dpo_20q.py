@@ -293,24 +293,6 @@ def main():
     #  the entire dataset is only used for training!!!
     dataset = args.dataset["train"]  # since the load_dataset above automatically adds the train
 
-    # print("\n\n\nSample entry:", dataset[0])
-    # Sample entry:
-    # {
-    #     'metadata': {'source': 'local_file', 'type': 'twenty_questions_single_turn'},
-    #     'target_object': 'Screwdriver',
-    #     'chat': [
-    #         {
-    #             'content': "Let's play 20 questions! I will answer yes or no to help you guess the object I'm thinking of.",
-    #             'role': 'user'
-    #         },
-    #         {'content': 'The answer is: Screwdriver.', 'role': 'assistant'}
-    #     ]
-    # }
-
-    # print("Total entries:", len(dataset))
-    # 1000 entires, format:
-
-
     dataset_dict = {}
 
     unique_idx = set()
@@ -393,17 +375,36 @@ def main():
 
     print(f"Saved conversation data locally to {os.path.abspath(local_save_path)}")
 
-
-    # push to hf 
-
-    # aditi: removed bc we dont have hf
-    # TODO create a hf for myself & push to hf  (try it with 2 conversations first)
-    # DatasetDict(dataset_dict).push_to_hub(repo_id=f'{args.hf_org}/collabllm-{args.dataset}', private=True)
-    #  can log to see the format (can make it public and view dataset in a table)  - set private = false
+    # push to hf!
+    dataset_repo = "aditijb/collabllm-20q"
+    dataset_dict.push_to_hub(repo_id=dataset_repo, private=True)
+    # TODO check this out!
+    # can log to see the format (can make it public and view dataset in a table)  - set private = false
     # https://huggingface.co/datasets/snap-stanford/pubmed_pipeline-preference_scorer-combined
-    
-  
 
+    
 if __name__ == '__main__':
     main()
 
+
+
+
+
+#  aditi notes / debug outputs to rememeber
+
+    # print("\n\n\nSample entry:", dataset[0])
+    # Sample entry:
+    # {
+    #     'metadata': {'source': 'local_file', 'type': 'twenty_questions_single_turn'},
+    #     'target_object': 'Screwdriver',
+    #     'chat': [
+    #         {
+    #             'content': "Let's play 20 questions! I will answer yes or no to help you guess the object I'm thinking of.",
+    #             'role': 'user'
+    #         },
+    #         {'content': 'The answer is: Screwdriver.', 'role': 'assistant'}
+    #     ]
+    # }
+
+    # print("Total entries:", len(dataset))
+    # 1000 entires, format:

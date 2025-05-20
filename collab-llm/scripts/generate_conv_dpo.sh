@@ -23,14 +23,27 @@ export USE_GCR=false
 # TODO switch to dataset configuration
 # TODO use the correct aws api : below
 
+# DATASET=bigcodebench
+# TEMP=0.5
+# MAX_NEW_TURNS=8
+# MAX_TOKENS=1536
+# COST_WEIGHT=5e-4
+# LLM_RW_WEIGHT=1
+# USER_MODEL=gpt-4o-mini
+# N_EVAL=600
+
+
 DATASET=bigcodebench
 TEMP=0.5
-MAX_NEW_TURNS=8
+MAX_NEW_TURNS=1
 MAX_TOKENS=1536
 COST_WEIGHT=5e-4
 LLM_RW_WEIGHT=1
 USER_MODEL=gpt-4o-mini
-N_EVAL=600
+ASSISTANT_MODEL=gpt-4o-mini
+REWARD_MODEL=gpt-4o-mini  # claude-3-5-sonnet-20240620
+N_EVAL=1
+MAX_NUM_CONV=1  #500
 
 # DATASET=humaneval
 # TEMP=0.2
@@ -42,8 +55,8 @@ CUDA_VISIBLE_DEVICES=0 python scripts/generate_conv_dpo.py \
     --max_workers 10 \
     --num_samples 3 \
     --user_model_name $USER_MODEL \
-    --assistant_model_name gpt-4o \
-    --reward_model claude-3-5-sonnet-20240620 \
+    --assistant_model_name $ASSISTANT_MODEL \
+    --reward_model $REWARD_MODEL \
     --max_new_tokens $MAX_TOKENS \
     --max_new_turns $MAX_NEW_TURNS \
     --window_size 2 \
@@ -53,5 +66,7 @@ CUDA_VISIBLE_DEVICES=0 python scripts/generate_conv_dpo.py \
     --llm_rw_weight $LLM_RW_WEIGHT \
     --cost_weight $COST_WEIGHT \
     --n_eval_per_dataset $N_EVAL \
-    --max_num_conv 500 \
+    --max_num_conv $MAX_NUM_CONV \
     --resume
+
+
