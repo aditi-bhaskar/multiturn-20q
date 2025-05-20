@@ -19,21 +19,20 @@ export N_EVAL=100                   # aditi edit for debugging
 
 
 
-
-
 # debug time:
-export MAX_NUM_CONV=1           # number of objects/games
-export MAX_NEW_TURNS=2          # Maximum number of new conversation turns per task
-export MAX_NUM_WORKERS=1
+# export MAX_NUM_CONV=2           # number of objects/games
+# export MAX_NEW_TURNS=2          # Maximum number of new conversation turns per task
+# export MAX_NUM_WORKERS=1
 
 # obsolete?!:
 # export MAX_NUM_CONV=1000        # number of objects/games
 # export MAX_NUM_CONV=500           # number of objects/games -- WAY TOO MANY!! :(
 
 # test time:
-# export MAX_NUM_CONV=50           # number of objects/games
-# export MAX_NEW_TURNS=20           # Maximum number of new conversation turns per task
-# export MAX_NUM_WORKERS=4
+# export MAX_NUM_CONV=50           # number of objects/games -- just generate 10 at a time, maybe
+export MAX_NUM_CONV=10           # number of objects/games
+export MAX_NEW_TURNS=20           # Maximum number of new conversation turns per task
+export MAX_NUM_WORKERS=4
 
 
 
