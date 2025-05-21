@@ -8,7 +8,8 @@ export USE_GCR=false
 
 # Dataset configurations
 export DATASET=NONE                # Change this for different datasets (e.g., math-hard, humaneval)
-export TEMP=0.5                      # Temperature for sampling (adjust for creativity)
+# export TEMP=0.5                      # Temperature for sampling (adjust for creativity)
+export TEMP=0.7                     # Temperature for sampling (adjust for creativity)
 
 # ^ this is length of game
 export MAX_TOKENS=256               # Maximum tokens per generation -- aditi edit
@@ -35,8 +36,9 @@ export START_OBJ_NUM=40           # number of objects/games we start from (usefu
 export MAX_NEW_TURNS=20           # Maximum number of new conversation turns per task
 export MAX_NUM_WORKERS=4
 
-#  completed ranges: 0, 10, 20,  
-#  running range: 30
+#  completed ranges: 0, 10, 20, 30 -- temperature = 0.5
+#  completed ranges: TODO -- temperature = 0.7
+#  running range: TODO  
 #  todo range: 40 thru 100
 
 export USER_MODEL=gpt-4o-mini
