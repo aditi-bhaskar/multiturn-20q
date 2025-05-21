@@ -1,0 +1,8 @@
+
+
+[LLMAssistant] `current_problem`=I don't know what the hidden word is yet. It could be any object, living or non-living. | `thought`=Since I don't have any information about the hidden word yet, I need to start asking broad questions that can help narrow down the possibilities. My first question should help determine if the object is something tangible or abstract, which will significantly shape my subsequent questions. I will ask if it is a physical object to begin with.
+
+
+
+[LLMAssistant] `current_problem`=The hidden object could be anything, and I have no information yet to narrow it down. | `thought`=Since I have no information about the object yet, my first question should help me determine if the object is a living thing or an inanimate object. This will significantly narrow down the possibilities. Additionally, since I have 20 questions, starting broad will help me gather more information.
+
