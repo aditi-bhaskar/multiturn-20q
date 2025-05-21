@@ -31,11 +31,13 @@ export N_EVAL=100                   # aditi edit for debugging
 # test time:
 # export MAX_NUM_CONV=50           # number of objects/games -- just generate 10 at a time, maybe
 export MAX_NUM_CONV=10           # number of objects/games
-export START_OBJ_NUM=30           # number of objects/games we start from (useful for running multiple times)
+export START_OBJ_NUM=40           # number of objects/games we start from (useful for running multiple times)
 export MAX_NEW_TURNS=20           # Maximum number of new conversation turns per task
 export MAX_NUM_WORKERS=4
 
-
+#  completed ranges: 0, 10, 20,  
+#  running range: 30
+#  todo range: 40 thru 100
 
 export USER_MODEL=gpt-4o-mini
 export ASSISTANT_MODEL=gpt-4o-mini
