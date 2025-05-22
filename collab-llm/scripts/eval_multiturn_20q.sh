@@ -13,7 +13,8 @@ RANDOM_SEED=0  # use $$ instead
 PORT=$((56480 + RANDOM_SEED % 10))
 
 # Fixed configuration for 20Q
-DATASET="aditijb/collabllm-20q"
+# DATASET="aditijb/collabllm-20q"
+DATASET="local20q"
 PROMPT_METHOD="none"
 MAX_NEW_TURNS=6
 N_EVAL=180

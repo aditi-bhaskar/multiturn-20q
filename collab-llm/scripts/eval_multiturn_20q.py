@@ -101,31 +101,32 @@ def main():
    ######################## LOAD DATASET ########################
    split = 'train' if args.split == 'dev' else args.split
 
-   if args.dataset.startswith('aditijb/') or args.dataset.startswith('hf://') or '/' in args.dataset:
+   if args.dataset.startswith('local20q'):
       # all my code should be entering this case!!
-      print("ADITI is loading the collabllm 20q dataset!")
+      print("\n  ***  ADITI is loading the collabllm 20q single turn dataset! ***  \n")
       split_name = 'train' if args.split == 'dev' else args.split
       single_turn_ds = load_single_turn_dataset(args.dataset, add_system_prompt=args.add_sys_prompt)[split_name]
       # single_turn_ds = load_hf_dataset(args.dataset, split_name, args.n_eval)
       eval_indices = list(range(len(single_turn_ds)))
    else:
+      print("NOT USING CORRECT 20Q DATASET!\n")
       if args.split == 'dev':
-         single_turn_ds, train_indices, eval_indices = split_train_dev_datasets(
-               args.dataset,
-               is_multiturn=False,
-               n_eval_per_dataset=args.n_eval,
-               add_system_prompt=args.add_sys_prompt,
-               return_indices=True,
-               seed=args.seed)
+         pass
+         # single_turn_ds, train_indices, eval_indices = split_train_dev_datasets(
+         #       args.dataset,
+         #       is_multiturn=False,
+         #       n_eval_per_dataset=args.n_eval,
+         #       add_system_prompt=args.add_sys_prompt,
+         #       return_indices=True,
+         #       seed=args.seed)
       else:
-         kwargs = {'train_ratio': 0.45} if args.dataset == 'bigcodebench' else {}
-         single_turn_ds = load_single_turn_dataset(args.dataset, add_system_prompt=args.add_sys_prompt, **kwargs)[args.split]
-         random.seed(args.seed)
-         eval_indices = random.sample(range(len(single_turn_ds)), min(args.n_eval, len(single_turn_ds)))
+         pass
+         # kwargs = {'train_ratio': 0.45} if args.dataset == 'bigcodebench' else {}
+         # single_turn_ds = load_single_turn_dataset(args.dataset, add_system_prompt=args.add_sys_prompt, **kwargs)[args.split]
+         # random.seed(args.seed)
+         # eval_indices = random.sample(range(len(single_turn_ds)), min(args.n_eval, len(single_turn_ds)))
 
    ######################## LOAD MODEL ########################
-   # aditi modif: use gpu if possible
-   # device = "cuda" if torch.cuda.is_available() else cpu
 
    # aditi modif: remove the eval=True param; added  load_in_4bit_aditi=False to remove the bits and bytes version issue -- only exists for linux :( 
    model, tokenizer = load_model_and_tokenizer(args.assistant_model_name, 

@@ -8,18 +8,24 @@ from datasets import load_dataset, Dataset, DatasetDict, interleave_datasets
 from collabllm.prompts import SYSTEM_PROMPT
 
 from .abg_coqa import AbgCoQA
+
+from .math_hard import MATH
+from .medium import Medium
+from .humaneval import HumanEval
+from .bigcodebench import BigCodeBench
+import json
+
+
+# ADD NEW DATASET IMPORT 
+from .twentyq import TwentyQ
+# from .twentyq_mt import TwentyQMT  # aditi obsolete
+
+
 # from .asqa import ASQA
 # from .paqa import PAQA
 # from .ppc import PPC
-from .math_hard import MATH
-from .medium import Medium
 # from .mtbp import MTBP
-from .humaneval import HumanEval
-from .bigcodebench import BigCodeBench
-from .twentyq import TwentyQ
-from .twentyq_mt import TwentyQMT
 
-# ADD NEW DATASET IMPORT ABOVE
 
 
 # ADD NEW DATASET BELOW
@@ -59,16 +65,20 @@ datasets_info = {
         'class': BigCodeBench,
         'kwargs': {}
     },
-    'twentyq': { # ADITI EDIT  OLD -- this file is for genertaing single turn from the provided dataset
-        'task': 'twentyq',
+
+    #  this uses the local single turn data
+    'local20q': { # ADITI EDIT  OLD -- this file is for genertaing single turn from the provided dataset
+        'task': '20q',  # see metrics/init.py 
+        # 'task': 'twentyq',  # see metrics/init.py 
         'class': TwentyQ,
+        'kwargs': {},
         # 'kwargs': {'repo_id': 'lighteval/TwentyQ'}
     },
-    'aditijb/collabllm-20q': {  # ADITI EDIT -- this file is for actually doing the mt evals
-        'task': '20q',
-        'class': TwentyQMT,
-        'kwargs': {}  # <-- ADD THIS LINE
-    },
+    # 'aditijb/collabllm-20q': {  # ADITI EDIT -- this file is for actually doing the mt evals
+    #     'task': '20q',
+    #     'class': TwentyQMT,
+    #     'kwargs': {} 
+    # },
 }
 
 def add_sys_prompt(dataset: DatasetDict, 
@@ -92,6 +102,14 @@ def load_single_turn_dataset(dataset_name: str,
                              **kwargs
                              ) -> DatasetDict:
     """Load a single-turn dataset."""
+    if dataset_name=='local20q':
+        #  can only do this because i alr ran twentyq.py which generated my eval and train datasets for single and multiturns
+        print("*** Loading preprocessed 20q single-turn JSON dataset ***\n")
+        with open("/Users/aditi/Documents/multiturn-20q/collab-llm/lmrl_gym_20q_data/eval_single_turn.json", "r") as f:
+            dataset_json = json.load(f)
+        # Wrap in dict with split key if your code expects that:
+        return {'test': dataset_json}
+    
     try:
         dataset = datasets_info[dataset_name]['class'](**datasets_info[dataset_name]['kwargs'], **kwargs)
     except KeyError:

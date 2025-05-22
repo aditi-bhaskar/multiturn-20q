@@ -57,6 +57,12 @@ registered_task_metrics = {
         'task_specific': 'llm_judge->accuracy',
         'others': [],
     },
+    'twentyq': {  
+        'llm_metrics': ['llm_judge->interactivity'],
+        'llm_judge_rescale_func': lambda x: (x - 2.5) * 2,
+        'task_specific': 'llm_judge->accuracy',
+        'others': [],
+    },
 
 
     #  TODO rerun the generate conv dpo on this reward function to understand the output!?
