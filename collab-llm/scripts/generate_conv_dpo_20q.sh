@@ -37,8 +37,8 @@ export MAX_NEW_TURNS=20           # Maximum number of new conversation turns per
 export MAX_NUM_WORKERS=4
 
 #  completed ranges: 0-39 -- temperature = 0.5
-#  completed ranges: 40-149 -- temperature = 0.7
-#  running range: 150-179 -- generating rn 
+#  completed ranges: 40-179 -- temperature = 0.7
+#  running range:  nothing 
 #  todo range: 180+  
 
 export USER_MODEL=gpt-4o-mini
