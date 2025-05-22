@@ -21,6 +21,8 @@ from collabllm.models import is_api_model_auto
 
 from datasets import load_dataset
 
+import torch
+
 
 # todo list
 #  update the data split of test  (when inquiring my hf repo)
@@ -120,8 +122,14 @@ def main():
          eval_indices = random.sample(range(len(single_turn_ds)), min(args.n_eval, len(single_turn_ds)))
 
    ######################## LOAD MODEL ########################
+   # aditi modif: use gpu if possible
+   # device = "cuda" if torch.cuda.is_available() else cpu
+
    # aditi modif: remove the eval=True param; added  load_in_4bit_aditi=False to remove the bits and bytes version issue -- only exists for linux :( 
-   model, tokenizer = load_model_and_tokenizer(args.assistant_model_name, max_new_tokens=args.max_new_tokens, load_in_4bit_aditi=False)  
+   model, tokenizer = load_model_and_tokenizer(args.assistant_model_name, 
+                                               max_new_tokens=args.max_new_tokens, 
+                                               load_in_4bit_aditi=False).to("cpu")   # aditi edit: force it to cpu
+                                             #   device_map=device_map)  
    
    model.eval()  # aditi modification
    evaluator = ChatEvaluator(task_name=datasets_info[args.dataset]['task'], judge_model=args.judge_model)
