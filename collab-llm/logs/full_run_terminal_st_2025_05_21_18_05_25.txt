@@ -1,0 +1,24 @@
+
+
+
+[INFO] Task name set to: 20q
+
+
+
+
+
+
+[INFO] RUNNING NUMS: start=150, end=180
+
+
+
+  0%|          | 0/30 [00:00<?, ?it/s]
+*************** answer ****************
+ The answer is: Cooking pot.
+
+*************** question ****************
+ Let's play 20 questions! I will answer yes or no to help you guess 
+the object I'm thinking of.
+
+Processing conversation 422:   0%|          | 0/20 [00:00<?, ?it/s][Turn 1] **User**: 
+[{'role': 'user', 'content': ''}]
