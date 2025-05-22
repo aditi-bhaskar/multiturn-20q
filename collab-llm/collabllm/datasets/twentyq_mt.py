@@ -31,4 +31,5 @@ class TwentyQMT(ChatDataset):
             turns.append({"role": "assistant", "content": entry["chosen"]})
             processed_data.append({"metadata": metadata, "chat": turns})
         return processed_data
-        
+
+
