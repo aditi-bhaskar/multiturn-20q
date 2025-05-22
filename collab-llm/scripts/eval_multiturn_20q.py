@@ -1,3 +1,71 @@
+import json
+import os
+import random
+import os.path as osp
+import argparse
+from tqdm import tqdm
+import logging
+import datetime
+
+import sys
+sys.path.append('.')
+from collabllm.datasets import split_train_dev_datasets, load_single_turn_dataset, load_dpo_dataset
+from collabllm.evaluator import ChatEvaluator
+from collabllm.utils.aggregate import average_nested_dicts
+from collabllm.models.generation import run_one_chat_session
+from collabllm.models.load import load_model_and_tokenizer
+from collabllm.models import is_base_model_auto
+from collabllm.prompts import SYSTEM_PROMPT
+from collabllm.datasets import datasets_info
+from collabllm.models import is_api_model_auto
+
+from datasets import load_dataset
+
+
+# todo list
+#  update the data split of test  (when inquiring my hf repo)
+
+#  aditi writ
+def load_hf_dataset(dataset_name, split, n_eval):
+    ds = load_dataset(dataset_name, split=split)
+    # Optionally limit to n_eval samples
+    if n_eval and n_eval < len(ds):
+        import random
+        random.seed(42)
+        ds = ds.shuffle(seed=42).select(range(n_eval))
+    return ds
+
+
+def parse_args():
+    parser = argparse.ArgumentParser()
+    def list_of_strings(arg):
+      return arg.split(',')
+    parser.add_argument('--dataset', type=str, default='math-hard')
+
+    parser.add_argument('--max_new_turns', type=int, default=6) 
+    parser.add_argument('--n_eval', type=int, default=200) 
+    parser.add_argument('--split', type=str, default='dev', choices=['dev', 'test'])
+
+    parser.add_argument('--output_dir', type=str, default="./outputs")
+    parser.add_argument('--prompt_method', type=str, default="none", choices=['none', 'proact'])
+
+    parser.add_argument('--user_model_name', type=str, default='gpt-4o')
+    parser.add_argument('--assistant_model_name', type=str, default="/name/project/collabllm/outputs/Meta-Llama-3-8B-Instruct_step-1500")
+    parser.add_argument('--judge_model', type=str, default='gpt-4o')
+    
+    # generation kwargs
+    parser.add_argument('--top_p', type=float, default=0.9)
+    parser.add_argument('--temperature', type=float, default=0.6)
+    parser.add_argument('--max_new_tokens', type=int, default=2048)
+
+    parser.add_argument('--push_to_blob', action='store_true', help='push to blob')
+    parser.add_argument('--log_step', type=int, default=1)
+    parser.add_argument('--seed', type=int, default=42)
+    parser.add_argument('--add_sys_prompt', action='store_true', default=False)
+    parser.add_argument('--resume', action='store_true', default=False)
+    return parser.parse_args()
+
+
 def main():
     args = parse_args()
     logging.disable(logging.CRITICAL)
@@ -118,3 +186,4 @@ def main():
 
 if __name__ == "__main__":
     main()
+

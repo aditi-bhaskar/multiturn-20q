@@ -27,6 +27,7 @@ fi
 # RANDOM_SEED=$$
 # PORT=$((56480 + RANDOM_SEED % 10))
 RANDOM_SEED=0
+PORT=$((56480 + RANDOM_SEED % 10))
 
 # Fixed configuration for 20Q
 DATASET="aditijb/collabllm-20q"
@@ -51,13 +52,13 @@ CUDA_VISIBLE_DEVICES=4 torchrun --master_port=$PORT \
     --nnodes=1 --nproc_per_node=1 \
     scripts/eval_multiturn_20q.py \
     --dataset $DATASET \
-    --output_dir $OUTDIR \
+    --output_dir $OUTPUT_DIR \
     --split test \
     --judge_model $JUDGE_MODEL \
     --assistant_model_name $ASSISTANT_MODEL_NAME \
     --user_model_name $USER_MODEL \
     --prompt_method $PROMPT_METHOD \
-    --temperature $TEMP \
+    --temperature 0.6 \
     --max_new_turns $MAX_NEW_TURNS \
     --n_eval $N_EVAL \
     --max_new_tokens $MAX_TOKENS \
