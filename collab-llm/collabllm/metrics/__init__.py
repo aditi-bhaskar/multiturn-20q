@@ -58,6 +58,9 @@ registered_task_metrics = {
         'others': [],
     },
 
+
+    #  TODO rerun the generate conv dpo on this reward function to understand the output!?
+
     # # specific/20q reward function -- 
     # '20q': {
     #     'llm_metrics': ['llm_judge->information_gain'],
