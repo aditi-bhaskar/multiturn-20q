@@ -8,25 +8,8 @@ if [ "$#" -ne 2 ]; then
     exit 1
 fi
 
-# Parameters
-# DATASET_NAME=$1
-# MODE=$2
-
-# Load configurations
-# source scripts/config.sh
-# set_dataset_config $DATASET_NAME
-# set_assistant_model $DATASET_NAME $MODE
-
-# Decide whether to add --add_sys_prompt
-# ADD_SYS_PROMPT_FLAG=""
-# if [ "$ADD_SYSTEM_PROMPT" == "True" ]; then
-#     ADD_SYS_PROMPT_FLAG="--add_sys_prompt"
-# fi
-
-# Random seed and port setup
-# RANDOM_SEED=$$
-# PORT=$((56480 + RANDOM_SEED % 10))
-RANDOM_SEED=0
+# Random seed and port setup 
+RANDOM_SEED=0  # use $$ instead
 PORT=$((56480 + RANDOM_SEED % 10))
 
 # Fixed configuration for 20Q
@@ -34,7 +17,8 @@ DATASET="aditijb/collabllm-20q"
 PROMPT_METHOD="none"
 MAX_NEW_TURNS=6
 N_EVAL=180
-MAX_TOKENS=2048
+# MAX_TOKENS=2048
+MAX_TOKENS=256  # dont need it to yap during 20q game
 OUTPUT_DIR="./outputs/eval/20q"
 ADD_SYS_PROMPT_FLAG=""
 SPLIT="dev"  # automatically uses train split instead of test split for the evals

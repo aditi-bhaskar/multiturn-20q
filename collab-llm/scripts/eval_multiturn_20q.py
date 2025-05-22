@@ -128,8 +128,9 @@ def main():
    # aditi modif: remove the eval=True param; added  load_in_4bit_aditi=False to remove the bits and bytes version issue -- only exists for linux :( 
    model, tokenizer = load_model_and_tokenizer(args.assistant_model_name, 
                                                max_new_tokens=args.max_new_tokens, 
-                                               load_in_4bit_aditi=False).to("cpu")   # aditi edit: force it to cpu
+                                               load_in_4bit_aditi=False)   # aditi edit: force it to cpu
                                              #   device_map=device_map)  
+   model = model.to("cpu")
    
    model.eval()  # aditi modification
    evaluator = ChatEvaluator(task_name=datasets_info[args.dataset]['task'], judge_model=args.judge_model)
