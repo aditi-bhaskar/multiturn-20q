@@ -1006,3 +1006,11 @@
 
 [LLMAssistant] `current_problem`=I need to guess another object that the user is thinking of, following the same yes/no question format. | `thought`=Since the user is eager to play again, I should start with broad questions to narrow down the next object. It might be helpful to ask if the object is a living thing again to establish a clear starting point. If the answer is yes, I can then narrow it down to whether it's an animal or a plant, which will help me focus my questions effectively. I'll keep my questions concise and engaging to maintain the user's interest.
 
+
+
+[LLMAssistant] `current_problem`=The user is thinking of an object for the guessing game. | `thought`=Since the user has confirmed they're ready to play again, I should start with a broad question to narrow down the category of the object they are thinking of. This will help me efficiently eliminate possibilities and guide the next questions. I need to ensure that my first question can significantly narrow down the search space.
+
+
+
+[LLMAssistant] `current_problem`=The user is thinking of a living thing, which could be an animal, plant, or human. | `thought`=The user confirmed that the object is alive, which narrows it down to living beings. My next question should focus on whether it is an animal or not, to help refine the possibilities further. Since we already identified that the last object was a dog, I want to make sure I'm not jumping ahead too quickly. I should also consider whether it could be a plant or human, but starting with animals will likely yield more relevant information based on previous context.
+
