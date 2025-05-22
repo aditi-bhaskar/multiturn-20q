@@ -62,11 +62,12 @@ datasets_info = {
     'twentyq': { # ADITI EDIT  OLD -- this file is for genertaing single turn from the provided dataset
         'task': 'twentyq',
         'class': TwentyQ,
-        'kwargs': {'repo_id': 'lighteval/TwentyQ'}
+        # 'kwargs': {'repo_id': 'lighteval/TwentyQ'}
     },
     'aditijb/collabllm-20q': {  # ADITI EDIT -- this file is for actually doing the mt evals
         'task': '20q',
         'class': TwentyQMT,
+        'kwargs': {}  # <-- ADD THIS LINE
     },
 }
 

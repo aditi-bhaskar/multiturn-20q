@@ -21,18 +21,15 @@ N_EVAL=180
 MAX_TOKENS=256  # dont need it to yap during 20q game
 OUTPUT_DIR="./outputs/eval/20q"
 ADD_SYS_PROMPT_FLAG=""
-SPLIT="dev"  # automatically uses train split instead of test split for the evals
+SPLIT="test"  # automatically uses train (dev) split instead of test split for the evals
 
 # fix user model to gpt-4o for eval
 USER_MODEL=gpt-4o-mini
 JUDGE_MODEL=gpt-4o-mini
 ASSISTANT_MODEL_NAME=meta-llama/Llama-3.2-1B-Instruct  # vanilla model -- smaller model; should be able to download?
 
-# ASSISTANT_MODEL_NAME=meta-llama/Llama-3.1-8B-Instruct  # vanilla model -- TOO BIG I THINK
-# /name/project/collabllm/outputs/Meta-Llama-3-8B-Instruct_step-1500  # my trained version, after 1500 training steps
+# /name/project/collabllm/outputs/Meta-Llama-3-8B-Instruct_step-1500  #  trained version, after 1500 training steps
 
-# Output directory
-# OUTDIR=$OUTPUT_DIR/eval/$OUTPUT_DIR_SUFFIX
 
 # Run evaluation
 CUDA_VISIBLE_DEVICES=4 torchrun --master_port=$PORT \

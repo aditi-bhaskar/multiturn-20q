@@ -26,15 +26,15 @@ export N_EVAL=100                   # aditi edit for debugging
 # export MAX_NUM_WORKERS=1
 
 # test time:
-export MAX_NUM_CONV=10           # number of objects/games
+export MAX_NUM_CONV=30           # number of objects/games
 export START_OBJ_NUM=270           # number of objects/games we start from (useful for running multiple times)
 export MAX_NEW_TURNS=20           # Maximum number of new conversation turns per task
 export MAX_NUM_WORKERS=4
 
 #  completed ranges: 0-39 -- temperature = 0.5
 #  completed ranges: 40-269 -- temperature = 0.7
-#  running range:  NONE 
-#  todo range: 270+  
+#  running range:  270-299 
+#  todo range: 300+  
 
 export USER_MODEL=gpt-4o-mini
 export ASSISTANT_MODEL=gpt-4o-mini

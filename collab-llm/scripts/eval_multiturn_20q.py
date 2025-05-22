@@ -103,8 +103,10 @@ def main():
 
    if args.dataset.startswith('aditijb/') or args.dataset.startswith('hf://') or '/' in args.dataset:
       # all my code should be entering this case!!
+      print("ADITI is loading the collabllm 20q dataset!")
       split_name = 'train' if args.split == 'dev' else args.split
-      single_turn_ds = load_hf_dataset(args.dataset, split_name, args.n_eval)
+      single_turn_ds = load_single_turn_dataset(args.dataset, add_system_prompt=args.add_sys_prompt)[split_name]
+      # single_turn_ds = load_hf_dataset(args.dataset, split_name, args.n_eval)
       eval_indices = list(range(len(single_turn_ds)))
    else:
       if args.split == 'dev':
@@ -156,6 +158,10 @@ def main():
    ######################## START EVALUATION ########################
    for i in tqdm(range(len(eval_indices))):
       idx = eval_indices[i]
+
+      # print("\n\n\n\n\n", single_turn_ds[idx], "\n\n\n\n\n") # aditi debug
+      print("\n\n\n\n\n", single_turn_ds[idx].keys(), "\n\n\n\n\n")
+
       single_turn_data = single_turn_ds[idx]['chat'][-2:]
       chat_history = [single_turn_ds[idx]['chat'][0]] if args.add_sys_prompt else []
 

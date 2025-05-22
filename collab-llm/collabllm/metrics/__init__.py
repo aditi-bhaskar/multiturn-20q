@@ -10,7 +10,7 @@ from .jaccard_similarity import JaccardSimilarity
 
 metric_info = {
     'token_amount': (TokenAmount, []),
-    'llm_judge': (LLMJudge, ['task_name', 'model', 'temperatur', 'max_new_tokens', 'rescale_func']),
+    'llm_judge': (LLMJudge, ['task_name', 'model', 'temperature', 'max_new_tokens', 'rescale_func']),
     'bert_score': (BertScore, ['bert_score_model', 'model', 'temperature', 'max_new_tokens']),
     'bleu_score': (SentenceBLEU, ['model', 'temperature', 'max_new_tokens']),
     'bleurt_score': (BLEURTScore, ['model', 'temperature', 'max_new_tokens']),
