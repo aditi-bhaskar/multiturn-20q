@@ -48,6 +48,8 @@ class LLMJudge(MultiturnMetric):
 
             if response == ' ':
                 return None
+        
+            print(f"[DEBUG] Raw LLMJudge response: {response}")  # aditi edit
             if self.prompt_handler.check_format(response):
                 break
             else:

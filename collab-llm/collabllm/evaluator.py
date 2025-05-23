@@ -41,8 +41,22 @@ class ChatEvaluator:
         else:
             metrics = self.metrics
 
+        print(f"single turn data: {single_turn_data}\n")
+        print(f"single turn data: {chat_eval}\n")
+
         if 'llm_judge' in metrics:
-            judge_eval_results = self.evaluators['llm_judge'](single_turn_data, chat_eval, chat_history=None)
+            #  aditi modification 
+            target_object = single_turn_data.get("target_object", None)
+            if (target_object == None):
+                print("\n\n\n\n\nNO TARGET OBJ FOUND!! \n\n\n ************* \n\n\n ABORT! \n\n\n\n\n")
+                raise ValueError("Missing 'target_object' in single_turn_data\n")
+            
+            judge_eval_results = self.evaluators['llm_judge'](
+                single_turn_data, chat_eval, chat_history=None, target_object=target_object
+            )
+            #  aditi removed
+            # judge_eval_results = self.evaluators['llm_judge'](single_turn_data, chat_eval, chat_history=None)
+
             eval_result['llm_judge'] = judge_eval_results
 
         for metric, metric_func in self.evaluators.items():
