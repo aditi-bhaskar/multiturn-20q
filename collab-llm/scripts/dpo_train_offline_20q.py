@@ -55,10 +55,6 @@ def parse_args():
 
 print("starting to run code\n")
 
-# ds = load_dataset("aditijb/collabllm-20q")
-
-# print("loaded dataset\n")
-
 args = parse_args()
 init_distributed_mode()
 
@@ -85,6 +81,8 @@ if os.environ.get('LOCAL_RANK', '0') == '0':
     with open(osp.join(output_dir, 'args.json'), 'w') as f:
         json.dump(vars(args), f, indent=4)
 
+print("check 4\n")
+
 ######################## LOAD DATASETS ########################
 args.probs = [p / sum(args.probs) for p in args.probs]
 train_dataset, eval_dataset = split_train_dev_datasets(args.datasets, 
@@ -96,6 +94,9 @@ train_dataset, eval_dataset = split_train_dev_datasets(args.datasets,
                                                        add_system_prompt=True,
                                                        return_eval_as_dict=False,
                                                        seed=args.seed)
+
+
+print("check 5\n")
 
 ######################## MODEL ########################
 # PEFT config
@@ -113,11 +114,14 @@ is_unsloth_model = is_unsloth_model_auto(args.assistant_model_name)
 model, tokenizer = load_model_and_tokenizer(args.assistant_model_name, 
                                             max_new_tokens=args.max_new_tokens, 
                                             peft_config=peft_config,
-                                            eval=False)
+                                            is_eval=False)  # aditi edit: from eval to is_eval
 print('padding_side', tokenizer.padding_side)
 print('len(tokenizer)', len(tokenizer))
 print('pad_token', tokenizer.pad_token)
 print('eos_token', tokenizer.eos_token)
+
+
+print("check 6\n")
 
 # Load model and tokenizer
 if is_unsloth_model:
@@ -154,6 +158,10 @@ else:
         "steps_per_print": 200,
     }
 
+
+print("check 7\n")
+
+
 if os.environ.get('LOCAL_RANK', '0') == '0':
     wandb.init(
 	    project="interactivity",    # TODO aditi check here when getting to training
@@ -163,6 +171,9 @@ if os.environ.get('LOCAL_RANK', '0') == '0':
         save_code=True,
         job_type='train'
     )
+
+
+print("check 8\n")
 
 # Args
 train_args = DPOConfig(
@@ -195,9 +206,15 @@ train_args = DPOConfig(
     bf16=is_bfloat16_supported() if is_unsloth_model else False,   
 )
 
+
+print("check 9\n")
+
 ######################## PROCESS DATASETS ########################
 meta_info = get_meta_info_from_model_name(args.assistant_model_name)
 # tokenizer.chat_template = meta_info['chat_template'] # only for mistral
+
+print("check 10\n")
+
 
 def process(row):
     prompt_chosen = tokenizer.apply_chat_template(row["prompt"] + [{'role': 'assistant', 'content': row["chosen"]}], tokenize=False)
@@ -209,6 +226,8 @@ def process(row):
 
 train_dataset = train_dataset.map(process, load_from_cache_file=False)
 eval_dataset = eval_dataset.map(process, load_from_cache_file=False)
+
+print("check 11\n")
 
 ######################## TRAINING ########################
 trainer = DPOTrainer(
@@ -223,11 +242,12 @@ trainer = DPOTrainer(
 trainer.model.print_trainable_parameters()
 trainer.train(resume_from_checkpoint=args.resume_ckpt_dir)
 
+print("check 12\n")
+
 ######################## SAVING ########################
 trainer.save_model(output_dir) # save the LoRA adapters
 trainer.model.save_pretrained(output_dir) #, save_embedding_layers=True) # save full model
 tokenizer.save_pretrained(output_dir) # save tokenizer
-
 
 
 #  TODO FIGURE OUT HOW TO PUSH TRAINED MODEL TO HUB!!

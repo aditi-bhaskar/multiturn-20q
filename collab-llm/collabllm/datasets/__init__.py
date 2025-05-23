@@ -74,7 +74,8 @@ datasets_info = {
         'kwargs': {},
         # 'kwargs': {'repo_id': 'lighteval/TwentyQ'}
     },
-    'aditijb/collabllm-20q': {  # ADITI EDIT -- this file is for actually doing the mt evals
+    # 'aditijb/collabllm-20q': {  # ADITI EDIT -- this file is for actually doing the mt evals
+    '20q': {  # ADITI EDIT -- this file is for actually doing the mt evals
         'task': '20q',
         'class': TwentyQMT,
         'kwargs': {} 
