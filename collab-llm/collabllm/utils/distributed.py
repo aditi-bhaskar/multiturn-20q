@@ -5,6 +5,9 @@ from datetime import timedelta
 
 
 def init_distributed_mode():
+    # if platform.system() != "Linux":
+    #     print("Skipping distributed init on non-Linux platform.")
+    #     return
     # Ensure the script is being run with distributed launch
     if 'RANK' in os.environ and 'WORLD_SIZE' in os.environ:
         rank = int(os.environ['RANK'])

@@ -18,7 +18,7 @@ import json
 
 # ADD NEW DATASET IMPORT 
 from .twentyq import TwentyQ
-# from .twentyq_mt import TwentyQMT  # aditi obsolete
+from .twentyq_mt import TwentyQMT  # aditi obsolete
 
 
 # from .asqa import ASQA
@@ -74,11 +74,11 @@ datasets_info = {
         'kwargs': {},
         # 'kwargs': {'repo_id': 'lighteval/TwentyQ'}
     },
-    # 'aditijb/collabllm-20q': {  # ADITI EDIT -- this file is for actually doing the mt evals
-    #     'task': '20q',
-    #     'class': TwentyQMT,
-    #     'kwargs': {} 
-    # },
+    'aditijb/collabllm-20q': {  # ADITI EDIT -- this file is for actually doing the mt evals
+        'task': '20q',
+        'class': TwentyQMT,
+        'kwargs': {} 
+    },
 }
 
 def add_sys_prompt(dataset: DatasetDict, 
