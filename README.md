@@ -2,6 +2,8 @@
 
 20questions with multiturn rlhf. Based on the multiturn reward system implemented in Collab LLM (Wu et al) and the 20q task dataset from LMRL Gym (Abdulhai et al). 
 
+Research question: Does multiturn rlhf help a base model (Llama 3.2 1B Instruct) become better at playing 20 questions? 
+
 See dataset here [https://huggingface.co/datasets/aditijb/collabllm-20q](https://huggingface.co/datasets/aditijb/collabllm-20q)
 
 See model here [https://huggingface.co/datasets/aditijb/collabllm-20q](https://huggingface.co/datasets/aditijb/collabllm-20q)
