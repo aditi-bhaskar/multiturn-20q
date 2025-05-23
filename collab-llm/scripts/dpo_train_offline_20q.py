@@ -20,6 +20,9 @@ from collabllm.utils.dir import keep_levels
 
 from datasets import load_dataset
 
+
+USE_WANDB=False
+
 # args run_name name
 def parse_args():
     parser = argparse.ArgumentParser()
@@ -114,7 +117,8 @@ is_unsloth_model = is_unsloth_model_auto(args.assistant_model_name)
 model, tokenizer = load_model_and_tokenizer(args.assistant_model_name, 
                                             max_new_tokens=args.max_new_tokens, 
                                             peft_config=peft_config,
-                                            is_eval=False)  # aditi edit: from eval to is_eval
+                                            is_eval=False, # aditi edit: from eval to is_eval
+                                            load_in_4bit_aditi=False)   # aditi edit: turn off the 4 bit quantization thing -- only works on linux
 print('padding_side', tokenizer.padding_side)
 print('len(tokenizer)', len(tokenizer))
 print('pad_token', tokenizer.pad_token)
@@ -162,15 +166,19 @@ else:
 print("check 7\n")
 
 
-if os.environ.get('LOCAL_RANK', '0') == '0':
-    wandb.init(
-	    project="interactivity",    # TODO aditi check here when getting to training
-	    entity="dsp-team",
-        name=keep_levels(output_dir, 3),
-	    config=args,
-        save_code=True,
-        job_type='train'
-    )
+ # TODO aditi check here when getting to training
+
+
+if USE_WANDB:
+    if os.environ.get('LOCAL_RANK', '0') == '0':
+        wandb.init(
+            project="20q_llama3.2_1b_train",   
+            entity="aditijb",  # aditi modified to push to my wandb
+            name=keep_levels(output_dir, 3),
+            config=args,
+            save_code=True,
+            job_type='train'
+        )
 
 
 print("check 8\n")
@@ -183,7 +191,7 @@ train_args = DPOConfig(
     max_grad_norm=1.0,
     warmup_ratio=0.1,
     optim="adamw_torch",
-    report_to="wandb",
+    # report_to="wandb",  # aditi commented it out to prevent wandb issues
     do_eval=True,
     eval_steps=args.eval_steps, 
     save_strategy='epoch',
@@ -250,6 +258,8 @@ trainer.model.save_pretrained(output_dir) #, save_embedding_layers=True) # save 
 tokenizer.save_pretrained(output_dir) # save tokenizer
 
 
+print("check 13\n")
+
 #  TODO FIGURE OUT HOW TO PUSH TRAINED MODEL TO HUB!!
 # huggingface-cli upload aditijb/Llama-3.2-1B-Instruct-20q .
 # if args.push_to_hub:
@@ -260,4 +270,7 @@ tokenizer.save_pretrained(output_dir) # save tokenizer
 
 # if args.push_to_blob:
 #     upload_dir_to_blob(output_dir)
-wandb.finish()
+
+
+if USE_WANDB:
+    wandb.finish()
