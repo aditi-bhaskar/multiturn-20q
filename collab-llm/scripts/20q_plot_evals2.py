@@ -1,6 +1,12 @@
 # note: plots are not automatically saved
 # plots the outcomes of the base llama 3.2 1b instruct model at playing 20q
-json_path = "/Users/aditi/Documents/multiturn-20q/collab-llm/outputs/eval/20q/local20q/test/LLAMA_BASE_EVALUATED_Llama-3.2-1B-Instruct_prompt=none_2025-05-22-19-27/log.json"
+
+# temp 0.6 base model run:
+# json_path = "/Users/aditi/Documents/multiturn-20q/collab-llm/outputs/eval/20q/local20q/test/LLAMA_BASE_EVALUATED_Llama-3.2-1B-Instruct_prompt=none_2025-05-22-19-27/log.json"
+
+# json_path = "/Users/aditi/Documents/multiturn-20q/collab-llm/outputs/eval/20q/local20q/test/LLAMA_BASE_EVALUATED_temp0.5_Llama-3.2-1B-Instruct_prompt=none_2025-05-23-08-01/log.json"
+json_path = "/Users/aditi/Documents/multiturn-20q/collab-llm/outputs/eval/20q/local20q/test/LLAMA_BASE_EVALUATED_temp0.7_Llama-3.2-1B-Instruct_prompt=none_2025-05-23-08-00/log.json"
+
 
 import json
 import matplotlib.pyplot as plt

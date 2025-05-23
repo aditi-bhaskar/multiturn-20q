@@ -11,6 +11,11 @@ fi
 # Random seed and port setup 
 RANDOM_SEED=0  # use $$ instead
 PORT=$((56480 + RANDOM_SEED % 10))
+# PORT=$((56481 + RANDOM_SEED % 10))
+
+
+# rator.py:254:get_accelerator] Setting ds_accelerator to mps (auto detect)
+# W0523 08:01:40.852000 18242 torch/distributed/elastic/multiprocessing/redirects.py:29] NOTE: Redirects are currently not supported in Windows or MacOs.
 
 
 ######################################
@@ -41,9 +46,14 @@ SPLIT="test"  # automatically uses train (dev) split instead of test split for t
 # fix user model to gpt-4o for eval
 USER_MODEL=gpt-4o-mini
 JUDGE_MODEL=gpt-4o-mini
+# ASSISTANT_MODEL_NAME=gpt-4o-mini  # vanilla model -- smaller model; should be able to download?
 ASSISTANT_MODEL_NAME=meta-llama/Llama-3.2-1B-Instruct  # vanilla model -- smaller model; should be able to download?
 
 # /name/project/collabllm/outputs/Meta-Llama-3-8B-Instruct_step-1500  #  trained version, after 1500 training steps
+
+TEMPERATURE=0.5
+
+# alternate experiment: try with higher temp?
 
 
 # Run evaluation
@@ -57,7 +67,7 @@ CUDA_VISIBLE_DEVICES=4 torchrun --master_port=$PORT \
     --assistant_model_name $ASSISTANT_MODEL_NAME \
     --user_model_name $USER_MODEL \
     --prompt_method $PROMPT_METHOD \
-    --temperature 0.6 \
+    --temperature $TEMPERATURE \
     --max_new_turns $MAX_NEW_TURNS \
     --n_eval $N_EVAL \
     --max_new_tokens $MAX_TOKENS \
