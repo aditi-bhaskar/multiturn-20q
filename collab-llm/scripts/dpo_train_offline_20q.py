@@ -243,7 +243,8 @@ trainer = DPOTrainer(
     ref_model=None,
     train_dataset=train_dataset,
     eval_dataset=eval_dataset,
-    tokenizer=tokenizer,
+    processing_class=tokenizer,
+    # tokenizer=tokenizer,
     # peft_config=peft_config,
     args=train_args
 )
