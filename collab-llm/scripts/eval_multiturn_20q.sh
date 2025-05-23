@@ -20,10 +20,10 @@ PROMPT_METHOD="none"
 # PROMPT_METHOD="vanilla_llama_3.2_1b"
 # PROMPT_METHOD="sftdpo_llama_3.2_1b"
 
-# MAX_NEW_TURNS=20
-# N_EVAL=15
-MAX_NEW_TURNS=1
-N_EVAL=1
+MAX_NEW_TURNS=20
+N_EVAL=15
+# MAX_NEW_TURNS=1
+# N_EVAL=1
 
 ######################################
 
