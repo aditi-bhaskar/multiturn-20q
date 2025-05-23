@@ -1,13 +1,17 @@
 import os
+import platform
 import torch
 import torch.distributed as dist
 from datetime import timedelta
 
 
 def init_distributed_mode():
-    # if platform.system() != "Linux":
-    #     print("Skipping distributed init on non-Linux platform.")
-    #     return
+    #  aditi addition for mac!!
+    if platform.system() != "Linux":
+        print("Skipping distributed init on non-Linux platform.")
+        return
+    
+    #  the following is not compatible with my machine
     # Ensure the script is being run with distributed launch
     if 'RANK' in os.environ and 'WORLD_SIZE' in os.environ:
         rank = int(os.environ['RANK'])
