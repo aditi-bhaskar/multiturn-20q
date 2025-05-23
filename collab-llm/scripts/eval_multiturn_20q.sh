@@ -12,12 +12,25 @@ fi
 RANDOM_SEED=0  # use $$ instead
 PORT=$((56480 + RANDOM_SEED % 10))
 
+
+######################################
+#  aditi tweak these
+
+PROMPT_METHOD="vanilla_llama_3.2_1b"
+# PROMPT_METHOD="sftdpo_llama_3.2_1b"
+
+# MAX_NEW_TURNS=20
+# N_EVAL=15
+MAX_NEW_TURNS=1
+N_EVAL=1
+
+######################################
+
 # Fixed configuration for 20Q
 # DATASET="aditijb/collabllm-20q"
 DATASET="local20q"
-PROMPT_METHOD="none"
-MAX_NEW_TURNS=6
-N_EVAL=180
+# MAX_NEW_TURNS=6
+# N_EVAL=180
 # MAX_TOKENS=2048
 MAX_TOKENS=256  # dont need it to yap during 20q game
 OUTPUT_DIR="./outputs/eval/20q"

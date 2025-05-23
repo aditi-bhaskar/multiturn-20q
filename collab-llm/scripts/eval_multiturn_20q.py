@@ -190,7 +190,9 @@ def main():
          continue
 
       evaluator.metrics = remaining_metrics
-      results[idx].update(evaluator.evaluate(single_turn_data, chat))
+
+      # make sure to pass it the target object if in 20q mode!
+      results[idx].update(evaluator.evaluate(single_turn_data, chat, target_object=single_turn_ds[idx]['target_object']))
 
       ######################## LOGGING ########################
       if i % args.log_step == 0 or i == len(eval_indices) - 1:

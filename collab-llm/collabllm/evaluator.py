@@ -32,7 +32,7 @@ class ChatEvaluator:
             metric: metric_info[metric][0](**{arg: local_variables[arg] for arg in metric_info[metric][1]}) for metric in self.metrics
         }
 
-    def evaluate(self, single_turn_data, chat_eval, final_answer=None, task_specific_only=False):
+    def evaluate(self, single_turn_data, chat_eval, final_answer=None, task_specific_only=False, target_object=None):
         eval_result = {}
 
         if task_specific_only:
@@ -46,7 +46,8 @@ class ChatEvaluator:
 
         if 'llm_judge' in metrics:
             #  aditi modification 
-            target_object = single_turn_data.get("target_object", None)
+            # target_object = kwargs.get("target_object", None)
+            # target_object = single_turn_data.get("target_object", None)
             if (target_object == None):
                 print("\n\n\n\n\nNO TARGET OBJ FOUND!! \n\n\n ************* \n\n\n ABORT! \n\n\n\n\n")
                 raise ValueError("Missing 'target_object' in single_turn_data\n")
