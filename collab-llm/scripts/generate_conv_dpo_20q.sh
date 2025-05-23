@@ -33,8 +33,8 @@ export MAX_NUM_WORKERS=4
 
 #  completed ranges: 0-39 -- temperature = 0.5
 #  completed ranges: 40-295 -- temperature = 0.7
-#  running range:  295-299 
-#  todo range: 300+  
+#  running range: NONE
+#  todo range: 296+  
 
 export USER_MODEL=gpt-4o-mini
 export ASSISTANT_MODEL=gpt-4o-mini

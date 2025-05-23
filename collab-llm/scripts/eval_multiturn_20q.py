@@ -108,6 +108,7 @@ def main():
       single_turn_ds = load_single_turn_dataset(args.dataset, add_system_prompt=args.add_sys_prompt)[split_name]
       # single_turn_ds = load_hf_dataset(args.dataset, split_name, args.n_eval)
       eval_indices = list(range(len(single_turn_ds)))
+      eval_indices = eval_indices[:args.n_eval]  # aditi edit: crop to only take so many indices!!
    else:
       print("NOT USING CORRECT 20Q DATASET!\n")
       if args.split == 'dev':
@@ -135,6 +136,9 @@ def main():
                                              #   device_map=device_map)  
    model = model.to("cpu")
    
+   print(f"\n\n[DEBUG]Running eval with max_new_turns={args.max_new_turns}, n_eval={args.n_eval}\n\n")  # aditi edit for debug
+
+
    model.eval()  # aditi modification
    evaluator = ChatEvaluator(task_name=datasets_info[args.dataset]['task'], judge_model=args.judge_model)
    complete_metrics = evaluator.metrics
@@ -155,6 +159,7 @@ def main():
    if is_api_model_auto(args.assistant_model_name):
       assistant_generation_kwargs['no_repeat_ngram_size'] = 10
       user_generation_kwargs['no_repeat_ngram_size'] = 10
+
 
    ######################## START EVALUATION ########################
    for i in tqdm(range(len(eval_indices))):

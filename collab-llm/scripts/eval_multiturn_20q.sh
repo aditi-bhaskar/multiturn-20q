@@ -16,7 +16,8 @@ PORT=$((56480 + RANDOM_SEED % 10))
 ######################################
 #  aditi tweak these
 
-PROMPT_METHOD="vanilla_llama_3.2_1b"
+PROMPT_METHOD="none"
+# PROMPT_METHOD="vanilla_llama_3.2_1b"
 # PROMPT_METHOD="sftdpo_llama_3.2_1b"
 
 # MAX_NEW_TURNS=20
