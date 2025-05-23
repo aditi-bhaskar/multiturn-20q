@@ -46,13 +46,10 @@ DATASET=aditijb/collabllm-20q  # hardcode the dataset we use for training
 # CUDA_VISIBLE_DEVICES=0,1,2,3,5,6,7 torchrun --master_port=$PORT --nnodes=1 --nproc_per_node=7 \
 # torchrun --master_port=$PORT --nnodes=1 --nproc_per_node=7 \
 
-# CUDA_VISIBLE_DEVICES=4 \
-
-# torchrun --master_port=$PORT \
-# --nnodes=1 --nproc_per_node=1 \
-
-python \
-scripts/dpo_train_offline_20q.py \
+CUDA_VISIBLE_DEVICES=4 \
+    torchrun --master_port=$PORT \
+    --nnodes=1 --nproc_per_node=1 \
+    scripts/dpo_train_offline_20q.py \
     --datasets $DATASET \
     --assistant_model_name $ASSISTANT_MODEL_NAME \
     --gradient_accumulation_steps 8 \
@@ -69,3 +66,14 @@ scripts/dpo_train_offline_20q.py \
 
     # --user_model_name $USER_MODEL \
     # --judge_model $JUDGE_MODEL \
+
+
+
+
+
+# TRAINING NEXT STEPS:
+
+#  TODO: figure out why the mps is giving me soooo many issues. 
+# i should be able to just remove all mentions of mps and cuda in the dpo trainer and it should work?!
+
+# /Users/aditi/Documents/multiturn-20q/20q/lib/python3.12/site-packages/trl/trainer/dpo_trainer.py
