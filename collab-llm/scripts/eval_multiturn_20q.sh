@@ -47,7 +47,11 @@ SPLIT="test"  # automatically uses train (dev) split instead of test split for t
 USER_MODEL=gpt-4o-mini
 JUDGE_MODEL=gpt-4o-mini
 # ASSISTANT_MODEL_NAME=gpt-4o-mini  # vanilla model -- smaller model; should be able to download?
-ASSISTANT_MODEL_NAME=meta-llama/Llama-3.2-1B-Instruct  # vanilla model -- smaller model; should be able to download?
+
+
+# NOTE!! change which version of the model we evaluate
+# ASSISTANT_MODEL_NAME=meta-llama/Llama-3.2-1B-Instruct  # vanilla model -- smaller model; should be able to download?
+ASSISTANT_MODEL_NAME=aditijb/Llama-3.2-1B-Instruct-20q  # dpo finetuned for 1 epoch
 
 # /name/project/collabllm/outputs/Meta-Llama-3-8B-Instruct_step-1500  #  trained version, after 1500 training steps
 

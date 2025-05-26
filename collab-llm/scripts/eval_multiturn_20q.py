@@ -85,7 +85,8 @@ def main():
    model_name = model_name + f'_{date_str}'
 
    if not is_base_model and not args.add_sys_prompt:
-      Warning('The assistant model may be a finetuned model and add_sys_prompt is False.')
+      print('WARNING !!!!!!! The assistant model may be a finetuned model and add_sys_prompt is False.\n\n\n')
+      # return
 
    output_dir = osp.join(args.output_dir, dataset_str, args.split, model_name)
    save_path = osp.join(output_dir, f'log.json')
@@ -134,12 +135,25 @@ def main():
 
    ######################## LOAD MODEL ########################
 
+   print("\n\n BEFORE LOADING MODEL\n")
+
    # aditi modif: remove the eval=True param; added  load_in_4bit_aditi=False to remove the bits and bytes version issue -- only exists for linux :( 
    model, tokenizer = load_model_and_tokenizer(args.assistant_model_name, 
                                                max_new_tokens=args.max_new_tokens, 
                                                load_in_4bit_aditi=False)   # aditi edit: force it to cpu
                                              #   device_map=device_map)  
+   print("\n\n BEFORE LOADING TO CPU\n")
+
    model = model.to("cpu")
+
+
+   print("\n\n TESTING MODEL\n")
+   input_text = "Hello, how are you?"
+   inputs = tokenizer(input_text, return_tensors="pt").to(model.device)
+   outputs = model.generate(**inputs, max_new_tokens=50)
+   print(tokenizer.decode(outputs[0], skip_special_tokens=True))
+   print("\n\n END ESTING MODEL\n")
+
    
    print(f"\n\n[DEBUG]Running eval with max_new_turns={args.max_new_turns}, n_eval={args.n_eval}\n\n")  # aditi edit for debug
 

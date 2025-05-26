@@ -36,7 +36,7 @@ OUTPUT_DIR="./train/20q"
 MAX_TOKENS=256
 MIN_GAP=0.1  # aditi : idk what this is so i made smth up
 
-NUM_TRAIN_EPOCHS=1
+NUM_TRAIN_EPOCHS=8  #1
 N_EVAL_PER_DATASET=30
 
 # DATASET=aditijb/collabllm-20q
@@ -52,7 +52,7 @@ DATASET=aditijb/collabllm-20q  # hardcode the dataset we use for training
 # torchrun --master_port=$PORT --nnodes=1 --nproc_per_node=7 \
 
 
-BATCHSIZE=8  # originally 2, but larger to make it run faster
+BATCHSIZE=4  # originally 2, but larger to make it run faster
 
 
 # CUDA_VISIBLE_DEVICES=4 \

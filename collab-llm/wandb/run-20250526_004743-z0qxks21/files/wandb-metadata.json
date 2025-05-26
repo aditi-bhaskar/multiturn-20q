@@ -1,0 +1,73 @@
+{
+  "os": "macOS-15.5-arm64-arm-64bit",
+  "python": "CPython 3.12.8",
+  "startedAt": "2025-05-26T07:47:43.764807Z",
+  "args": [
+    "--datasets",
+    "aditijb/collabllm-20q",
+    "--assistant_model_name",
+    "meta-llama/Llama-3.2-1B-Instruct",
+    "--gradient_accumulation_steps",
+    "8",
+    "--per_device_train_batch_size",
+    "4",
+    "--num_train_epochs",
+    "1",
+    "--assistant_model_name",
+    "meta-llama/Llama-3.2-1B-Instruct",
+    "--save_total_limit",
+    "10",
+    "--eval_steps",
+    "1",
+    "--learning_rate",
+    "5e-6",
+    "--max_new_tokens",
+    "256",
+    "--output_dir",
+    "./train/20q/dpo_train_offline",
+    "--n_eval_per_dataset",
+    "30",
+    "--minimum_gap",
+    "0.1",
+    "--push_to_hub"
+  ],
+  "program": "/Users/aditi/Documents/multiturn-20q/collab-llm/scripts/dpo_train_offline_20q.py",
+  "codePath": "collab-llm/scripts/dpo_train_offline_20q.py",
+  "git": {
+    "remote": "git@github.com:aditi-bhaskar/multiturn-20q.git",
+    "commit": "403aa617898089ee9460351e6337bee38bbe8a72"
+  },
+  "email": "aditi.j.bhaskar@gmail.com",
+  "root": "/Users/aditi/Documents/multiturn-20q/collab-llm",
+  "host": "aditi-mbpro-5.local",
+  "executable": "/Users/aditi/Documents/multiturn-20q/20q/bin/python",
+  "codePathLocal": "scripts/dpo_train_offline_20q.py",
+  "cpu_count": 10,
+  "cpu_count_logical": 10,
+  "disk": {
+    "/": {
+      "total": "994662584320",
+      "used": "358056390656"
+    },
+    "/System/Volumes/Data": {
+      "total": "994662584320",
+      "used": "358056390656"
+    }
+  },
+  "memory": {
+    "total": "25769803776"
+  },
+  "cpu": {
+    "count": 10,
+    "countLogical": 10
+  },
+  "apple": {
+    "name": "Apple M4",
+    "ecpuCores": 6,
+    "pcpuCores": 4,
+    "gpuCores": 10,
+    "memoryGb": 24,
+    "swapTotalBytes": "16106127360",
+    "ramTotalBytes": "25769803776"
+  }
+}

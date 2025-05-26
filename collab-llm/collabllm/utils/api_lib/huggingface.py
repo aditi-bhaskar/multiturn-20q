@@ -113,6 +113,8 @@ def generate_text_hf(message: Union[str, List[dict]],
             # .to("cuda")
             #  maybe a torch.todevice?
 
+            device = "cuda" if torch.cuda.is_available() else "cpu"   # aditi edit to fix cpu vs gpu usage
+            # hf_model = AutoModelForCausalLM.from_pretrained(model, device_map=device, torch_dtype='auto')  # aditi edit!! may 26 2025
             hf_model = AutoModelForCausalLM.from_pretrained(model, device_map="cpu", torch_dtype='auto')
 
             # hf_model = AutoModelForCausalLM.from_pretrained(model, device_map="auto", torch_dtype='auto')
