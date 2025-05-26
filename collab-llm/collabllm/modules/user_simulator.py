@@ -23,6 +23,7 @@ class UserSimulator(object):
 
         if task_name == '20q':
             self.object = self.llm_kwargs.get('target_object')
+            # print(f"\n\n\n\n\n UserSimulator: TARGET OBJECT = {self.object}\n\n\n\n\n")
             if self.object is None:
                 raise ValueError("Expected 'target_object' in llm_kwargs for 20q task.")
             self.question = self.object

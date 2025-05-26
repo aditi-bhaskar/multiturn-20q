@@ -77,3 +77,10 @@ CUDA_VISIBLE_DEVICES=4 \
 # i should be able to just remove all mentions of mps and cuda in the dpo trainer and it should work?!
 
 # /Users/aditi/Documents/multiturn-20q/20q/lib/python3.12/site-packages/trl/trainer/dpo_trainer.py
+
+
+
+# Amazon EC2 has nvidia t4 gpu
+# learn how to monitor gpu usage
+
+# qwen 0.5B model

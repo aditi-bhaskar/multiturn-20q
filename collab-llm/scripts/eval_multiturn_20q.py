@@ -81,6 +81,7 @@ def main():
    if model_name.startswith('checkpoint'):
       model_name = args.assistant_model_name.split("/")[-2] + '_' + model_name
    model_name = model_name + f'_prompt={args.prompt_method}' if is_base_model else model_name
+   model_name = model_name + f'_{args.temperature}'
    model_name = model_name + f'_{date_str}'
 
    if not is_base_model and not args.add_sys_prompt:
@@ -106,13 +107,16 @@ def main():
       print("\n  ***  ADITI is loading the collabllm 20q single turn dataset! ***  \n")
       split_name = 'train' if args.split == 'dev' else args.split
       single_turn_ds = load_single_turn_dataset(args.dataset, add_system_prompt=args.add_sys_prompt)[split_name]
+      print(f"\n\n\n\nargs.dataset = {args.dataset}\n\n\n\n")
+
       # single_turn_ds = load_hf_dataset(args.dataset, split_name, args.n_eval)
       eval_indices = list(range(len(single_turn_ds)))
       eval_indices = eval_indices[:args.n_eval]  # aditi edit: crop to only take so many indices!!
    else:
       print("NOT USING CORRECT 20Q DATASET!\n")
       if args.split == 'dev':
-         pass
+         # pass
+         return
          # single_turn_ds, train_indices, eval_indices = split_train_dev_datasets(
          #       args.dataset,
          #       is_multiturn=False,
@@ -121,7 +125,8 @@ def main():
          #       return_indices=True,
          #       seed=args.seed)
       else:
-         pass
+         # pass
+         return
          # kwargs = {'train_ratio': 0.45} if args.dataset == 'bigcodebench' else {}
          # single_turn_ds = load_single_turn_dataset(args.dataset, add_system_prompt=args.add_sys_prompt, **kwargs)[args.split]
          # random.seed(args.seed)
@@ -162,14 +167,24 @@ def main():
 
 
    ######################## START EVALUATION ########################
+
+   for i in range(5):
+      print(f"\n\n\n DEBUGGG Example {i} target object: {single_turn_ds[i]['target_object']}")
+
    for i in tqdm(range(len(eval_indices))):
       idx = eval_indices[i]
 
       # print("\n\n\n\n\n", single_turn_ds[idx], "\n\n\n\n\n") # aditi debug
-      print("\n\n\n\n\n", single_turn_ds[idx].keys(), "\n\n\n\n\n")
+      # print("\n\n\n\n\n", single_turn_ds[idx].keys(), "\n\n\n\n\n")
 
       single_turn_data = single_turn_ds[idx]['chat'][-2:]
+
+      # print(f"\n\n\n\n\n eval: target object!! = {single_turn_ds[idx]['target_object']}\n\n\n\n\n")
+
       chat_history = [single_turn_ds[idx]['chat'][0]] if args.add_sys_prompt else []
+
+      #  edit to fix bug
+      user_generation_kwargs['target_object'] = single_turn_ds[idx]['target_object']
 
       if idx in results and results[idx]['chat'] is not None:
          chat = results[idx]['chat']
@@ -184,7 +199,8 @@ def main():
                local_model=model, local_tokenizer=tokenizer,
                max_new_turns=args.max_new_turns,
                is_api_model='auto',
-               verbose=True
+               verbose=True, 
+               # target_object=
          )
 
       if not idx in results:

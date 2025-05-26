@@ -56,7 +56,7 @@ def run_one_chat_session(
     # aditi edit
     if task_name == "20q" and "target_object" not in user_generation_kwargs:
         user_generation_kwargs = user_generation_kwargs.copy()
-        user_generation_kwargs["target_object"] = single_turn_data[1].get("target_object", "apple")
+        user_generation_kwargs["target_object"] = single_turn_data[1].get("target_object", "ERROR NO OBJECT FOUND!! use apple")
 
     # if task_name == "20q" and "target_object" not in user_generation_kwargs:
     #     user_generation_kwargs["target_object"] = "apple"  # or set dynamically  TODO COME BACK HERE

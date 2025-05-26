@@ -108,6 +108,7 @@ def load_single_turn_dataset(dataset_name: str,
         print("*** Loading preprocessed 20q single-turn JSON dataset ***\n")
         with open("/Users/aditi/Documents/multiturn-20q/collab-llm/lmrl_gym_20q_data/eval_single_turn.json", "r") as f:
             dataset_json = json.load(f)
+        # print(f"\n\n\n\n\n DEBUGS CONTENTS OF DATASET>JSON: {dataset_json}n\n\n\n\n")
         # Wrap in dict with split key if your code expects that:
         return {'test': dataset_json}
     

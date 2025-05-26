@@ -35,7 +35,7 @@ with open(osp.join(current_dir, 'llm_assistant', 'proact.txt'), 'r') as f:
     LLM_ASSISTANT_PROMPT_PROACT = PromptHandler(f.read(), input_keys=['chat_history', 'max_new_tokens'], output_format=str)
 
 ###############################################################################
-##        Load System Prompt & Assistant Prompt (for prompting methods)      ##
+##        Load System Prompt & User/Judge Prompt (for prompting methods)     ##
 ###############################################################################
 USER_SIMULATOR_PRONPTS = {}
 LLM_REWARD_PROMPTS = {}

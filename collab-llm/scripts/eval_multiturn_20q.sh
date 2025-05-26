@@ -51,10 +51,9 @@ ASSISTANT_MODEL_NAME=meta-llama/Llama-3.2-1B-Instruct  # vanilla model -- smalle
 
 # /name/project/collabllm/outputs/Meta-Llama-3-8B-Instruct_step-1500  #  trained version, after 1500 training steps
 
-TEMPERATURE=0.5
+TEMPERATURE=0.7
 
 # alternate experiment: try with higher temp?
-
 
 # Run evaluation
 CUDA_VISIBLE_DEVICES=4 torchrun --master_port=$PORT \
@@ -76,8 +75,3 @@ CUDA_VISIBLE_DEVICES=4 torchrun --master_port=$PORT \
 
 
 
-# TODO make a test or eval split of my data
-
-# call the script:
-# on base llama 8b
-# ./scripts/eval_multiturn_20q.sh aditijb/collabllm-20q
