@@ -20,6 +20,7 @@ from collabllm.utils.dir import keep_levels
 
 from datasets import load_dataset
 
+import torch
 
 USE_WANDB=False
 
@@ -59,7 +60,9 @@ def parse_args():
 print("starting to run code\n")
 
 args = parse_args()
-init_distributed_mode()
+
+# init_distributed_mode()
+print("Skipping distributed init on Mac") # aditi edit!
 
 print("check 1\n")
 
@@ -123,6 +126,12 @@ print('padding_side', tokenizer.padding_side)
 print('len(tokenizer)', len(tokenizer))
 print('pad_token', tokenizer.pad_token)
 print('eos_token', tokenizer.eos_token)
+
+#  aditi edit
+if torch.backends.mps.is_available():
+    device = torch.device("mps")
+else:
+    device = torch.device("cpu")
 
 
 print("check 6\n")
@@ -209,7 +218,8 @@ train_args = DPOConfig(
     gradient_accumulation_steps=args.gradient_accumulation_steps,
     run_name=keep_levels(output_dir, 3),
     output_dir=output_dir,
-    deepspeed=ds_config, 
+    # deepspeed=ds_config, 
+    deepspeed=None, # aditi edit 
     fp16=not is_bfloat16_supported() if is_unsloth_model else False,
     bf16=is_bfloat16_supported() if is_unsloth_model else False,   
 

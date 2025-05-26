@@ -20,8 +20,8 @@ def load_model_and_tokenizer(model_name,
                              device=None,
                              load_in_4bit_aditi=True): # aditi addition: turn off the 4 bit quantization thing -- only works on linux
     if device is None:
-        device = "cuda" if torch.cuda.is_available() else "cpu"   # aditi edit to fix cpu vs gpu usage
-        # local_rank = os.getenv("LOCAL_RANK")
+        local_rank = os.getenv("LOCAL_RANK")
+        device = "cuda" + str(local_rank) if torch.cuda.is_available() else "cpu"   # aditi edit to fix cpu vs gpu usage
         # device = "cuda:" + str(local_rank)
     
     if is_unsloth_model_auto(model_name):
