@@ -212,6 +212,12 @@ train_args = DPOConfig(
     deepspeed=ds_config, 
     fp16=not is_bfloat16_supported() if is_unsloth_model else False,
     bf16=is_bfloat16_supported() if is_unsloth_model else False,   
+
+# aditi addition for pushing to hub frequently
+    push_to_hub=args.push_to_hub,
+    hub_model_id="aditijb/Llama-3.2-1B-Instruct-20q",
+    hub_private_repo=True,
+    hub_token=os.environ.get("HF_TOKEN"),
 )
 
 
@@ -261,16 +267,11 @@ tokenizer.save_pretrained(output_dir) # save tokenizer
 
 print("check 13\n")
 
-#  TODO FIGURE OUT HOW TO PUSH TRAINED MODEL TO HUB!!
-# huggingface-cli upload aditijb/Llama-3.2-1B-Instruct-20q .
-# if args.push_to_hub:
-#     surfix = output_dir.split("/")[-1].replace('_', '-')
-#     trainer.model.push_to_hub(f'{args.hf_org}/dpo-offline-model-{surfix}', private=True)
-#     tokenizer.push_to_hub(f'{args.hf_org}/dpo-offline-tokenizer-{surfix}', private=True)
-#     trainer.push_to_hub(f'{args.hf_org}/dpo-offline-trainer-{surfix}', private=True)
-
-# if args.push_to_blob:
-#     upload_dir_to_blob(output_dir)
+#  aditi addition for pushing to hub at the end
+if args.push_to_hub and os.environ.get("LOCAL_RANK", "0") == "0":
+    print("Pushing model and tokenizer to Hugging Face Hub...")
+    trainer.push_to_hub()
+    tokenizer.push_to_hub("aditijb/Llama-3.2-1B-Instruct-20q")
 
 
 if USE_WANDB:

@@ -81,7 +81,7 @@ def main():
    if model_name.startswith('checkpoint'):
       model_name = args.assistant_model_name.split("/")[-2] + '_' + model_name
    model_name = model_name + f'_prompt={args.prompt_method}' if is_base_model else model_name
-   model_name = model_name + f'_{args.temperature}'
+   model_name = model_name + f'_temp={args.temperature}'
    model_name = model_name + f'_{date_str}'
 
    if not is_base_model and not args.add_sys_prompt:

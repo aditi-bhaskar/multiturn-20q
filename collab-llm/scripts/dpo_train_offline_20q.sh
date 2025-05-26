@@ -63,6 +63,7 @@ CUDA_VISIBLE_DEVICES=4 \
     --output_dir $OUTPUT_DIR/dpo_train_offline \
     --n_eval_per_dataset $N_EVAL_PER_DATASET \
     --minimum_gap $MIN_GAP \
+    --push_to_hub true
 
     # --user_model_name $USER_MODEL \
     # --judge_model $JUDGE_MODEL \
