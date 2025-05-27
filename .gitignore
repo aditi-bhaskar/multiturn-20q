@@ -7,7 +7,7 @@ __pycache__/
 collab-llm/lmrl_gym_20q_data/train*.json
 
 #  for the trained model data
-# collab-llm/train/20q/dpo_train_offline/collabllm-20q/
+collab-llm/train/20q/dpo_train_offline/collabllm-20q/
 
 
 # C extensions
