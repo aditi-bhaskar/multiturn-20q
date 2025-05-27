@@ -50,12 +50,12 @@ JUDGE_MODEL=gpt-4o-mini
 
 
 # NOTE!! change which version of the model we evaluate
-ASSISTANT_MODEL_NAME=meta-llama/Llama-3.2-1B-Instruct  # vanilla model -- smaller model; should be able to download?
-# ASSISTANT_MODEL_NAME=aditijb/Llama-3.2-1B-Instruct-20q  # dpo finetuned for 1 epoch
+# ASSISTANT_MODEL_NAME=meta-llama/Llama-3.2-1B-Instruct  # vanilla model -- smaller model; should be able to download?
+ASSISTANT_MODEL_NAME=aditijb/Llama-3.2-1B-Instruct-20q  # dpo finetuned for 1 epoch
 
 # /name/project/collabllm/outputs/Meta-Llama-3-8B-Instruct_step-1500  #  trained version, after 1500 training steps
 
-TEMPERATURE=0.7
+TEMPERATURE=0.5  # either 0.7 or 0.5, for plots for poster
 
 # alternate experiment: try with higher temp?
 

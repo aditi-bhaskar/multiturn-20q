@@ -225,11 +225,11 @@ train_args = DPOConfig(
 
 # aditi addition for pushing to hub frequently
     push_to_hub=args.push_to_hub,
-    hub_model_id="aditijb/Llama-3.2-1B-Instruct-20q",
+    # hub_model_id="aditijb/Llama-3.2-1B-Instruct-20q",
+    hub_model_id="aditijb/Llama-3.2-1B-Instruct-20q-2v",
     hub_private_repo=True,
     hub_token=os.environ.get("HF_TOKEN"),
 )
-
 
 print("check 9\n")
 
@@ -281,7 +281,8 @@ print("check 13\n")
 if args.push_to_hub and os.environ.get("LOCAL_RANK", "0") == "0":
     print("Pushing model and tokenizer to Hugging Face Hub...")
     trainer.push_to_hub()
-    tokenizer.push_to_hub("aditijb/Llama-3.2-1B-Instruct-20q")
+    # tokenizer.push_to_hub("aditijb/Llama-3.2-1B-Instruct-20q")
+    tokenizer.push_to_hub("aditijb/Llama-3.2-1B-Instruct-20q-2v")
 
 
 if USE_WANDB:

@@ -5,8 +5,6 @@
 # Usage: ./scripts/eval_multiturn.sh  aditijb/collabllm-20q
 # source scripts/config.sh
 
-
-
 fp16=False
 bf16=False
 
@@ -36,7 +34,7 @@ OUTPUT_DIR="./train/20q"
 MAX_TOKENS=256
 MIN_GAP=0.1  # aditi : idk what this is so i made smth up
 
-NUM_TRAIN_EPOCHS=8  #1
+NUM_TRAIN_EPOCHS=8  # 1
 N_EVAL_PER_DATASET=30
 
 # DATASET=aditijb/collabllm-20q
@@ -53,7 +51,6 @@ DATASET=aditijb/collabllm-20q  # hardcode the dataset we use for training
 
 
 BATCHSIZE=4  # originally 2, but larger to make it run faster
-
 
 # CUDA_VISIBLE_DEVICES=4 \
 #     torchrun --master_port=$PORT \
@@ -96,3 +93,12 @@ BATCHSIZE=4  # originally 2, but larger to make it run faster
 # learn how to monitor gpu usage
 
 # qwen 0.5B model
+
+
+
+
+
+
+# first attempt (may 25th): num epochs 1, batchsize 4
+# second attempt: num epochs 4, batchsize 4
+

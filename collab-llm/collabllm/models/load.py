@@ -29,6 +29,7 @@ def load_model_and_tokenizer(model_name, max_new_tokens,
 
     if is_macos:
         load_in_4bit = False
+        load_in_8bit = False
     else:
         load_in_4bit = True
         bnb_config = BitsAndBytesConfig(
@@ -38,6 +39,7 @@ def load_model_and_tokenizer(model_name, max_new_tokens,
             bnb_4bit_compute_dtype=torch.bfloat16,
         )
 
+    #  only two cases matter to me
     if is_base_model_auto(model_name):
         model = model_class.from_pretrained(
             model_name,
@@ -46,6 +48,7 @@ def load_model_and_tokenizer(model_name, max_new_tokens,
             quantization_config=bnb_config if not is_macos else None,
             torch_dtype=torch.float16,
             load_in_4bit=load_in_4bit if not is_macos else False,
+            load_in_8bit=load_in_8bit
         )
         if peft_config is not None:
             model = get_peft_model(model, peft_config)
@@ -61,6 +64,7 @@ def load_model_and_tokenizer(model_name, max_new_tokens,
             trust_remote_code=True,
             torch_dtype=torch.float16,
             load_in_4bit=False,  # no bnb for base model load
+            load_in_8bit=False,
             device_map=None
         )
         model = PeftModel.from_pretrained(base_model, model_name, is_trainable=not is_eval)
