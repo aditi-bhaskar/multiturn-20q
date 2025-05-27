@@ -15,6 +15,8 @@ from .humaneval import HumanEval
 from .bigcodebench import BigCodeBench
 import json
 
+import platform
+
 
 # ADD NEW DATASET IMPORT 
 from .twentyq import TwentyQ
@@ -106,7 +108,13 @@ def load_single_turn_dataset(dataset_name: str,
     if dataset_name=='local20q':
         #  can only do this because i alr ran twentyq.py which generated my eval and train datasets for single and multiturns
         print("*** Loading preprocessed 20q single-turn JSON dataset ***\n")
-        with open("/Users/aditi/Documents/multiturn-20q/collab-llm/lmrl_gym_20q_data/eval_single_turn.json", "r") as f:
+       
+        # aditi may 27 2025
+        st_path = "/home/ubuntu/multiturn-20q/collab-llm/lmrl_gym_20q_data/eval_single_turn.json"  # assume VM/Linux
+        if platform.system() == "Darwin":  # macOS
+            st_path = "/Users/aditi/Documents/multiturn-20q/collab-llm/lmrl_gym_20q_data/eval_single_turn.json"
+
+        with open(st_path, "r") as f:
             dataset_json = json.load(f)
         # print(f"\n\n\n\n\n DEBUGS CONTENTS OF DATASET>JSON: {dataset_json}n\n\n\n\n")
         # Wrap in dict with split key if your code expects that:

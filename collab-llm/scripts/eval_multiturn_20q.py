@@ -24,6 +24,8 @@ from datasets import load_dataset
 import torch
 
 
+import platform
+
 # todo list
 #  update the data split of test  (when inquiring my hf repo)
 
@@ -133,6 +135,15 @@ def main():
          # random.seed(args.seed)
          # eval_indices = random.sample(range(len(single_turn_ds)), min(args.n_eval, len(single_turn_ds)))
 
+
+   #  added aditi on may 27 2025
+   # Decide device and bnb loading
+   device = "cuda" if torch.cuda.is_available() else "cpu"
+   load_in_4bit = True  # Enable bnb 4-bit loading everywhere for linux
+   if platform.system() == "Darwin":
+      load_in_4bit = False
+
+
    ######################## LOAD MODEL ########################
 
    print("\n\n BEFORE LOADING MODEL\n")
@@ -140,7 +151,7 @@ def main():
    # aditi modif: remove the eval=True param; added  load_in_4bit_aditi=False to remove the bits and bytes version issue -- only exists for linux :( 
    model, tokenizer = load_model_and_tokenizer(args.assistant_model_name, 
                                                max_new_tokens=args.max_new_tokens, 
-                                               load_in_4bit_aditi=False)   # aditi edit: force it to cpu
+                                               load_in_4bit_aditi=load_in_4bit)   # aditi edit: force it to cpu
                                              #   device_map=device_map)  
    print("\n\n BEFORE LOADING TO CPU\n")
 

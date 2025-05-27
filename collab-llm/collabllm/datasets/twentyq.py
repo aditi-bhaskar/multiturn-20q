@@ -1,12 +1,18 @@
 import json
 from collabllm.datasets.dataset import ChatDataset
 
+import platform
 
 # NOTE THAT WE ALWAYS SHOULD USE THE EVAL SET GOING FORWARDS!!
 
 class TwentyQ(ChatDataset):
     def __init__(self, path="/Users/aditi/Documents/multiturn-20q/collab-llm/lmrl_gym_20q_data/eval.json"):
     # def __init__(self, path="/Users/aditi/Documents/multiturn-20q/collab-llm/lmrl_gym_20q_data/train.json"):
+        
+        # aditi may 27 2025
+        if platform.system() != "Darwin":  # not macOS, assume linux
+            path = "/home/ubuntu/multiturn-20q/collab-llm/lmrl_gym_20q_data/eval_single_turn.json"
+        
         print("Loading raw TwentyQ data from", path)
         with open(path, 'r') as f:
             raw_data = json.load(f)  # expecting a list of entries (no splits key)

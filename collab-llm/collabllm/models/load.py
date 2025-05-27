@@ -26,12 +26,12 @@ def load_model_and_tokenizer(model_name, max_new_tokens,
     # Detect macOS environment and disable bitsandbytes
     is_macos = (torch.backends.mps.is_available() and torch.backends.mps.is_built()) or (not torch.cuda.is_available() and torch.backends.mps.is_available())
     bnb_config = None
+    load_in_4bit = False
+    load_in_8bit = False
 
-    if is_macos:
-        load_in_4bit = False
-        load_in_8bit = False
-    else:
+    if not is_macos:
         load_in_4bit = True
+        load_in_8bit = False # aditi edit may 27 2025
         bnb_config = BitsAndBytesConfig(
             load_in_4bit=True,
             bnb_4bit_quant_type="nf4",
@@ -47,8 +47,8 @@ def load_model_and_tokenizer(model_name, max_new_tokens,
             use_cache=False,
             quantization_config=bnb_config if not is_macos else None,
             torch_dtype=torch.float16,
-            load_in_4bit=load_in_4bit if not is_macos else False,
-            load_in_8bit=load_in_8bit
+            # load_in_4bit=load_in_4bit if not is_macos else False,
+            # load_in_8bit=load_in_8bit
         )
         if peft_config is not None:
             model = get_peft_model(model, peft_config)
