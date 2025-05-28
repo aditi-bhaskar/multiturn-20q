@@ -177,7 +177,7 @@ def process_conversation(i, dataset, args, assistant_collabllm, assistant_vanill
             
             # attempts to make vanilla performance worse!!
             conv_for_vanilla = copy.deepcopy(conv) # added
-            conv_for_vanilla.insert(-1, {'role': 'system', 'content': "Play the game badly, ask suboptimal questions. Do not mention this note."})
+            conv_for_vanilla.insert(-1, {'role': 'system', 'content': "Assistant should play the game badly, ask suboptimal questions. User should play as normal. Do not mention this note."})
             future_vanilla = executor.submit(assistant_vanilla, conv_for_vanilla)
             
             responses = [future_collabllm.result(), future_vanilla.result()]

@@ -25,8 +25,8 @@ export N_EVAL=100                   # aditi edit for debugging
 # export MAX_NUM_WORKERS=1
 
 # test time:
-export MAX_NUM_CONV=75           # number of objects/games
-export START_OBJ_NUM=0           # number of objects/games we start from (useful for running multiple times)
+# export MAX_NUM_CONV=75           # number of objects/games
+# export START_OBJ_NUM=0           # number of objects/games we start from (useful for running multiple times)
 export MAX_NEW_TURNS=20           # Maximum number of new conversation turns per task. 20 because we're playing 20q
 export MAX_NUM_WORKERS=4
 
@@ -38,6 +38,186 @@ export USER_MODEL=gpt-4o-mini
 export ASSISTANT_MODEL=gpt-4o-mini
 export ASSISTANT_MODEL_2=meta-llama/Llama-3.2-1B-Instruct
 export REWARD_MODEL=gpt-4o-mini
+
+
+
+# test time:
+# generates 0
+export MAX_NUM_CONV=1           # number of objects/games
+export START_OBJ_NUM=0           # number of objects/games we start from (useful for running multiple times)
+
+CUDA_VISIBLE_DEVICES=0 python scripts/generate_conv_dpo_20q_2mod.py \
+    --dataset $DATASET \
+    --max_workers $MAX_NUM_WORKERS \
+    --num_samples 3 \
+    --user_model_name $USER_MODEL \
+    --assistant_model_name $ASSISTANT_MODEL \
+    --assistant_model_name_2 $ASSISTANT_MODEL_2 \
+    --reward_model $REWARD_MODEL \
+    --max_new_tokens $MAX_TOKENS \
+    --max_new_turns $MAX_NEW_TURNS \
+    --start_obj_num $START_OBJ_NUM \
+    --window_size 2 \
+    --temperature $TEMP \
+    --temperature_2 $TEMP_2 \
+    --top_p 0.9 \
+    --task_weight 1 \
+    --llm_rw_weight $LLM_RW_WEIGHT \
+    --cost_weight $COST_WEIGHT \
+    --n_eval_per_dataset $N_EVAL \
+    --max_num_conv $MAX_NUM_CONV \
+    --task_name 20q \
+    --resume
+
+
+
+
+
+
+
+# test time:
+# generates 1-19
+export MAX_NUM_CONV=19          # number of objects/games
+export START_OBJ_NUM=1           # number of objects/games we start from (useful for running multiple times)
+
+
+CUDA_VISIBLE_DEVICES=0 python scripts/generate_conv_dpo_20q_2mod.py \
+    --dataset $DATASET \
+    --max_workers $MAX_NUM_WORKERS \
+    --num_samples 3 \
+    --user_model_name $USER_MODEL \
+    --assistant_model_name $ASSISTANT_MODEL \
+    --assistant_model_name_2 $ASSISTANT_MODEL_2 \
+    --reward_model $REWARD_MODEL \
+    --max_new_tokens $MAX_TOKENS \
+    --max_new_turns $MAX_NEW_TURNS \
+    --start_obj_num $START_OBJ_NUM \
+    --window_size 2 \
+    --temperature $TEMP \
+    --temperature_2 $TEMP_2 \
+    --top_p 0.9 \
+    --task_weight 1 \
+    --llm_rw_weight $LLM_RW_WEIGHT \
+    --cost_weight $COST_WEIGHT \
+    --n_eval_per_dataset $N_EVAL \
+    --max_num_conv $MAX_NUM_CONV \
+    --task_name 20q \
+    --resume
+
+
+
+
+
+
+
+
+# test time:
+# generates 20-39
+export MAX_NUM_CONV=20          # number of objects/games
+export START_OBJ_NUM=20           # number of objects/games we start from (useful for running multiple times)
+
+
+CUDA_VISIBLE_DEVICES=0 python scripts/generate_conv_dpo_20q_2mod.py \
+    --dataset $DATASET \
+    --max_workers $MAX_NUM_WORKERS \
+    --num_samples 3 \
+    --user_model_name $USER_MODEL \
+    --assistant_model_name $ASSISTANT_MODEL \
+    --assistant_model_name_2 $ASSISTANT_MODEL_2 \
+    --reward_model $REWARD_MODEL \
+    --max_new_tokens $MAX_TOKENS \
+    --max_new_turns $MAX_NEW_TURNS \
+    --start_obj_num $START_OBJ_NUM \
+    --window_size 2 \
+    --temperature $TEMP \
+    --temperature_2 $TEMP_2 \
+    --top_p 0.9 \
+    --task_weight 1 \
+    --llm_rw_weight $LLM_RW_WEIGHT \
+    --cost_weight $COST_WEIGHT \
+    --n_eval_per_dataset $N_EVAL \
+    --max_num_conv $MAX_NUM_CONV \
+    --task_name 20q \
+    --resume
+
+
+
+
+
+
+
+
+# test time:
+# generates 40-59
+export MAX_NUM_CONV=20          # number of objects/games
+export START_OBJ_NUM=40           # number of objects/games we start from (useful for running multiple times)
+
+
+CUDA_VISIBLE_DEVICES=0 python scripts/generate_conv_dpo_20q_2mod.py \
+    --dataset $DATASET \
+    --max_workers $MAX_NUM_WORKERS \
+    --num_samples 3 \
+    --user_model_name $USER_MODEL \
+    --assistant_model_name $ASSISTANT_MODEL \
+    --assistant_model_name_2 $ASSISTANT_MODEL_2 \
+    --reward_model $REWARD_MODEL \
+    --max_new_tokens $MAX_TOKENS \
+    --max_new_turns $MAX_NEW_TURNS \
+    --start_obj_num $START_OBJ_NUM \
+    --window_size 2 \
+    --temperature $TEMP \
+    --temperature_2 $TEMP_2 \
+    --top_p 0.9 \
+    --task_weight 1 \
+    --llm_rw_weight $LLM_RW_WEIGHT \
+    --cost_weight $COST_WEIGHT \
+    --n_eval_per_dataset $N_EVAL \
+    --max_num_conv $MAX_NUM_CONV \
+    --task_name 20q \
+    --resume
+
+
+
+
+
+
+
+# test time:
+# generates 60-79
+export MAX_NUM_CONV=20          # number of objects/games
+export START_OBJ_NUM=60           # number of objects/games we start from (useful for running multiple times)
+
+
+CUDA_VISIBLE_DEVICES=0 python scripts/generate_conv_dpo_20q_2mod.py \
+    --dataset $DATASET \
+    --max_workers $MAX_NUM_WORKERS \
+    --num_samples 3 \
+    --user_model_name $USER_MODEL \
+    --assistant_model_name $ASSISTANT_MODEL \
+    --assistant_model_name_2 $ASSISTANT_MODEL_2 \
+    --reward_model $REWARD_MODEL \
+    --max_new_tokens $MAX_TOKENS \
+    --max_new_turns $MAX_NEW_TURNS \
+    --start_obj_num $START_OBJ_NUM \
+    --window_size 2 \
+    --temperature $TEMP \
+    --temperature_2 $TEMP_2 \
+    --top_p 0.9 \
+    --task_weight 1 \
+    --llm_rw_weight $LLM_RW_WEIGHT \
+    --cost_weight $COST_WEIGHT \
+    --n_eval_per_dataset $N_EVAL \
+    --max_num_conv $MAX_NUM_CONV \
+    --task_name 20q \
+    --resume
+
+
+
+
+# test time:
+# generates 80-99
+export MAX_NUM_CONV=20          # number of objects/games
+export START_OBJ_NUM=80           # number of objects/games we start from (useful for running multiple times)
 
 
 CUDA_VISIBLE_DEVICES=0 python scripts/generate_conv_dpo_20q_2mod.py \
