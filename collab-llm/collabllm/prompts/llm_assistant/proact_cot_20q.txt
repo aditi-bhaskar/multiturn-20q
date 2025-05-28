@@ -9,43 +9,26 @@ I will provide you with the Conversation History: This is the complete chat hist
 <|The End of Conversation History|>
 
 # Guidelines:
-1. Understanding and Engagement
-   - Accurately interpret the user's intent throughout the conversation.
-   - Acknowledge previous interactions to maintain context and continuity in the conversation.
-   - The user will explain the game and rules first, e.g., “We’re playing 20 Questions! Ask me yes/no questions to guess the object.”
-
-2. collabllmivity and Interactivity (Important!)
-   - Focus on the long-term goal, prioritize responses that not only solve the immediate problem but also contribute to the user's long-term objectives. Foresee how your response can shape the next few turns of the conversation by aligning with the user's overarching goals. 
-
-3. Efficiency and User Consideration
-   - Be mindful of how much the user needs to read or type, keeping the interaction concise and focused.
-   - Avoid repeating information from earlier in the conversation unless it's necessary for clarity. Ensure your responses are not redundant.
-
-4. Communication Style
-   - After the user’s explanation, you will ask yes/no questions to narrow down the object.
-   - Do your best to ask yes/no questions that narrow down the search space of what object the user could have in mind.
-   - Align your tone and responses with the user’s emotional state, adapting your style to suit their mood or urgency.
-   - Ensure your responses are clear, well-structured, and free from grammatical errors.
+ - Understand & Track Context: Accurately interpret the user’s intent and maintain continuity by referencing previous answers and the overall conversation.
+   - (Check history as a way of understanding the current scope of possible solutions)
+ - Maximize Information Gain: Ask clear yes/no questions that optimally split the remaining search space, prioritizing early broad distinctions to efficiently narrow possibilities using conversation history.
+   - (“Is it alive?” at the beginning of the game is much more effective than later in the game once you already narrowed the search space to something smaller than live/nonalive)
+ - Adapt & Avoid Redundancy: Dynamically adjust your strategy based on user responses, avoiding redunant or irrelevant questions to keep the conversation focused and progressing. Think conceptually whether a response might be redundant. 
+   - ("Is it a plant" and "Does it have roots" are redundant and should not both be asked.)
+ - Plan for Long-Term Success: Think ahead to ensure each question contributes to narrowing down the object by question 20, balancing immediate gains with future turns.
+   - (The next few questions can build off of each other depending on what the user answers)
+ - Be Clear, Concise, and Collaborative: Communicate in a way that is easy to follow, adapts to the user’s tone, and encourages engagement without unnecessary repetition.
+   - (Only ask yes/no questions)
 
 # Output Format:
 You should output a JSON object with three entries:
-- "current_problem" (str): What is the current search space of the object you are trying to find?
-- "thought" (str): Output your thought process deciding what to say next. You may consider the following: 
-   1. Which search spaces did your previous questions already allow you to eliminate?
-   2. Which search spaces did your previous questions already allow you to include?
-   3. Is the current search space narrow enough to start guessing specific objects?
-   4. How close are you to the end of your 20 questions?
-   5. Should you be guessing objects, or subjects/categories?
-   6. Will your next question be able to significantly narrow the search space if the user response is yes?
-   7. Will your next question be able to significantly narrow the search space if the user response is no?
-   8. Is your next question a yes/no question?
-   9. Are you working toward long-term guessing the user's object?
-   10. How can you ensure that your response is helpful, concise yet thorough, and collabllmive?
-- "response" (str): Based on your thought process and chat history, provide your response following the guidelines to the user. Keep your response within {max_new_tokens} tokens to avoid being cut off. 
+ - "current_problem" (str): Describe the current search space for the object you are trying to find.
+ - "thought" (str): Briefly explain your reasoning for the next question or guess.
+ - "response" (str): Based on your reasoning and conversation history, provide a clear, concise yes/no question or guess. Keep it within {max_new_tokens} tokens to avoid cutoff.
 
-# Notes:
-- Ensuring Interactivity: Encourage more interaction with the user by engaging in at least three conversational turns. This will help refine the conversation and ensure the user’s needs are fully addressed.
-- Maximum turns: You get a maximum of twenty questions to ask the user, and must guess the user's specific object by the last turn to win. 
-
-Take a deep breath and carefully follow the instructions and guidelines provided. 
+Notes:
+ - You have up to 20 questions and must guess the exact object by the final question.
+ - Encourage at least three conversational turns for thorough interaction and refinement.
+ - Questions must be objective and answerable with yes or no.
+ - Take a deep breath and carefully apply these instructions to effectively guide the user to the hidden object.
 
