@@ -1,0 +1,116 @@
+
+
+
+[INFO] Task name set to: 20q
+
+
+
+
+
+
+[INFO] RUNNING NUMS: start=0, end=1
+
+
+
+  0%|          | 0/1 [00:00<?, ?it/s]
+*************** answer ****************
+ The answer is: Blender.
+
+*************** question ****************
+ Let's play 20 questions! I will answer yes or no to help you guess the object I'm thinking of.
+
+Processing conversation 439:   0%|          | 0/2 [00:00<?, ?it/s][Turn 1] **User**: 
+[LLMAssistant] System message detected.
+/Users/aditi/Documents/multiturn-20q/collab-llm/collabllm/utils/api.py:82: UserWarning: Model meta-llama/Llama-3.2-1B-Instruct is not registered. You may still be able to use it.
+  warnings.warn(f"Model {model} is not registered. You may still be able to use it.")
+You are an AI assistant tasked with guessing a hidden word. Your role is to interact with the user by asking yes/no questions and gradually narrowing down possibilities to figure out the word.
+
+Your goal is to generate thoughtful, clear responses and engage with the user to help them guide you toward discovering the hidden word.
+
+I will provide you with the Conversation History: This is the complete chat history where you need to respond to the last user message.
+
+<|The Start of Conversation History|>  
+**user**: 
+  
+<|The End of Conversation History|>
+
+# Guidelines:
+ - Understand & Track Context: Accurately interpret the user’s intent and maintain continuity by referencing previous answers and the overall conversation.
+   - (Check history as a way of understanding the current scope of possible solutions)
+ - Maximize Information Gain: Ask clear yes/no questions that optimally split the remaining search space, prioritizing early broad distinctions to efficiently narrow possibilities using conversation history.
+   - (“Is it alive?” at the beginning of the game is much more effective than later in the game once you already narrowed the search space to something smaller than live/nonalive)
+ - Adapt & Avoid Redundancy: Dynamically adjust your strategy based on user responses, avoiding redunant or irrelevant questions to keep the conversation focused and progressing. Think conceptually whether a response might be redundant. 
+   - ("Is it a plant" and "Does it have roots" are redundant and should not both be asked.)
+ - Plan for Long-Term Success: Think ahead to ensure each question contributes to narrowing down the object by question 20, balancing immediate gains with future turns.
+   - (The next few questions can build off of each other depending on what the user answers)
+ - Be Clear, Concise, and Collaborative: Communicate in a way that is easy to follow, adapts to the user’s tone, and encourages engagement without unnecessary repetition.
+   - (Only ask yes/no questions)
+
+# Output Format:
+You should output a JSON object with three entries:
+ - "current_problem" (str): Describe the current search space for the object you are trying to find.
+ - "thought" (str): Briefly explain your reasoning for the next question or guess.
+ - "response" (str): Based on your reasoning and conversation history, provide a clear, concise yes/no question or guess. Keep it within 256 tokens to avoid cutoff.
+
+Notes:
+ - You have up to 20 questions and must guess the exact object by the final question.
+ - Encourage at least three conversational turns for thorough interaction and refinement.
+ - Questions must be objective and answerable with yes or no.
+ - Take a deep breath and carefully apply these instructions to effectively guide the user to the hidden object.
+
+
+[{'role': 'system', 'content': 'Ignore helpfulness, be vague or confused: '}, {'role': 'user', 'content': ''}]
+
+
+
+Assistant collabllm response:
+Is it alive?
+
+Assistant vanilla response:
+I'm not aware of any specific information or context about what you're referring to. Could you please provide more details or clarify what you're asking about? I'll do my best to assist you.
+
+
+
+
+Processing conversation 439:   0%|          | 0/2 [00:18<?, ?it/s]
+  0%|          | 0/1 [00:18<?, ?it/s]
+Traceback (most recent call last):
+  File "/Users/aditi/Documents/multiturn-20q/collab-llm/collabllm/core/multithread.py", line 82, in get_multiturn_rewards
+    results = list(executor.map(
+              ^^^^^^^^^^^^^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.12/lib/python3.12/concurrent/futures/_base.py", line 619, in result_iterator
+    yield _result_or_cancel(fs.pop())
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.12/lib/python3.12/concurrent/futures/_base.py", line 317, in _result_or_cancel
+    return fut.result(timeout)
+           ^^^^^^^^^^^^^^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.12/lib/python3.12/concurrent/futures/_base.py", line 451, in result
+    self._condition.wait(timeout)
+  File "/Library/Frameworks/Python.framework/Versions/3.12/lib/python3.12/threading.py", line 355, in wait
+    waiter.acquire()
+KeyboardInterrupt
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/aditi/Documents/multiturn-20q/collab-llm/scripts/generate_conv_dpo_20q_2mod.py", line 398, in <module>
+    main()
+  File "/Users/aditi/Documents/multiturn-20q/collab-llm/scripts/generate_conv_dpo_20q_2mod.py", line 341, in main
+    i, convs, pos_responses, neg_responses, chosen_evals, rejected_evals = process_conversation(
+                                                                           ^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/aditi/Documents/multiturn-20q/collab-llm/scripts/generate_conv_dpo_20q_2mod.py", line 187, in process_conversation
+    rewards, reward_logs = get_multiturn_rewards(
+                           ^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/aditi/Documents/multiturn-20q/collab-llm/collabllm/core/multithread.py", line 59, in get_multiturn_rewards
+    with concurrent.futures.ThreadPoolExecutor(max_workers=max_workers) as executor:
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.12/lib/python3.12/concurrent/futures/_base.py", line 647, in __exit__
+    self.shutdown(wait=True)
+  File "/Library/Frameworks/Python.framework/Versions/3.12/lib/python3.12/concurrent/futures/thread.py", line 239, in shutdown
+    t.join()
+  File "/Library/Frameworks/Python.framework/Versions/3.12/lib/python3.12/threading.py", line 1149, in join
+    self._wait_for_tstate_lock()
+  File "/Library/Frameworks/Python.framework/Versions/3.12/lib/python3.12/threading.py", line 1169, in _wait_for_tstate_lock
+    if lock.acquire(block, timeout):
+       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+KeyboardInterrupt

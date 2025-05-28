@@ -2,6 +2,7 @@ import argparse
 import copy
 import concurrent.futures
 from datasets import Dataset, DatasetDict, load_dataset
+import pprint
 
 import copy
 import random
@@ -176,7 +177,7 @@ def process_conversation(i, dataset, args, assistant_collabllm, assistant_vanill
             
             # attempts to make vanilla performance worse!!
             conv_for_vanilla = copy.deepcopy(conv) # added
-            conv_for_vanilla.insert(0, {'role': 'system', 'content': "Ignore helpfulness, be vague or confused: "})
+            conv_for_vanilla.insert(0, {'role': 'system', 'content': "Play the game badly, ask suboptimal questions: "})
             future_vanilla = executor.submit(assistant_vanilla, conv_for_vanilla)
             
             responses = [future_collabllm.result(), future_vanilla.result()]
@@ -206,8 +207,29 @@ def process_conversation(i, dataset, args, assistant_collabllm, assistant_vanill
             neg_response = responses[np.argmax(reward_stds)]
             pos_response = responses[np.argmin(reward_stds)]
         else:
-            pos_response = responses[np.argmax(rewards)]
-            neg_response = responses[np.argmin(rewards)]
+            
+            def join_forward_chat(forward_chat):
+                return '\n'.join(f"{turn['role']}: {turn['content']}" for turn in forward_chat)
+
+            chosen_idx = np.argmax(rewards)
+            rejected_idx = np.argmin(rewards)
+
+            chosen_rs = reward_logs[chosen_idx]['rs']
+            rejected_rs = reward_logs[rejected_idx]['rs']
+
+            # Assuming you want to use the first forward_chat in each rs dict (like '0' or '1' key)
+            # or you can concatenate all if multiple keys exist; here we join all forward_chats
+            def concat_all_forward_chats(rs):
+                all_chats = []
+                for key, item in rs.items():
+                    all_chats.append(join_forward_chat(item['forward_chat']))
+                return '\n\n'.join(all_chats)
+
+            pos_response = concat_all_forward_chats(chosen_rs)
+            neg_response = concat_all_forward_chats(rejected_rs)
+
+            # pos_response = responses[np.argmax(rewards)]
+            # neg_response = responses[np.argmin(rewards)]
 
         chosen_eval = reward_logs[np.argmax(rewards)]
         rejected_eval = reward_logs[np.argmin(rewards)]
@@ -333,6 +355,10 @@ def main():
     # TODO CHANGE ASSISTANT VANILLA TO USE THE LLAMA???
     ######    ######    ######    ######    ######    ######    ######    ######
 
+    saved_data['chosen'] = []
+    saved_data['rejected'] = []
+
+
     for i in tqdm(idx_todo):
         i, convs, pos_responses, neg_responses, chosen_evals, rejected_evals = process_conversation(
             i, dataset, args, assistant_collabllm, assistant_vanilla
@@ -349,14 +375,33 @@ def main():
         saved_data['idx'].extend([i] * len(convs))
         saved_data['prompt'].extend(convs)
         # Dump the full multi-turn conversation JSON string as chosen and rejected
-        chosen_forward_chats = extract_single_forward_chat(chosen_evals)
-        rejected_forward_chats = extract_single_forward_chat(rejected_evals)
-        saved_data['chosen'].extend(chosen_forward_chats)
-        saved_data['rejected'].extend(rejected_forward_chats)
+
+        print(f"\n\n\n\n\nBEFORE len {len(saved_data['chosen'])} ; saved data chosen: {saved_data['chosen']}\n\n\n\n")
+        print(f"\nlen {len(saved_data['rejected'])} ; saved data rejected: {saved_data['rejected']}\n\n\n\n")
+
+        print(f"\nALL CHOSEN EVALS >>>  len: {len(chosen_evals)} ; actual chosen evals: {chosen_evals}\n\n\n\n")
+        print(f"\npos_responses >>>  len: {len(pos_responses)} ; actual pos_responses: {pos_responses}\n\n\n\n")
+
+        pp = pprint.PrettyPrinter(indent=2)
+        print(f"\nALL CHOSEN EVALS >>>  len: {len(chosen_evals)} ; actual chosen evals:")
+        pp.pprint(chosen_evals)
+        print("\n\n\n")
+
+        # chosen_forward_chats = extract_conversation_strings(chosen_evals)
+        # rejected_forward_chats = extract_conversation_strings(rejected_evals)
+        # saved_data['chosen'].append(chosen_forward_chats)
+        # saved_data['rejected'].append(rejected_forward_chats)
+
+        # print(f"\n\n\n\n\nAFTER len {len(saved_data['rejected'])} ; saved data rejected: {saved_data['rejected']}\n\n\n\n")
+        # print(f"\nlen {len(saved_data['chosen'])} ; saved data chosen: {saved_data['chosen']}\n\n\n\n")
         # saved_data['chosen'].extend([json.dumps(conv, ensure_ascii=False) for conv in convs])
         # saved_data['rejected'].extend([json.dumps(conv, ensure_ascii=False) for conv in neg_responses])
-        # saved_data['chosen'].extend(pos_responses)  # original way of doing it
-        # saved_data['rejected'].extend(neg_responses)
+        saved_data['chosen'].extend(pos_responses)  # original way of doing it
+        saved_data['rejected'].extend(neg_responses)
+
+        print(f"\n\n\n\n\nAFTER len {len(saved_data['rejected'])} ; saved data rejected: {saved_data['rejected']}\n\n\n\n")
+        print(f"\nlen {len(saved_data['chosen'])} ; saved data chosen: {saved_data['chosen']}\n\n\n\n")
+
         saved_data['chosen_eval'].extend(chosen_evals)
         saved_data['rejected_eval'].extend(rejected_evals)
         saved_data['metadata'].extend([{'user': args.user_model_name, 'assistant': args.assistant_model_name, 'vanilla':args.assistant_model_name_2}] * len(convs))
@@ -378,14 +423,35 @@ def main():
     dataset_dict_for_hf.push_to_hub(repo_id="aditijb/collabllm-20q-2v", private=True)
 
 
-def extract_single_forward_chat(eval_list):
-    for eval_obj in eval_list:
-        rs = eval_obj.get("rs", {})
-        for key in sorted(rs.keys()):
-            forward_chat = rs[key].get("forward_chat")
-            if forward_chat:
-                return "\n".join(f"{turn['role']}: {turn['content']}" for turn in forward_chat)
-    return ""
+
+def extract_conversation_strings(chosen_evals):
+    conversations = []
+    for eval_entry in chosen_evals:
+        rs = eval_entry.get('rs', {})
+        for key in rs:
+            forward_chat = rs[key].get('forward_chat', [])
+            # Join all turns as "role: content" lines
+            conv_str = '\n'.join(f"{turn['role']}: {turn['content']}" for turn in forward_chat)
+            conversations.append(conv_str)
+    return conversations
+
+# def extract_single_forward_chat(eval_list):
+#     for eval_obj in eval_list:
+#         rs = eval_obj.get("rs", {})
+#         for key in sorted(rs.keys()):
+#             forward_chat = rs[key].get("forward_chat")
+#             if forward_chat:
+#                 return "\n".join(f"{turn['role']}: {turn['content']}" for turn in forward_chat)
+    # return ""
+
+# def extract_forward_chats_for_turn(eval_list):
+#     all_chats = []
+#     for eval_item in eval_list:
+#         for key, result in eval_item.get('rs', {}).items():
+#             forward_chat = result.get('forward_chat', [])
+#             chat_str = "\n".join(f"{msg['role']}: {msg['content']}" for msg in forward_chat)
+#             all_chats.append(chat_str)
+#     return all_chats
 
 
 if __name__ == '__main__':

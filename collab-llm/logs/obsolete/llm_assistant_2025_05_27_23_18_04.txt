@@ -1,0 +1,8 @@
+
+
+[LLMAssistant] `current_problem`=I have no information about the hidden word yet, so I need to start from a broad perspective. | `thought`=Since I have no context or clues, the best starting point is to ask whether the hidden word represents something that is alive or not. This will help categorize the possibilities significantly.
+
+
+
+[LLMAssistant] `current_problem`=The user is thinking of a hidden object, and I have no prior information to narrow down the possibilities. | `thought`=To start narrowing down the options, I should determine whether the object is alive or not. This will help categorize the object into a broad classification early on.
+
