@@ -150,7 +150,8 @@ def load_dpo_dataset(dataset_name: str,
 
     single_turn_ds_name = re.search(r'collabllm-([a-zA-Z0-9_-]+)', dataset_name).group(1)
     # single_turn_ds_name = re.search(r'collabllm-(.*?)-dpo', dataset_name).group(1)
-    task = datasets_info[single_turn_ds_name]['task']
+    # task = datasets_info[single_turn_ds_name]['task']
+    task = "20q" # hardcoded by aditi may 28 2025
 
     if to_sft_dataset:
         single_turn_ds = load_single_turn_dataset(single_turn_ds_name, add_system_prompt=False)

@@ -57,21 +57,13 @@ class LLMAssistant(object):
         cnt = 0
         while True:
             cnt += 1
-            #  ASK SHIRLEY!
-            # https://huggingface.co/meta-llama/Llama-3.2-1B-Instruct
-            # self.llm_kwargs['model'] = "meta-llama/Llama-3.2-1B-Instruct" # aditi addition
-            # https://huggingface.co/Qwen/Qwen2.5-0.5B
-            # self.llm_kwargs['model'] = "Qwen/Qwen2.5-0.5B" # aditi addition
-            # self.llm_kwargs['model'] = "TinyLlama/TinyLlama-1.1B-Chat-v1.0" # aditi addition
-            # self.llm_kwargs['model'] = "tiiuae/falcon-7b-instruct" # aditi addition
-
             response = get_llm_output(prompt, **self.llm_kwargs)
 
             # TODO
             # print('\n\n\nDEBUG:ASSISTANT response type:', type(response))
             # print('\n\n\nDEBUG:ASSISTANT response content:', response)
             print(prompt)
-            breakpoint
+            # breakpoint
 
             #  TODO check response
             if isinstance(response, dict):

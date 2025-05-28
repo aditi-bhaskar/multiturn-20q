@@ -62,5 +62,3 @@ class LLMJudge(MultiturnMetric):
         return response
     
 
-
-# issue: line 47, idk why the response is leading to error "Format check failed."

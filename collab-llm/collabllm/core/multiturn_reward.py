@@ -70,11 +70,13 @@ def get_one_multiturn_reward(
     )
 
     forward_turns = chat[len(chat_history):]
-    # llm_judge = LLMJudge(task_name=task_name, **reward_generation_kwargs)
     llm_judge = LLMJudge(  # aditi edit
         task_name=task_name,
         **reward_generation_kwargs,
     )
+
+
+# TODO change how the llm judge processes rewards!
 
     if 'llm_judge' in metrics:
         llm_reward = llm_judge(single_turn_data=single_turn_data, chat_eval=forward_turns, chat_history=chat_history, 

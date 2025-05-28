@@ -26,9 +26,9 @@ MIN_GAP=0.1  # aditi : idk what this is so i made smth up
 N_EVAL_PER_DATASET=10  # reduced from previously 30
 
 
-ASSISTANT_MODEL_NAME=meta-llama/Llama-3.2-1B-Instruct  # vanilla model -- smaller model; should be able to download?
+ASSISTANT_MODEL_NAME=meta-llama/Llama-3.2-1B-Instruct  # vanilla model; small to use
 
-DATASET=aditijb/collabllm-20q  # hardcode the dataset we use for training
+DATASET=aditijb/collabllm-20q-2v  # hardcode the dataset we use for training
 
 
 # editables!!

@@ -9,7 +9,8 @@ OUTPUT_FILENAME = "combined_generated_conversations.json"
 OUTPUT_TRAIN = "train.json"
 OUTPUT_TEST = "test.json"
 
-HF_REPO_ID = "aditijb/collabllm-20q"
+# HF_REPO_ID = "aditijb/collabllm-20q"
+HF_REPO_ID = "aditijb/collabllm-20q-2v"
 
 
 def combine_jsons(log_dir):

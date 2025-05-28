@@ -35,7 +35,7 @@ Score:
  - Check if the assistant’s responses and guesses align logically with gathered info and progress the game correctly. Avoid premature or contradictory guesses. 
 
 Score:
-1 = Correct: Correctly guesses object by question 20.
+1 = Correct: The immediate response correctly guesses target object {answer}. Subsequent responses do not matter if this guess is accurate.
 0.9 = Helpful: Questions and answers effectively narrow possibilities.
 0 = Incorrect: Irrelevant or contradictory responses that derail the game.
 
