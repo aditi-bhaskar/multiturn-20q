@@ -4,8 +4,10 @@ from peft import PeftModel, PeftConfig, get_peft_model
 from transformers import AutoModelForCausalLM, AutoTokenizer, BitsAndBytesConfig
 
 import sys
-
-def load_model_and_tokenizer(model_name, max_new_tokens=2048, is_eval=True):
+def load_model_and_tokenizer(model_name, 
+                             max_new_tokens=2048, 
+                             is_eval=True,
+                             peft_config=None):
     is_macos = (torch.backends.mps.is_available() and torch.backends.mps.is_built()) or (
         not torch.cuda.is_available() and torch.backends.mps.is_available()
     )
@@ -14,13 +16,11 @@ def load_model_and_tokenizer(model_name, max_new_tokens=2048, is_eval=True):
     sys.modules["bitsandbytes"] = None
 
     use_bnb = False  # Force disable bnb for Mac
-    device_map={"": "cpu"}
-
-
+    device_map = {"": "cpu"}
     device = "cuda" if torch.cuda.is_available() else ("mps" if torch.backends.mps.is_available() else "cpu")
 
     try:
-        # Try loading as a PEFT adapter
+        # Try loading as a PEFT adapter directory
         config = PeftConfig.from_pretrained(model_name)
         base_model_name = config.base_model_name_or_path
 
@@ -33,21 +33,22 @@ def load_model_and_tokenizer(model_name, max_new_tokens=2048, is_eval=True):
         )
 
         model = PeftModel.from_pretrained(base_model, model_name, is_trainable=not is_eval)
-
         tokenizer = AutoTokenizer.from_pretrained(base_model_name, trust_remote_code=True)
 
     except Exception:
         print("\nin case 2:")
-
         model = AutoModelForCausalLM.from_pretrained(
             model_name,
             torch_dtype=torch.float16,
             device_map=device_map,
             trust_remote_code=True,
         )
-
         tokenizer = AutoTokenizer.from_pretrained(model_name, trust_remote_code=True)
 
+        # If peft_config is provided, wrap model
+        if peft_config is not None:
+            model = get_peft_model(model, peft_config)
+            print("Wrapped base model with PEFT config.")
 
     print("\nepilogue for model loading:")
 
@@ -56,4 +57,3 @@ def load_model_and_tokenizer(model_name, max_new_tokens=2048, is_eval=True):
     model.eval()
 
     return model, tokenizer
-

@@ -121,7 +121,8 @@ model, tokenizer = load_model_and_tokenizer(args.assistant_model_name,
                                             max_new_tokens=args.max_new_tokens, 
                                             peft_config=peft_config,
                                             is_eval=False, # aditi edit: from eval to is_eval
-                                            load_in_4bit_aditi=False)   # aditi edit: turn off the 4 bit quantization thing -- only works on linux
+                                            # load_in_4bit_aditi=False, # aditi edit: turn off the 4 bit quantization thing -- only works on linux
+                                            )   
 print('padding_side', tokenizer.padding_side)
 print('len(tokenizer)', len(tokenizer))
 print('pad_token', tokenizer.pad_token)
@@ -287,12 +288,4 @@ if args.push_to_hub and os.environ.get("LOCAL_RANK", "0") == "0":
 
 if USE_WANDB:
     wandb.finish()
-
-
-
-
-
-
-
-
 
