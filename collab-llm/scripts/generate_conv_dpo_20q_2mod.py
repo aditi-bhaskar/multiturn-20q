@@ -399,7 +399,7 @@ def main():
 
     dataset_converted = Dataset.from_dict(saved_data)
     dataset_dict_for_hf = DatasetDict({"train": dataset_converted})
-    dataset_dict_for_hf.push_to_hub(repo_id="aditijb/collabllm-20q-2v", private=True)
+    dataset_dict_for_hf.push_to_hub(repo_id="aditijb/collabllm-20q-tests", private=True)
 
 
 if __name__ == '__main__':

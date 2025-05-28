@@ -28,7 +28,8 @@ N_EVAL_PER_DATASET=10  # reduced from previously 30
 
 ASSISTANT_MODEL_NAME=meta-llama/Llama-3.2-1B-Instruct  # vanilla model; small to use
 
-DATASET=aditijb/collabllm-20q-2v  # hardcode the dataset we use for training
+# DATASET=aditijb/collabllm-20q-2v  # hardcode the dataset we use for training
+DATASET=aditijb/collabllm-20q-tests  # hardcode the dataset we use for training
 
 
 # editables!!

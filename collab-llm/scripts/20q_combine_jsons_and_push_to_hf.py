@@ -10,7 +10,9 @@ OUTPUT_TRAIN = "train.json"
 OUTPUT_TEST = "test.json"
 
 # HF_REPO_ID = "aditijb/collabllm-20q"
-HF_REPO_ID = "aditijb/collabllm-20q-2v"
+# HF_REPO_ID = "aditijb/collabllm-20q-2v"
+HF_REPO_ID = "aditijb/collabllm-20q-tests"
+
 
 
 def combine_jsons(log_dir):
