@@ -3,15 +3,15 @@
 # Usage: ./scripts/eval_multiturn.sh  <dataset> <mode>
 # Usage: ./scripts/eval_multiturn.sh bigcodebench dpo_offline
 # dpo_online dpo_offline
-if [ "$#" -ne 2 ]; then
-    echo "Usage: $0 <dataset> <mode>"
-    exit 1
-fi
+# if [ "$#" -ne 2 ]; then
+#     echo "Usage: $0 <dataset> <mode>"
+#     exit 1
+# fi
 
 # Random seed and port setup 
 RANDOM_SEED=0  # use $$ instead
 # PORT=$((56480 + RANDOM_SEED % 10))
-PORT=$((56481 + RANDOM_SEED % 10))
+PORT=$((56482 + RANDOM_SEED % 10))
 
 
 # rator.py:254:get_accelerator] Setting ds_accelerator to mps (auto detect)
@@ -32,9 +32,8 @@ N_EVAL=15
 
 ######################################
 
-# Fixed configuration for 20Q
-# DATASET="aditijb/collabllm-20q"
-DATASET="local20q"
+
+
 # MAX_NEW_TURNS=6
 # N_EVAL=180
 # MAX_TOKENS=2048
@@ -44,8 +43,6 @@ ADD_SYS_PROMPT_FLAG=""
 SPLIT="test"  # automatically uses train (dev) split instead of test split for the evals
 
 # fix user model to gpt-4o for eval
-USER_MODEL=gpt-4o-mini
-JUDGE_MODEL=gpt-4o-mini
 # ASSISTANT_MODEL_NAME=gpt-4o-mini  # vanilla model -- smaller model; should be able to download?
 
 
@@ -63,12 +60,9 @@ TEMPERATURE=0.5  # either 0.7 or 0.5, for plots for poster
 CUDA_VISIBLE_DEVICES=4 torchrun --master_port=$PORT \
     --nnodes=1 --nproc_per_node=1 \
     scripts/eval_multiturn_20q.py \
-    --dataset $DATASET \
     --output_dir $OUTPUT_DIR \
     --split $SPLIT \
-    --judge_model $JUDGE_MODEL \
     --assistant_model_name $ASSISTANT_MODEL_NAME \
-    --user_model_name $USER_MODEL \
     --prompt_method $PROMPT_METHOD \
     --temperature $TEMPERATURE \
     --max_new_turns $MAX_NEW_TURNS \
