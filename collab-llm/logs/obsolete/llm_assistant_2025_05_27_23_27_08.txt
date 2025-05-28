@@ -1,8 +1,0 @@
-
-
-[LLMAssistant] `current_problem`=The hidden word is currently unknown, and I need to determine its characteristics through yes/no questions. | `thought`=Since I have no context yet, I need to start with a broad question that can help classify the hidden word into a general category. This will help narrow down the possibilities significantly.
-
-
-
-[LLMAssistant] `current_problem`=The hidden word is not a living thing, so it could be an object, concept, or material. | `thought`=Since the word is not a living thing, I want to narrow it down to see if it is something that is commonly used or encountered. Asking if it is a man-made object can help clarify the nature of the word.
-

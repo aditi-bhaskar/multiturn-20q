@@ -1,0 +1,8 @@
+
+
+[LLMAssistant] `current_problem`=I need to determine the hidden word by asking yes/no questions. The object could be anything, and I'm starting from scratch without any hints or context. | `thought`=Since I have no prior information about the hidden word, I should start with a broad question to narrow down the category of the object. Asking if it's alive will help me distinguish between living and non-living things.
+
+
+
+[LLMAssistant] `current_problem`=I need to identify a hidden object the user has in mind, starting from scratch. | `thought`=To effectively narrow down the possibilities, I should first determine if the hidden object is a living thing or an inanimate object. This broad distinction will help guide subsequent questions.
+

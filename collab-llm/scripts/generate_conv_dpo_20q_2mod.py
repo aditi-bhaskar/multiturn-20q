@@ -207,6 +207,7 @@ def process_conversation(i, dataset, args, assistant_collabllm, assistant_vanill
             neg_response = responses[np.argmax(reward_stds)]
             pos_response = responses[np.argmin(reward_stds)]
         else:
+            # added code to copy the forward chat turns
             def join_forward_chat(forward_chat):
                 return '\n'.join(f"{turn['role']}: {turn['content']}" for turn in forward_chat)
 
@@ -224,18 +225,20 @@ def process_conversation(i, dataset, args, assistant_collabllm, assistant_vanill
                     all_chats.append(join_forward_chat(item['forward_chat']))
                 return '\n\n'.join(all_chats)
 
-            pos_response = "Proposed: " + responses[np.argmax(rewards)] + "\n" + concat_all_forward_chats(chosen_rs) 
-            neg_response = "Proposed: " + responses[np.argmin(rewards)] + "\n" + concat_all_forward_chats(rejected_rs)
-
-            # pos_response = responses[np.argmax(rewards)]  # old code
-            # neg_response = responses[np.argmin(rewards)]
+            # old code to continue conv generation
+            pos_response = responses[np.argmax(rewards)]  
+            neg_response = responses[np.argmin(rewards)]
 
         chosen_eval = reward_logs[np.argmax(rewards)]
         rejected_eval = reward_logs[np.argmin(rewards)]
 
         convs.append(copy.deepcopy(conv))
-        pos_responses.append(pos_response)
-        neg_responses.append(neg_response)
+        pos_responses.append( "Proposed: " + pos_response + "\n\n" + concat_all_forward_chats(chosen_rs) )
+        neg_responses.append( "Proposed: " + neg_response + "\n\n" + concat_all_forward_chats(rejected_rs) )
+
+        # pos_responses.append(pos_response)  # old format
+        # neg_responses.append(neg_response)  # old format
+
         chosen_evals.append(chosen_eval)
         rejected_evals.append(rejected_eval)
 
@@ -397,37 +400,6 @@ def main():
     dataset_converted = Dataset.from_dict(saved_data)
     dataset_dict_for_hf = DatasetDict({"train": dataset_converted})
     dataset_dict_for_hf.push_to_hub(repo_id="aditijb/collabllm-20q-2v", private=True)
-
-
-
-def extract_conversation_strings(chosen_evals):
-    conversations = []
-    for eval_entry in chosen_evals:
-        rs = eval_entry.get('rs', {})
-        for key in rs:
-            forward_chat = rs[key].get('forward_chat', [])
-            # Join all turns as "role: content" lines
-            conv_str = '\n'.join(f"{turn['role']}: {turn['content']}" for turn in forward_chat)
-            conversations.append(conv_str)
-    return conversations
-
-# def extract_single_forward_chat(eval_list):
-#     for eval_obj in eval_list:
-#         rs = eval_obj.get("rs", {})
-#         for key in sorted(rs.keys()):
-#             forward_chat = rs[key].get("forward_chat")
-#             if forward_chat:
-#                 return "\n".join(f"{turn['role']}: {turn['content']}" for turn in forward_chat)
-    # return ""
-
-# def extract_forward_chats_for_turn(eval_list):
-#     all_chats = []
-#     for eval_item in eval_list:
-#         for key, result in eval_item.get('rs', {}).items():
-#             forward_chat = result.get('forward_chat', [])
-#             chat_str = "\n".join(f"{msg['role']}: {msg['content']}" for msg in forward_chat)
-#             all_chats.append(chat_str)
-#     return all_chats
 
 
 if __name__ == '__main__':

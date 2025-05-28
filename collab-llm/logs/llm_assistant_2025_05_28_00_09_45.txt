@@ -1,0 +1,4 @@
+
+
+[LLMAssistant] `current_problem`=I have no information about the hidden word yet, so the possibilities are vast and could include anything from objects, animals, concepts, etc. | `thought`=To begin narrowing down the possibilities, it's helpful to determine if the hidden word refers to a living thing or an inanimate object. This distinction can significantly reduce the search space.
+
