@@ -5,18 +5,13 @@ from transformers import AutoModelForCausalLM, AutoTokenizer, BitsAndBytesConfig
 
 import sys
 
-# import peft.tuners.lora.bnb  # noqa: F401
-
 def load_model_and_tokenizer(model_name, max_new_tokens=2048, is_eval=True):
     is_macos = (torch.backends.mps.is_available() and torch.backends.mps.is_built()) or (
         not torch.cuda.is_available() and torch.backends.mps.is_available()
     )
-    # use_bnb = not is_macos
 
     print("\nDEBUG: IN LOAD MODEL + TOKENIZER\n\n")
     sys.modules["bitsandbytes"] = None
-    # peft.tuners.lora.bnb.dispatch_bnb_8bit = None
-
 
     use_bnb = False  # Force disable bnb for Mac
     device_map={"": "cpu"}
@@ -33,7 +28,6 @@ def load_model_and_tokenizer(model_name, max_new_tokens=2048, is_eval=True):
         base_model = AutoModelForCausalLM.from_pretrained(
             base_model_name,
             torch_dtype=torch.float16,
-            # device_map="auto",
             trust_remote_code=True,
             device_map=device_map,
         )

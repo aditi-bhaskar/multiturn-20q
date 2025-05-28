@@ -119,28 +119,11 @@ def main():
       single_turn_ds = load_single_turn_dataset(args.dataset, add_system_prompt=args.add_sys_prompt)[split_name]
       print(f"\n\n\n\nargs.dataset = {args.dataset}\n\n\n\n")
 
-      # single_turn_ds = load_hf_dataset(args.dataset, split_name, args.n_eval)
       eval_indices = list(range(len(single_turn_ds)))
       eval_indices = eval_indices[:args.n_eval]  # aditi edit: crop to only take so many indices!!
    else:
       print("NOT USING CORRECT 20Q DATASET!\n")
-      if args.split == 'dev':
-         # pass
-         return
-         # single_turn_ds, train_indices, eval_indices = split_train_dev_datasets(
-         #       args.dataset,
-         #       is_multiturn=False,
-         #       n_eval_per_dataset=args.n_eval,
-         #       add_system_prompt=args.add_sys_prompt,
-         #       return_indices=True,
-         #       seed=args.seed)
-      else:
-         # pass
-         return
-         # kwargs = {'train_ratio': 0.45} if args.dataset == 'bigcodebench' else {}
-         # single_turn_ds = load_single_turn_dataset(args.dataset, add_system_prompt=args.add_sys_prompt, **kwargs)[args.split]
-         # random.seed(args.seed)
-         # eval_indices = random.sample(range(len(single_turn_ds)), min(args.n_eval, len(single_turn_ds)))
+      return
 
    ######################## LOAD MODEL ########################
 
@@ -149,7 +132,6 @@ def main():
    # Removed device_map or load_in_4bit for simplicity since device is fixed to cpu
    model, tokenizer = load_model_and_tokenizer(args.assistant_model_name,
                                              max_new_tokens=args.max_new_tokens,
-                                             # device_map={"": device}
                                              )
 
    print("\n\n BEFORE MOVING MODEL TO DEVICE\n")
