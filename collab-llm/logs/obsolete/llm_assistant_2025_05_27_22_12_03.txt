@@ -1,0 +1,8 @@
+
+
+[LLMAssistant] `current_problem`=I am trying to guess a hidden word, but I have no previous context or clues about it yet. | `thought`=Since I have no prior information about the word, I should start with a broad question that can help categorize the word into a larger group. This will help narrow down the possibilities significantly.
+
+
+
+[LLMAssistant] `current_problem`=The hidden word is something that is not alive, which narrows down the possibilities significantly. It could be an object, a concept, or a material. | `thought`=Since the hidden word is not alive, it might be a tangible object. To narrow it down further, I should determine if it is something commonly found indoors or outdoors.
+

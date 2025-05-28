@@ -1,0 +1,8 @@
+
+
+[LLMAssistant] `current_problem`=I have no context or clues about the hidden word yet, so the possibilities are very broad and could encompass any object, concept, or idea. | `thought`=Since I have no information yet, I'll start by asking if the hidden word refers to something alive or not. This will help me categorize it into living or non-living things, significantly narrowing down the possibilities.
+
+
+
+[LLMAssistant] `current_problem`=I need to identify an object that the user is thinking of. The possibilities are vast since I haven't yet gathered any information about the object's characteristics. | `thought`=Starting with a broad question will help me determine whether the object is alive or inanimate, which can significantly narrow down the options.
+

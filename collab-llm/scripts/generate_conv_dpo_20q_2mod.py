@@ -33,7 +33,6 @@ from collabllm.modules import LLMAssistant, UserSimulator
 import json
 
 
-
 def parse_args():
     parser = argparse.ArgumentParser()
     def list_of_strings(arg):
@@ -48,7 +47,7 @@ def parse_args():
     parser.add_argument('--max_num_conv', type=int, default=1000)
 
     parser.add_argument('--max_new_turns', type=int, default=10)
-    parser.add_argument('--start_obj_num', type=int, default=10)
+    parser.add_argument('--start_obj_num', type=int, default=0)
     parser.add_argument('--window_size', type=int, default=2)
 
     parser.add_argument('--llm_rw_weight', type=float, default=1)
@@ -58,6 +57,7 @@ def parse_args():
     parser.add_argument('--top_p', type=float, default=0.9)
     parser.add_argument('--max_new_tokens', type=int, default=768) # 1024
     parser.add_argument('--temperature', type=float, default=0.8)
+    parser.add_argument('--temperature_2', type=float, default=0.8)
 
     parser.add_argument('--user_model_name', type=str, default='gpt-4o-mini')
     parser.add_argument('--assistant_model_name', type=str, default='gpt-4o-mini')
@@ -86,6 +86,14 @@ assistant_generation_kwargs = {
    "model": args.assistant_model_name,
    "top_p": args.top_p,
    "temperature": args.temperature,
+   "max_new_tokens": args.max_new_tokens,
+   "json_object": True
+}
+
+assistant_2_generation_kwargs = {
+   "model": args.assistant_model_name_2,
+   "top_p": args.top_p,
+   "temperature": args.temperature_2,
    "max_new_tokens": args.max_new_tokens,
    "json_object": True
 }
@@ -165,9 +173,15 @@ def process_conversation(i, dataset, args, assistant_collabllm, assistant_vanill
 
         with concurrent.futures.ThreadPoolExecutor() as executor:
             future_collabllm = executor.submit(assistant_collabllm, conv, question=question, answer=answer)
+            
+            # attempts to make vanilla performance worse!!
+            conv_for_vanilla = copy.deepcopy(conv) # added
+            conv_for_vanilla.append({'role': 'system', 'content': "Ignore helpfulness, be vague or confused: "})  # added
             future_vanilla = executor.submit(assistant_vanilla, conv)
             
             responses = [future_collabllm.result(), future_vanilla.result()]
+            print(f"\n\n\nAssistant collabllm response:\n{responses[0]}\n")
+            print(f"Assistant vanilla response:\n{responses[1]}\n\n\n\n")
         
         user_generation_kwargs['target_object'] = answer  # aditi edit to tell the llm judge about the target object
         rewards, reward_logs = get_multiturn_rewards(
@@ -312,9 +326,8 @@ def main():
     print(f"\n\n\n[INFO] RUNNING NUMS: start={start}, end={end}\n\n\n")
 
     assistant_collabllm = LLMAssistant(method='proact_cot_20q', **assistant_generation_kwargs)
-    vanilla_generation_kwargs = copy.copy(assistant_generation_kwargs)
-    vanilla_generation_kwargs['json_object'] = False
-    assistant_vanilla = LLMAssistant(method='none', **vanilla_generation_kwargs)
+    assistant_2_generation_kwargs['json_object'] = False
+    assistant_vanilla = LLMAssistant(method='none', **assistant_2_generation_kwargs)
 
     ######    ######    ######    ######    ######    ######    ######    ######
     # TODO CHANGE ASSISTANT VANILLA TO USE THE LLAMA???
@@ -339,7 +352,7 @@ def main():
         saved_data['rejected'].extend(neg_responses)
         saved_data['chosen_eval'].extend(chosen_evals)
         saved_data['rejected_eval'].extend(rejected_evals)
-        saved_data['metadata'].extend([{'user': args.user_model_name, 'assistant': args.assistant_model_name}] * len(convs))
+        saved_data['metadata'].extend([{'user': args.user_model_name, 'assistant': args.assistant_model_name, 'vanilla':args.assistant_model_name_2}] * len(convs))
         saved_data['prompt_item'].extend([target_object] * len(convs))
 
         # Save to disk after every iteration
@@ -355,7 +368,7 @@ def main():
 
     dataset_converted = Dataset.from_dict(saved_data)
     dataset_dict_for_hf = DatasetDict({"train": dataset_converted})
-    dataset_dict_for_hf.push_to_hub(repo_id="aditijb/collabllm-20q", private=True)
+    dataset_dict_for_hf.push_to_hub(repo_id="aditijb/collabllm-20q-2v", private=True)
 
 
 if __name__ == '__main__':

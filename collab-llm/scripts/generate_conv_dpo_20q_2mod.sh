@@ -10,6 +10,7 @@ export USE_GCR=false
 export DATASET=NONE                # Change this for different datasets (e.g., math-hard, humaneval)
 # export TEMP=0.5                      # Temperature for sampling (adjust for creativity)
 export TEMP=0.7                     # Temperature for sampling (adjust for creativity)
+export TEMP_2=0.3
 
 # ^ this is length of game
 export MAX_TOKENS=256               # Maximum tokens per generation -- aditi edit
@@ -19,21 +20,20 @@ export USER_MODEL=gpt-4o-mini        # Choose the user model (e.g., gpt-4o-mini,
 export N_EVAL=100                   # aditi edit for debugging
 
 
-
 # debug time:
-# export MAX_NUM_CONV=2           # number of objects/games
-# export MAX_NEW_TURNS=2          # Maximum number of new conversation turns per task
-# export MAX_NUM_WORKERS=1
+export MAX_NUM_CONV=1           # number of objects/games
+export MAX_NEW_TURNS=2          # Maximum number of new conversation turns per task
+export MAX_NUM_WORKERS=1
 
 # test time:
-export MAX_NUM_CONV=4           # number of objects/games
-export START_OBJ_NUM=296           # number of objects/games we start from (useful for running multiple times)
-export MAX_NEW_TURNS=20           # Maximum number of new conversation turns per task
-export MAX_NUM_WORKERS=4
+# export MAX_NUM_CONV=75           # number of objects/games
+export START_OBJ_NUM=0           # number of objects/games we start from (useful for running multiple times)
+# export MAX_NEW_TURNS=20           # Maximum number of new conversation turns per task. 20 because we're playing 20q
+# export MAX_NUM_WORKERS=4
 
 #  completed ranges: 0  -- temp = 0.7
-#  running range: NONE
-#  todo range: 0+
+#  running range: 0-74
+#  todo range: 75+
 
 export USER_MODEL=gpt-4o-mini
 export ASSISTANT_MODEL=gpt-4o-mini
@@ -54,6 +54,7 @@ CUDA_VISIBLE_DEVICES=0 python scripts/generate_conv_dpo_20q_2mod.py \
     --start_obj_num $START_OBJ_NUM \
     --window_size 2 \
     --temperature $TEMP \
+    --temperature_2 $TEMP_2 \
     --top_p 0.9 \
     --task_weight 1 \
     --llm_rw_weight $LLM_RW_WEIGHT \
