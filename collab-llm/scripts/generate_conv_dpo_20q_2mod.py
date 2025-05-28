@@ -176,8 +176,8 @@ def process_conversation(i, dataset, args, assistant_collabllm, assistant_vanill
             
             # attempts to make vanilla performance worse!!
             conv_for_vanilla = copy.deepcopy(conv) # added
-            conv_for_vanilla.append({'role': 'system', 'content': "Ignore helpfulness, be vague or confused: "})  # added
-            future_vanilla = executor.submit(assistant_vanilla, conv)
+            conv_for_vanilla.insert(0, {'role': 'system', 'content': "Ignore helpfulness, be vague or confused: "})
+            future_vanilla = executor.submit(assistant_vanilla, conv_for_vanilla)
             
             responses = [future_collabllm.result(), future_vanilla.result()]
             print(f"\n\n\nAssistant collabllm response:\n{responses[0]}\n")
@@ -348,8 +348,15 @@ def main():
         # Append new entries
         saved_data['idx'].extend([i] * len(convs))
         saved_data['prompt'].extend(convs)
-        saved_data['chosen'].extend(pos_responses)
-        saved_data['rejected'].extend(neg_responses)
+        # Dump the full multi-turn conversation JSON string as chosen and rejected
+        chosen_forward_chats = extract_forward_chats(chosen_evals)
+        rejected_forward_chats = extract_forward_chats(rejected_evals)
+        saved_data['chosen'].extend(chosen_forward_chats)
+        saved_data['rejected'].extend(rejected_forward_chats)
+        # saved_data['chosen'].extend([json.dumps(conv, ensure_ascii=False) for conv in convs])
+        # saved_data['rejected'].extend([json.dumps(conv, ensure_ascii=False) for conv in neg_responses])
+        # saved_data['chosen'].extend(pos_responses)
+        # saved_data['rejected'].extend(neg_responses)
         saved_data['chosen_eval'].extend(chosen_evals)
         saved_data['rejected_eval'].extend(rejected_evals)
         saved_data['metadata'].extend([{'user': args.user_model_name, 'assistant': args.assistant_model_name, 'vanilla':args.assistant_model_name_2}] * len(convs))
@@ -369,6 +376,17 @@ def main():
     dataset_converted = Dataset.from_dict(saved_data)
     dataset_dict_for_hf = DatasetDict({"train": dataset_converted})
     dataset_dict_for_hf.push_to_hub(repo_id="aditijb/collabllm-20q-2v", private=True)
+
+def extract_forward_chats(eval_list):
+    all_forward_chats = []
+    for eval_obj in eval_list:
+        rs = eval_obj.get("rs", {})
+        # For each subkey ("0", "1", "2", ...)
+        for key in sorted(rs.keys()):
+            forward_chat = rs[key].get("forward_chat")
+            if forward_chat:
+                all_forward_chats.append(forward_chat)
+    return all_forward_chats
 
 
 if __name__ == '__main__':
