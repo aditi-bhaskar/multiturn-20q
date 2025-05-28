@@ -1,81 +1,163 @@
 import os
 import torch
 from peft import PeftModel, PeftConfig, get_peft_model
-from trl import AutoModelForCausalLMWithValueHead
 from transformers import AutoModelForCausalLM, AutoTokenizer, BitsAndBytesConfig
-import torch
 
 
-def is_unsloth_model_auto(model_name):
-    return 'unsloth' in model_name
+def load_model_and_tokenizer(model_name, max_new_tokens=2048, is_eval=True):
+    is_macos = (torch.backends.mps.is_available() and torch.backends.mps.is_built()) or (
+        not torch.cuda.is_available() and torch.backends.mps.is_available()
+    )
 
-def is_base_model_auto(model_name):
-    return 'meta-llama' in model_name or 'mistralai' in model_name or 'unsloth' in model_name 
-# or 'aditijb' in model_name  # aditi edit so my model is treated as base model
+    use_bnb = not is_macos
+    device = "cuda" if torch.cuda.is_available() else ("mps" if torch.backends.mps.is_available() else "cpu")
 
+    try:
+        # Try loading as a PEFT adapter
+        config = PeftConfig.from_pretrained(model_name)
+        base_model_name = config.base_model_name_or_path
 
+        if use_bnb:
+            bnb_config = BitsAndBytesConfig(
+                load_in_4bit=True,
+                bnb_4bit_quant_type="nf4",
+                bnb_4bit_use_double_quant=False,
+                bnb_4bit_compute_dtype=torch.bfloat16,
+            )
+            base_model = AutoModelForCausalLM.from_pretrained(
+                base_model_name,
+                quantization_config=bnb_config,
+                torch_dtype=torch.float16,
+                # device_map="auto",
+                trust_remote_code=True,
+                device_map={"": "cpu"},
+            )
+        else:
+            base_model = AutoModelForCausalLM.from_pretrained(
+                base_model_name,
+                torch_dtype=torch.float16,
+                # device_map="auto",
+                trust_remote_code=True,
+                device_map={"": "cpu"},
+            )
 
-def load_model_and_tokenizer(model_name, max_new_tokens, 
-                             peft_config=None, model_class=AutoModelForCausalLM, 
-                             is_eval=True, device=None,
-                             load_in_4bit_aditi=False):
-    if device is None:
-        local_rank = os.getenv("LOCAL_RANK")
-        device = "cuda" + str(local_rank) if torch.cuda.is_available() else "cpu"
+        model = PeftModel.from_pretrained(base_model, model_name, is_trainable=not is_eval)
 
-    # Detect macOS environment and disable bitsandbytes
-    is_macos = (torch.backends.mps.is_available() and torch.backends.mps.is_built()) or (not torch.cuda.is_available() and torch.backends.mps.is_available())
-    bnb_config = None
-    load_in_4bit = False
-    load_in_8bit = False
+        tokenizer = AutoTokenizer.from_pretrained(base_model_name, trust_remote_code=True)
 
-    if not is_macos:
-        load_in_4bit = True
-        load_in_8bit = False # aditi edit may 27 2025
-        bnb_config = BitsAndBytesConfig(
-            load_in_4bit=True,
-            bnb_4bit_quant_type="nf4",
-            bnb_4bit_use_double_quant=False,
-            bnb_4bit_compute_dtype=torch.bfloat16,
-        )
-
-    #  only two cases matter to me
-    if is_base_model_auto(model_name):
-        model = model_class.from_pretrained(
-            model_name,
-            trust_remote_code=True,
-            use_cache=False,
-            quantization_config=bnb_config if not is_macos else None,
-            torch_dtype=torch.float16,
-            # load_in_4bit=load_in_4bit if not is_macos else False,
-            # load_in_8bit=load_in_8bit
-        )
-        if peft_config is not None:
-            model = get_peft_model(model, peft_config)
-        model = model.to(device)
+    except Exception:
+        # Fall back to base model
+        if use_bnb:
+            bnb_config = BitsAndBytesConfig(
+                load_in_4bit=True,
+                bnb_4bit_quant_type="nf4",
+                bnb_4bit_use_double_quant=False,
+                bnb_4bit_compute_dtype=torch.bfloat16,
+            )
+            model = AutoModelForCausalLM.from_pretrained(
+                model_name,
+                quantization_config=bnb_config,
+                torch_dtype=torch.float16,
+                device_map="auto",
+                trust_remote_code=True,
+            )
+        else:
+            model = AutoModelForCausalLM.from_pretrained(
+                model_name,
+                torch_dtype=torch.float16,
+                device_map="auto",
+                trust_remote_code=True,
+            )
 
         tokenizer = AutoTokenizer.from_pretrained(model_name, trust_remote_code=True)
 
-    else:
-        # For PEFT models: load base model without bnb, then load adapter
-        config = PeftConfig.from_pretrained(model_name)
-        base_model = model_class.from_pretrained(
-            config.base_model_name_or_path,
-            trust_remote_code=True,
-            torch_dtype=torch.float16,
-            load_in_4bit=False,  # no bnb for base model load
-            load_in_8bit=False,
-            device_map=None
-        )
-        model = PeftModel.from_pretrained(base_model, model_name, is_trainable=not is_eval)
-        model = model.to(device)
-        tokenizer = AutoTokenizer.from_pretrained(config.base_model_name_or_path)
-
-    # Set padding and pad token
-    tokenizer.padding_side = 'left' if is_eval else 'right'
     tokenizer.pad_token = tokenizer.eos_token
+    tokenizer.padding_side = "left" if is_eval else "right"
+    model.eval()
 
-    return model.eval(), tokenizer
+    return model, tokenizer
+
+
+
+
+# import os
+# import torch
+# from peft import PeftModel, PeftConfig, get_peft_model
+# from trl import AutoModelForCausalLMWithValueHead
+# from transformers import AutoModelForCausalLM, AutoTokenizer, BitsAndBytesConfig
+# import torch
+
+
+# def is_unsloth_model_auto(model_name):
+#     return 'unsloth' in model_name
+
+# def is_base_model_auto(model_name):
+#     return 'meta-llama' in model_name or 'mistralai' in model_name or 'unsloth' in model_name 
+# # or 'aditijb' in model_name  # aditi edit so my model is treated as base model
+
+
+
+# def load_model_and_tokenizer(model_name, max_new_tokens, 
+#                              peft_config=None, model_class=AutoModelForCausalLM, 
+#                              is_eval=True, device=None,
+#                              load_in_4bit_aditi=False):
+#     if device is None:
+#         local_rank = os.getenv("LOCAL_RANK")
+#         device = "cuda" + str(local_rank) if torch.cuda.is_available() else "cpu"
+
+#     # Detect macOS environment and disable bitsandbytes
+#     is_macos = (torch.backends.mps.is_available() and torch.backends.mps.is_built()) or (not torch.cuda.is_available() and torch.backends.mps.is_available())
+#     bnb_config = None
+#     load_in_4bit = False
+#     load_in_8bit = False
+
+#     if not is_macos:
+#         load_in_4bit = True
+#         load_in_8bit = False # aditi edit may 27 2025
+#         bnb_config = BitsAndBytesConfig(
+#             load_in_4bit=True,
+#             bnb_4bit_quant_type="nf4",
+#             bnb_4bit_use_double_quant=False,
+#             bnb_4bit_compute_dtype=torch.bfloat16,
+#         )
+
+#     #  only two cases matter to me
+#     if is_base_model_auto(model_name):
+#         model = model_class.from_pretrained(
+#             model_name,
+#             trust_remote_code=True,
+#             use_cache=False,
+#             quantization_config=bnb_config if not is_macos else None,
+#             torch_dtype=torch.float16,
+#             # load_in_4bit=load_in_4bit if not is_macos else False,
+#             # load_in_8bit=load_in_8bit
+#         )
+#         if peft_config is not None:
+#             model = get_peft_model(model, peft_config)
+#         model = model.to(device)
+
+#         tokenizer = AutoTokenizer.from_pretrained(model_name, trust_remote_code=True)
+
+#     else:
+#         # For PEFT models: load base model without bnb, then load adapter
+#         config = PeftConfig.from_pretrained(model_name)
+#         base_model = model_class.from_pretrained(
+#             config.base_model_name_or_path,
+#             trust_remote_code=True,
+#             torch_dtype=torch.float16,
+#             load_in_4bit=False,  # no bnb for base model load
+#             load_in_8bit=False,
+#             device_map=None
+#         )
+#         model = PeftModel.from_pretrained(base_model, model_name, is_trainable=not is_eval)
+#         model = model.to(device)
+#         tokenizer = AutoTokenizer.from_pretrained(config.base_model_name_or_path)
+
+#     # Set padding and pad token
+#     tokenizer.padding_side = 'left' if is_eval else 'right'
+#     tokenizer.pad_token = tokenizer.eos_token
+
+#     return model.eval(), tokenizer
 
 
 

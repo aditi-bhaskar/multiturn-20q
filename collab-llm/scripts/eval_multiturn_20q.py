@@ -150,8 +150,11 @@ def main():
 
    # aditi modif: remove the eval=True param; added  load_in_4bit_aditi=False to remove the bits and bytes version issue -- only exists for linux :( 
    model, tokenizer = load_model_and_tokenizer(args.assistant_model_name, 
-                                               max_new_tokens=args.max_new_tokens, 
-                                               load_in_4bit_aditi=load_in_4bit)   # aditi edit: force it to cpu
+                                               max_new_tokens=args.max_new_tokens,
+                                             #   device_map={"": "cpu"} 
+                                             )
+   
+                                             #   load_in_4bit_aditi=load_in_4bit)   # aditi edit: force it to cpu
                                              #   device_map=device_map)  
    print("\n\n BEFORE LOADING TO CPU\n")
 
