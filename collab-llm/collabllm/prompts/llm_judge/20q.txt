@@ -25,7 +25,6 @@ Notes:
 
 1. Interactivity:
  - Assess how well the assistant engages by asking clear, relevant yes/no questions that narrow the search space and adapt to answers. Early broad questions like “Is it alive?” are highly valuable. Avoid vague or repeated questions.
-
 Score:
 3 = Highly interactive: Effective, adaptive, focused questions (e.g., “Is it alive?” early).
 2 = Moderately interactive: Some relevant but less efficient questions (e.g., “Can it fly?”).
@@ -33,21 +32,23 @@ Score:
 
 2. Accuracy:
  - Check if the assistant’s responses and guesses align logically with gathered info and progress the game correctly. Avoid premature or contradictory guesses. 
-
+ - A "guess" is any assistant utterance that clearly proposes a specific object as the user's target (e.g., "Is it a train?" or "I think it's a train.").
 Score:
 1 = Correct: The immediate response correctly guesses target object {answer}. Subsequent responses do not matter if this guess is accurate.
 0.9 = Helpful: Questions and answers effectively narrow possibilities.
 0 = Incorrect: Irrelevant or contradictory responses that derail the game.
 
-3. Information Gain:
+3. Information Gain (Strategy):
  - Evaluate how well each question reduces uncertainty, ideally splitting the remaining search space roughly in half.
-
-Score:
-1 = Awesome: Question halves or significantly reduces search space (e.g., “Is it alive?” early).
-0 = Terrible: Question does not reduce uncertainty (e.g., repeating “Is it alive?” after confirming object is a bird).
+ -  Questions should reduce the search space regardless of the user's answer (e.g., both 'yes' and 'no' to 'Is it alive?' meaningfully reduce uncertainty).
+ Score:
+1 = Awesome: The questions half or significantly reduce search space (e.g., “Is it alive?” early).
+0.5 = Mediocre: Question reduces search space but not immensely.
+0 = Terrible: Scope too wide: Question does not reduce uncertainty (e.g., repeating “Is it alive?” after confirming object is a bird).
+0 = Terrible: Scope too narrow: Question does not effectively reduce uncertainty (e.g., Asking, "Is it a penguin?" after confirming object is alive).
 
 Summary:
-Focus on questions that efficiently halve the search space, adapt dynamically to answers, avoid redundancy, and lead to a guess by question 20. 
+Focus on questions that efficiently halve the search space, adapt dynamically to answers, avoid redundancy, and lead to a guess by question 20.
 
 
 Output format:
@@ -58,11 +59,10 @@ You should output a JSON in the following format:
   "information_gain": {{"thought": "<How well does the question narrow search space of the final answer, regardless of what the user's yes/no response is?>", "score": <score>}}
 }}
 
-Make sure each of the following top-level keys exists in your JSON response: "interactivity", "accuracy", and "information_gain", and that each one has a "thought" string and a numeric "score" float/int field. Do not include extra quotation marks around numeric values. Return raw numbers, not strings.
-
+Make sure each of the following top-level keys exists in your JSON response: "interactivity", "accuracy", and "information_gain", and that each one has a "thought" string and a numeric "score" float/int field. Do not include extra quotation marks around numeric values. Return raw numbers, not strings. (eg. 1, not "1")
 
 Important Notes:
-- The "Historical Conversation" is provided only for reference to help you understand the context of the follow-up conversation. You should focus your evaluation solely on the "Follow-up Conversation" provided above.
+- The "Historical Conversation" is provided only for reference to help you understand the context of the follow-up conversation. You should focus your evaluation solely on the "Follow-up Conversation" provided above. The "Follow-up Conversation" may only include a partial span of the full conversation (e.g., 2–4 turns). Evaluate only the visible portion.
 - The "Historical Conversation" is optional and could be empty, which would indicate that the conversation starts from the beginning.
 - These dimensions should be considered independently. Each dimension should be assessed based on its own criteria and context within the follow-up conversation. For example, avoid letting accuracy interfere with the evaluation of interactivity.
 - To compute accuracy, you should first extract the potential answer (if any) given in the follow-up conversation. Then, recall the ground truth answer provided above. Finally, give your evaluation from comparing these two answers.

@@ -80,13 +80,9 @@ def combine_jsons_split(log_dir, train_ratio=0.7):
     # print(f"train size: {len(train_data)}, test size: {len(test_data)}")
     # print(f"sample train: {train_data[0]}")
 
-
-
 #  Todo: maybe preserve topics/run numbers in the train vs test ??
 
     return train_path, test_path
-
-
 
 
 def sanitize_example(example):
@@ -114,24 +110,12 @@ def push_split_to_hf(train_path, test_path, repo_id):
     })
     dataset.push_to_hub(repo_id=repo_id, private=True)
 
-# def push_split_to_hf(train_path, test_path, repo_id):
-#     with open(train_path) as f:
-#         train_data = json.load(f)
-#     with open(test_path) as f:
-#         test_data = json.load(f)
-#     dataset = DatasetDict({
-#         "train": Dataset.from_list(train_data),
-#         "test": Dataset.from_list(test_data)
-#     })
-#     dataset.push_to_hub(repo_id=repo_id, private=True)
-
 def main():
     print("\nrunning: 20q_combine_jsons_and_push_to_hf\n\n")
 
     #  for a single dataset push
     # output_path = combine_jsons(LOG_DIR)
     # push_to_hf(output_path, HF_REPO_ID)
-
 
     #  for multiple datasets push
     output_path = combine_jsons_split(LOG_DIR)
