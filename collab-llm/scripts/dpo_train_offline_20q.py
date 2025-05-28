@@ -67,7 +67,7 @@ print("Skipping distributed init on Mac") # aditi edit!
 print("check 1\n")
 
 ######################## OUTPUT PATH ########################
-date_str = datetime.datetime.now().strftime("%Y-%m-%d-%H-%M")
+date_str = datetime.datetime.now().strftime("%Y-%m-%d-%H-%M-%S")
 dataset_str = '-'.join([d.split('/')[-1] for d in args.datasets])
 model_name = args.assistant_model_name.split("/")[-1]
 if model_name.startswith('checkpoint'):
@@ -287,3 +287,12 @@ if args.push_to_hub and os.environ.get("LOCAL_RANK", "0") == "0":
 
 if USE_WANDB:
     wandb.finish()
+
+
+
+
+
+
+
+
+

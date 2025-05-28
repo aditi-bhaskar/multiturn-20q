@@ -83,14 +83,12 @@ def main():
 
    ######################## CONFIG PATH ########################
    dataset_str = args.dataset.split('/')[-1]
-   date_str = datetime.datetime.now().strftime("%Y-%m-%d-%H-%M")
+   date_str = datetime.datetime.now().strftime("%Y-%m-%d-%H-%M-%S")
    is_base_model = is_base_model_auto(args.assistant_model_name)
+
    model_name = args.assistant_model_name.split("/")[-1]
-   if model_name.startswith('checkpoint'):
-      model_name = args.assistant_model_name.split("/")[-2] + '_' + model_name
-   model_name = model_name + f'_prompt={args.prompt_method}' if is_base_model else model_name
-   model_name = model_name + f'_temp={args.temperature}'
-   model_name = model_name + f'_{date_str}'
+   model_name += f'_temp={args.temperature}'
+   model_name += f'_{date_str}'
 
    if not is_base_model and not args.add_sys_prompt:
       print('WARNING !!!!!!! The assistant model may be a finetuned model and add_sys_prompt is False.\n\n\n')

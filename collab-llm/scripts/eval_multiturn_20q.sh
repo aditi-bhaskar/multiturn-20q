@@ -9,9 +9,9 @@
 # fi
 
 # Random seed and port setup 
-RANDOM_SEED=0  # use $$ instead
+RANDOM_SEED=$$  # use $$ instead
 # PORT=$((56480 + RANDOM_SEED % 10))
-PORT=$((56482 + RANDOM_SEED % 10))
+PORT=$((56480 + RANDOM_SEED % 10))
 
 
 # rator.py:254:get_accelerator] Setting ds_accelerator to mps (auto detect)
@@ -32,8 +32,6 @@ N_EVAL=15
 
 ######################################
 
-
-
 # MAX_NEW_TURNS=6
 # N_EVAL=180
 # MAX_TOKENS=2048
@@ -42,17 +40,12 @@ OUTPUT_DIR="./outputs/eval/20q"
 ADD_SYS_PROMPT_FLAG=""
 SPLIT="test"  # automatically uses train (dev) split instead of test split for the evals
 
-# fix user model to gpt-4o for eval
-# ASSISTANT_MODEL_NAME=gpt-4o-mini  # vanilla model -- smaller model; should be able to download?
-
-
 # NOTE!! change which version of the model we evaluate
-ASSISTANT_MODEL_NAME=meta-llama/Llama-3.2-1B-Instruct  # vanilla model -- smaller model; should be able to download?
-# ASSISTANT_MODEL_NAME=aditijb/Llama-3.2-1B-Instruct-20q  # dpo finetuned for 1 epoch
+# ASSISTANT_MODEL_NAME=meta-llama/Llama-3.2-1B-Instruct  # vanilla model -- smaller model; should be able to download?
+ASSISTANT_MODEL_NAME=aditijb/Llama-3.2-1B-Instruct-20q  # dpo finetuned for 1 epoch
 
-# /name/project/collabllm/outputs/Meta-Llama-3-8B-Instruct_step-1500  #  trained version, after 1500 training steps
-
-TEMPERATURE=0.5  # either 0.7 or 0.5, for plots for poster
+# TEMPERATURE=0.5  # either 0.7 or 0.5, for plots for poster
+TEMPERATURE=0.7  # either 0.7 or 0.5, for plots for poster
 
 # alternate experiment: try with higher temp?
 
