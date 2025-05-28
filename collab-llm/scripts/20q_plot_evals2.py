@@ -1,17 +1,15 @@
 # note: plots are not automatically saved
 # plots the outcomes of the base llama 3.2 1b instruct model at playing 20q
 
-# temp 0.6 base model run:
-# json_path = "/Users/aditi/Documents/multiturn-20q/collab-llm/outputs/eval/20q/local20q/test/LLAMA_BASE_EVALUATED_Llama-3.2-1B-Instruct_prompt=none_2025-05-22-19-27/log.json"
-
-#  for milestone:
-# json_path = "/Users/aditi/Documents/multiturn-20q/collab-llm/outputs/eval/20q/local20q/test/MILESTONE/LLAMA_BASE_EVALUATED_temp0.5_Llama-3.2-1B-Instruct_prompt=none_2025-05-23-08-01/log.json"
-# json_path = "/Users/aditi/Documents/multiturn-20q/collab-llm/outputs/eval/20q/local20q/test/MILESTONE/LLAMA_BASE_EVALUATED_temp0.7_Llama-3.2-1B-Instruct_prompt=none_2025-05-23-08-00/log.json"
-
-
+########################################################
 # just copy the file path from the folder of interest
-# folder_path = "/Users/aditi/Documents/multiturn-20q/collab-llm/outputs/eval/20q/local20q/test/Llama-3.2-1B-Instruct_prompt=none_temp=0.5_2025-05-25-22-26"
-folder_path = "/Users/aditi/Documents/multiturn-20q/collab-llm/outputs/eval/20q/local20q/test/Llama-3.2-1B-Instruct_prompt=none_temp=0.7_2025-05-25-23-21"
+########################################################
+### for base model:
+# folder_path = "/Users/aditi/Documents/multiturn-20q/collab-llm/outputs/eval/20q/local20q/test/PAPER/Llama-3.2-1B-Instruct_prompt=none_temp=0.5_2025-05-25-22-26"
+# folder_path = "/Users/aditi/Documents/multiturn-20q/collab-llm/outputs/eval/20q/local20q/test/PAPER/Llama-3.2-1B-Instruct_prompt=none_temp=0.7_2025-05-25-23-21"
+### for 1 epoch model:
+# folder_path = "/Users/aditi/Documents/multiturn-20q/collab-llm/outputs/eval/20q/local20q/test/PAPER/Llama-3.2-1B-Instruct-20q_temp=0.5_2025-05-27-19-08"
+folder_path = "/Users/aditi/Documents/multiturn-20q/collab-llm/outputs/eval/20q/local20q/test/PAPER/Llama-3.2-1B-Instruct-20q_temp=0.7_2025-05-27-19-10"
 
 json_path = folder_path + "/log.json"
 
