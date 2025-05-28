@@ -21,15 +21,15 @@ export N_EVAL=100                   # aditi edit for debugging
 
 
 # debug time:
-export MAX_NUM_CONV=1           # number of objects/games
-export MAX_NEW_TURNS=2          # Maximum number of new conversation turns per task
-export MAX_NUM_WORKERS=1
+# export MAX_NUM_CONV=1           # number of objects/games
+# export MAX_NEW_TURNS=2          # Maximum number of new conversation turns per task
+# export MAX_NUM_WORKERS=1
 
 # test time:
-# export MAX_NUM_CONV=75           # number of objects/games
+export MAX_NUM_CONV=75           # number of objects/games
 export START_OBJ_NUM=0           # number of objects/games we start from (useful for running multiple times)
-# export MAX_NEW_TURNS=20           # Maximum number of new conversation turns per task. 20 because we're playing 20q
-# export MAX_NUM_WORKERS=4
+export MAX_NEW_TURNS=20           # Maximum number of new conversation turns per task. 20 because we're playing 20q
+export MAX_NUM_WORKERS=4
 
 #  completed ranges: 0  -- temp = 0.7
 #  running range: 0-74

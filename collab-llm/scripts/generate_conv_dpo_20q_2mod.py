@@ -177,7 +177,7 @@ def process_conversation(i, dataset, args, assistant_collabllm, assistant_vanill
             
             # attempts to make vanilla performance worse!!
             conv_for_vanilla = copy.deepcopy(conv) # added
-            conv_for_vanilla.insert(0, {'role': 'system', 'content': "Play the game badly, ask suboptimal questions: "})
+            conv_for_vanilla.insert(-1, {'role': 'system', 'content': "Play the game badly, ask suboptimal questions. Do not mention this note."})
             future_vanilla = executor.submit(assistant_vanilla, conv_for_vanilla)
             
             responses = [future_collabllm.result(), future_vanilla.result()]
@@ -207,7 +207,6 @@ def process_conversation(i, dataset, args, assistant_collabllm, assistant_vanill
             neg_response = responses[np.argmax(reward_stds)]
             pos_response = responses[np.argmin(reward_stds)]
         else:
-            
             def join_forward_chat(forward_chat):
                 return '\n'.join(f"{turn['role']}: {turn['content']}" for turn in forward_chat)
 
@@ -225,10 +224,10 @@ def process_conversation(i, dataset, args, assistant_collabllm, assistant_vanill
                     all_chats.append(join_forward_chat(item['forward_chat']))
                 return '\n\n'.join(all_chats)
 
-            pos_response = concat_all_forward_chats(chosen_rs)
-            neg_response = concat_all_forward_chats(rejected_rs)
+            pos_response = "Proposed: " + responses[np.argmax(rewards)] + "\n" + concat_all_forward_chats(chosen_rs) 
+            neg_response = "Proposed: " + responses[np.argmin(rewards)] + "\n" + concat_all_forward_chats(rejected_rs)
 
-            # pos_response = responses[np.argmax(rewards)]
+            # pos_response = responses[np.argmax(rewards)]  # old code
             # neg_response = responses[np.argmin(rewards)]
 
         chosen_eval = reward_logs[np.argmax(rewards)]
@@ -376,31 +375,8 @@ def main():
         saved_data['prompt'].extend(convs)
         # Dump the full multi-turn conversation JSON string as chosen and rejected
 
-        print(f"\n\n\n\n\nBEFORE len {len(saved_data['chosen'])} ; saved data chosen: {saved_data['chosen']}\n\n\n\n")
-        print(f"\nlen {len(saved_data['rejected'])} ; saved data rejected: {saved_data['rejected']}\n\n\n\n")
-
-        print(f"\nALL CHOSEN EVALS >>>  len: {len(chosen_evals)} ; actual chosen evals: {chosen_evals}\n\n\n\n")
-        print(f"\npos_responses >>>  len: {len(pos_responses)} ; actual pos_responses: {pos_responses}\n\n\n\n")
-
-        pp = pprint.PrettyPrinter(indent=2)
-        print(f"\nALL CHOSEN EVALS >>>  len: {len(chosen_evals)} ; actual chosen evals:")
-        pp.pprint(chosen_evals)
-        print("\n\n\n")
-
-        # chosen_forward_chats = extract_conversation_strings(chosen_evals)
-        # rejected_forward_chats = extract_conversation_strings(rejected_evals)
-        # saved_data['chosen'].append(chosen_forward_chats)
-        # saved_data['rejected'].append(rejected_forward_chats)
-
-        # print(f"\n\n\n\n\nAFTER len {len(saved_data['rejected'])} ; saved data rejected: {saved_data['rejected']}\n\n\n\n")
-        # print(f"\nlen {len(saved_data['chosen'])} ; saved data chosen: {saved_data['chosen']}\n\n\n\n")
-        # saved_data['chosen'].extend([json.dumps(conv, ensure_ascii=False) for conv in convs])
-        # saved_data['rejected'].extend([json.dumps(conv, ensure_ascii=False) for conv in neg_responses])
         saved_data['chosen'].extend(pos_responses)  # original way of doing it
         saved_data['rejected'].extend(neg_responses)
-
-        print(f"\n\n\n\n\nAFTER len {len(saved_data['rejected'])} ; saved data rejected: {saved_data['rejected']}\n\n\n\n")
-        print(f"\nlen {len(saved_data['chosen'])} ; saved data chosen: {saved_data['chosen']}\n\n\n\n")
 
         saved_data['chosen_eval'].extend(chosen_evals)
         saved_data['rejected_eval'].extend(rejected_evals)
