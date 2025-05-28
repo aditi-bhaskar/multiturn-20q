@@ -10,8 +10,8 @@ fi
 
 # Random seed and port setup 
 RANDOM_SEED=0  # use $$ instead
-PORT=$((56480 + RANDOM_SEED % 10))
-# PORT=$((56481 + RANDOM_SEED % 10))
+# PORT=$((56480 + RANDOM_SEED % 10))
+PORT=$((56481 + RANDOM_SEED % 10))
 
 
 # rator.py:254:get_accelerator] Setting ds_accelerator to mps (auto detect)
@@ -50,8 +50,8 @@ JUDGE_MODEL=gpt-4o-mini
 
 
 # NOTE!! change which version of the model we evaluate
-# ASSISTANT_MODEL_NAME=meta-llama/Llama-3.2-1B-Instruct  # vanilla model -- smaller model; should be able to download?
-ASSISTANT_MODEL_NAME=aditijb/Llama-3.2-1B-Instruct-20q  # dpo finetuned for 1 epoch
+ASSISTANT_MODEL_NAME=meta-llama/Llama-3.2-1B-Instruct  # vanilla model -- smaller model; should be able to download?
+# ASSISTANT_MODEL_NAME=aditijb/Llama-3.2-1B-Instruct-20q  # dpo finetuned for 1 epoch
 
 # /name/project/collabllm/outputs/Meta-Llama-3-8B-Instruct_step-1500  #  trained version, after 1500 training steps
 

@@ -6,7 +6,7 @@
     "output_dir": "./outputs/eval/20q",
     "prompt_method": "none",
     "user_model_name": "gpt-4o-mini",
-    "assistant_model_name": "aditijb/Llama-3.2-1B-Instruct-20q",
+    "assistant_model_name": "meta-llama/Llama-3.2-1B-Instruct",
     "judge_model": "gpt-4o-mini",
     "top_p": 0.9,
     "temperature": 0.5,
