@@ -3,7 +3,8 @@ import glob
 import json
 from datasets import Dataset, DatasetDict
 
-LOG_DIR = "logs/saved_runs"
+# LOG_DIR = "logs/saved_runs_20q_dataset"
+LOG_DIR = "logs/saved_runs_20q_2v_dataset"
 OUTPUT_FILENAME = "combined_generated_conversations.json"
 OUTPUT_TRAIN = "train.json"
 OUTPUT_TEST = "test.json"
