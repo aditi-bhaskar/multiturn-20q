@@ -349,13 +349,13 @@ def main():
         saved_data['idx'].extend([i] * len(convs))
         saved_data['prompt'].extend(convs)
         # Dump the full multi-turn conversation JSON string as chosen and rejected
-        chosen_forward_chats = extract_forward_chats(chosen_evals)
-        rejected_forward_chats = extract_forward_chats(rejected_evals)
+        chosen_forward_chats = extract_single_forward_chat(chosen_evals)
+        rejected_forward_chats = extract_single_forward_chat(rejected_evals)
         saved_data['chosen'].extend(chosen_forward_chats)
         saved_data['rejected'].extend(rejected_forward_chats)
         # saved_data['chosen'].extend([json.dumps(conv, ensure_ascii=False) for conv in convs])
         # saved_data['rejected'].extend([json.dumps(conv, ensure_ascii=False) for conv in neg_responses])
-        # saved_data['chosen'].extend(pos_responses)
+        # saved_data['chosen'].extend(pos_responses)  # original way of doing it
         # saved_data['rejected'].extend(neg_responses)
         saved_data['chosen_eval'].extend(chosen_evals)
         saved_data['rejected_eval'].extend(rejected_evals)
@@ -377,16 +377,15 @@ def main():
     dataset_dict_for_hf = DatasetDict({"train": dataset_converted})
     dataset_dict_for_hf.push_to_hub(repo_id="aditijb/collabllm-20q-2v", private=True)
 
-def extract_forward_chats(eval_list):
-    all_forward_chats = []
+
+def extract_single_forward_chat(eval_list):
     for eval_obj in eval_list:
         rs = eval_obj.get("rs", {})
-        # For each subkey ("0", "1", "2", ...)
         for key in sorted(rs.keys()):
             forward_chat = rs[key].get("forward_chat")
             if forward_chat:
-                all_forward_chats.append(forward_chat)
-    return all_forward_chats
+                return "\n".join(f"{turn['role']}: {turn['content']}" for turn in forward_chat)
+    return ""
 
 
 if __name__ == '__main__':
