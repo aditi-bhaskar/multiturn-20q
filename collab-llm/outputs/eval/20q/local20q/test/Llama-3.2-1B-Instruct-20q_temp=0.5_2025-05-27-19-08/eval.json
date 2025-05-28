@@ -4,16 +4,16 @@
             "score": 0.0
         },
         "accuracy": {
-            "score": 0.16666666666666666
+            "score": 0.07142857142857142
         },
         "information_gain": {
-            "score": -4.2
+            "score": -3.957142857142857
         }
     },
     "token_amount": {
-        "num_tokens_read(k)": 1.5376666666666667,
-        "num_tokens_typed(k)": 0.11299999999999999,
+        "num_tokens_read(k)": 1.691,
+        "num_tokens_typed(k)": 0.12507142857142856,
         "num_turns": 20.0
     },
-    "n_eval": 6
+    "n_eval": 14
 }
