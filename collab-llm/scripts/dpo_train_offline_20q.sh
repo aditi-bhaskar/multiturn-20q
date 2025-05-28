@@ -23,7 +23,7 @@ OUTPUT_DIR="./train/20q"
 MAX_TOKENS=256
 MIN_GAP=0.1  # aditi : idk what this is so i made smth up
 
-N_EVAL_PER_DATASET=30
+N_EVAL_PER_DATASET=10  # reduced from previously 30
 
 
 ASSISTANT_MODEL_NAME=meta-llama/Llama-3.2-1B-Instruct  # vanilla model -- smaller model; should be able to download?
@@ -34,6 +34,9 @@ DATASET=aditijb/collabllm-20q  # hardcode the dataset we use for training
 # editables!!
 NUM_TRAIN_EPOCHS=8  # 1
 BATCHSIZE=4  # originally 2, but larger to make it run faster
+
+# first attempt (may 25): num epochs 1, batchsize 4
+# second attempt (may 27): num epochs 8, batchsize 4
 
 python \
     scripts/dpo_train_offline_20q.py \
@@ -71,6 +74,5 @@ python \
 
 
 
-# first attempt (may 25th): num epochs 1, batchsize 4
-# second attempt: num epochs 8, batchsize 4
+
 
