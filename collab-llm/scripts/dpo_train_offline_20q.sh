@@ -37,7 +37,7 @@ NUM_TRAIN_EPOCHS=8  # 1
 BATCHSIZE=4  # originally 2, but larger to make it run faster
 
 # first attempt (may 25): num epochs 1, batchsize 4
-# second attempt (may 27): num epochs 8, batchsize 4
+# second attempt (may 27) --> may 28: num epochs 8, batchsize 4
 
 python \
     scripts/dpo_train_offline_20q.py \
