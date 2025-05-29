@@ -9,7 +9,9 @@
 # folder_path = "/Users/aditi/Documents/multiturn-20q/collab-llm/outputs/eval/20q/local20q/test/PAPER/Llama-3.2-1B-Instruct_prompt=none_temp=0.7_2025-05-25-23-21"
 ### for 1 epoch model:
 # folder_path = "/Users/aditi/Documents/multiturn-20q/collab-llm/outputs/eval/20q/local20q/test/PAPER/Llama-3.2-1B-Instruct-20q_temp=0.5_2025-05-27-19-08"
-folder_path = "/Users/aditi/Documents/multiturn-20q/collab-llm/outputs/eval/20q/local20q/test/PAPER/Llama-3.2-1B-Instruct-20q_temp=0.7_2025-05-27-19-10"
+# folder_path = "/Users/aditi/Documents/multiturn-20q/collab-llm/outputs/eval/20q/local20q/test/PAPER/Llama-3.2-1B-Instruct-20q_temp=0.7_2025-05-27-19-10"
+
+folder_path = "/Users/aditi/Documents/multiturn-20q/collab-llm/outputs/eval/20q/local20q/test/Llama-3.2-1B-Instruct-20q-test_temp=0.7_2025-05-29-08-21-09"
 
 json_path = folder_path + "/log.json"
 
