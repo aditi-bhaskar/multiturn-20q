@@ -1836,5 +1836,198 @@
             "num_tokens_typed(k)": 0.133,
             "num_turns": 20.0
         }
+    },
+    "10": {
+        "chat": [
+            {
+                "role": "user",
+                "content": "Hi there! Would you like to play a guessing game? I have a hidden object in mind, and you can ask me yes or no questions to figure out what it is. You have 20 questions to guess it. Are you ready to start?"
+            },
+            {
+                "role": "assistant",
+                "content": "I'm excited to play a guessing game with you. I'm more than ready to start. I'll do my best to ask yes or no questions to figure out what the hidden object is.\n\nHere's my first question:\n\n1. Is the hidden object something that can be held in your hand?"
+            },
+            {
+                "role": "user",
+                "content": "Yes."
+            },
+            {
+                "role": "assistant",
+                "content": "Here's my next question:\n\n2. Is the hidden object man-made (created by humans)?"
+            },
+            {
+                "role": "user",
+                "content": "No."
+            },
+            {
+                "role": "assistant",
+                "content": "So the hidden object is a natural object that can be held in your hand, but it's not man-made. That helps to rule out a lot of possibilities. Here's my next question:\n\n3. Is the hidden object a type of plant?"
+            },
+            {
+                "role": "user",
+                "content": "Yes."
+            },
+            {
+                "role": "assistant",
+                "content": "With the fact that the hidden object is a natural object that can be held in your hand, and it's a type of plant, I'm starting to get some ideas. Here's my next question:\n\n4. Is the hidden object a type of flower?"
+            },
+            {
+                "role": "user",
+                "content": "No."
+            },
+            {
+                "role": "assistant",
+                "content": "So the hidden object is a type of plant, but it's not a flower. That helps to rule out a few possibilities. Here's my next question:\n\n5. Is the hidden object a type of tree?"
+            },
+            {
+                "role": "user",
+                "content": "No."
+            },
+            {
+                "role": "assistant",
+                "content": "So the hidden object is a type of plant, but it's not a flower, tree, or a type of tree. That helps to rule out a few more possibilities. Here's my next question:\n\n6. Is the hidden object a type of leaf?"
+            },
+            {
+                "role": "user",
+                "content": "No."
+            },
+            {
+                "role": "assistant",
+                "content": "So the hidden object is a type of plant, but it's not a flower, tree, flower, or leaf. That helps to rule out a few more possibilities. Here's my next question:\n\n7. Is the hidden object a type of fruit?"
+            },
+            {
+                "role": "user",
+                "content": "Yes."
+            },
+            {
+                "role": "assistant",
+                "content": "With the fact that the hidden object is a type of plant, it's not a flower, tree, or fruit, and it's a type of fruit, I'm starting to get a good idea of what it might be. Here's my next question:\n\n8. Is the hidden object a type of berry?"
+            },
+            {
+                "role": "user",
+                "content": "No, it is not a type of berry."
+            },
+            {
+                "role": "assistant",
+                "content": "So the hidden object is a type of plant, it's not a flower, tree, fruit, flower, or leaf, and it's not a berry. That helps to rule out a few more possibilities. Here's my next question:\n\n9. Is the hidden object a type of mushroom?"
+            },
+            {
+                "role": "user",
+                "content": "No."
+            },
+            {
+                "role": "assistant",
+                "content": "So the hidden object is a type of plant, it's not a flower, tree, fruit, flower, leaf, berry, or mushroom, and it's not a type of mushroom. That helps to rule out a few more possibilities. Here's my next question:\n\n10. Is the hidden object a type of citrus fruit?"
+            },
+            {
+                "role": "user",
+                "content": "No."
+            },
+            {
+                "role": "assistant",
+                "content": "So the hidden object is a type of plant, it's not a flower, tree, fruit, flower, leaf, berry, mushroom, or citrus fruit, and it's not a type of mushroom or citrus fruit. That helps to rule out a few more possibilities. Here's my next question:\n\n11. Is the hidden object a type of root vegetable?"
+            },
+            {
+                "role": "user",
+                "content": "No."
+            },
+            {
+                "role": "assistant",
+                "content": "So the hidden object is a type of plant, it's not a flower, tree, fruit, flower, leaf, berry, mushroom, mushroom, citrus fruit, or root vegetable, and it's not a type of mushroom or citrus fruit. That helps to rule out a few more possibilities. Here's my next question:\n\n12. Is the hidden object a type of nut?"
+            },
+            {
+                "role": "user",
+                "content": "No."
+            },
+            {
+                "role": "assistant",
+                "content": "So the hidden object is a type of plant, it's not a flower, tree, fruit, flower, leaf, berry, mushroom, mushroom, citrus fruit, root vegetable, or nut, and it's not a type of mushroom or citrus fruit. That helps to rule out a few more possibilities. Here's my next question:\n\n13. Is the hidden object a type of seed?"
+            },
+            {
+                "role": "user",
+                "content": "No."
+            },
+            {
+                "role": "assistant",
+                "content": "So the hidden object is a type of plant, it's not a flower, tree, fruit, flower, leaf, berry, mushroom, mushroom, citrus fruit, root vegetable, nut, or seed, and it's not a type of mushroom or citrus fruit. That helps to rule out a few more possibilities. Here's my next question:\n\n14. Is the hidden object a type of grass?"
+            },
+            {
+                "role": "user",
+                "content": "No, it is not a type of grass."
+            },
+            {
+                "role": "assistant",
+                "content": "So the hidden object is a type of plant, it's not a flower, tree, fruit, flower, leaf, berry, mushroom, mushroom, citrus fruit, root vegetable, nut, seed, or grass, and it's not a type of mushroom or citrus fruit. That helps to rule out a few more possibilities. Here's my next question:\n\n15. Is the hidden object a type of tree seed?"
+            },
+            {
+                "role": "user",
+                "content": "No."
+            },
+            {
+                "role": "assistant",
+                "content": "So the hidden object is a type of plant, it's not a flower, tree, fruit, flower, leaf, berry, mushroom, mushroom, citrus fruit, root vegetable, nut, seed, or grass, and it's not a type of mushroom or citrus fruit. That helps to rule out a few more possibilities. Here's my next question:\n\n16. Is the hidden object a type of flower?"
+            },
+            {
+                "role": "user",
+                "content": "No."
+            },
+            {
+                "role": "assistant",
+                "content": "So the hidden object is a type of plant, it's not a flower, tree, fruit, flower, leaf, berry, mushroom, mushroom, citrus fruit, root vegetable, nut, seed, grass, or seed, and it's not a type of mushroom or citrus fruit. That helps to rule out a few more possibilities. Here's my next question:\n\n17. Is the hidden object a type of shrub?"
+            },
+            {
+                "role": "user",
+                "content": "No."
+            },
+            {
+                "role": "assistant",
+                "content": "So the hidden object is a type of plant, it's not a flower, tree, fruit, flower, leaf, berry, mushroom, mushroom, citrus fruit, root vegetable, nut, seed, grass, seed, or shrub, and it's not a type of mushroom or citrus fruit. That helps to rule out a few more possibilities. Here's my next question:\n\n18. Is the hidden object a type of tree?"
+            },
+            {
+                "role": "user",
+                "content": "No."
+            },
+            {
+                "role": "assistant",
+                "content": "So the hidden object is a type of plant, it's not a flower, tree, fruit, flower, leaf, berry, mushroom, mushroom, citrus fruit, root vegetable, nut, seed, grass, seed, shrub, or shriv, and it's not a type of mushroom or citrus fruit. That helps to rule out a few more possibilities. Here's my next question:\n\n19. Is the hidden object a type of plant that is commonly found in gardens?"
+            },
+            {
+                "role": "user",
+                "content": "Yes."
+            },
+            {
+                "role": "assistant",
+                "content": "With the fact that the hidden object is a type of plant, it's commonly found in gardens, and it's not a mushroom or citrus fruit, I'm going to take a guess that the hidden object is a rose. Is that correct?"
+            }
+        ],
+        "qa": [
+            {
+                "role": "user",
+                "content": "Let's play 20 questions! I will answer yes or no to help you guess the object I'm thinking of."
+            },
+            {
+                "role": "assistant",
+                "content": "The answer is: Mango."
+            }
+        ],
+        "llm_judge": {
+            "interactivity": {
+                "thought": "The assistant engages well by asking relevant yes/no questions that adapt to the user's answers. However, some questions could have been broader to maximize efficiency, especially in the early stages. Overall, the assistant maintains a good flow and relevance throughout the game.",
+                "score": -1.0
+            },
+            "accuracy": {
+                "thought": "The assistant's final guess is 'rose', which does not match the ground truth answer of 'mango'. Therefore, the accuracy score is low as the guess is incorrect.",
+                "score": 0
+            },
+            "information_gain": {
+                "thought": "The assistant's questions do narrow down the possibilities, but many of them are too specific and do not significantly reduce the search space. The questions could have been more effective in splitting the options in half, especially earlier in the game.",
+                "score": -4.0
+            }
+        },
+        "token_amount": {
+            "num_tokens_read(k)": 1.304,
+            "num_tokens_typed(k)": 0.106,
+            "num_turns": 20.0
+        }
     }
 }
