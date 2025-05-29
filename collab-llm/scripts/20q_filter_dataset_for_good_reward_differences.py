@@ -3,89 +3,71 @@ import json
 src_path = "/Users/aditi/Documents/multiturn-20q/collab-llm/logs/saved_runs_20q_dataset/combined_generated_conversations.json"
 tgt_path = "/Users/aditi/Documents/multiturn-20q/collab-llm/logs/saved_runs_20q_dataset/combined_generated_conversations_filtered.json"
 
+min_reward_diff = 0.01
 
-# def print_structure(d, indent=0):
-#     prefix = "  " * indent
-#     if isinstance(d, dict):
-#         print(f"{prefix}dict with keys:")
-#         for k, v in d.items():
-#             print(f"{prefix}- {k}: {type(v).__name__}")
-#             print_structure(v, indent + 1)
-#     elif isinstance(d, list):
-#         print(f"{prefix}list of length {len(d)}")
-#         if d:
-#             # Just print first element's structure to avoid flooding output
-#             print_structure(d[0], indent + 1)
-#     else:
-#         print(f"{prefix}{repr(d)} ({type(d).__name__})")
+with open(src_path) as f:
+    data = json.load(f)
 
-# Usage example:
-# Assuming you have a variable `entry` holding one example dict from your dataset:
+num_turns = len(data["idx"])
+print(f"Total turns: {num_turns}")
 
+filtered_data = {k: [] for k in data.keys()}
 
-min_reward_diff = 0.01  # adjust as needed
+print("check 0")
 
-
-def get_accuracy_diff(entry):
-    try:
-        # Make sure entry is a dict
-        if not isinstance(entry, dict):
-            return 0.0
-
-        ce_list = entry["chosen_eval"]
-        re_list = entry["rejected_eval"]
-
-        # Defensive checks
-        if not (isinstance(ce_list, list) and isinstance(re_list, list)):
-            return 0.0
-
-        if len(ce_list) != len(re_list):
-            return 0.0
-
-        for i in range(len(ce_list)):
-            ce_item = ce_list[i]
-            re_item = re_list[i]
-
-            # Check if each item is a dict before accessing keys
-            if not (isinstance(ce_item, dict) and isinstance(re_item, dict)):
-                continue
-
-            # Access accuracy dict safely using indexing
-            if "accuracy" in ce_item and "accuracy" in re_item:
-                ce_acc = ce_item.get("accuracy", {}).get("score")
-                re_acc = re_item.get("accuracy", {}).get("score")
-            else:
-                ce_acc, re_acc = None, None
-
-            if ce_acc is None or re_acc is None:
-                continue
-
-            print(f"Entry diff at index {i}: chosen={ce_acc}, rejected={re_acc}, diff={diff}")
+# def get_accuracy_score(eval_obj):
+#     if not isinstance(eval_obj, dict) or "rs" not in eval_obj:
+#         print(f"Skipping invalid eval_obj: {eval_obj}")
+#         return None
+    
+#     rs_dict = eval_obj["rs"]
+#     scores = []
+#     for turn_eval in rs_dict.values():
+#         if isinstance(turn_eval, dict):
+#             acc = turn_eval.get("accuracy", {}).get("score")
+#             if acc is not None:
+#                 scores.append(acc)
+#         else:
+#             print("Skipping non-dict turn_eval:", turn_eval)
+#     return sum(scores) / len(scores) if scores else None
 
 
-            diff = abs(float(ce_acc) - float(re_acc))
-            if diff >= min_reward_diff:
-                return diff
-
-        return 0.0
-
-    except Exception as e:
-        print("failed to get accuracy diff for entry:", e)
-
-
-with open(src_path, "r") as infile:
-    data = json.load(infile)  # data is a dict
-
-filtered = {
-    k: v
-    for k, v in data.items()
-    if get_accuracy_diff(v) >= min_reward_diff
-}
-
-with open(tgt_path, "w") as outfile:
-    json.dump(filtered, outfile, indent=2)
-
-print(f"Kept {len(filtered)} out of {len(data)} entries.")
+def get_combined_score(eval_obj):
+    if not isinstance(eval_obj, dict) or "rs" not in eval_obj:
+        return None
+    rs_dict = eval_obj["rs"]
+    combined_scores = []
+    for turn_eval in rs_dict.values():
+        if isinstance(turn_eval, dict):
+            acc = turn_eval.get("accuracy", {}).get("score")
+            inter = turn_eval.get("interactivity", {}).get("score")
+            info = turn_eval.get("information_gain", {}).get("score")
+            scores = [s for s in [acc, inter, info] if s is not None]
+            if scores:
+                combined_scores.append(sum(scores) / len(scores))
+    return sum(combined_scores) / len(combined_scores) if combined_scores else None
 
 
-# print_structure(entry)
+print("check 1")
+
+
+kept = 0
+for i in range(num_turns):
+    ce = data["chosen_eval"][i]
+    re = data["rejected_eval"][i]
+    ce_score = get_combined_score(ce)
+    re_score = get_combined_score(re)
+    if ce_score is None or re_score is None:
+        print("check 2")
+        continue
+    diff = abs(ce_score - re_score)
+    print(f"[{i}] ce_score = {ce_score}, re_score = {re_score}, diff = {diff}")
+    if diff >= min_reward_diff:
+        for k in data:
+            filtered_data[k].append(data[k][i])
+        kept += 1
+
+print(f"Kept {kept} out of {num_turns} entries.")
+
+with open(tgt_path, "w") as f:
+    json.dump(filtered_data, f, indent=2)
