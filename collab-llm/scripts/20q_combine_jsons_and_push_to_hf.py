@@ -4,7 +4,7 @@ import json
 from datasets import Dataset, DatasetDict
 
 # LOG_DIR = "logs/saved_runs_20q_dataset"
-LOG_DIR = "logs/saved_runs_20q_2v_dataset"
+LOG_DIR = "logs/saved_runs_20q_3v_dataset"
 OUTPUT_FILENAME = "combined_generated_conversations.json"
 OUTPUT_TRAIN = "train.json"
 OUTPUT_TEST = "test.json"
@@ -88,14 +88,24 @@ def combine_jsons_split(log_dir, train_ratio=0.7):
 
 
 def sanitize_example(example):
-    """Cleans up the 'rs' section of chosen_eval by removing extra keys from metric dicts."""
-    for judge in example.get("chosen_eval", {}).get("rs", {}).values():
-        for metric in ["accuracy", "information_gain", "interactivity"]:
-            if isinstance(judge.get(metric), dict):
-                allowed_keys = {"score", "thought"}
-                judge[metric] = {k: v for k, v in judge[metric].items() if k in allowed_keys}
-    return example
+    """Cleans up the 'rs' section of chosen_eval and rejected_eval by enforcing consistent float score types."""
+    def clean_eval(eval_dict):
+        if not eval_dict:
+            return eval_dict
+        for judge in eval_dict.get("rs", {}).values():
+            for metric in ["accuracy", "information_gain", "interactivity"]:
+                if isinstance(judge.get(metric), dict):
+                    allowed_keys = {"score", "thought"}
+                    judge[metric] = {
+                        k: (float(v) if k == "score" else v)
+                        for k, v in judge[metric].items()
+                        if k in allowed_keys
+                    }
+        return eval_dict
 
+    example["chosen_eval"] = clean_eval(example.get("chosen_eval", {}))
+    example["rejected_eval"] = clean_eval(example.get("rejected_eval", {}))
+    return example
 
 def sanitize_data(data):
     return [sanitize_example(example) for example in data]

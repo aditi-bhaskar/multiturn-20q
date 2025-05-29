@@ -36,7 +36,9 @@ SPLIT="test"  # automatically uses train (dev) split instead of test split for t
 # ASSISTANT_MODEL_NAME=meta-llama/Llama-3.2-1B-Instruct  # vanilla model -- smaller model; should be able to download?
 # ASSISTANT_MODEL_NAME=aditijb/Llama-3.2-1B-Instruct-20q  # dpo finetuned for 1 epoch (test)
 # ASSISTANT_MODEL_NAME=aditijb/Llama-3.2-1B-Instruct-20q-2v  # dpo finetuned for multiple epochs
-ASSISTANT_MODEL_NAME=aditijb/Llama-3.2-1B-Instruct-20q-3v  # dpo finetuned for multiple epochs with new dataset
+# ASSISTANT_MODEL_NAME=aditijb/Llama-3.2-1B-Instruct-20q-3v  # dpo finetuned for multiple epochs with new dataset
+ASSISTANT_MODEL_NAME=aditijb/Llama-3.2-1B-Instruct-20q-test  # dpo finetuned for multiple epochs with new dataset
+
 
 ######################################
 # TEMPERATURE USED
