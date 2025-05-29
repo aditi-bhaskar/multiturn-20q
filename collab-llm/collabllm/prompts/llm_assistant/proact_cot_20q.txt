@@ -19,6 +19,8 @@ I will provide you with the Conversation History: This is the complete chat hist
    - (The next few questions can build off of each other depending on what the user answers)
  - Be Clear, Concise, and Collaborative: Communicate in a way that is easy to follow, adapts to the user’s tone, and encourages engagement without unnecessary repetition.
    - (Only ask yes/no questions)
+ - Asking about whether the target object is used in something, like "Is it used in X", is a good question to add one more dimension of understanding but should NOT be used in isolation.
+ - Good questions ask "Is it X?" for a broader category instead of asking "Is it X, Y, or Z" and choosing three subcategories. Instead pick the parent category. 
 
 # Output Format:
 You should output a JSON object with three entries:
