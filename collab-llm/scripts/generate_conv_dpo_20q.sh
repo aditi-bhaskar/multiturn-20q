@@ -27,9 +27,9 @@ export MAX_NUM_WORKERS=4
 # test time:
 
 # temperature = 0.7 for all!
-#  completed ranges: NONE
-#  running range: 0-10 -- generating rn 
-#  todo range: 10+
+#  completed ranges: 0-85
+#  running range: NONE -- generating rn 
+#  todo range: 85+
 
 # export TEMP=0.5                      # Temperature for sampling (adjust for creativity)
 export TEMP=0.7                     # Temperature for sampling (adjust for creativity)

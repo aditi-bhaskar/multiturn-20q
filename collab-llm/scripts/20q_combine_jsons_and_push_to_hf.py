@@ -123,7 +123,7 @@ def push_split_to_hf(train_path, test_path, repo_id):
 def main():
     print("\nrunning: 20q_combine_jsons_and_push_to_hf\n\n")
 
-    #  for a single dataset push
+    #  for a single dataset push  # use this to cretae combined_generated_conversations.json file
     # output_path = combine_jsons(LOG_DIR)
     # push_to_hf(output_path, HF_REPO_ID)
 
