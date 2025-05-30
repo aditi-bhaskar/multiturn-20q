@@ -43,8 +43,9 @@ ASSISTANT_MODEL_NAME=aditijb/Llama-3.2-1B-Instruct-20q-test  # dpo finetuned for
 ######################################
 # TEMPERATURE USED
 ######################################
-TEMPERATURE=0.5  # choose either 0.7 or 0.5, for plots for poster
+# TEMPERATURE=0.5  # choose either 0.7 or 0.5, for plots for poster
 # TEMPERATURE=0.7  
+TEMPERATURE=0.3  # choose either 0.7 or 0.5, for plots for poster
 
 
 # Run evaluation
