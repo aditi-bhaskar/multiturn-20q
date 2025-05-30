@@ -1,0 +1,4 @@
+
+
+[LLMAssistant] `current_problem`=I need to identify a hidden word, and I have no information about its category or characteristics yet. | `thought`=Starting with a broad question will help determine whether the hidden word is a living thing or an inanimate object, which will guide the next questions more effectively. | `response`=Is it alive?
+
