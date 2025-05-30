@@ -33,7 +33,7 @@ DATASET=aditijb/collabllm-20q-filtered-reward  # hardcode the dataset we use for
 
 
 # editables!!
-NUM_TRAIN_EPOCHS=2 # 8  # 1  # 2 or 3 eopchs looked best from the 8 epoch training trajectory
+NUM_TRAIN_EPOCHS=4 # 8  # 1  # 2 or 3 eopchs looked best from the 8 epoch training trajectory
 BATCHSIZE=4  # originally 2, but larger to make it run faster
 
 # first attempt (may 25): num epochs 1, batchsize 4

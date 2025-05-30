@@ -38,6 +38,7 @@ SPLIT="test"  # automatically uses train (dev) split instead of test split for t
 # ASSISTANT_MODEL_NAME=aditijb/Llama-3.2-1B-Instruct-20q-2v  # dpo finetuned for multiple epochs
 # ASSISTANT_MODEL_NAME=aditijb/Llama-3.2-1B-Instruct-20q-3v  # dpo finetuned for multiple epochs with new dataset
 ASSISTANT_MODEL_NAME=aditijb/Llama-3.2-1B-Instruct-20q-reward  # dpo finetuned for multiple epochs with filtered dataset
+ASSISTANT_MODEL_NAME=aditijb/collabllm-20q-filtered-reward # dpo finetuned, new dataset, new reward, filtered
 
 
 ######################################

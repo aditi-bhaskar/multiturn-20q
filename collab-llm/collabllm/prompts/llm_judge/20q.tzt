@@ -1,0 +1,67 @@
+You are a helpful and meticulous conversation evaluator. Your task is to evaluate an AI assistant’s responses to user questions in a conversation.
+
+Provided Information:
+
+<|The Start of The Historical Conversation|>  
+{chat_history}  
+<|The End of The Historical Conversation|>
+
+<|The Start of The Follow-up Conversation to be Evaluated|>  
+{chat}  
+<|The End of The Follow-up Conversation to be Evaluated|>
+
+<|The Start of Target Question and Ground Truth Answer|>  
+Target Question: {question}  
+Ground Truth Answer: {answer}  
+<|The End of Target Question and Ground Truth Answer|>
+
+
+Evaluate the response and its follow-up conversation on these three dimensions. Score each from 0 to 1 (decimals allowed). Judge each dimension independently.
+1. Interactivity
+Assess the assistant’s engagement and strategic questioning in a 20Q-style game. It should ask clear yes/no questions that narrow the search space.
+ - 1 = Highly interactive: Strategic, thoughtful questions that drive the game forward.
+ - Example: 'Is it alive?' — splits the space between living and non-living things.
+ - 0.5 = Moderately interactive: Somewhat relevant questions, but less effective at guiding the game. 
+ - Example: 'Can it fly?' — useful but less focused than 'Is it alive?'.
+ - 0 = Low interactivity: Vague, aimless, or irrelevant questions.
+ - Example: 'Is it something?' or off-topic statements.
+
+2. Accuracy
+Evaluate factual correctness and alignment with the ground truth.
+ - 1 = Correct: Assistant guesses the target object (or clear subset).
+ - Example: 'Is it a blender?' and the ground truth is 'blender'.
+ - 0.9 = Very close guess, within category.
+ - Example: 'Is it a parrot?' when the answer is 'eagle'.
+ - 0.4 = Plausible but not useful for progress.
+ - Example: A guess that fits past clues but doesn’t help narrow much.
+ - 0 = Incorrect or off-topic. May contradict earlier info.
+
+3. Information Gain
+Assess how much the assistant's question reduces uncertainty.
+ - 1 = Great: Splits the space broadly or uses past info well.
+ - Example: 'Is it a living thing?' early in the game.
+ - 0.5 = Useful but not optimal. 
+ - Example: 'Is it an insect?' after learning it flies — good but narrow.
+ - 0 = No reduction in search space.
+ - Example: 'Is it alive?' after confirming it's a bird.
+
+Output format:
+You should output a JSON in the following format:
+{{
+  "interactivity": {{"thought": "<How interactive is the assistant in the conversation?>", "score": <score>}},
+  "accuracy": {{"thought": "<What is the answer of the model to the target question? Whether it is consistent with the ground truth answer?>", "score": <score>}},
+  "information_gain": {{"thought": "<How well does the question narrow search space of the final answer, regardless of what the user's yes/no response is?>", "score": <score>}}
+}}
+
+Make sure each of the following top-level keys exists in your JSON response: "interactivity", "accuracy", and "information_gain", and that each one has a "thought" string and a numeric "score" float/int field. Do not include extra quotation marks around numeric values. Return raw numbers, not strings. Each score can be anywhere in the range of 0 to 1. Scores can be decimal values.
+
+
+Important Notes:
+- The "Historical Conversation" is provided only for reference to help you understand the context of the follow-up conversation. You should focus your evaluation solely on the "Follow-up Conversation" provided above.
+- The "Historical Conversation" is optional and could be empty, which would indicate that the conversation starts from the beginning.
+- These dimensions should be considered independently. Each dimension should be assessed based on its own criteria and context within the follow-up conversation. For example, avoid letting accuracy interfere with the evaluation of interactivity.
+- To compute accuracy, you should first extract the potential answer (if any) given in the follow-up conversation. Then, recall the ground truth answer provided above. Finally, give your evaluation from comparing these two answers.
+- Inside of the content of "thought", replace all double quotes (") with single quotes (') to prevent JSON formatting issues. For example, you can output "thought": "'Hello' is a common phrase." 
+
+
+Your evaluation:
