@@ -334,11 +334,18 @@ def main():
     print(f"\n\n\n[INFO] RUNNING NUMS: start={start}, end={end}\n\n\n")
 
     assistant_collabllm = LLMAssistant(method='proact_cot_20q', **assistant_generation_kwargs)
-    vanilla_generation_kwargs = copy.copy(assistant_generation_kwargs)
-    vanilla_generation_kwargs['json_object'] = False
-    assistant_vanilla = LLMAssistant(method='none', **vanilla_generation_kwargs)
+    # vanilla_generation_kwargs = copy.copy(assistant_generation_kwargs)
+    # vanilla_generation_kwargs['json_object'] = False
+    # assistant_vanilla = LLMAssistant(method='none', **vanilla_generation_kwargs)
+
+    vanilla_generation_kwargs_lower_temp = copy.copy(assistant_generation_kwargs)  # aditi edit: may 29 2025 to generate drastically different output with vanilla model
+    vanilla_generation_kwargs_lower_temp['temperature'] = 0.2
+    vanilla_generation_kwargs_lower_temp['json_object'] = False
+    assistant_vanilla = LLMAssistant(method='none', **vanilla_generation_kwargs_lower_temp)
 
     for i in tqdm(idx_todo):
+        print(f"\n\n\n[INFO] RUNNING INDEX: {i}\n\n\n")
+
         i, convs, pos_responses, neg_responses, chosen_evals, rejected_evals = process_conversation(
             i, dataset, args, assistant_collabllm, assistant_vanilla
         )
