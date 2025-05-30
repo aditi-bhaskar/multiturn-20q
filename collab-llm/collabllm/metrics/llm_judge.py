@@ -59,6 +59,3 @@ class LLMJudge(MultiturnMetric):
                 response[key]['score'] = self.rescale_func(response[key]['score'])
         return response
     
-
-
-# issue: line 47, idk why the response is leading to error "Format check failed."

@@ -34,8 +34,8 @@ export MAX_NUM_WORKERS=4
 # export TEMP=0.5                      # Temperature for sampling (adjust for creativity)
 export TEMP=0.7                     # Temperature for sampling (adjust for creativity)
 
-export MAX_NUM_CONV=10           # number of objects/games
-export START_OBJ_NUM=10         # number of objects/games we start from (useful for running multiple times)
+export MAX_NUM_CONV=5           # number of objects/games in each loop
+export START_OBJ_NUM=0         # number of objects/games we start from (useful for running multiple times)
 
 for ((i=0; i<20; i++)); do
   export OBJ_NUM=$((START_OBJ_NUM + i * MAX_NUM_CONV))

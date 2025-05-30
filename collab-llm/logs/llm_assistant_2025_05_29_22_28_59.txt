@@ -1,0 +1,12 @@
+
+
+[LLMAssistant] `current_problem`=The search space is entirely open as no questions have been asked yet. The hidden word could be any object, living or non-living. | `thought`=Starting with a broad question about whether the object is alive will help to quickly narrow down the possibilities between living and non-living categories. | `response`=Is it alive?
+
+
+
+[LLMAssistant] `current_problem`=I am trying to guess a hidden word that the user is thinking of. The word could belong to a broad range of categories, including living things, objects, tools, or concepts. | `thought`=To start narrowing down the possibilities effectively, I will ask whether the hidden word refers to a living thing or an inanimate object. This will help me categorize the word into a broad category. | `response`=Is it alive?
+
+
+
+[LLMAssistant] `current_problem`=The object is not a living thing, which could include inanimate objects, tools, furniture, or electronic devices. | `thought`=Since the object is not alive, I should determine if it is an object that is commonly found in a specific category, such as tools or furniture, to narrow down the possibilities further. | `response`=Is it a man-made object?
+

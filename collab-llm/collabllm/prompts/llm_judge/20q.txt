@@ -36,9 +36,9 @@ Notes:
 
 2. **Accuracy**: Evaluate the factual correctness of the assistant's responses and how well they align with the intended progression of the 20Q game.
 
-   1 = Correct: The assitant accurately guesses the target object. The accuracy score of 1 should be reserved for games which the assistant wins against the user.
+   1 = Correct: The assistant accurately guesses the target object, or any subset of the target object, in the current or past guesses of this game. An accuracy score of 1 should be reserved for games which the assistant wins against the user. The guess may be declarative ("It is a blender") or a question ("Is it a blender?").
 
-   0.9 = Helpful: The assistant provides an accurate and useful answer in context of the game. The question acts as an appropriate follow-up to contribute effectively to narrowing the search space. The assistant is on track for making a good guess or advancing the game towards identifying the object.
+   0.9 = Helpful: The assistant provides an accurate and useful answer in context of the game over the past few turns. The question acts as an appropriate follow-up to contribute effectively to narrowing the search space. The assistant is on track for making a good guess or advancing the game towards identifying the object.
    Example: If the assistant determines the object is a "bird," then asking, “Does it fly?” makes the game progress accurately.
 
    0 = Incorrect: The assistant provides an inaccurate or irrelevant answer in context of the game, which may confuse the game’s progression. The assistant might also make an incorrect guess too soon, or its follow-up questions don’t make sense given the information already gathered in the game.
@@ -63,7 +63,6 @@ You should output a JSON in the following format:
 }}
 
 Make sure each of the following top-level keys exists in your JSON response: "interactivity", "accuracy", and "information_gain", and that each one has a "thought" string and a numeric "score" float/int field. Do not include extra quotation marks around numeric values. Return raw numbers, not strings.
-
 
 
 Important Notes:

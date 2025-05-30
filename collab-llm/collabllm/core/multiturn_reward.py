@@ -47,7 +47,7 @@ def get_one_multiturn_reward(
         llm_reward: Dict, llm reward info
     '''
     all_metrics = registered_general_metrics + \
-                  [registered_task_metrics[task_name]['task_specific']]
+                  [registered_task_metrics[task_name]['task_specific']]   # this accesses the rewards formula from metrics/init.py under "20q" for the 20q task
     if compute_llm_metrics:
         all_metrics += registered_task_metrics[task_name]['llm_metrics']
 
@@ -102,4 +102,5 @@ def get_one_multiturn_reward(
     total_length = num_tokens_from_string('\n'.join([t['content'] for t in forward_turns]))
 
     return llm_reward['average_score'], task_metric, total_length, llm_reward
+
     # see this to understand the reward function

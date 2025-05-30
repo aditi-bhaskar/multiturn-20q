@@ -51,13 +51,20 @@ registered_task_metrics = {
     # the first is generic, from the math task, and the second is more specific, and makes use of the information gain of each question
 
     #  original/math reward function -- 
-    '20q': {  
-        'llm_metrics': ['llm_judge->interactivity'],
-        'llm_judge_rescale_func': lambda x: (x - 2.5) * 2,
-        'task_specific': 'llm_judge->accuracy',
+    # '20q': {  
+    #     'llm_metrics': ['llm_judge->interactivity'],
+    #     'llm_judge_rescale_func': lambda x: (x - 2.5) * 2,
+    #     'task_specific': 'llm_judge->accuracy',
+    #     'others': [],
+    # },
+
+# new reward function
+    '20q': {
+        'llm_metrics': ['llm_judge->information_gain', 'llm_judge->accuracy', 'llm_judge->interactivity'],
+        'llm_judge_rescale_func': lambda x: x * 4,  # emphasize spread 
+        'task_specific': 'llm_judge->information_gain', # uses information gain as the most important metric
         'others': [],
     },
-
     # # specific/20q reward function -- 
     # '20q': {
     #     'llm_metrics': ['llm_judge->information_gain'],

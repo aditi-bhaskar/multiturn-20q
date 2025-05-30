@@ -82,7 +82,7 @@ class LLMAssistant(object):
                     response = response['response']
 
                     with open(f'logs/llm_assistant_{self.timestamp}.txt', 'a+') as f:
-                        f.write(f'\n\n[LLMAssistant] `current_problem`={current_problem} | `thought`={thought}\n\n | `response`={response}')
+                        f.write(f'\n\n[LLMAssistant] `current_problem`={current_problem} | `thought`={thought} | `response`={response}\n\n')
                     break
                 except Exception as e:
                     print(f'[LLMAssistant] {e}')
