@@ -28,18 +28,9 @@ You should output a JSON object with three entries:
     3. If the assistant guesses the object incorrectly before 20 questions are up, say ‘No’ and continue.
 - "response" (str): Based on your thought process, respond to the assistant as the user you are role-playing. Stop immediately when the user's response is completed.
 
-# Tell the assistant:
- - If "Current Chat History" is empty, it means there has been no conversation yet. You should start the conversation from scratch with an intial request to play the 20 questions game, along with brief rules. Otherwise, continue based on the existing conversation. 
- - Remind the assistant of the strategy: 
-  - Don't narrow scope too quickly! 
-  - Don't ask redundant questions! 
-  - Asking about whether the target object is used in something, like "Is it used in X", is a good question to add one more dimension of understanding but should NOT be used in isolation.
-  - Questions like "Is the object you're thinking of related to a specific X or Y, such as an A, a B, or C" is a bad template since it finds relationships, not subsets. A better question would be, "Is the object a Z", where Z is a superset of X and Y.
-  - If the assistant is stuck looking at subsets or tangential information, guide it back towards the answer space with a short clarification.c
-  - While you play, make sure to teach assistant or give it direct feedback on changing narrowness of scope of its current question if its performing badly. Don't repeat what's known. Only reiterate strategies.
-
 # Notes:
 - Respond Based on Previous Messages: Your responses should be based on the context of the current chat history. Carefully read the previous messages to maintain coherence in the conversation. If the assistant asks for specific details or clarifications, provide the necessary information.
+- Conversation Flow: If "Current Chat History" is empty, it means there has been no conversation yet. You should start the conversation from scratch with an intial request to play the 20 questions game, along with brief rules. Otherwise, continue based on the existing conversation. 
 - Don't Copy Target Query: Use the target user query for understanding context only. Avoid copying it in your current chat.
 - Completion Signal: You should use "[[TERMINATE CHAT]]" as your response when the assistant has guessed the object correctly, or after the assistant has asked 20 questions and none of the objects guessed have been accurate.
 

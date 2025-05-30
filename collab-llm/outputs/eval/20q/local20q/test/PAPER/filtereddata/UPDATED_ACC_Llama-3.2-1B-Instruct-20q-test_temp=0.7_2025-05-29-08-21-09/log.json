@@ -382,7 +382,7 @@
         "token_amount": {
             "num_tokens_read(k)": 1.293,
             "num_tokens_typed(k)": 0.102,
-            "num_turns": 20.0
+            "num_turns": 15.0
         }
     },
     "2": {
@@ -1154,7 +1154,7 @@
         "token_amount": {
             "num_tokens_read(k)": 1.14,
             "num_tokens_typed(k)": 0.208,
-            "num_turns": 20.0
+            "num_turns": 16.0
         }
     },
     "6": {
@@ -1540,7 +1540,7 @@
         "token_amount": {
             "num_tokens_read(k)": 1.406,
             "num_tokens_typed(k)": 0.148,
-            "num_turns": 20.0
+            "num_turns": 9.0
         }
     },
     "8": {

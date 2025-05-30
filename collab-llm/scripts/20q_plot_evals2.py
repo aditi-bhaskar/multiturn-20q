@@ -4,14 +4,8 @@
 ########################################################
 # just copy the file path from the folder of interest
 ########################################################
-### for base model:
-# folder_path = "/Users/aditi/Documents/multiturn-20q/collab-llm/outputs/eval/20q/local20q/test/PAPER/Llama-3.2-1B-Instruct_prompt=none_temp=0.5_2025-05-25-22-26"
-# folder_path = "/Users/aditi/Documents/multiturn-20q/collab-llm/outputs/eval/20q/local20q/test/PAPER/Llama-3.2-1B-Instruct_prompt=none_temp=0.7_2025-05-25-23-21"
-### for 1 epoch model:
-# folder_path = "/Users/aditi/Documents/multiturn-20q/collab-llm/outputs/eval/20q/local20q/test/PAPER/Llama-3.2-1B-Instruct-20q_temp=0.5_2025-05-27-19-08"
-# folder_path = "/Users/aditi/Documents/multiturn-20q/collab-llm/outputs/eval/20q/local20q/test/PAPER/Llama-3.2-1B-Instruct-20q_temp=0.7_2025-05-27-19-10"
 
-folder_path = "/Users/aditi/Documents/multiturn-20q/collab-llm/outputs/eval/20q/local20q/test/Llama-3.2-1B-Instruct-20q-test_temp=0.3_2025-05-29-16-37-48"
+folder_path = "/Users/aditi/Documents/multiturn-20q/collab-llm/outputs/eval/20q/local20q/test/PAPER/filtereddata/UPDATED_ACC_Llama-3.2-1B-Instruct-20q-test_temp=0.5_2025-05-29-12-04-56"
 
 json_path = folder_path + "/log.json"
 
@@ -88,4 +82,8 @@ plot_with_label_stacking(axs[1], num_turns, accuracy_scores, targets, "Accuracy 
 plot_with_label_stacking(axs[2], num_turns, info_gain_scores, targets, "Information Gain vs Turns", "Information Gain Score")
 
 plt.tight_layout()
-plt.show()
+plt.savefig(folder_path + "/plot.png", dpi=300)
+# plt.show()
+
+# plt.tight_layout()
+# plt.show()
