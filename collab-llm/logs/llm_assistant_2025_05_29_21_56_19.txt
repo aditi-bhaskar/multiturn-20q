@@ -1,0 +1,5 @@
+
+
+[LLMAssistant] `current_problem`=I need to identify a hidden word, but I have no context or previous questions to narrow down possibilities. | `thought`=Since I have no prior information, I should start with a broad question to determine if the hidden word refers to something that is alive or not. This will help divide the possibilities into two large categories.
+
+ | `response`=Is the hidden word something that is alive?

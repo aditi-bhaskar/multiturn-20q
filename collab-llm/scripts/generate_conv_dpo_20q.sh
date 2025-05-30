@@ -19,27 +19,16 @@ export USER_MODEL=gpt-4o-mini        # Choose the user model (e.g., gpt-4o-mini,
 export N_EVAL=100                   # aditi edit for debugging
 
 
-
-# debug time:
-# export MAX_NUM_CONV=2           # number of objects/games
-# export MAX_NEW_TURNS=2          # Maximum number of new conversation turns per task
-# export MAX_NUM_WORKERS=1
-
-# obsolete?!:
-# export MAX_NUM_CONV=1000        # number of objects/games
-# export MAX_NUM_CONV=500           # number of objects/games -- WAY TOO MANY!! :(
-
 # test time:
-# export MAX_NUM_CONV=50           # number of objects/games -- just generate 10 at a time, maybe
 export MAX_NUM_CONV=10           # number of objects/games
 export START_OBJ_NUM=180           # number of objects/games we start from (useful for running multiple times)
 export MAX_NEW_TURNS=20           # Maximum number of new conversation turns per task
 export MAX_NUM_WORKERS=4
 
-#  completed ranges: 0-39 -- temperature = 0.5
-#  completed ranges: 40-149 -- temperature = 0.7
-#  running range: 150-179 -- generating rn 
-#  todo range: 180+  
+# temperature = 0.7 for all!
+#  completed ranges: NONE
+#  running range: 0-10 -- generating rn 
+#  todo range: 10+
 
 export USER_MODEL=gpt-4o-mini
 export ASSISTANT_MODEL=gpt-4o-mini

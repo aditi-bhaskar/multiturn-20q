@@ -33,6 +33,7 @@ from collabllm.modules import LLMAssistant, UserSimulator
 import json
 
 
+PUSH_REPO = "aditijb/collabllm-20q-filtered-reward"
 
 def parse_args():
     parser = argparse.ArgumentParser()
@@ -274,6 +275,9 @@ class Tee:
 def main():
 
     print("\n\nSTARTING MAIN!\n\n")
+    print(f"\n\npushing results to {PUSH_REPO}!\n\n")
+
+    
 
     timestamp = datetime.datetime.now().strftime("%Y_%m_%d_%H_%M_%S")
     log_path = f"/Users/aditi/Documents/multiturn-20q/collab-llm/logs/full_run_terminal_st_{timestamp}.txt"
@@ -369,7 +373,7 @@ def main():
 
     dataset_converted = Dataset.from_dict(saved_data)
     dataset_dict_for_hf = DatasetDict({"train": dataset_converted})
-    dataset_dict_for_hf.push_to_hub(repo_id="aditijb/collabllm-20q-filtered-reward", private=True)
+    dataset_dict_for_hf.push_to_hub(repo_id=PUSH_REPO, private=True)
 
 
 if __name__ == '__main__':

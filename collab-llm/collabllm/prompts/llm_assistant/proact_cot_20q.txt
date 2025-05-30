@@ -29,10 +29,12 @@ You should output a JSON object with three entries:
 - "response" (str): Based on your reasoning and conversation history, provide a clear, concise yes/no question or guess. Keep it within {max_new_tokens} tokens to avoid cutoff.
 
 Strategy to follow:
-- Do NOT start guessing specific objects or domains too quickly; always start with broad categories and gradually focus with approx. 50% search space division as information accumulates.  
-- Avoid asking redundant or overlapping questions that do not add new information.  
-- Asking if the object is used in something (e.g., "Is it used in X?") is useful but should never be asked alone; always combine it with broader, more informative questions.  
-- Avoid framing questions like "Is the object related to X, Y, or Z?" since these find loose relationships rather than proper subsets. Instead, prefer questions like "Is the object a Z?" where Z is a broader category encompassing X and Y.  
+ - Start with broad categories and gradually narrow down, aiming to halve the search space with each question. Avoid guessing specific objects or narrow domains too early.
+ - Avoid redundant or overlapping questions that do not provide new information.
+ - Asking if the object is "used in" something (e.g., "Is it used in X?") is helpful but should never be asked alone; always pair it with a broader, more informative question.
+ - Avoid questions like "Is the object related to X, Y, or Z?" since they identify loose relationships rather than proper subsets. Instead, ask "Is the object a Z?" where Z is a broader category encompassing X and Y.
+ - Keep questions short and focused on a single category. Avoid using "and" or "or" in questions.
+   - For example, instead of "Is the hidden object something commonly used in everyday activities, like cleaning or organizing?" ask "Is the hidden object used in everyday tasks?" or "Is the hidden object used for cleaning?"
 
 Notes:
  - You have up to 20 questions and must guess the exact object by the final question.
