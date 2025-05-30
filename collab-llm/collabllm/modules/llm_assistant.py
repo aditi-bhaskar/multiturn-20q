@@ -29,39 +29,51 @@ class LLMAssistant(object):
         self.max_new_tokens = llm_kwargs.get('max_new_tokens', 512)
         self.llm_kwargs = llm_kwargs
 
+
     def __call__(self, messages: List[dict], **kwargs):
+        """
+        Forward pass of the LLMAssistant model.
+        
+        Args:
+            messages (List[dict]): A list of message dictionaries with the last message being the user message.
+        
+        Returns:
+            torch.Tensor: The output tensor.
+        """
         assert messages[-1]['role'] == 'user'
 
         if not self.method in ['proact_gt', 'proact_gt_cot']:
             kwargs = {}
-
+            
         if self.method == 'none':
             prompt = messages
             if len(prompt) and prompt[0]['role'] == 'system':
                 print('[LLMAssistant] System message detected.')
-            # Convert messages list to string prompt
-            prompt_str = chat_template(messages)
         else:
-            prompt_str = self.prompt_handler(chat_history=chat_template(messages),
-                                            max_new_tokens=self.max_new_tokens,
-                                            **kwargs)
-
+            prompt = self.prompt_handler(chat_history=chat_template(messages),
+                                         max_new_tokens=self.max_new_tokens,
+                                         **kwargs)
+            
         cnt = 0
         while True:
             cnt += 1
-            # Rebuild prompt if needed (can optimize later)
-            if self.method == 'none':
-                prompt_str = chat_template(messages)
-            else:
-                prompt_str = self.prompt_handler(chat_history=chat_template(messages),
-                                                max_new_tokens=self.max_new_tokens,
-                                                **kwargs)
+            #  ASK SHIRLEY!
+            # https://huggingface.co/meta-llama/Llama-3.2-1B-Instruct
+            # self.llm_kwargs['model'] = "meta-llama/Llama-3.2-1B-Instruct" # aditi addition
+            # https://huggingface.co/Qwen/Qwen2.5-0.5B
+            # self.llm_kwargs['model'] = "Qwen/Qwen2.5-0.5B" # aditi addition
+            # self.llm_kwargs['model'] = "TinyLlama/TinyLlama-1.1B-Chat-v1.0" # aditi addition
+            # self.llm_kwargs['model'] = "tiiuae/falcon-7b-instruct" # aditi addition
 
-            response = get_llm_output(prompt_str, **self.llm_kwargs)
+            response = get_llm_output(prompt, **self.llm_kwargs)
 
-            print(prompt_str)
+            # TODO
+            # print('\n\n\nDEBUG:ASSISTANT response type:', type(response))
+            # print('\n\n\nDEBUG:ASSISTANT response content:', response)
+            print(prompt)
             breakpoint
 
+            #  TODO check response
             if isinstance(response, dict):
                 try:
                     keys = response.keys()

@@ -90,15 +90,6 @@ assistant_generation_kwargs = {
    "json_object": True
 }
 
-assistant_vanilla_generation_kwargs = { 
-   "model": "meta-llama/Llama-3.2-1B-Instruct",   # surprisingly does well!
-#    "model": "aditijb/Llama-3.2-1B-Instruct-20q-test",  # this model did quite badly lol so i hope it is a good contrast to gpt-4o
-   "top_p": 0.95,
-   "temperature": 0.1,
-   "max_new_tokens": args.max_new_tokens,
-   "json_object": True
-}
-
 reward_generation_kwargs = {
    "model": args.reward_model,
    "top_p": 0.9,
@@ -263,24 +254,6 @@ class Tee:
     def flush(self):
         self.logfile.flush()
         
-# class Tee:
-#     def __init__(self, original, logfile):
-#         self.original = original
-#         self.logfile = logfile
-
-#     def write(self, data):
-#         # Write to terminal as is
-#         self.original.write(data)
-#         self.original.flush()
-#         # Strip ANSI codes before writing to logfile
-#         clean_data = strip_ansi(data)
-#         self.logfile.write(clean_data)
-#         self.logfile.flush()
-
-#     def flush(self):
-#         self.original.flush()
-#         self.logfile.flush()
-        
 def main():
 
     print("\n\nSTARTING MAIN!\n\n")
@@ -343,15 +316,13 @@ def main():
     print(f"\n\n\n[INFO] RUNNING NUMS: start={start}, end={end}\n\n\n")
 
     assistant_collabllm = LLMAssistant(method='proact_cot_20q', **assistant_generation_kwargs)
-    # vanilla_generation_kwargs = copy.copy(assistant_generation_kwargs)
-    # vanilla_generation_kwargs['json_object'] = False
-    # assistant_vanilla = LLMAssistant(method='none', **vanilla_generation_kwargs)
-
-    assistant_vanilla = LLMAssistant(method='none', **assistant_vanilla_generation_kwargs) # aditi edit: may 29 2025 to generate drastically different output with vanilla model
+    vanilla_generation_kwargs = copy.copy(assistant_generation_kwargs)
+    vanilla_generation_kwargs['json_object'] = False
+    vanilla_generation_kwargs['temperature'] = 0.2
+    vanilla_generation_kwargs['top_p'] = 0.95
+    assistant_vanilla = LLMAssistant(method='none', **vanilla_generation_kwargs)
 
     for i in tqdm(idx_todo):
-        print(f"\n\n\n[INFO] RUNNING INDEX: {i}\n\n\n")
-
         i, convs, pos_responses, neg_responses, chosen_evals, rejected_evals = process_conversation(
             i, dataset, args, assistant_collabllm, assistant_vanilla
         )
@@ -391,5 +362,3 @@ def main():
 
 if __name__ == '__main__':
     main()
-
-
