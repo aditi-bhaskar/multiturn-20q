@@ -73,5 +73,6 @@ Important Notes:
 - To compute accuracy, you should first extract the potential answer (if any) given in the follow-up conversation. Then, recall the ground truth answer provided above. Finally, give your evaluation from comparing these two answers.
 - Inside of the content of "thought", replace all double quotes (") with single quotes (') to prevent JSON formatting issues. For example, you can output "thought": "'Hello' is a common phrase." 
 
+
 Your evaluation:
 

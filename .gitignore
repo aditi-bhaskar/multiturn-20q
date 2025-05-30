@@ -9,6 +9,8 @@ collab-llm/lmrl_gym_20q_data/train*.json
 # C extensions
 *.so
 
+20q/*
+
 # Distribution / packaging
 .Python
 build/

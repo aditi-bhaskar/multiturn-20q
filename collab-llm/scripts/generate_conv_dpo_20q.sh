@@ -31,15 +31,15 @@ export N_EVAL=100                   # aditi edit for debugging
 
 # test time:
 # export MAX_NUM_CONV=50           # number of objects/games -- just generate 10 at a time, maybe
-export MAX_NUM_CONV=25           # number of objects/games
-export START_OBJ_NUM=125           # number of objects/games we start from (useful for running multiple times)
+export MAX_NUM_CONV=10           # number of objects/games
+export START_OBJ_NUM=180           # number of objects/games we start from (useful for running multiple times)
 export MAX_NEW_TURNS=20           # Maximum number of new conversation turns per task
 export MAX_NUM_WORKERS=4
 
 #  completed ranges: 0-39 -- temperature = 0.5
-#  completed ranges: 40-125 -- temperature = 0.7
-#  running range: 125+ -- generating rn 
-#  todo range: 150+  
+#  completed ranges: 40-149 -- temperature = 0.7
+#  running range: 150-179 -- generating rn 
+#  todo range: 180+  
 
 export USER_MODEL=gpt-4o-mini
 export ASSISTANT_MODEL=gpt-4o-mini
@@ -66,4 +66,3 @@ CUDA_VISIBLE_DEVICES=0 python scripts/generate_conv_dpo_20q.py \
     --max_num_conv $MAX_NUM_CONV \
     --task_name 20q \
     --resume
-
