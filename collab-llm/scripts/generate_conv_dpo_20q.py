@@ -60,9 +60,9 @@ def parse_args():
     parser.add_argument('--max_new_tokens', type=int, default=768) # 1024
     parser.add_argument('--temperature', type=float, default=0.8)
 
-    parser.add_argument('--user_model_name', type=str, default='gpt-4o')
-    parser.add_argument('--assistant_model_name', type=str, default='gpt-4o')
-    parser.add_argument('--reward_model', type=str, default='gpt-4o')
+    parser.add_argument('--user_model_name', type=str, default='gpt-4o-mini')
+    parser.add_argument('--assistant_model_name', type=str, default='gpt-4o-mini')
+    parser.add_argument('--reward_model', type=str, default='gpt-4o-mini')
     parser.add_argument('--hf_org', type=str, default='org_name')
 
     parser.add_argument('--log_step', type=int, default=3)
@@ -318,8 +318,8 @@ def main():
     assistant_collabllm = LLMAssistant(method='proact_cot_20q', **assistant_generation_kwargs)
     vanilla_generation_kwargs = copy.copy(assistant_generation_kwargs)
     vanilla_generation_kwargs['json_object'] = False
-    vanilla_generation_kwargs['temperature'] = 0.2
-    vanilla_generation_kwargs['top_p'] = 0.95
+    vanilla_generation_kwargs['temperature'] = 0.9
+    vanilla_generation_kwargs['top_p'] = 0.5
     assistant_vanilla = LLMAssistant(method='none', **vanilla_generation_kwargs)
 
     for i in tqdm(idx_todo):
