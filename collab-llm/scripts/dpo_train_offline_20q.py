@@ -23,7 +23,10 @@ import torch
 
 USE_WANDB=False
 
-PUSH_HF_MODEL="aditijb/Llama-3.2-1B-Instruct-20q-test"
+
+PUSH_HF_MODEL="aditijb/Llama-3.2-1B-Instruct-20q-reward"
+
+# PUSH_HF_MODEL="aditijb/Llama-3.2-1B-Instruct-20q-test"
 # PUSH_HF_MODEL="aditijb/Llama-3.2-1B-Instruct-20q-2v"
 # PUSH_HF_MODEL="aditijb/Llama-3.2-1B-Instruct-20q"
 
