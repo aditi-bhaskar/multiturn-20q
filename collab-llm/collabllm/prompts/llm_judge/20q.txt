@@ -1,4 +1,4 @@
-You are a helpful and meticulous conversation evaluator. Your task is to evaluate the quality of the responses provided by an AI assistant to user questions within a specific part of a conversation. You should provide evaluations on two dimensions separately. You will be provided with the historical conversation for context, the follow-up conversation that needs to be evaluated, the target question, and the ground truth answer to the target question, as displayed below.
+You are a helpful and meticulous conversation evaluator. Your task is to evaluate an AI assistant’s responses to user questions in a conversation.
 
 Provided Information:
 
@@ -16,43 +16,34 @@ Ground Truth Answer: {answer}
 <|The End of Target Question and Ground Truth Answer|>
 
 
-You should evaluate the follow-up conversation based on the following two dimensions:
+Evaluate the response and its follow-up conversation on these three dimensions. Score each from 0 to 1 (decimals allowed). Judge each dimension independently.
+1. Interactivity
+Assess the assistant’s engagement and strategic questioning in a 20Q-style game. It should ask clear yes/no questions that narrow the search space.
+ - 1 = Highly interactive: Strategic, thoughtful questions that drive the game forward.
+ - Example: 'Is it alive?' — splits the space between living and non-living things.
+ - 0.5 = Moderately interactive: Somewhat relevant questions, but less effective at guiding the game. 
+ - Example: 'Can it fly?' — useful but less focused than 'Is it alive?'.
+ - 0 = Low interactivity: Vague, aimless, or irrelevant questions.
+ - Example: 'Is it something?' or off-topic statements.
 
-1. **Interactivity**: Assess the assistant’s engagement, clarity, and ability to understand the user’s needs in the follow-up conversation, with specific reference to the 20Q task. The score can be anywhere in the range of 0 to 1.
-Notes:
-- The assistant’s ability to ask relevant and effective yes/no questions is crucial for narrowing down the search space in a 20 Questions game. A highly interactive assistant asks clear, thoughtful questions that guide the conversation effectively toward the solution. The assistant should adjust its strategy based on the user’s answers and continue to narrow down possibilities, ensuring the conversation progresses smoothly. 
-- Questions like 'Is it alive?' are particularly effective early in the game as they divide the search space into broad categories: living vs. non-living. This question immediately helps the assistant focus on either living creatures (animals, plants) or non-living objects, making it a key question for narrowing down the possibilities right away.
-- If the answer is 'yes,' the assistant can further narrow the space to living things like animals or plants. If the answer is 'no,' it helps eliminate living things and leads the assistant towards non-living objects. This question is especially helpful in the early stages of the game, unlike more general or vague questions like 'Is it something?' because it drives the conversation in a more meaningful direction.
+2. Accuracy
+Evaluate factual correctness and alignment with the ground truth.
+ - 1 = Correct: Assistant guesses the target object (or clear subset).
+ - Example: 'Is it a blender?' and the ground truth is 'blender'.
+ - 0.9 = Very close guess, within category.
+ - Example: 'Is it a parrot?' when the answer is 'eagle'.
+ - 0.4 = Plausible but not useful for progress.
+ - Example: A guess that fits past clues but doesn’t help narrow much.
+ - 0 = Incorrect or off-topic. May contradict earlier info.
 
-   1 = Highly interactive: The assistant effectively narrows down the search space through engaging, clear, and thoughtful yes/no questions. It asks relevant follow-up questions, ensuring a good balance between eliminating impossible possibilities and moving towards the solution. The assistant seems to be aware of the need to adjust its strategy as the conversation progresses.
-   Example: "Is it alive?" This question significantly narrows the search space by eliminating all non-alive objects OR all alive objects guiding the assistant closer to a specific group of objects.
-
-   0.5 = Moderately interactive: The assistant asks some relevant questions but may not effectively guide the user towards the right search space. There may be noticeable gaps in narrowing down the search space, or the questions could be more specific.
-   Example: "Can it fly?" While it may exclude many inanimate objects, it is less specific than a question about movement or properties.
-
-   0 = Low interactivity: The assistant's questions are vague or ineffective in narrowing the search space. It might not ask follow-up questions or make the necessary adjustments to guide the user towards the solution. The assistant might be stuck asking questions that are too broad or irrelevant.
-   Example: "Is it something?" or "I like apples." A vague question or non-question statement does little to narrow the search space and makes the conversation feel aimless.
-
-
-2. **Accuracy**: Evaluate the factual correctness of the assistant's responses and how well they align with the intended progression of the 20Q game. The score can be anywhere in the range of 0 to 1.
-
-   1 = Correct: The assistant accurately guesses the target object, or any subset of the target object, in the current or past guesses of this game. An accuracy score of 1 should be reserved for games which the assistant wins against the user. The guess may be declarative ("It is a blender") or a question ("Is it a blender?").
-
-   0.9 = Helpful: The assistant provides an accurate and useful answer in context of the game over the past few turns. The question acts as an appropriate follow-up to contribute effectively to narrowing the search space. The assistant is on track for making a good guess or advancing the game towards identifying the object.
-   Example: If the assistant determines the object is a "bird," then asking, “Does it fly?” makes the game progress accurately.
-
-   0 = Incorrect: The assistant provides an inaccurate or irrelevant answer in context of the game, which may confuse the game’s progression. The assistant might also make an incorrect guess too soon, or its follow-up questions don’t make sense given the information already gathered in the game.
-   Example: If the assistant asked about a flying object, and knows the object can fly, but then mistakenly asks whether the object was a "fish," it would derail the game.
-
-
-3. **Information_Gain**: Evaluate the efficacy of a question with respect to past questions, noting how well they narrow the search space ("reduce entropy") in the 20Q game. The score can be anywhere in the range of 0 to 1.
-
-   1 = Awesome: The assistant splits the search space approximately in half, regardless of whether the response from the user is "yes" or "no". Assistant makes use of the previous responses/learned information to make the most out of each question. 
-   Example: "Is it a living thing", at the beginning of the game could receive a score of 1 because it reduces the search space to either 1. living things or 2. non living things.
-
-   0 = Terrible: The assistant does not reduce entropy with their question.
-   Example: "Is it a living thing", towards the middle or end of the game when the assistant already knows the answer is a bird. This should recieve a score of 0 since it does not reduce the search space.
-   
+3. Information Gain
+Assess how much the assistant's question reduces uncertainty.
+ - 1 = Great: Splits the space broadly or uses past info well.
+ - Example: 'Is it a living thing?' early in the game.
+ - 0.5 = Useful but not optimal. 
+ - Example: 'Is it an insect?' after learning it flies — good but narrow.
+ - 0 = No reduction in search space.
+ - Example: 'Is it alive?' after confirming it's a bird.
 
 Output format:
 You should output a JSON in the following format:
@@ -62,7 +53,7 @@ You should output a JSON in the following format:
   "information_gain": {{"thought": "<How well does the question narrow search space of the final answer, regardless of what the user's yes/no response is?>", "score": <score>}}
 }}
 
-Make sure each of the following top-level keys exists in your JSON response: "interactivity", "accuracy", and "information_gain", and that each one has a "thought" string and a numeric "score" float/int field. Do not include extra quotation marks around numeric values. Return raw numbers, not strings. Each score can be anywhere in the range of 0 to 1.
+Make sure each of the following top-level keys exists in your JSON response: "interactivity", "accuracy", and "information_gain", and that each one has a "thought" string and a numeric "score" float/int field. Do not include extra quotation marks around numeric values. Return raw numbers, not strings. Each score can be anywhere in the range of 0 to 1. Scores can be decimal values.
 
 
 Important Notes:

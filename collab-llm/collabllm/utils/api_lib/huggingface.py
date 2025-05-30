@@ -112,8 +112,9 @@ def generate_text_hf(message: Union[str, List[dict]],
             # hf_model = AutoModelForCausalLM.from_pretrained(model, device_map="cpu", torch_dtype=torch.float16)
             # .to("cuda")
             #  maybe a torch.todevice?
+            
 
-            hf_model = AutoModelForCausalLM.from_pretrained(model, device_map="cpu", torch_dtype='auto')
+            hf_model = AutoModelForCausalLM.from_pretrained(model, device_map="cpu", torch_dtype='auto', load_in_8bit=False)
 
             # hf_model = AutoModelForCausalLM.from_pretrained(model, device_map="auto", torch_dtype='auto')
             tokenizer = AutoTokenizer.from_pretrained(model)

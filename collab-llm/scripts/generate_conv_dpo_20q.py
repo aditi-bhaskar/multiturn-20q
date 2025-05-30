@@ -90,6 +90,15 @@ assistant_generation_kwargs = {
    "json_object": True
 }
 
+assistant_vanilla_generation_kwargs = { 
+   "model": "meta-llama/Llama-3.2-1B-Instruct",   # surprisingly does well!
+#    "model": "aditijb/Llama-3.2-1B-Instruct-20q-test",  # this model did quite badly lol so i hope it is a good contrast to gpt-4o
+   "top_p": 0.95,
+   "temperature": 0.1,
+   "max_new_tokens": args.max_new_tokens,
+   "json_object": True
+}
+
 reward_generation_kwargs = {
    "model": args.reward_model,
    "top_p": 0.9,
@@ -338,10 +347,7 @@ def main():
     # vanilla_generation_kwargs['json_object'] = False
     # assistant_vanilla = LLMAssistant(method='none', **vanilla_generation_kwargs)
 
-    vanilla_generation_kwargs_lower_temp = copy.copy(assistant_generation_kwargs)  # aditi edit: may 29 2025 to generate drastically different output with vanilla model
-    vanilla_generation_kwargs_lower_temp['temperature'] = 0.2
-    vanilla_generation_kwargs_lower_temp['json_object'] = False
-    assistant_vanilla = LLMAssistant(method='none', **vanilla_generation_kwargs_lower_temp)
+    assistant_vanilla = LLMAssistant(method='none', **assistant_vanilla_generation_kwargs) # aditi edit: may 29 2025 to generate drastically different output with vanilla model
 
     for i in tqdm(idx_todo):
         print(f"\n\n\n[INFO] RUNNING INDEX: {i}\n\n\n")
@@ -385,3 +391,5 @@ def main():
 
 if __name__ == '__main__':
     main()
+
+
