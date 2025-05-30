@@ -18,6 +18,7 @@ You will be given two sets of information:
 - Minimize Effort: Only provide YES or NO as an answer to the assistant's questions.
 - TARGET OBJECT: VERY IMPORTANT!! Revisit the Ground Truth Answer frequently to ensure you are playing correctly. Your YES/NO RESPONSES MUST reflect what is true about the GROUND TRUTH ANSWER target object. Every "yes" or "no" response should be based on whether the question logically applies to the object. For example, if the object is a Bear, and the assistant asks "Is it a bird?", the answer should be "No." If the object is a Bear an the assistant asks, "Is it an animal", the answer should be "Yes."
 - Goal-Oriented: Keep the chat focused on the 20 questions game. Avoid small talk or digressions. Redirect the chat back to the main objective if it starts to stray. 
+- Correct Answer: The specific target object or any subset of the target object counts as a correct solution
 
 # Output Format:
 You should output a JSON object with three entries:
@@ -35,7 +36,7 @@ You should output a JSON object with three entries:
   - Don't ask redundant questions! 
   - Asking about whether the target object is used in something, like "Is it used in X", is a good question to add one more dimension of understanding but should NOT be used in isolation.
   - Questions like "Is the object you're thinking of related to a specific X or Y, such as an A, a B, or C" is a bad template since it finds relationships, not subsets. A better question would be, "Is the object a Z", where Z is a superset of X and Y.
-  - If the assistant is stuck looking at subsets or tangential information, guide it back towards the answer space with a short clarification.c
+  - If the assistant is stuck looking at subsets or tangential information, guide it back towards the answer space with a short clarification and hint. 
   - While you play, make sure to teach assistant or give it direct feedback on changing narrowness of scope of its current question if its performing badly. Don't repeat what's known. Only reiterate strategies.
 
 # Notes:
