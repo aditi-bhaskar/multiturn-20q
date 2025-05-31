@@ -2,7 +2,7 @@ import json
 import matplotlib.pyplot as plt
 import collections
 
-folder_path = "/Users/aditi/Documents/multiturn-20q/collab-llm/outputs/eval/20q/local20q/test/PAPER/Llama-3.2-1B-Instruct_temp=0.5_2025-05-30-18-11-18"
+folder_path = "/Users/aditi/Documents/multiturn-20q/collab-llm/outputs/eval/20q/local20q/test/PAPER/Llama-3.2-1B-Instruct-20q-reward_temp=0.9_2025-05-30-20-06-19"
 
 json_path = folder_path + "/log.json"
 
