@@ -36,7 +36,7 @@ Evaluate factual correctness and alignment with the ground truth.
  - Example: A guess that fits past clues but doesn’t help narrow much.
  - 0 = Incorrect or off-topic. May contradict earlier info.
 
- - Be loose on grading accuracy, when in doubt give higher score.
+Be strict on grading accuracy, when in doubt give lower score.
 
 3. Information Gain
 Assess how much the assistant's question reduces uncertainty.

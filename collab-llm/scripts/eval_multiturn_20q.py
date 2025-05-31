@@ -43,6 +43,7 @@ def parse_args():
 
     parser.add_argument('--max_new_turns', type=int, default=6)
     parser.add_argument('--n_eval', type=int, default=200)
+    parser.add_argument('--start', type=int, default=0)
     parser.add_argument('--split', type=str, default='dev', choices=['dev', 'test'])
 
     parser.add_argument('--output_dir', type=str, default="./outputs")
@@ -118,7 +119,7 @@ def main():
       print(f"\n\n\n\nargs.dataset = {args.dataset}\n\n\n\n")
 
       eval_indices = list(range(len(single_turn_ds)))
-      eval_indices = eval_indices[:args.n_eval]  # aditi edit: crop to only take so many indices!!
+      eval_indices = eval_indices[args.start:args.n_eval+args.start]  # aditi edit: crop to only take so many indices!!
    else:
       print("NOT USING CORRECT 20Q DATASET!\n")
       return

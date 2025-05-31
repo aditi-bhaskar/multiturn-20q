@@ -5,7 +5,7 @@
 # just copy the file path from the folder of interest
 ########################################################
 
-folder_path = "/Users/aditi/Documents/multiturn-20q/collab-llm/outputs/eval/20q/local20q/test/Llama-3.2-1B-Instruct-20q-test_temp=0.7_2025-05-29-19-58-43"
+folder_path = "/Users/aditi/Documents/multiturn-20q/collab-llm/outputs/eval/20q/local20q/test/Llama-3.2-1B-Instruct_temp=0.5_2025-05-30-18-11-18"
 
 json_path = folder_path + "/log.json"
 

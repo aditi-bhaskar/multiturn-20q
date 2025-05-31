@@ -1,0 +1,19 @@
+{
+    "llm_judge": {
+        "interactivity": {
+            "score": -3.32
+        },
+        "accuracy": {
+            "score": 0.13333333333333333
+        },
+        "information_gain": {
+            "score": -3.92
+        }
+    },
+    "token_amount": {
+        "num_tokens_read(k)": 1.3351333333333335,
+        "num_tokens_typed(k)": 0.13573333333333334,
+        "num_turns": 18.666666666666668
+    },
+    "n_eval": 15
+}
