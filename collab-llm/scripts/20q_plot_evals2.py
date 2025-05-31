@@ -5,9 +5,9 @@
 # just copy the file path from the folder of interest
 ########################################################
 
-folder_path = "/Users/aditi/Documents/multiturn-20q/collab-llm/outputs/eval/20q/local20q/test/Llama-3.2-1B-Instruct_temp=0.5_2025-05-30-18-11-18"
-
+folder_path = "/Users/aditi/Documents/multiturn-20q/collab-llm/outputs/eval/20q/local20q/test/PAPER/Llama-3.2-1B-Instruct-20q-reward_temp=0.7_2025-COMBINED_LOGS"
 json_path = folder_path + "/log.json"
+
 
 import json
 import matplotlib.pyplot as plt
@@ -16,6 +16,9 @@ import collections
 # Load your data
 with open(json_path, "r") as f:
     data = json.load(f)
+
+
+title = folder_path.split("/")[-1].split("_2025")[0]
 
 # Filter only numeric game keys
 games = sorted([k for k in data.keys() if k.isdigit()], key=int)
@@ -76,14 +79,16 @@ def plot_with_label_stacking(ax, x_vals, y_vals, labels, title, ylabel):
 
 # Create subplots
 fig, axs = plt.subplots(1, 3, figsize=(15, 5), sharex=True)
+plt.suptitle(title, fontsize=14)
 
 plot_with_label_stacking(axs[0], num_turns, interactivity_scores, targets, "Interactivity vs Turns", "Interactivity Score")
 plot_with_label_stacking(axs[1], num_turns, accuracy_scores, targets, "Accuracy vs Turns", "Accuracy Score")
 plot_with_label_stacking(axs[2], num_turns, info_gain_scores, targets, "Information Gain vs Turns", "Information Gain Score")
 
-plt.tight_layout()
-plt.savefig(folder_path + "/plot.png", dpi=300)
-# plt.show()
+plt.tight_layout(rect=[0, 0, 1, 0.95])  # leave space at top for title
 
 # plt.tight_layout()
+plt.savefig(folder_path + "/plot.png", dpi=300)
+
+
 # plt.show()
