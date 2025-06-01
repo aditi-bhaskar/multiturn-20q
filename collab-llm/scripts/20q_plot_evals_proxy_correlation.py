@@ -7,7 +7,10 @@ import numpy as np
 
 base_folder = "/Users/aditi/Documents/multiturn-20q/collab-llm/outputs/eval/20q/local20q/test/PAPER_FR"
 
+
 def plot_corr(x, y, labels, x_label, y_label, title, save_path):
+    from collections import defaultdict
+
     # Fit regression
     X = np.array(x).reshape(-1, 1)
     Y = np.array(y)
@@ -20,8 +23,26 @@ def plot_corr(x, y, labels, x_label, y_label, title, save_path):
     plt.scatter(x, y, color='blue')
     plt.plot(x, Y_pred, color='red', linewidth=2, label=f"Regression line (R² = {r2:.3f})")
 
-    for x_i, y_i, label in zip(x, y, labels):
-        plt.annotate(label, (x_i, y_i), textcoords="offset points", xytext=(3, 3), ha='left', fontsize=7)
+    # Only label points with accuracy score 1
+    point_to_labels = defaultdict(list)
+    for xi, yi, label in zip(x, y, labels):
+        if xi == 1.0:
+            point_to_labels[(xi, yi)].append(label)
+
+    # Stack labels vertically to the left of the point
+    for (xi, yi), label_list in point_to_labels.items():
+        for i, label in enumerate(label_list):
+            offset = (i - (len(label_list) - 1) / 2) * 10  # spacing
+            plt.annotate(
+                label,
+                (xi, yi),
+                xytext=(-8, offset),
+                textcoords="offset points",
+                ha='right',
+                va='center',
+                fontsize=7,
+                bbox=dict(boxstyle='round,pad=0.2', fc='yellow', alpha=0.3)
+            )
 
     plt.xlabel(x_label)
     plt.ylabel(y_label)
@@ -30,6 +51,7 @@ def plot_corr(x, y, labels, x_label, y_label, title, save_path):
     plt.tight_layout()
     plt.savefig(save_path, dpi=300)
     plt.close()
+
 
 def process_folder(folder_path):
     json_path = os.path.join(folder_path, "log.json")
