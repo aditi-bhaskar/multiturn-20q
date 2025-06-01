@@ -38,11 +38,11 @@ SPLIT="test"  # automatically uses train (dev) split instead of test split for t
 # ASSISTANT_MODEL_NAME=aditijb/Llama-3.2-1B-Instruct-20q-reward  # dpo finetuned for multiple epochs with filtered dataset
 
 
-N_EVAL=30
-START=15
+# N_EVAL=15
+# START=0
 
-ASSISTANT_MODEL_NAME=meta-llama/Llama-3.2-1B-Instruct  # vanilla model -- smaller model; should be able to download?
-# ASSISTANT_MODEL_NAME=aditijb/Llama-3.2-1B-Instruct-20q-reward # dpo finetuned, new dataset, new reward, filtered
+# ASSISTANT_MODEL_NAME=meta-llama/Llama-3.2-1B-Instruct  # vanilla model -- smaller model; should be able to download?
+ASSISTANT_MODEL_NAME=aditijb/Llama-3.2-1B-Instruct-20q-reward # dpo finetuned, new dataset, new reward, filtered
 
 
 
@@ -51,6 +51,8 @@ ASSISTANT_MODEL_NAME=meta-llama/Llama-3.2-1B-Instruct  # vanilla model -- smalle
 ######################################
 # TEMPERATURE=0.5  # choose either 0.7 or 0.5, for plots for poster
 
+N_EVAL=45
+START=0
 TEMPERATURE=0.5
 
 
@@ -72,34 +74,11 @@ CUDA_VISIBLE_DEVICES=4 torchrun --master_port=$PORT \
 
 
 
-ASSISTANT_MODEL_NAME=aditijb/Llama-3.2-1B-Instruct-20q-reward # dpo finetuned, new dataset, new reward, filtered
-
-
-
-TEMPERATURE=0.5
-
-
-# Run evaluation
-CUDA_VISIBLE_DEVICES=4 torchrun --master_port=$PORT \
-    --nnodes=1 --nproc_per_node=1 \
-    scripts/eval_multiturn_20q.py \
-    --output_dir $OUTPUT_DIR \
-    --split $SPLIT \
-    --assistant_model_name $ASSISTANT_MODEL_NAME \
-    --prompt_method $PROMPT_METHOD \
-    --temperature $TEMPERATURE \
-    --max_new_turns $MAX_NEW_TURNS \
-    --n_eval $N_EVAL \
-    --max_new_tokens $MAX_TOKENS \
-    --top_p 0.9 \
-    --start $START \
-    $ADD_SYS_PROMPT_FLAG \
-
-
-
-
+N_EVAL=45
+START=0
 TEMPERATURE=0.7
 
+
 # Run evaluation
 CUDA_VISIBLE_DEVICES=4 torchrun --master_port=$PORT \
     --nnodes=1 --nproc_per_node=1 \
@@ -118,7 +97,56 @@ CUDA_VISIBLE_DEVICES=4 torchrun --master_port=$PORT \
 
 
 
-# running 15-45 on tuned 0.7, 0.5, base 0.5
+
+N_EVAL=15
+START=0
+TEMPERATURE=0.3
+
+
+# Run evaluation
+CUDA_VISIBLE_DEVICES=4 torchrun --master_port=$PORT \
+    --nnodes=1 --nproc_per_node=1 \
+    scripts/eval_multiturn_20q.py \
+    --output_dir $OUTPUT_DIR \
+    --split $SPLIT \
+    --assistant_model_name $ASSISTANT_MODEL_NAME \
+    --prompt_method $PROMPT_METHOD \
+    --temperature $TEMPERATURE \
+    --max_new_turns $MAX_NEW_TURNS \
+    --n_eval $N_EVAL \
+    --max_new_tokens $MAX_TOKENS \
+    --top_p 0.9 \
+    --start $START \
+    $ADD_SYS_PROMPT_FLAG \
+
+
+
+
+
+
+N_EVAL=15
+START=0
+TEMPERATURE=0.9
+
+
+# Run evaluation
+CUDA_VISIBLE_DEVICES=4 torchrun --master_port=$PORT \
+    --nnodes=1 --nproc_per_node=1 \
+    scripts/eval_multiturn_20q.py \
+    --output_dir $OUTPUT_DIR \
+    --split $SPLIT \
+    --assistant_model_name $ASSISTANT_MODEL_NAME \
+    --prompt_method $PROMPT_METHOD \
+    --temperature $TEMPERATURE \
+    --max_new_turns $MAX_NEW_TURNS \
+    --n_eval $N_EVAL \
+    --max_new_tokens $MAX_TOKENS \
+    --top_p 0.9 \
+    --start $START \
+    $ADD_SYS_PROMPT_FLAG \
+
+
+
+
 
 # ./scripts/eval_multiturn_20q.sh
-
