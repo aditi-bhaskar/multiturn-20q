@@ -34,27 +34,26 @@ pip install -r requirements.txt
 
 ### Important Notes
 
-The following can be run from inside the `collab-llm` folder. Do not run these scripts unless you have set up the remote hf dataset/model to be your own dataset/model! Otherwise it will overwrite my stuff. You will also need to export your `export OPENAI_API_KEY=sk-proj-XXXXXX` and your hugging face cli `export HF_TOKEN=hf_XXXX` + `huggingface-cli login`.
+The following can be run from inside the `collab-llm` folder. Do not run these scripts unless you have set up the remote hf dataset/model to be your own dataset/model! It will not push anywhere unless you have permission. You will also need to export your `export OPENAI_API_KEY=sk-proj-XXXXXX` and your hugging face cli `export HF_TOKEN=hf_XXXX` + `huggingface-cli login`.
 
 ---
+
+## Relevant scripts
 
 ### Generate data (see `generate_conv_dpo_20q.sh` / `.py`)
 
 `./scripts/generate_conv_dpo_20q.sh`
 
----
 
 ### Push to hf
 
 `python3 scripts/20q_combine_jsons_and_push_to_hf.py`
 
----
 
 ### Run train
 
 `./scripts/dpo_train_offline_20q.sh`
 
----
 
 ### Run evals
 
@@ -65,13 +64,14 @@ The following can be run from inside the `collab-llm` folder. Do not run these s
 
 ---
 
+## My major contributions (note, many files have been changed to make everything work!)
+
 ### Prompts are at
 
 `collab-llm/collabllm/prompts/llm_judge/20q.txt`  
 `collab-llm/collabllm/prompts/llm_assistant/proact_cot_20q.txt`  
 `collab-llm/collabllm/prompts/user_simulator_cot/20q.txt`
 
----
 
 ### Large sections of implementation (besides plotting scripts that begin with “20q”) are found at
 
@@ -79,7 +79,6 @@ The following can be run from inside the `collab-llm` folder. Do not run these s
 `collab-llm/scripts/dpo_train_offline_20q.py`  
 `collab-llm/scripts/eval_multiturn_20q.py`
 
----
 
 ### Rewards can be found in
 
