@@ -64,7 +64,8 @@ The following can be run from inside the `collab-llm` folder. Do not run these s
 
 ---
 
-## My major contributions (note, many files have been changed to make everything work!)
+## My major contributions 
+note, many files have been changed to make everything work!
 
 ### Prompts are at
 
@@ -84,3 +85,8 @@ The following can be run from inside the `collab-llm` folder. Do not run these s
 ### Rewards can be found in
 
 `collab-llm/collabllm/metrics/__init__.py`
+
+### Data (final results) can be found in
+note, many results files have been deleted since they were redundant or obsolete.
+
+`collab-llm/outputs/eval/20q/local20q/test/4-PAPER_ACTUAL_MERGED_FINAL`
