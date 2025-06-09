@@ -73,6 +73,15 @@ note, many files have been changed to make everything work!
 `collab-llm/collabllm/prompts/llm_assistant/proact_cot_20q.txt`  
 `collab-llm/collabllm/prompts/user_simulator_cot/20q.txt`
 
+### Rewards can be found in
+
+`collab-llm/collabllm/metrics/__init__.py`
+
+### Data preprocessing
+
+`collab-llm/collabllm/datasets/twentyq.py`
+`collab-llm/collabllm/datasets/twentyq_mt.py`
+`collab-llm/lmrl_gym_20q_data/*` (What object examples am I running training/eval on? I get them from the processed LMRL Gym data for the task)
 
 ### Large sections of implementation
 
@@ -80,11 +89,6 @@ note, many files have been changed to make everything work!
 `collab-llm/scripts/dpo_train_offline_20q.py`  
 `collab-llm/scripts/eval_multiturn_20q.py`
 `collab-llm/scripts/20q_*` (many plotting scripts)
-
-
-### Rewards can be found in
-
-`collab-llm/collabllm/metrics/__init__.py`
 
 ### Data (final results) can be found in
 note, many results files have been deleted since they were redundant or obsolete.
