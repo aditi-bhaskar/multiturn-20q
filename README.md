@@ -44,8 +44,6 @@ The following can be run from inside the `collab-llm` folder. Do not run these s
 
 `./scripts/generate_conv_dpo_20q.sh`
 
-`./scripts/generate_conv_dpo_20q_2mod.sh`
-
 
 ### Push to hf
 
@@ -77,7 +75,7 @@ The following can be run from inside the `collab-llm` folder. Do not run these s
 
 ### Large sections of implementation (besides plotting scripts that begin with “20q”) are found at
 
-`collab-llm/scripts/generate_conv_dpo_20q_2mod.py`  
+`collab-llm/scripts/generate_conv_dpo_20q.py`  
 `collab-llm/scripts/dpo_train_offline_20q.py`  
 `collab-llm/scripts/eval_multiturn_20q.py`
 
