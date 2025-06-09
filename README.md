@@ -40,9 +40,11 @@ The following can be run from inside the `collab-llm` folder. Do not run these s
 
 ## Relevant scripts
 
-### Generate data (see `generate_conv_dpo_20q.sh` / `.py`)
+### Generate data
 
 `./scripts/generate_conv_dpo_20q.sh`
+
+`./scripts/generate_conv_dpo_20q_2mod.sh`
 
 
 ### Push to hf
