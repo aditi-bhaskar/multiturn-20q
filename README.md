@@ -1,16 +1,27 @@
 # spr2025 cs224r custom project
 
+### overview
+
 20questions with multiturn rlhf. Based on the multiturn reward system implemented in Collab LLM (Wu et al) and the 20q task dataset from LMRL Gym (Abdulhai et al). 
 
-Research question: Does multiturn rlhf help a base model (Llama 3.2 1B Instruct) become better at playing 20 questions? 
+Broad research question: Does a proxy reward help a base model (Llama 3.2 1B Instruct) become better at conversing during a task with a sparse reward signal? 
 
-See dataset here [https://huggingface.co/datasets/aditijb/collabllm-20q](https://huggingface.co/datasets/aditijb/collabllm-20q)
+Project goal: Does a proxy metric of information gain or interactivity improve a model's performance on play the 20 questions game?
 
-See model here [https://huggingface.co/datasets/aditijb/collabllm-20q](https://huggingface.co/datasets/aditijb/collabllm-20q)
+### datasets + models
 
-Mentor: Shirley Wu (PhD Candidate in Stanford CS)
+See interactive dataset here: [https://huggingface.co/datasets/aditijb/collabllm-20q-interactive](https://huggingface.co/datasets/aditijb/collabllm-20q-interactive)  
 
-# spr2025 cs224r custom project
+See interactive model here: [https://huggingface.co/aditijb/Llama-3.2-1B-Instruct-20q-interactive](https://huggingface.co/aditijb/Llama-3.2-1B-Instruct-20q-interactive)
+
+See infogain dataset here: [https://huggingface.co/datasets/aditijb/collabllm-20q-infogain](https://huggingface.co/datasets/aditijb/collabllm-20q-infogain)  
+
+See infogain model here: [https://huggingface.co/aditijb/Llama-3.2-1B-Instruct-20q-infogain](https://huggingface.co/aditijb/Llama-3.2-1B-Instruct-20q-infogain)
+
+### Mentor: 
+Shirley Wu (PhD Candidate in Stanford CS)
+
+## notes on running the project
 
 ### Setup
 
