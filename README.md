@@ -22,7 +22,7 @@ See infogain model here: [https://huggingface.co/aditijb/Llama-3.2-1B-Instruct-2
 Shirley Wu (PhD Candidate in Stanford CS)
 
 ## notes on running the project
-
+ 
 ### Setup
 
 python3 -m venv 20q  
