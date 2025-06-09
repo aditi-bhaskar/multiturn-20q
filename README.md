@@ -2,7 +2,7 @@
 
 ### overview
 
-20questions with multiturn rlhf. Based on the multiturn reward system implemented in Collab LLM (Wu et al) and the 20q task dataset from LMRL Gym (Abdulhai et al). 
+This project implements multiturn RLHF (with DPO training) to solve the 20 questions task from LMRL Gym (Abdulhai et al). Multiturn rewards are inspired by Collab LLM (Wu et al).
 
 Broad research question: Does a proxy reward help a base model (Llama 3.2 1B Instruct) become better at conversing during a task with a sparse reward signal? 
 
