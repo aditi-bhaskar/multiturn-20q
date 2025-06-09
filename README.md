@@ -1,4 +1,6 @@
-# spr2025 cs224r custom project
+# 20 Questions: Multi-turn RLHF for Sparse Rewards
+
+Aditi Bhaskar (aditijb [at] cs.stanford.edu)
 
 ### overview
 
