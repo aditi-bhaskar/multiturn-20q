@@ -73,11 +73,12 @@ The following can be run from inside the `collab-llm` folder. Do not run these s
 `collab-llm/collabllm/prompts/user_simulator_cot/20q.txt`
 
 
-### Large sections of implementation (besides plotting scripts that begin with “20q”) are found at
+### Large sections of implementation
 
 `collab-llm/scripts/generate_conv_dpo_20q.py`  
 `collab-llm/scripts/dpo_train_offline_20q.py`  
 `collab-llm/scripts/eval_multiturn_20q.py`
+`collab-llm/scripts/20q_*` (many plotting scripts)
 
 
 ### Rewards can be found in
